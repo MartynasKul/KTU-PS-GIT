@@ -1,2 +1,3 @@
-# Programų sistemos
-Programų sistemų objektinio programavimo laborai
+# KTU Programų sistemos
+Programų sistemų modulių darbai su programavimu
+
