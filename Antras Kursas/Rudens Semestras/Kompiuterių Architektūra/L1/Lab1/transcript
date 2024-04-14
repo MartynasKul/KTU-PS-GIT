@@ -1,0 +1,150 @@
+# Reading pref.tcl
+# do {G:/Kompiuteriu architektura/L1/Lab1/asd/asd.mdo}
+# Loading project asd
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:07:58 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_flg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FLG
+# -- Compiling architecture rtl of FLG
+# End time: 09:07:59 on Oct 21,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:07:59 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity REG
+# -- Compiling architecture rtl of REG
+# End time: 09:08:00 on Oct 21,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:08:00 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_cnt.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CNT
+# -- Compiling architecture rtl of CNT
+# End time: 09:08:00 on Oct 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:08:00 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_rom.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ROM
+# -- Compiling architecture rtl of ROM
+# End time: 09:08:01 on Oct 21,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:08:01 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_alu_s.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ALU_s
+# -- Compiling architecture rtl of ALU_s
+# End time: 09:08:02 on Oct 21,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:08:02 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_mux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity MUX
+# -- Compiling architecture rtl of MUX
+# End time: 09:08:03 on Oct 21,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:08:03 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_ctrl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CTRL
+# -- Compiling architecture rtl of CTRL
+# End time: 09:08:03 on Oct 21,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 09:08:03 on Oct 21,2022
+# vcom -reportprogress 300 -work work G:/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity TOP
+# -- Compiling architecture struct of top
+# End time: 09:08:04 on Oct 21,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -L work -L pmi_work -L ovi_xp2 TOP 
+# Start time: 09:08:04 on Oct 21,2022
+# //  ModelSim - Lattice FPGA Edition 2020.3 Oct 14 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim - Lattice FPGA Edition and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(struct)
+# Loading work.ctrl(rtl)
+# Loading work.mux(rtl)
+# Loading work.alu_s(rtl)
+# Loading work.rom(rtl)
+# Loading work.cnt(rtl)
+# Loading work.reg(rtl)
+# Loading work.flg(rtl)
+# .main_pane.wave.interior.cs.body.pw.wf
+# ** Warning: Neteisinga ALU komanda
+#    Time: 0 ps  Iteration: 0  Instance: /top/ALU1
+# ** Warning: Neteisinga ALU komanda
+#    Time: 0 ps  Iteration: 1  Instance: /top/ALU1
+restart -f
+force -freeze sim:/top/RST 1 0, 0 {5 ps}
+force -freeze sim:/top/CLK 0 0, 1 {10 ps} -r 20
+force -freeze sim:/top/Din 1111111111110001 0
+force -freeze sim:/top/Din 0000000000000011 30
+force -freeze sim:/top/Din 0000000000000011 50 
+run 2000
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/ROM1
+# ** Warning: Neteisinga ALU komanda
+#    Time: 0 ps  Iteration: 0  Instance: /top/ALU1
+add wave -position end sim:/top/CTRL1/*
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+force -freeze sim:/top/RST 1 0, 0 {5 ps}
+force -freeze sim:/top/CLK 0 0, 1 {10 ps} -r 20
+force -freeze sim:/top/Din 1111111111110001 0
+force -freeze sim:/top/Din 0000000000000011 30
+force -freeze sim:/top/Din 0000000000000011 50 
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/ROM1
+# ** Warning: Neteisinga ALU komanda
+#    Time: 0 ps  Iteration: 0  Instance: /top/ALU1
+# End time: 09:21:52 on Oct 21,2022, Elapsed time: 0:13:48
+# Errors: 0, Warnings: 3

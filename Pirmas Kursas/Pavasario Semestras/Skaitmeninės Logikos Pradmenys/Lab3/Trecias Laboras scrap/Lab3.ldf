@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="Lab3" device="LFXP2-5E-6TN144C" default_implementation="impl1">
+    <Options>
+        <Option name="HDL type" value="VHDL"/>
+    </Options>
+    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="SCH"/>
+        <Source name="sch.sch" type="Schematic" type_short="Schematic">
+            <Options top_module="SCH"/>
+        </Source>
+        <Source name="asd/asd.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="Lab3.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="proj/proj.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="Lab31.sty"/>
+</BaliProject>

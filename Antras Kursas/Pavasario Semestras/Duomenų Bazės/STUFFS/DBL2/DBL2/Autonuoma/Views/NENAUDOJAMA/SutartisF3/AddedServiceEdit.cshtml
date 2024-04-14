@@ -1,0 +1,86 @@
+@model Org.Ktu.Isk.P175B602.Autonuoma.Models.SutartisF3.UzsakytaPaslaugaCE
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Užsakytos paslaugos redagavimas (F3)"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		@using( Html.BeginForm(FormMethod.Post) )
+		{
+			@Html.AntiForgeryToken()
+
+			@* pass contract state back to the controller in a field 'contractState' *@
+    		<input type="hidden" name="contractState" value="@ViewData["contract-state"]">
+
+			<button 
+				class="btn btn-outline-primary btn-sm"
+				formaction="@Url.Action("ContractContinue", new { cause = "cancel", returnTo = ViewData["return-to"] })#listEnd"
+				><i class="fa-solid fa-angles-left"></i> Atgal į sutartį</button>
+		}
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-ced">
+@using( Html.BeginForm(FormMethod.Post, new { @class="entity-ce" }) )
+{
+	@Html.AntiForgeryToken()
+
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+	@* pass contract state back to the controller in a field 'contractState' *@
+    <input type="hidden" name="contractState" value="@ViewData["contract-state"]"/>
+
+	@* pass added service key back to the controller *@
+	@Html.HiddenFor(m => m.UzsakytaPaslauga.FkPaslaugosKaina)
+
+	<fieldset>
+        <div class="form-group">
+			@Html.HiddenFor(m => m.UzsakytaPaslauga.Pavadinimas)
+			@Html.LabelFor(m => m.UzsakytaPaslauga.Pavadinimas)
+			<br/>			
+			@Html.ValueFor(m => m.UzsakytaPaslauga.Pavadinimas)
+		</div>
+
+        <div class="form-group"> 
+			@Html.LabelFor(m => m.UzsakytaPaslauga.Kaina)
+            @Html.EditorFor(m => m.UzsakytaPaslauga.Kaina)
+			@Html.ValidationMessageFor(m => m.UzsakytaPaslauga.Kaina, "")           
+        </div>
+
+        <div class="form-group">
+			@Html.LabelFor(m => m.UzsakytaPaslauga.Kiekis)
+            @Html.EditorFor(m => m.UzsakytaPaslauga.Kiekis)
+			@Html.ValidationMessageFor(m => m.UzsakytaPaslauga.Kiekis, "")
+        </div>
+	</fieldset>
+
+	<div class="container-fluid d-flex d-row justify-content-end">
+		<button 
+			class="btn btn-success"
+			formaction="@Url.Action("ContractContinue", new { cause = "save-edit", returnTo = ViewData["return-to"] })#listEnd"
+			><i class="fa-solid fa-floppy-disk"></i> Išsaugoti</button>
+	</div>
+}
+</div>
+
+@* content footer *@
+<div class="main-content-footer">
+	<span class="title"></span>
+	<span class="actions">
+		@using( Html.BeginForm(FormMethod.Post) )
+		{
+			@Html.AntiForgeryToken()
+
+			@* pass contract state back to the controller in a field 'contractState' *@
+    		<input type="hidden" name="contractState" value="@ViewData["contract-state"]">
+
+			<button 
+				class="btn btn-outline-primary btn-sm"
+				formaction="@Url.Action("ContractContinue", new { cause = "cancel", returnTo = ViewData["return-to"] })#listEnd"
+				><i class="fa-solid fa-angles-left"></i> Atgal į sutartį</button>
+		}
+	</span>
+</div>

@@ -1,0 +1,11 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N:"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd":8:7:8:12|Top entity is set to SCHEMA.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd":8:7:8:12|Synthesizing work.schema.schematic.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":913:10:913:12|Synthesizing work.inv.syn_black_box.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1315:10:1315:12|Synthesizing work.or2.syn_black_box.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1544:10:1544:13|Synthesizing work.xor2.syn_black_box.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1135:10:1135:12|Synthesizing work.nd2.syn_black_box.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1144:10:1144:12|Synthesizing work.nd3.syn_black_box.
+@N|Running in 64-bit mode
+

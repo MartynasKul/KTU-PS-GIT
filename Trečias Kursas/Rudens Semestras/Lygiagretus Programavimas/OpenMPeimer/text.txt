@@ -1,0 +1,9 @@
+Rasti dviejų masyvų vektorinę sandaugą naudojant OpenMP. Sukurti du masyvus po 100 elementų - viename skaičiai nuo 1 iki 100, kitame - nuo 1 iki 10 žingsniu 0.1. Nuosekliai vektorinė sandauga būtų randama sudauginant elementus su vienodais indeksais ir šias sandaugas sudedant. Paskirstykite šiuos skaičiavimus 20 gijų (kiekviena gija suranda jai skirtos duomenų dalies vektorinę sumą, o bendra suma randama naudojant tam skirtas OpenMP priemones). Gautą sumą išvesti ekrane.
+Programą papildykite, kad kiekviena gija surastų didžiausią savo apdorotų elementų indeksą ir programos pabaigoje išvestų šiuos indeksus ekrane.
+
+Palyginkite OpenMP ir CUDA gijų paleidimą, sinchronizacijos priemones - kuo tai skiriasi programuotojo požiūriu? Kokie skirtumai tarp bendros atminties naudojimo taikant šias priemones - kaip programa žino, kuri atmintis kurioms gijoms turi būti pasiekiama?
+
+Palyginkite OpenMP užraktus ir critical blokus. Kokie jų privalumai ir trūkumai?
+
+Kaip veikia, kaip naudojami ir kam skirti raktiniai žodžiai async ir await C#, JavaScript ir Python kalbose? Koks jų sąryšis su Task (C#), Promise (JavaScript), Coroutine (Python)? Užtenka aprašyti vieną iš pateiktų kalbų.
+

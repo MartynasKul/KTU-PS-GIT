@@ -1,0 +1,1 @@
+@W: MT420 |Found inferred clock TOP_CNT|CLK_I with period 5.00ns. Please declare a user-defined clock on port CLK_I.

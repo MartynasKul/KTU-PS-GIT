@@ -1,0 +1,2639 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron Tutorial</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron Tutorial</h1>
+            <h2 id="project_tagline">Player Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "Summary">Summary</h1>
+
+<p>The behavior of each bot is determined by an associated computer program fragment that
+implements a control function mapping inputs (what the bot sees) to outputs (how the bot
+responds).</p>
+
+<p>This tutorial explains (very briefly) what Scala is and (in slightly more detail)
+how to write a bot program in Scala. It is based on the following premises:</p>
+
+<ul>
+<li>you already know how to program, probably in Java or C++</li>
+<li>the quickest way for a programmer to understand almost anything is to look at sample code
+and to play around with working programs, modifying and incrementally improving them.</li>
+</ul>
+
+<p>So this tutorial simply presents and analyzes the code to increasingly sophisticated bots,
+which you can immediately try out and run in the game server. With each version, additional
+Scala syntax is explained and the most important language constructs introduced. The idea is
+to let you get from zero to a running bot that you can play with very quickly, and to let you
+zip through the tutorial at your own pace, picking up useful tools as you go.</p>
+
+<p>Have fun!</p>
+
+<h1 id = "Scala_Resources">Scala Resources</h1>
+
+<h2 id = "Learning_Scala">Learning Scala</h2>
+
+<ul>
+<li>Twitter Scala school: http://twitter.github.com/scala_school/ - this is awesome. Consider starting here.</li>
+<li>Book by the inventor of Scala: &ldquo;Programming in Scala&rdquo;, 2nd Edition, by Odersky, Spoon, Venners. 879 pages. Nice for offline reading. Available in PDF format online: ?http://www.cs.uwaterloo.ca/~brecht/courses/702/Possible-Readings/scala/ProgrammingInScala.pdf</li>
+</ul>
+
+<h2 id = "Other_Resources">Other Resources</h2>
+
+<ul>
+<li>The main Scala web site: http://www.scala-lang.org</li>
+<li>The Scala style guide: http://www.codecommit.com/scala-style-guide.pdf</li>
+</ul>
+
+<h1 id = "Introduction_To_Scala">Introduction To Scala</h1>
+
+<h2 id = "What_is_Scala_">What is Scala?</h2>
+
+<p>Scala is a programming language invented by Martin Odersky in 2000. It is statically typed
+(like Java) and combines functional (FP) and object oriented (OO) features. Just like Java,
+Scala compiles into Java byte code and can run on any Java Virtual Machine (JVM). Scala
+interoperates well with Java and can serve as a by-file or by-module replacement for Java.
+In many, many respects it fixes the things that are awkward or broken in Java.</p>
+
+<h2 id = "Comparison_to_Java">Comparison to Java</h2>
+
+<p>The syntax of Scala overall is quite similar to Java, but in general it omits elements that
+are not strictly necessary and place a burden on the programmer (such as semicolons or
+type declarations that are inferable for the compiler) and generally required less
+boilerplate code.</p>
+
+<p>The result is that Scala code is often only a third or a quarter of the size of equivalent
+Java code.</p>
+
+<h2 id = "Scala_Performance">Scala Performance</h2>
+
+<p>The performance of Scala depends on how you code. Code written in a functional style can be
+slower to execute in certain circumstances; code written in an imperative, procedural will
+be as fast as in Java.</p>
+
+<p>However, functional code is</p>
+
+<ul>
+<li>much more concise,</li>
+<li>much faster to write,</li>
+<li>much easier to compose</li>
+<li>much easier to parallelize</li>
+</ul>
+
+<p>So generally, writing functional code is preferable for the vast majority of code.
+Nevertheless, Scala lets you fall back to imperative code for performance critical
+sections.</p>
+
+<h1 id = "How_to_get_your_bot_into_the_game">How to get your bot into the game</h1>
+
+<p>Throughout the tutorial, you will create increasingly complex bot versions in Scala.
+To see your bot appear in the game, you will need to compile and publish it.
+There are two approaches to doing this, which in the Scalatron documentation are referred to
+as the &ldquo;serious&rdquo; and &ldquo;casual&rdquo; paths, respectively.</p>
+
+<h2 id = "The__ldquo_Casual_rdquo__Path">The &ldquo;Casual&rdquo; Path</h2>
+
+<p>The &ldquo;casual&rdquo; path is intended for less experienced programmers or for shorter bot coding sessions
+(2-3 hours). On this path, players write, build, debug and publish their bots in a web browser. 
+The browser-based development environment is provided by an embedded web server which is hosted
+inside the game server and requires no setup by the user.</p>
+
+<p>If this is the path you want to follow, here is how to do it:</p>
+
+<ol>
+<li>open a web browser and point it to the game server's address, which you can get from the
+workshop organizer. It will generally be something like <code>http://scalatron:8080</code></li>
+<li>log into the account associated with your name. If there is no account for you displayed
+on the log-in screen, ask the workshop organizer to create one for you.</li>
+<li>enter your code in the editor that appears. You can also copy and paste code from the tutorial
+and example bot sources.</li>
+<li>click the <em>Build</em> button. This will upload your code to the game server, compile it there,
+and display a list of errors (if there were any). Do this until your code compiles.</li>
+<li>click the <em>Build and Run in Sandbox</em> button. This will upload and compile your code and then
+start a private, &ldquo;sandboxed&rdquo; game for your bot on the server. You can single-step through the
+simulation and observe the view and state of your bot. Tune your bot until you are happy with it.</li>
+<li>click the <em>Build and Publish into Tournament</em> button. This will upload and compile your code and
+then publish it into the tournament loop, where it will be picked up automatically when the
+next game rounds starts.</li>
+</ol>
+
+<h2 id = "The__ldquo_Serious_rdquo__Path">The &ldquo;Serious&rdquo; Path</h2>
+
+<p>The &ldquo;serious&rdquo; path is intended for experienced programmers planning for a longer bot coding
+session (5-7 hours). On this path, bots are built locally by each player, using an IDE or command
+line tools. The bots are then published into the tournament by copying them into the plug-in
+directory on the central computer from which the game server loads them at the start of each
+round.</p>
+
+<p>If this is the path you want to follow, here is how to do it:</p>
+
+<h3 id = "Compiling">Compiling</h3>
+
+<p>To compile your bot, you need to feed your Scala source file through the Scala compiler.
+How you do this depends on the build environment you are using. If you are using the
+IntelliJ IDEA setup described in the document <em>Player Setup</em>, all you will need
+to do is select <strong>Build > Make Project</strong> from the main menu. This should perform the
+following steps:</p>
+
+<ol>
+<li>incrementally compile your source file into <code>.class</code> files using the <em>Fast Scala Compiler (FSC)</em></li>
+<li>package the resulting <code>.class</code> files into a Java Archive <code>.jar</code> artifact file</li>
+<li>copy the <code>.jar</code> file into your bot directory on the game server</li>
+</ol>
+
+<p>Once your plug-in <code>.jar</code> file was copied to the game server, it should be picked up as soon as
+the next game round starts. You can see how far the current round has progressed and estimate
+how long you'll have to wait in the bottom left corner of the screen, where it will say something
+like:</p>
+
+<pre><code>round 42: 240 steps (of 1000), 4.0s, 20ms/step</code></pre>
+
+<h3 id = "Publishing">Publishing</h3>
+
+<p>The publishing process basically consist of copying the <code>.jar</code> plug-in file you built
+into your plug-in directory on the server.</p>
+
+<p>This directory will be a sub-directory with your name below a network-shared directory
+available to all users, which the workshop organizer should have made available to everyone.
+Example:</p>
+
+<ul>
+<li>the organizer published a network-shared directory that is visible on your computer as
+<code>/Volumes/Scalatron/bots/</code></li>
+<li>within this directory, if your name is Tina, you will at some point create a sub-directory
+called <code>Tina</code></li>
+<li>into this directory you will publish (i.e., copy) your <code>.jar</code> file, which must be
+called <code>ScalatronBot.jar</code></li>
+<li>the complete path where your plug-in resides is therefore
+<code>/Volumes/Scalatron/bots/Tina/ScalatronBot.jar</code></li>
+</ul>
+
+<p>For more details, see the <em>Scalatron Server Setup</em> guide and the <em>Scalatron Protocol</em>
+documentation.</p>
+
+<h3 id = "Updating_a_bot_plug-in">Updating a bot plug-in</h3>
+
+<p>The details of how you publish a newly built bot plug-in depend on how the system running the
+game server is configured.</p>
+
+<p>In some configurations, new plug-in versions can simply overwrite old ones, even as part of
+the build process. This is obviously the most convenient setup, since you can configure your
+IDE to build the <code>.jar</code> artifact directly into the plug-in directory.</p>
+
+<p>In other configurations, the existing <code>.jar</code> file may be locked, in which case you must first
+move that file to another location or delete it.</p>
+
+<h1 id = "Bot__1:_Hello_World">Bot #1: Hello World</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>Create a minimal bot that compiles and appears in the game.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<p>Create a source code file called &ldquo;Bot.scala&rdquo; and type the following code into it:</p>
+
+<pre><code>class ControlFunctionFactory {
+    def create = new ControlFunction().respond _
+}
+
+class ControlFunction {
+    def respond(input: String) = "Status(text=Hello World)"
+}</code></pre>
+
+<p><strong>Tip</strong>: the source code for all bots contained in this tutorial is also available in the
+appropriate sub-directories of the <code>/samples</code> directory of the Scalatron installation. You can
+also access the samples directly through the browser user interface exposed by the server.</p>
+
+<p><strong>Caution</strong>: when you copy source code from a PDF file and paste it into your IDE, it is
+possible that some characters will be modified and that newlines will be missing, leading to
+compiler errors. The best way to avoid this is to either type in the code (sorry) or to copy the
+code from from the samples on disk.</p>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>The code defines two classes, <code>ControlFunctionFactory</code> and <code>ControlFunction</code>. In each class, it defines one
+method. The method <code>ControlFunctionFactory.create()</code> constructs a new instance of the class <code>ControlFunction</code>
+and returns a reference to its <code>respond()</code> method. This is the control function that the game
+server will invoke to interact with the bot.</p>
+
+<p>The method <code>ControlFunction.respond()</code> receives a <code>String</code> parameter (which it ignores)
+and returns a constant string that contains a command for the game server, in this case the
+command Status() which asks the server to set the status text of the bot to &ldquo;Hello World&rdquo;.</p>
+
+<h3 id = "What_does__code_class__code__do_">What does <code>class</code> do?</h3>
+
+<p>The class keyword begins the definition of a new class.</p>
+
+<p>Examples in our bot:</p>
+
+<pre><code>class ControlFunctionFactory { ... }
+class ControlFunction { ... }</code></pre>
+
+<h3 id = "What_does__code_def__code__do_">What does <code>def</code> do?</h3>
+
+<p>The def keyword defines a function or method.</p>
+
+<p>Examples in our bot:</p>
+
+<ul>
+<li><code>def create = new ControlFunction().respond _</code>
+<ul>
+<li>defines a method create() in the class <code>ControlFunctionFactory</code></li>
+<li>that takes no parameters</li>
+<li>that returns a function of type <code>String =&gt; String</code></li>
+<li>the return type is inferred by the compiler from the method body</li>
+<li>the body uses new to create an instance of class <code>ControlFunction</code></li>
+<li>it then returns a reference to the <code>respond()</code> method of class <code>ControlFunction</code> whose execution context is the instance we just created</li>
+</ul></li>
+<li><code>def respond(input: String) = "Status(text=Hello World)"</code>
+<ul>
+<li>defines a method <code>respond()</code> in the class <code>ControlFunction</code></li>
+<li>that takes one parameter of type String called input</li>
+<li>that returns a String</li>
+<li>the return type is inferred by the compiler from the method body</li>
+<li>the body consists of the String constant <code>"Status(text=Hello World)"</code></li>
+</ul></li>
+</ul>
+
+<p>Other examples:</p>
+
+<pre><code>def foo: Int = 1                    // function without side-effects
+def foo = 1                         // Scala infers return type
+
+def bar(s: String): String = "Hello"
+def bar(s: String) = "Hello"        // Scala infers return type
+
+def bar(): Unit = { println(..)     // function with side-effects
+def bar() { ... }                   // Scala infers return type</code></pre>
+
+<h2 id = "How_are_types_specified_">How are types specified?</h2>
+
+<p>In Scala, names precede types:</p>
+
+<pre><code>def foo(input: String) : String = ""
+val bar: Int = 1
+val l: List[Int] = List(1, 2, 3)</code></pre>
+
+<p>Types can be omitted if they can be inferred by the compiler:</p>
+
+<pre><code>def foo(input: String) = ""
+val bar = 1
+val l = List(1, 2, 3)</code></pre>
+
+<h3 id = "What_types_are_available_in_Scala_">What types are available in Scala?</h3>
+
+<p>Scala has all the basic types of Java:</p>
+
+<ul>
+<li><code>String</code></li>
+<li><code>Int</code></li>
+<li><code>Double</code></li>
+<li><code>Char</code></li>
+<li><code>Array[T]</code></li>
+</ul>
+
+<p>Scala also has functions as values and has the appropriate types.
+Example: a function that takes a string and returns a string:</p>
+
+<pre><code>val foo: String =&gt; String = input =&gt; input + "."</code></pre>
+
+<p>If we want to omit the type on the left-hand side, we need to tell the compiler
+about it on the right-hand side:</p>
+
+<pre><code>val foo = (input: String) =&gt; input + "."</code></pre>
+
+<h3 id = "Why_is_there_no__code_return__code__statement_">Why is there no <code>return</code> statement?</h3>
+
+<p>In Scala, and in functional programming in general, you should think of methods and most
+code elements as expressions that yield the result of the expression as their value.
+Instead of writing, for example, code like:</p>
+
+<pre><code>int n = 0
+if(x.isEmpty) n=1 else n=2</code></pre>
+
+<p>we can write</p>
+
+<pre><code>val n = if(x.isEmpty) 1 else 2</code></pre>
+
+<p>Likewise, we can view entire methods as expressions that yield a value. Instead of writing</p>
+
+<pre><code>def respond(input: String) = { return "" }</code></pre>
+
+<p>we can write</p>
+
+<pre><code>def respond(input: String) = ""</code></pre>
+
+<p>Scala does have a <code>return</code> statement, but using it is frowned upon as poor functional
+programming practice and occurrences of <code>return</code> are considered by many as a &ldquo;code smell&rdquo;.
+If you do want to use return (for example to break out of a loop), note that you must
+explicitly specify the return type of the method from which you want to return.</p>
+
+<h3 id = "What_does_the_underscore_after__code_respond__code__mean_">What does the underscore after <code>respond</code> mean?</h3>
+
+<p>From the <code>create()</code> method, we want to return a function value, namely the method <code>respond()</code>
+of our newly created <code>ControlFunction</code> instance. The underscore, by appearing instead of the parameter
+list of <code>respond()</code>, tells the compiler that we do not wish to invoke the function but to
+turn it into a value. If you are not familiar with functional programming, this may be a
+bit confusing but don't be put off by it - you do not yet need to understand the details
+of this right now and it'll appear quite trivial later on.</p>
+
+<h1 id = "Bot__2:_Counting_Cycles">Bot #2: Counting Cycles</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>Make the bot display on the screen the number of times its control function was invoked.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<pre><code>// ControlFunctionFactory definition is done as it stands
+// from now on, we'll omit it
+
+class ControlFunction {
+    var n = 0
+    def respond(input: String) = {
+        val output = "Status(text=" + n + ")"   // temp value
+        n += 1                                  // now increments after use
+        output                                  // yield
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>We're from now on omitting the definition of the ControlFunctionFactory class,
+since it will never change. Just leave it at the top of your source file for now.</p>
+
+<p>In the code, we add a mutable field <code>n</code> to the definition of our <code>ControlFunction</code> class. From the
+assignment of the zero value, the compiler infers that this field will have type <code>Int</code>.</p>
+
+<p>In our <code>respond()</code> method, instead of returning a constant string as the status message,
+we now construct a new string every time by concatenating multiple sub-strings and storing
+the result in a temporary, immutable value called <code>output</code>. One of these sub-strings is a
+String rendering of our counter field. The compiler conveniently converts the Int into a
+String for us.</p>
+
+<p>We then increment the counter by one and return the string we constructed earlier.
+We indicate that we want to return the constructed string by simply making a reference
+to the <code>output</code> value the last expression in the method.</p>
+
+<p>This &ldquo;yielding&rdquo; behavior of functional languages is also the reason we create the temporary
+value in the first place: if <code>n += 1</code> was the last expression in our method, that would also
+be the return value of the method.</p>
+
+<h3 id = "What_does__code_var__code__do_">What does <code>var</code> do?</h3>
+
+<p>The <code>var</code> keyword defines a new mutable value, which can be a local variable in a method
+or a mutable field of a class. Note that mutability is generally frowned upon by functional
+programmers since it makes it more difficult to reason about the state and behavior of
+programs.</p>
+
+<h3 id = "What_does__code_val__code__do_">What does <code>val</code> do?</h3>
+
+<p>The <code>val</code> keyword defines a new immutable value, which can be a local constant in a method
+or an immutable field of a class. Because it is immutable, its value can never change.</p>
+
+<h3 id = "Where_do_I_need_curly_braces_">Where do I need curly braces?</h3>
+
+<p>Generally speaking you need curly braces to define the body of a class and to group
+multiple statements into a block. That's why this method definition does not need curly braces:</p>
+
+<pre><code>def respond(input: String) = "Status(text=" + n + ")"</code></pre>
+
+<p>but this one does:</p>
+
+<pre><code>def respond(input: String) = {
+    val output = "Status(text=" + n + ")"
+    n += 1
+    output
+}</code></pre>
+
+<h3 id = "Where_do_I_need_a_semicolon_">Where do I need a semicolon?</h3>
+
+<p>Unlike in Java, you do not need a semicolon at the end of every statement. For the moment,
+the only reason you might want to use a semicolon is to separate multiple expressions on
+the same line, like this:</p>
+
+<pre><code>def respond(input: String) = { n += 1; "Status(text=Hello)" }</code></pre>
+
+<h3 id = "Why_do_we_store_the_output_in_a_temporary_constant_">Why do we store the output in a temporary constant?</h3>
+
+<p>Scala yields the value of the last expression in a method as the result value of that
+method. To see what this means, consider the following variants of the code above:</p>
+
+<p><strong>Step 1</strong>: mutable field, but no incrementation</p>
+
+<pre><code>class ControlFunction {
+    var n = 0           // declare mutable field
+    def respond(input: String) = "Status(text=" + n + ")"
+}</code></pre>
+
+<p>This code obviously always returns the same string.</p>
+
+<p><strong>Step 2</strong>: field incrementation before String concatenation</p>
+
+<pre><code>class ControlFunction {
+    var n = 0
+    def respond(input: String) = {  // curly braces for scope
+        n += 1                      // increment counter
+        "Status(text=" + n + ")"
+    }
+}</code></pre>
+
+<p>This code returns a string containing an incrementing counter, but the counter does not
+start at zero. Because it is incremented before the string is constructed, the first
+value returned is one.</p>
+
+<p><strong>Step 3</strong>:</p>
+
+<pre><code>class ControlFunction {
+    var n = 0
+    def respond(input: String) : String = {
+        "Status(text=" + n + ")"
+        n += 1                          // BUG: yields Int (the updated n), not string
+    }
+}</code></pre>
+
+<p>This now constructs the correct text, but instead of returning the text it returns&hellip; nothing.
+The last statement of the <code>respond()</code> method is <code>n += 1</code>, which is a shorthand for <code>n = n + 1</code>,
+which does not yield a value. So the compiler (correctly) infers the type of the function to
+be <code>String =&gt; Unit</code>, where <code>Unit</code> is the Scala equivalent of Java's <code>void</code>.</p>
+
+<p>If we do not explicitly declare the return type of the function to be <code>String</code>, as shown above,
+this means that the compiler will generate <code>respond()</code> with a <code>Unit</code> return type and will
+consequently also generate the factory method as <code>() =&gt; (String =&gt; Unit)</code>. Because the compiler
+has no idea what we want, it will not report an error. But when we try to publish the bot into
+the tournament, the Scalatron server will reject it because it can't find a factory function
+with the expected signature <code>() =&gt; (String =&gt; String)</code>.</p>
+
+<p>If we explicitly declare the return type of the method as <code>String</code>, however, as we do in the
+code above, then the compiler can notice the discrepancy and complain about it.</p>
+
+<p><strong>Step 4</strong>:</p>
+
+<pre><code>class ControlFunction {
+    var n = 0
+    def respond(input: String) = {
+        val output = "Status(text=" + n + ")"   // temp value
+        n += 1                                  // now increments after use
+        output                                  // yield
+    }
+}</code></pre>
+
+<p>This creates a temporary constant value of type <code>String</code>, then increments the
+value, and finally references the constant value again to make it the return
+value of the function. Now everything works as expected.</p>
+
+<h1 id = "Bot__3:_Checking_the_Opcode">Bot #3: Checking the Opcode</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>We now want to let the bot distinguish between the different commands that the game server
+may pass as input parameters into the control function, such as &ldquo;React&rdquo; versus &ldquo;Welcome&rdquo;.
+To do that, we need to parse the input string provided by the server. Here is a simplified
+input string (for details, check the Scalatron Protocol documentation):</p>
+
+<pre><code>React(generation=0,time=0,view=__W_W_W__,energy=100)</code></pre>
+
+<p>We will modify the control function to now only respond with a command if the server sends
+an input containing a <code>React()</code> opcode. To make the bot behavior a little more interesting,
+we will have it return a <code>Move()</code> command, prompting the bot to run towards the right.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<p>The <code>ControlFunctionFactory</code> and <code>ControlFunction</code> boilerplate code remains unchanged from the
+previous example; we replace only the <code>respond()</code> method:</p>
+
+<pre><code>def respond(input: String) = {
+    val tokens = input.split('(')   // split at '(', returns Array[String]
+    if(tokens(0)=="React") {        // token(0): 0th element of array
+        "Move(direction=1:0)"       // response if true
+    } else {
+        ""                          // response if false
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>First, we need to extract the opcode from the command string. A simple way to achieve
+this is to use one of the library methods that Scala offers for values of type <code>String</code>.
+Namely, we use the <code>split()</code> method, which takes a value of type <code>Char</code> as a parameter,
+to break the string into a collection of sub-strings at all occurrences of that character
+value (here, occurrences of the opening parenthesis that immediately follows an opcode).</p>
+
+<p><code>String.split()</code> returns a result of type <code>Array[String]</code>. We extract the first array
+element, which should now contain the string representing the opcode, and compare it
+to the expected opcode. Unlike in Java, in Scala the comparison with <code>==</code> does what you
+expect.</p>
+
+<p>If the opcode is <code>React</code>, we return a <code>Move()</code> command. Otherwise we return an empty
+string.</p>
+
+<h3 id = "What_does__code_split____code__do_">What does <code>split()</code> do?</h3>
+
+<p><code>String.split()</code> breaks a string into a collection of sub-strings at occurrences of a given
+separator character. It is defined in the Scala library and has the following signature:</p>
+
+<pre><code>def split(separator: Char) : Array[String]</code></pre>
+
+<p>So it takes a value of type <code>Char</code> as a parameter (the separator) and returns a result of
+type <code>Array[String]</code> (the sub-strings).</p>
+
+<p>Example: <code>"a(b)".split('(')</code> returns <code>Array("a", "b)")</code></p>
+
+<h3 id = "What_are_some_other_methods_available_on__code_String__code__">What are some other methods available on <code>String</code>?</h3>
+
+<p>A good way to learn about the methods available at any point in your code is to use
+your IDE's auto-complete method. This is highly recommended, since e.g. the Scala
+plug-in for IntelliJ IDEA will also display methods available through implicit
+conversions, something that is extremely convenient but initially somewhat hard to
+fathom for people new to Scala.</p>
+
+<p>Here are a few more methods available on String:</p>
+
+<pre><code>val a = "Hello" + " " + "World"
+a.length            // = 11
+a.drop(6)           // = "World"
+a.dropRight(6)      // = "Hello"
+a.split(' ')        // = Array("Hello", "World")</code></pre>
+
+<h3 id = "How_does_the__code_if__code__statement_work_">How does the <code>if</code> statement work?</h3>
+
+<p>Remember that in Scala, you should think of your code components as expressions. Here,
+the if block is an expression whose result value is either the value of the true branch
+or the false branch:</p>
+
+<pre><code>if(condition) { true-block } else { false-block }</code></pre>
+
+<p>This is actually a bit similar to the '?:' operator, which is not
+necessary in Scala.</p>
+
+<p>Examples:</p>
+
+<pre><code>val b = if(true) true else false
+val a = if(b) false else true
+val not : Boolean =&gt; Boolean = in =&gt; if(in) false else true</code></pre>
+
+<h3 id = "What_does__code_tokens_0___code__do_">What does <code>tokens(0)</code> do?</h3>
+
+<p>In Scala, you retrieve a particular element of an array by specifying its (zero-based)
+index in simple parentheses. Since <code>tokens</code> is an <code>Array[String]</code> that was returned by
+<code>String.split()</code>, the expression <code>tokens(0)</code> returns the first element (at index zero)
+of that array.</p>
+
+<p>Assignment to array elements works in the same manner. Here are some additional examples
+of working with arrays:</p>
+
+<pre><code>val nums = Array(1, 2, 3)
+val strings = Array("Hello", "World")
+val empty = Array.empty[Int]
+
+val s0 = strings(0)     // read
+nums(1) = 9             // write</code></pre>
+
+<h1 id = "Bot__4:_Expanded_Input_Parser">Bot #4: Expanded Input Parser</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>Instead of a counter, we want to display the bot's current energy level next to it on the
+screen. To do that, we first have to extract the energy from the input string and then set
+it as the bot's status string using the <code>Status()</code> command. The server informs the bot about
+its energy level via the <code>energy</code> parameter of the input string. Here is again an example
+input string:</p>
+
+<pre><code>React(generation=0,view=__W_W_W__,energy=100)</code></pre>
+
+<p>Since we'll soon need to extract all of the other parameters as well, the most sensible
+way to proceed is to parse the entire parameter list.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<pre><code>// omitted: ControlFunctionFactory
+
+class ControlFunction {
+    def respond(input: String) = {
+        val tokens = input.split('(')
+        val opcode = tokens(0)
+        if(opcode=="React") {
+            val rest = tokens(1).dropRight(1)               // "key=value,key=value,key=value"
+            val params = rest.split(',')                    // = Array("key=value", "key=value", ...)
+            val strPairs = params.map(s =&gt; s.split('='))    // = Array( Array("key","value"), Array("key","value"), ..)
+            val kvPairs = strPairs.map(a =&gt; (a(0),a(1)))    // = Array( ("key","value"), ("key","value"), ..)
+            val paramMap = kvPairs.toMap                    // = Map( "key" -&gt; "value", "key" -&gt; "value", ..)
+
+            val energy = paramMap("energy").toInt
+            "Status(text=Energy:" + energy + ")"
+        } else {
+            ""
+        }
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>The first two line uses <code>split()</code> to break the input into two parts: the opcode and the
+remaining line:</p>
+
+<pre><code>val tokens = input.split('(')</code></pre>
+
+<p>These two parts are returned in an array, from which we extract the first
+element (index zero) and store it into a local immutable value:</p>
+
+<pre><code>val opcode = tokens(0)</code></pre>
+
+<p>We then test the just-extracted opcode against the &ldquo;React&rdquo; constant:</p>
+
+<pre><code>if(opcode=="React") {</code></pre>
+
+<p>The second element of the <code>tokens</code> array contains the parameters of the command,
+plus a trailing closing parenthesis (the opening parenthesis was swallowed by
+<code>split()</code>). To obtain a string containing just the comma-separated parameters, we
+need to get rid of this trailing character. We do this using the String
+method <code>dropRight()</code>, a method available on many collections which takes the
+number of elements to drop as a parameter:</p>
+
+<pre><code>val rest = tokens(1).dropRight(1)               // "key=value,key=value,key=value"</code></pre>
+
+<p>The <code>rest</code> value now contains a string consisting just of comma-separated key/value
+pairs, as shown in the comment on the line above. So we use <code>split()</code> again to break
+it apart, this time at occurrences of the comma character:</p>
+
+<pre><code>val params = rest.split(',')                    // = Array("key=value", "key=value", ...)</code></pre>
+
+<p>The result is again an array of <code>String</code> values, each of which has the format
+&ldquo;key=value&rdquo;. So now we want to break apart <strong>each one</strong> of these strings using
+<code>split()</code> at the equals sign. We achieve this by using <code>map()</code> to process every
+element of the array, obtaining a new collection containing the processed
+elements:</p>
+
+<pre><code>val strPairs = params.map(s =&gt; s.split('='))    // = Array( Array("key","value"), Array("key","value"), ..)</code></pre>
+
+<p>So <code>strPairs</code> now is an array of arrays of String, with overall type <code>Array[Array[String]]</code>.
+For easy lookups later on, we'd really like to have a map from keys to values. Conveniently,
+there is the <code>toMap()</code> method that converts a collection of key/value pairs into a map.
+Unfortunately, we don't have a collection of pairs but a collection of arrays. So we
+process <code>strPairs</code> again to obtain a collection of key/value pairs:</p>
+
+<pre><code>val kvPairs = strPairs.map(a =&gt; (a(0),a(1)))    // = Array( ("key","value"), ("key","value"), ..)</code></pre>
+
+<p>which we then convert into a map:</p>
+
+<pre><code>val paramMap = kvPairs.toMap                         // = Map( "key" -&gt; "value", "key" -&gt; "value", ..)</code></pre>
+
+<p>The value <code>paramMap</code> now contains a reference to an instance of the Scala <code>Map</code>
+collection, with type <code>Map[String,String]</code>. Now it is easy to extract the
+value associated with the key &ldquo;energy&rdquo; and to convert it from a string into
+an integer value:</p>
+
+<pre><code>val energy = paramMap("energy").toInt</code></pre>
+
+<p>And finally we assemble the command string that updates the bot's status message:</p>
+
+<pre><code>"Status(text=Energy:" + energy + ")"</code></pre>
+
+<h3 id = "A_Word_on_Scala_Collections">A Word on Scala Collections</h3>
+
+<p>Scala has a very extensive and very well-designed library that contains a number
+of useful collection types, including:</p>
+
+<ul>
+<li>List</li>
+<li>Set</li>
+<li>Map</li>
+<li>Queue</li>
+</ul>
+
+<p>In many cases, there are two implementations for these collection types: a mutable
+and an immutable one. In the mutable variants, operations modify the collection's
+contents. In the immutable variants operations return a new, modified collection
+without disturbing the original collection.</p>
+
+<p>Scala defaults to immutable collections and for the bot code we will also exclusively
+select these immutable collections. Immutability makes it much easier to reason
+about our code and to parallelize operations, since we never need to worry about
+synchronizing concurrent accesses. In certain performance-critical code sections it
+may occasionally be advantageous to internally use a mutable collection with in-place
+updating, but this is rarely the case and should be done only if profiling indicates
+a need for it. As a rule of thumb, to get the benefits of functional programming we'll
+embrace immutability as the default. The Scalatron server and the Scalatron bot
+examples exclusively use immutable collections.</p>
+
+<p>If you are interested in the ideas behind immutable collections and other data structures
+and want to know more about their time and space characteristics, check out the book
+&ldquo;Purely Functional Data Structures&rdquo; by Chris Okasaki.</p>
+
+<h3 id = "What_does__code_dropRight____code__do_">What does <code>dropRight()</code> do?</h3>
+
+<p>Given a collection of elements, we often want to do the same kinds of things with them:
+extract elements, drop elements, split the collection, etc. The Scala library provides
+implementations for many such operations. If an operation is not present in exactly the
+form you need it, in many cases it is still possible to compose existing operations to
+achieve your goal.</p>
+
+<p><code>dropRight()</code> is one example of such a collection method. It drops the last N elements
+of a collection and returns the resulting new collection. In our bot example:</p>
+
+<pre><code>val rest = tokens(1).dropRight(1)</code></pre>
+
+<p>we apply <code>dropRight()</code> to an instance of <code>String</code>. This works because there is an
+implicit conversion from String into a collection type that presents its contents as
+an indexed sequence (<code>IndexedSeq</code>) of characters.</p>
+
+<p>In excruciating detail, our code</p>
+
+<pre><code>val rest = tokens(1).dropRight(1)</code></pre>
+
+<p>does this:</p>
+
+<ul>
+<li>defines an immutable value 'rest'</li>
+<li>takes the element with index 1 in the array of Strings in 'tokens'</li>
+<li>this will be the right-hand side of the split, like &ldquo;key=value,key=value)&rdquo;</li>
+<li>invokes its method 'dropRight()'</li>
+<li>passing the parameter '1' for the number of elements to drop</li>
+<li>which returns a value of type 'String' without the closing parenthesis</li>
+<li>we can then split the key/value pairs at commas</li>
+</ul>
+
+<h3 id = "A_few_useful_collection_methods">A few useful collection methods</h3>
+
+<p>Here are some other frequently used collection methods:</p>
+
+<ul>
+<li>head: returns the first element of a collection</li>
+<li>last: returns the last element of a collection</li>
+<li>tail: drops the first element of a collection and returns the resulting new collection</li>
+<li>drop(n): drops the first N elements of the collection and returns the resulting new collection</li>
+</ul>
+
+<p>A few examples:</p>
+
+<pre><code>List(1,2,3).drop(2)     // returns List(3)
+List(1,2,3).head        // returns 1
+List(1,2,3).tail        // returns List(2,3)
+List(1,2,3).last        // returns 3</code></pre>
+
+<p>As mentioned, many collection operations also apply to String, treating it as a
+collection of <code>Char</code>:</p>
+
+<pre><code>"abc".drop(1)           // returns "bc"
+"abc".dropRight(1)      // returns "ab"</code></pre>
+
+<h3 id = "What_does__code__a_0__a_1____code__do_">What does <code>(a(0),a(1))</code> do?</h3>
+
+<p>This expression constructs a pair (a tuple of arity two) containing the first and
+second elements of an array value <code>a</code>. We'll talk about where the array comes from
+in the next section, and for now focus only on the tuple creation.</p>
+
+<p>Generally speaking, when writing methods, it is often necessary for a function to return
+more than one value. Traditionally, for example in Java or C++, this requires the creation
+of a parameter object, which involves the definition of a new named type (a class or struct)
+and quite a bit of boilerplate code.</p>
+
+<p>Scala already offers a built-in type <code>Tuple</code> with elements whose types are parameterized.
+There are implementations for tuples for every arity up to 22. Here are some examples:</p>
+
+<pre><code>val pair = Tuple2[Int,String](1, "A")
+val triple = Tuple3[Int,String,Char](1, "A", 'B')</code></pre>
+
+<p>So instead of defining a new class or struct for a parameter object, we can use a generic
+Tuple to return more than one value from a function. Here is an example for a function
+declared to return a pair of <code>String</code> values:</p>
+
+<pre><code>def foo : Tuple2[String,String]     // function that returns a tuple</code></pre>
+
+<p>and here is an example implementation:</p>
+
+<pre><code>def foo = new Tuple2[String,String]("Hello", "World")</code></pre>
+
+<p>for which the compiler can infer the types, so we can omit those:</p>
+
+<pre><code>def foo = new Tuple2("Hello", "World")</code></pre>
+
+<p>and because <code>Tuple2</code> offers a static construction method (more on those later), we can
+omit the <code>new</code> keyword:</p>
+
+<pre><code>def foo = Tuple2("Hello", "World")</code></pre>
+
+<p>But Scala can do even better than that. Because using <code>Tuple</code> to return values is
+so useful and hence used so frequently, Scala has special syntactic sugar to create
+tuples and describe tuple types: you simple use parentheses around a comma-separated
+list of values or types. Let's do that for our example:</p>
+
+<pre><code>def foo = ("Hello", "World")</code></pre>
+
+<p>Here are some other examples for the use of tuples:</p>
+
+<pre><code>val pair = (1, "A")                     // = Tuple2[Int,String]
+val triple = (1, 2, 3)                  // = Tuple3[Int,Int,String]</code></pre>
+
+<p>Scala's syntactic sugar not just helps with creating tuples, it also extends to
+declaring tuple types. In the original declaration of our example function <code>foo</code>,
+we had:</p>
+
+<pre><code>def foo : Tuple2[String,String]     // function that returns a tuple</code></pre>
+
+<p>Using the tuple syntax we can now write the exact same declaration like this:</p>
+
+<pre><code>def foo : (String,String)           // function that returns a tuple</code></pre>
+
+<p>We can use this wherever a type would appear in Scala:</p>
+
+<pre><code>def foo(pair: (Int, String))        // function accepting Tuple2[Int,String]
+def bar: (Int, String)              // function returning Tuple2[Int,String]
+val f = () =&gt; (Int, String)         // value: function returning Tuple2[Int,String]</code></pre>
+
+<p>How do you access the contents of a tuple? The tuple implementations in Scala
+all contain fields with names like _1, _2, _3, etc. Here is an example:</p>
+
+<pre><code>val a = ("A","B")._1                    // extracts the first field of the tuple
+val b = ("A","B")._2                    // extracts the second field of the tuple</code></pre>
+
+<p>Some more examples for the use of tuples:</p>
+
+<pre><code>val tuple = ("A",2)                             // = Tuple2[String,Int] = (String,Int)
+val array = Array("A","B")                      // = Array[String]
+val tuple = (array(0),array(1))                 // = Tuple2[String,String] = (String,String)</code></pre>
+
+<h3 id = "What_does__code_map____code__do_">What does <code>map()</code> do?</h3>
+
+<p>The <code>map()</code> method appears in our example twice:</p>
+
+<pre><code>val strPairs = params.map(s =&gt; s.split('='))    // = Array( Array("key","value"), Array("key","value"), ..)
+val kvPairs = strPairs.map(a =&gt; (a(0),a(1)))    // = Array( ("key","value"), ("key","value"), ..)</code></pre>
+
+<p>It is a method available on collections (like List, Set, Map) that, given a transformation
+function, transforms every element of the collection into a new element and returns a new
+collection containing the transformed elements.</p>
+
+<p>It also works for <code>String</code> because <code>String</code> can act as a collection of <code>Char</code>. And,
+even though <code>Array</code> in Scala is really just a Java Array which does not extend any of
+the neat Scala collection traits, it also works for <code>Array</code> because there is an
+implicit conversion that makes it available.</p>
+
+<p>Let's pick apart the two lines that appear in our example in excruciating detail.</p>
+
+<h4 id = "Example_1:">Example 1:</h4>
+
+<pre><code>val strPairs = params.map(s =&gt; s.split('='))</code></pre>
+
+<p>We start by using <code>val</code> to declare an immutable value that will be available in the scope of
+our method. We tell the compiler that we will want to access that value by the name <code>strPairs</code>.
+We then reference the collection we want to work on, here <code>params</code>, and use the dot-notation
+familiar from Java or C++ to invoke the <code>map()</code> method on it.</p>
+
+<p>The <code>map()</code> method takes one parameter, the transformation function.
+This has to be a function that takes one parameter (an element of the collection) as its
+input and that returns a new value. The type of the parameter must naturally be the type
+of the element. The return value can and often will be of a different type. In the example,
+the transformation function operates an a collection of <code>String</code> elements and therefore
+will take an input parameter of type <code>String</code>. We invoke <code>split()</code> on each of these strings
+and therefore convert each element into an <code>Array[String]</code>. Here, the return type of <code>split()</code>
+is also the return type of our transformation function. It therefore has the following
+type:</p>
+
+<pre><code>String =&gt; Array[String]</code></pre>
+
+<p>i.e. it takes a <code>String</code> parameter and returns an <code>Array[String]</code> value.</p>
+
+<p>The Scala collection library is very clever in how it implements <code>map()</code>. This has the
+benefit that you will, whenever possible, get back a collection of the same type as the
+one you operated on. Invoking <code>map()</code> on a <code>List</code> will result in a new <code>List</code>, invoking
+it on a <code>Set</code> will result in a new <code>Set</code> and invoking it on a <code>Map</code> will result in a
+new <code>Map</code>. This is not trivial. The downside is that the type signature of <code>map()</code>
+looks scary as hell to people new to Scala. So we won't show it here. But it does what
+you expect it to do and you can for now should use it without worrying about the
+details. You will have absolutely not problem working out the details once you're more
+familiar Scala.</p>
+
+<p>So all that is left for us to do is to somehow tell the compiler that we want the
+argument to <code>map()</code> to be an invocation of <code>split()</code> on every element of the collection.
+That is what the code in the parentheses after <code>map</code> does:</p>
+
+<pre><code>s =&gt; s.split('=')</code></pre>
+
+<p>Let's first re-write this code using a slightly more verbose but semantically identical
+syntax, which we will then explain and show how to get to the simplified version. Here
+is the verbose version:</p>
+
+<pre><code>(s: String) =&gt; { s.split('=') }</code></pre>
+
+<p>This defines a function value by specifying, from left to right:</p>
+
+<ul>
+<li>the function's input parameter list: <code>(s: String)</code></li>
+<li>a symbol that tells the compiler &ldquo;this is a function": <code>=&gt;</code></li>
+<li>the body of the function: <code>{ s.split('=') }</code></li>
+</ul>
+
+<p>The input parameter list here consist of a single <code>String</code> parameter, to which we assign the
+name <code>s</code>. Since the compiler knows the type of the collection on which we invoke <code>map()</code> and
+it knows the signature of <code>map()</code>, it can infer the type of the input of our transform
+function. It already knows that <code>s</code> will be a <code>String</code>. It therefore allows us to drop the
+explicit mention of the type from our function definition. This gives us:</p>
+
+<pre><code>(s) =&gt; { s.split('=') }</code></pre>
+
+<p>Since there is only a single parameter, we can also omit the parentheses. Like this:</p>
+
+<pre><code>s =&gt; { s.split('=') }</code></pre>
+
+<p>Now on the right-hand side of the <code>=&gt;</code> we have the function body. It invokes <code>split()</code>
+with the argument <code>s</code>, which obviously contains whatever was passed as the input parameter
+to the function; here, consecutively each element of the collection. Since the function
+body consists only of a single expression, we can omit the curly braces. This gives us:</p>
+
+<pre><code>s =&gt; s.split('=')</code></pre>
+
+<p>Which is exactly what we have in the example.</p>
+
+<p>Scala allows us to express this even more concisely, however. We did not use this in the
+example above to keep things simple to start with, but you can now try this out right away.
+Essentially, it is very common for functions like the one we're passing to <code>map()</code> to
+reference their parameters exactly once, for example to invoke a method on them. In instances
+where this is the case, there is really no need to assign a name to the parameter - better
+to keep it short. Scala allows us to make such an &ldquo;anonymous&rdquo; reference to a parameter by
+using an underscore. So we can actually rewrite the example code like this:</p>
+
+<pre><code>val strPairs = params.map(_.split('='))</code></pre>
+
+<p>When the <code>map()</code> method is executed at run time, it will iterate over the collection
+elements of <code>params</code> and invoke <code>split('=')</code> on each one. This generates a new collection
+containing elements of type <code>Array[String]</code>, which is then available through the value
+<code>strPairs</code>. So when we start, <code>params</code> might contain the following value:</p>
+
+<pre><code>Array("a=b", "c=d", "e=f")</code></pre>
+
+<p>Afterwards, <code>strPairs</code> would contain the following value:</p>
+
+<pre><code>Array(Array("a", "b"), Array("c", "d"), Array("e", "f"))</code></pre>
+
+<h4 id = "Example_2:">Example 2:</h4>
+
+<pre><code>val kvPairs = strPairs.map(a =&gt; (a(0),a(1)))</code></pre>
+
+<p>The intent is to convert the array of arrays of strings into an array of pairs of strings,
+so that we can then turn it into a map using <code>toMap()</code>. This is achieved by invoking the
+<code>map()</code> method on <code>strPairs</code>, which has type <code>Array[Array[String]]</code>, and using a transform
+function that turns each element of the collection (which will be an <code>Array[String]</code> that
+was returned by <code>split()</code>, see above) into a pair of strings. Here is the transform
+function in isolation:</p>
+
+<pre><code>a =&gt; (a(0),a(1))</code></pre>
+
+<p>This is the concise equivalent of a more verbose version, like what we had in the
+previous example:</p>
+
+<pre><code>(a: Array[String]) =&gt; { (a(0),a(1)) }</code></pre>
+
+<p>Which would be even more verbose if we did not have the syntactic sugar for tuple creation
+and type inference for the tuple's parameter types:</p>
+
+<pre><code>(a: Array[String]) =&gt; { new Tuple2[String,String](a(0), a(1)) }</code></pre>
+
+<p>Just think for a moment about the amount of boilerplate code you'd have to write to
+do this in whatever language you are using now, the time it takes to type all that
+stuff in and the opportunity for introducing errors that generates.</p>
+
+<h3 id = "Wrapping_up">Wrapping up</h3>
+
+<p>The example uses a lot of named values to clarify the meaning of each computational
+step. Like this:</p>
+
+<pre><code>val rest = tokens(1).dropRight(1)               // "key=value,key=value,key=value"
+val params = rest.split(',')                    // = Array("key=value", "key=value", ...)
+val strPairs = params.map(s =&gt; s.split('='))    // = Array( Array("key","value"), Array("key","value"), ..)
+val kvPairs = strPairs.map(a =&gt; (a(0),a(1)))    // = Array( ("key","value"), ("key","value"), ..)
+val paramMap = kvPairs.toMap                    // = Map( "key" -&gt; "value", "key" -&gt; "value", ..)</code></pre>
+
+<p>We could of course draw all this together into a single invocation chain. The
+result would look like this:</p>
+
+<pre><code>val paramMap =
+    tokens(1)
+    .dropRight(1)
+    .split(',')
+    .map(_.split('='))
+    .map(a =&gt; (a(0),a(1)))
+    .toMap</code></pre>
+
+<p>and the entire control function would look like this:</p>
+
+<pre><code>def respond(input: String) = {
+    val tokens = input.split('(')
+    val opcode = tokens(0)
+    if(opcode=="React") {
+        val paramMap =
+            tokens(1).dropRight(1).split(',').map(_.split('='))
+            .map(a =&gt; (a(0), a(1))).toMap
+        val energy = paramMap("energy").toInt
+        "Status(text=Energy:" + energy + ")"
+    } else {
+        ""
+    }
+}</code></pre>
+
+<h3 id = "More_on_Scala_Maps">More on Scala Maps</h3>
+
+<p>Like for most collection types, there are mutable and immutable versions of <code>Map</code>.
+Here are a few more examples of how to create a map and work with its contents:</p>
+
+<pre><code>    val map = Map("A" -&gt; 1, "B" -&gt; 2, "C" -&gt; 3)     // = Map[String,Int]
+
+    val tuples = Array( ("A",1), ("B",2), ("C",3) ) // = Array[(String,Int)]
+    val map = tuples.toMap                          // = Map[String,Int]
+
+    val value = map(key)</code></pre>
+
+<p>The appendix of this tutorial contains a cheat sheet with useful methods of <code>Map</code></p>
+
+<h1 id = "Bot__5:_Creating_a_Command_Parser_Function">Bot #5: Creating a Command Parser Function</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>Having the somewhat complicated command parsing code in the middle of our control
+function will be distracting. So we will pull it out into a separate function,
+<code>parse()</code>. While we're at it, we'll also add some validation code.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<pre><code>class ControlFunction {
+    def respond(input: String) = {
+        val parseResult = parse(input)
+        val opcode = parseResult._1
+        val paramMap = parseResult._2
+        if(opcode=="React") {
+            "Status(text=Energy:" + paramMap("energy") + ")"
+        } else {
+            ""
+        }
+    }
+
+    def parse(command: String) = {
+        def splitParam(param: String) = {
+            val segments = param.split('=')
+            if( segments.length != 2 )
+                throw new IllegalStateException("invalid key/value pair: " + param)
+            (segments(0),segments(1))
+        }
+
+        val segments = command.split('(')
+        if( segments.length != 2 )
+            throw new IllegalStateException("invalid command: " + command)
+
+        val params = segments(1).dropRight(1).split(',')
+        val keyValuePairs = params.map( splitParam ).toMap
+        (segments(0), keyValuePairs)
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>The code in the <code>respond()</code> method should by now be obvious. The primary change is that
+instead of parsing the input string locally, we invoke a newly defined function <code>parse()</code>.</p>
+
+<p>The parse function is defined within the body of our <code>ControlFunction</code> class, which makes it a
+method with access to the <code>ControlFunction</code> instance (via <code>this</code>) - something we do not really
+need here. It could just as well be a static function. In the next example we will
+make this change, but for now let's look at the method as it stands.</p>
+
+<h3 id = "What_is_the_Return_Type_of__code_parse____code__">What is the Return Type of <code>parse()</code>?</h3>
+
+<p>We might note that in the first line of the method definition</p>
+
+<pre><code>def parse(command: String) = {</code></pre>
+
+<p>no return type is specified. The <code>=</code> indicates to the compiler that a value will be
+returned, but we leave it up to the compiler to figure out what the return type is.
+After looking at the method definition (which we'll also do in just a minute) the
+compiler will infer it to be:</p>
+
+<pre><code>(String, Map[String, String])</code></pre>
+
+<p>i.e. a tuple (pair) containing a <code>String</code> as well as a <code>Map</code> from <code>String</code> to <code>String</code>.
+In the first element of the tuple <code>parse()</code> will return the opcode of the command.
+In the second element it will return the parameter map. Its keys are the parameter
+names and its values are the parameter values.</p>
+
+<p>Here is an example of what the <code>parse()</code> method expects as its input:</p>
+
+<pre><code>"React(generation=0,energy=100)"</code></pre>
+
+<p>and what it will return:</p>
+
+<pre><code>("React", Map( "generation" -&gt; "0", "energy" -&gt; "100") )</code></pre>
+
+<h3 id = "Why_is_there_a__code_def__code__in_the_body_of__code_parse____code__">Why is there a <code>def</code> in the body of <code>parse()</code>?</h3>
+
+<p>To structure our parsing code, we use a local helper function <code>splitParam()</code> to
+break apart the individual key/value pairs. Since this helper function is not
+used or useful anywhere else in our code, we can keep it private to the method
+that needs it. Scala allows us to nest functions as deeply as we want, so we
+simply defined <code>splitParam()</code> within <code>parse()</code>, keeping the symbol local to
+the function.</p>
+
+<h3 id = "Can_my_Bot_just_throw_an_exception_">Can my Bot just throw an exception?</h3>
+
+<p>Yes. The Scalatron game server will catch and process all exceptions thrown
+within the bots. It also won't send you any invalid commands, but knowing how
+to validate your inputs and how to throw an exception is useful.</p>
+
+<p>When an exception is thrown, just as in Java, control escalates up the call
+stack to the nearest exception handler. This is an instance where no value
+is returned from a function.</p>
+
+<p>Actually, just for reference, here is how you catch an exception in Scala:</p>
+
+<pre><code>try {
+    ... code that might throw an exception...
+} catch {
+    case e: Exception =&gt; ... code that handles the exception ...
+}</code></pre>
+
+<p>The code within the <code>catch</code> block uses pattern matching, a powerful feature
+that we will look at later on.</p>
+
+<p>Note that the entire code block above is also an expression. If no exception
+is thrown, it yields the value of the code within the <code>try</code> block. If an
+exception is thrown, it yields the value of the exception handler.</p>
+
+<h3 id = "What_does__code_map_splitParam___code__do_">What does <code>map(splitParam)</code> do?</h3>
+
+<p>It is another example of syntactic sugar offered by Scala to eliminate
+boilerplate and make your code more concise. The full line in the example
+reads:</p>
+
+<pre><code>val keyValuePairs = params.map( splitParam ).toMap</code></pre>
+
+<p>We already looked at how <code>map()</code> works: it expects a transformation function
+as its only parameter. Here, the transformation function is obviously <code>splitParams</code>,
+the local function we defined to take apart the key/value pairs. But the syntax
+we use here is new: it contains neither a named parameter nor an underscore as an
+anonymous placeholder. Instead, it exploits the fact that - in the frequently
+occurring case of a function whose body is simply another function that takes the
+input parameter of the outer function as its parameter - we can omit the parameter
+altogether. The verbose variant of the line above would be:</p>
+
+<pre><code>val keyValuePairs = params.map(s =&gt; splitParam(s)).toMap</code></pre>
+
+<h1 id = "Bot__6:_Extracting_a_Command_Parser">Bot #6: Extracting a Command Parser</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>In the preceding bot version we noted that the <code>parse()</code> method could really be a static
+method. So let's turn it into one.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<pre><code>class ControlFunction {
+    def respond(input: String) = {
+        val (opcode, paramMap) = CommandParser(input)
+        if(opcode=="React") {
+            "Status(text=Energy:" + paramMap("energy") + ")"
+        } else {
+            ""
+        }
+    }
+}
+
+object CommandParser {
+    def apply(command: String) = {
+        def splitParam(param: String) = {
+            val segments = param.split('=')
+            if( segments.length != 2 )
+                throw new IllegalStateException("invalid key/value pair: " + param)
+            (segments(0),segments(1))
+        }
+
+        val segments = command.split('(')
+        if( segments.length != 2 )
+            throw new IllegalStateException("invalid command: " + command)
+
+        val params = segments(1).dropRight(1).split(',')
+        val keyValuePairs = params.map( splitParam ).toMap
+        (segments(0), keyValuePairs)
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>The code above uses the keyword <code>object</code> to define a container for our static parser function
+(more on <code>object</code> below). The container gets the name <code>CommandParser</code> and it contains a static
+method <code>apply()</code>, which is simply a renamed copy of our former <code>parse()</code> function. And the
+method body of <code>respond()</code> invokes the static parsing function via a reference to the
+<code>CommandParser</code> object. Here you should note the absence of an explicit mention of <code>apply()</code>
+in the invocation and the way the parsed result is broken up into two values in parentheses -
+both of which we'll explain below.</p>
+
+<h3 id = "What_does__code_object__code__do_">What does <code>object</code> do?</h3>
+
+<p>The <code>object</code> keyword in Scala defines a container for static values and methods. Unlike
+Java, where static fields and methods are mixed into the regular methods of a <code>class</code>, Scala
+isolates static methods into such containers.</p>
+
+<p>Here is an example of how you might use <code>object</code>:</p>
+
+<pre><code>object BotConstants {
+    val energyThreshold = 100
+    val spawnDelay = 10
+}</code></pre>
+
+<p>and here is how code elsewhere could access these static values:</p>
+
+<pre><code>class FooBar {
+    def foo() {
+        bar(BotConstants.energyThreshold)
+        blop(BotConstants.spawnDelay)
+    }
+}</code></pre>
+
+<p>An important concept in this context is that of a <strong>companion object</strong> for a <code>class</code>.
+A companion object is a container for the static methods of a class that has the same
+name as the class and that is defined in the same <code>.scala</code> file.</p>
+
+<h3 id = "Why_is_there_no_explicit_call_to__code_apply____code__">Why is there no explicit call to <code>apply()</code>?</h3>
+
+<p>In the bot example code, we have the following line:</p>
+
+<pre><code>val (opcode, paramMap) = CommandParser(input)</code></pre>
+
+<p>We now know that <code>CommandParser</code> refers to a container for static functions and values.
+And evidently the code is intended to parse the input. But the parser function has the
+name <code>apply()</code> and there is no mention of <code>apply()</code> here. What is going on?</p>
+
+<p>In Scala, methods called <code>apply()</code> have special meaning. The most immediate practical
+consequence is that for methods and functions whose name is <code>apply</code> you can omit the
+method name and use just parentheses and the parameters. So the verbose variant of the
+invocation above would be:</p>
+
+<pre><code>val (opcode, paramMap) = CommandParser.apply(input)</code></pre>
+
+<p>We simply omitted the dot and the <code>apply</code> method name, because we do not need it.
+You'll see various uses of this hand syntax later on, which will in many scenarios
+make your code look much more readable and elegant (once you've figured out what
+is going on, of course).</p>
+
+<h3 id = "What_does__code_paramMap__energy____code__do_">What does <code>paramMap("energy")</code> do?</h3>
+
+<p>The complete line of code in our bot example is:</p>
+
+<pre><code>"Status(text=Energy:" + paramMap("energy") + ")"</code></pre>
+
+<p>Overall this is a string concatenation in which the symbol <code>paramMap</code> refers to the
+parameter map returned by the command parser, i.e. it is a reference to an instance of
+a <code>Map[String,String]</code> whose keys are the parameter names and whose values are the
+parameter values.</p>
+
+<p>So we can already anticipate that this code will retrieve the value associated with
+the key &ldquo;energy&rdquo;. But why is this a valid method invocation, if we have an instance
+but no dot or method?</p>
+
+<p>The solution is the same as for the code that we used to parse the command string:
+it is an invocation of a method of <code>Map</code> called <code>apply()</code>, in which Scala allows us
+to omit the method name. The verbose variant would be this:</p>
+
+<pre><code>"Status(text=Energy:" + paramMap.apply("energy") + ")"</code></pre>
+
+<h3 id = "What_does__code__opcode__paramMap___code__do_">What does <code>(opcode, paramMap)</code> do?</h3>
+
+<p>So we know that <code>parse()</code> returns a tuple that Scala generates for us on the fly.
+In the preceding example, we have used the following code to take apart the tuple
+and obtain the individual element values:</p>
+
+<pre><code>val parseResult = parse(input)
+val opcode = parseResult._1
+val paramMap = parseResult._2</code></pre>
+
+<p>Now, the code just reads</p>
+
+<pre><code>val (opcode, paramMap) = CommandParser(input)</code></pre>
+
+<p>How does this work?</p>
+
+<p>We already noted that the need for functions with multiple return values is
+common and prompted the Scala designers to offer some syntactic sugar for
+constructing and typing <code>Tuple</code> values. To complete the cycle, Scala also
+offers syntactic sugar for taking the results apart again at the call site,
+some of which is specific to <code>Tuple</code> and some is not.</p>
+
+<p>The details are beyond what is required here, but the gist of the code above 
+is this: Scala breaks the returned tuple up into its elements and assigns
+the element values to the local values <code>opcode</code> and <code>paramMap</code>. </p>
+
+<p>If you want to read up on the concepts related to this extremely powerful
+idea, look up &ldquo;extractors&rdquo; and &ldquo;unapply&rdquo; in the &ldquo;Programming in Scala&rdquo; book.</p>
+
+<h1 id = "Bot__7:_Brownian_Motion">Bot #7: Brownian Motion</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>Create a bot that will meander around the arena using random motions.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<p>We will from now on omit the code for the <code>CommandParser</code> object, since we will never
+again change it. Just leave it in your source file, just like we did with the
+<code>ControlFunctionFactory</code> class.</p>
+
+<pre><code>import util.Random
+
+class ControlFunction {
+    val rnd = new Random()
+    def respond(input: String): String = {
+        val (opcode, paramMap) = CommandParser(input)
+        if( opcode == "React" ) {
+            val dx = rnd.nextInt(3)-1
+            val dy = rnd.nextInt(3)-1
+            "Move(direction=" + dx + ":" + dy + ")"
+        } else {
+            ""
+        }
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>In the first line, we add an <code>import</code> statement that will pull in the definition of the
+<code>scala.util.Random</code> class, a pseudo-random number generator (actually a Scala wrapper for
+<code>java.util.Random</code>):</p>
+
+<pre><code>import util.Random</code></pre>
+
+<p>This makes the symbol <code>Random</code> available to the code in our source file.</p>
+
+<p>We then add a new field called <code>rnd</code> to our <code>ControlFunction</code> class which will hold a reference to an
+instance of such a pseudo-random number generator, which we simply create with <code>new</code>:</p>
+
+<pre><code>val rnd = new Random()</code></pre>
+
+<p>Further down, we use the generator to produce random X and Y values for the movement
+direction of our bot:</p>
+
+<pre><code>val dx = rnd.nextInt(3)-1
+val dy = rnd.nextInt(3)-1</code></pre>
+
+<p>This code uses the member function <code>nextInt(n: Int)</code> of <code>Random</code>, which returns a 
+value in the range <code>0</code> to <code>(n-1)</code>. </p>
+
+<p>We then combine the generated coordinate values with the Scalatron command opcode 
+<code>Move</code> (see the Scalatron Protocol documentation) to assemble the bot's response:</p>
+
+<pre><code>"Move(direction=" + dx + ":" + dy + ")"</code></pre>
+
+<p>The result is a bot that, every time it is asked by the game server what it wants to do,
+requests the be moved once cell in some random direction.</p>
+
+<h1 id = "Bot__8:_Missile_Launcher">Bot #8: Missile Launcher</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>Create a control function that will let our (master) bot launch missiles (mini-bots) at random
+intervals in random directions and will guide the missile mini-bots along those directions.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<pre><code>class ControlFunction {
+    val rnd = new Random()
+
+    def respond(input: String): String = {
+        val (opcode, paramMap) = CommandParser(input)
+        if( opcode == "React" ) {
+            val generation = paramMap("generation").toInt
+            if( generation == 0 ) {
+                if( paramMap("energy").toInt &gt;= 100 &amp;&amp; rnd.nextDouble() &lt; 0.05 ) {
+                    val dx = rnd.nextInt(3)-1
+                    val dy = rnd.nextInt(3)-1
+                    val direction = dx + ":" + dy // e.g. "-1:1"
+                    "Spawn(direction=" + direction + ",energy=100,heading=" + direction + ")"
+                } else ""
+            } else {
+                val heading = paramMap("heading")
+                "Move(direction=" + heading + ")"
+            }
+        } else ""
+    }
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>Much of the code is identical to the previous version: we define a field for a random
+number generator and we parse the input command.</p>
+
+<p>But then the code differentiates between the <code>generation</code> of the entity for which the control
+function is invoked. To do that, the code extracts the value of the <code>generation</code> parameter from
+the parameter map. Master bots have <code>generation</code> 0 (zero), while mini-bots have <code>generation</code>
+1 (one) or higher. The game server provides this parameter to indicate to our control function
+for which of the controlled entities it wants a response.</p>
+
+<pre><code>val generation = paramMap("generation").toInt</code></pre>
+
+<p>The master bot will always see this value as 0 (zero), but mini-bots that we spawned will see
+a 1 (one). So we can follow this with an <code>if</code> expression:</p>
+
+<pre><code>if( generation == 0 ) {</code></pre>
+
+<p>In the true-block, we have the code for our master bot. It checks whether the bot has
+enough energy to spawn a mini-bot by checking the &ldquo;energy&rdquo; parameter passed by the game
+server:</p>
+
+<pre><code>if( paramMap("energy").toInt &gt;= 100 /* ... */ ) {</code></pre>
+
+<p>And we use the random number generator to express that we want to launch a new missile
+each cycle we're invoked with a probability of 5%:</p>
+
+<pre><code>if( /* ... */ rnd.nextDouble() &lt; 0.05 ) {</code></pre>
+
+<p>We then assemble a random launch direction for the missile:</p>
+
+<pre><code>val dx = rnd.nextInt(3)-1
+val dy = rnd.nextInt(3)-1</code></pre>
+
+<p>and use the X and Y direction values to construct a string direction:</p>
+
+<pre><code>val direction = dx + ":" + dy // e.g. "-1:1"</code></pre>
+
+<p>We will use this string as we concatenate and return a command string that tells the game
+server to spawn a new mini-bot at the given offset (relative to the master bot):</p>
+
+<pre><code>"Spawn(direction=" + direction + ",energy=100,heading=" + direction + ")"</code></pre>
+
+<p>But in addition to specifying the <code>direction</code> and <code>energy</code> parameters that are defined for
+the <code>Spawn</code> opcode in the server/plug-in protocol, we're passing a custom state parameter
+called <code>heading</code>. In doing so we exploit the fact that the server lets us use the <code>Spawn</code>
+to initialize the state property of the new mini-bot with arbitrary additional values before
+it is brought into existence in the arena.</p>
+
+<p>In the false-block, we have the code for the case where the control function is invoked for any
+of the mini-bots we spawned. The mini-bot needs to know in which direction to move. That is
+where the custom state property <code>heading</code> comes into play which we initialized with <code>Spawn</code>.
+The mini-bot fetches this property's value and uses it as its movement direction:</p>
+
+<pre><code>val heading = paramMap("heading")
+"Move(direction=" + heading + ")"</code></pre>
+
+<p>Since we already stored the <code>heading</code> in the format appropriate for x/y coordinate values
+("x:y&rdquo;), we can simply pass the string value of the property as the direction of the <code>Move</code>
+command.</p>
+
+<h1 id = "Bot__9:_Missile_Launcher_II">Bot #9: Missile Launcher II</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>The missile launcher in the preceding section was the second bot variant in which 
+we had to work with X/Y coordinates. Obviously, for a bot navigating a two-dimensional environment,
+there'll be a lot more of this. So we will write a little class that makes dealing 
+with such X/Y coordinates more convenient.</p>
+
+<p>Departing from the style of the preceding examples for a moment we will not present
+the entire source code up front but rather develop it in several steps.</p>
+
+<h2 id = "Step_1:_using__Tuple_">Step 1: using 'Tuple'</h2>
+
+<p>Since we already know about <code>Tuple</code> and constructing tuples with Scala is so
+convenient, we might start out without introducing our own type and simply
+work with <code>Tuple2</code>. The only code we have so far for working with X/Y coordinates
+simply generates a random coordinate using an instance of a random number generator:</p>
+
+<pre><code>val dx = rnd.nextInt(3)-1
+val dy = rnd.nextInt(3)-1
+val direction = dx + ":" + dy // e.g. "-1:1"
+"Spawn(direction=" + direction + ",heading=" + direction + ")"</code></pre>
+
+<p>Note that we're omitting the <code>energy</code> parameter; the server will then simply use the
+minimum spawn-energy value (100 EU) as a default.</p>
+
+<p>Let's define a method that constructs a tuple instead of two separate values:</p>
+
+<pre><code>def random() = (rnd.nextInt(3)-1, rnd.nextInt(3)-1)</code></pre>
+
+<p>We could then rewrite our code as follows:</p>
+
+<pre><code>def random() = (rnd.nextInt(3)-1, rnd.nextInt(3)-1)
+val xy = random()
+val direction = xy._1 + ":" + xy._2 // e.g. "-1:1"
+"Spawn(direction=" + direction + ",heading=" + direction + ")"</code></pre>
+
+<h2 id = "Detour:_parentheses_on_methods_with_no_arguments">Detour: parentheses on methods with no arguments</h2>
+
+<p>Just a very brief detour to talk about parentheses on invocations of methods that
+take no parameters, like <code>random()</code> above: the convention in Scala is to omit the
+parentheses if the method <strong>has no</strong> side effects, i.e. does not change any state (in
+most cases this means it does nothing beyond computing and returning a value). If 
+the method <strong>has</strong> side effects, we'll signal that by declaring and invoking it with 
+empty parentheses, as we do above.</p>
+
+<p>Why does the method have side effects, even though it looks like it just computes
+and returns a value? Well, invoking <code>nextInt(n)</code> changes the internal state of
+the randomizer, and this is a side effect of invoking our <code>random()</code> method. That
+is why we declared it with parentheses.</p>
+
+<h2 id = "Step_2:_moving_construction_to_an__code_object__code_">Step 2: moving construction to an <code>object</code></h2>
+
+<p>If the construction of pairs holding random values would be accessed from several
+call sites in our code, we'd have to supply the random number generator as a parameter
+instead of silently accessing the one in the surrounding object instance. Like this</p>
+
+<pre><code>def random(rnd: Random) = (rnd.nextInt(3)-1, rnd.nextInt(3)-1)</code></pre>
+
+<p>But now we have no reference to the <code>this</code> context at all, and the method could exist
+as a static factory function. To get a static function, we need an <code>object</code>, so let's
+define one:</p>
+
+<pre><code>object XY {
+    def random(rnd: Random) = (rnd.nextInt(3)-1, rnd.nextInt(3)-1)
+}</code></pre>
+
+<p>We can then update the code fragment within the <code>ControlFunction</code> as follows:</p>
+
+<pre><code>val xy = XY.random(rnd)
+val direction = xy._1 + ":" + xy._2 // e.g. "-1:1"
+"Spawn(direction=" + direction + ",heading=" + direction + ")"</code></pre>
+
+<h2 id = "Step_3:_creating_our_own_class">Step 3: creating our own class</h2>
+
+<p>Now what if we wanted to transform an X/Y coordinate instance, for example by adding
+another X/Y value as an offset? We could extend <code>Tuple2</code> and add methods to it, but
+that is inadvisable for both technical reasons (<code>Tuple2</code> is a <code>case class</code>, more on
+those soon) and because we prefer composition over inheritance. We could also do some
+fancy footwork and provide new methods for the existing <code>Tuple2</code> type (using Scala's
+&ldquo;pimp my library&rdquo; approach), but that's not really called for if we expect to add a
+lot of methods.</p>
+
+<p>No, the natural path here is to define our own <code>class</code>, just like we would in Java:</p>
+
+<pre><code>class XY(val x: Int, val y: Int)</code></pre>
+
+<p>which is roughly equivalent to the following Java code:</p>
+
+<pre><code>class XY {
+    final int x;
+    final int y;
+
+    XY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}</code></pre>
+
+<p>We can now instantiate values of this class and like this:</p>
+
+<pre><code>val xy = new XY(1, 1)</code></pre>
+
+<h2 id = "Step_4:_adding_a_member_function">Step 4: adding a member function</h2>
+
+<p>Let's add a method called <code>add</code> that will add the x and y fields of a given
+<code>XY</code> instance to those of the current one:</p>
+
+<pre><code>class XY(val x: Int, val y: Int) {
+    def add(other: XY) = new XY(x+other.x, y+other.y)
+}</code></pre>
+
+<p>We can use this method as follows:</p>
+
+<pre><code>val xy1 = new XY(1, 1)
+val xy2 = new XY(2, 2)
+val xy3 = xy1.add(xy2)</code></pre>
+
+<p>Keep in mind that we're striving for immutability, i.e. methods like <code>add()</code>
+will always return a new instance rather than modifying the existing instance.</p>
+
+<p>In Scala, we can call our method almost whatever we want, including the naturally
+attractive <code>+</code>, so we'll use that:</p>
+
+<pre><code>class XY(val x: Int, val y: Int) {
+    def +(other: XY) = new XY(x+other.x, y+other.y)
+}</code></pre>
+
+<p>and use it as follows:</p>
+
+<pre><code>val xy1 = new XY(1, 1)
+val xy2 = new XY(2, 2)
+val xy3 = xy1 + xy2</code></pre>
+
+<p>As a side note, the ability to create methods that look like operators leads a lot
+of programmers to define methods that look like operators, resulting in libraries
+that define lots of methods that look like operators and are consequently completely 
+incomprehensible to anybody who does not know the operator symbols. Don't be put off
+by this, though: soon enough you'll know all the operator symbols you frequently use
+and will know how to look up the others. And you'll probably join the crowd of 
+programmers defining lots of methods that look like operators, although an argument
+could be made that code with short symbols is not necessarily better code.</p>
+
+<h2 id = "Step_5:_creating_a_factory_function">Step 5: creating a factory function</h2>
+
+<p>Let's assemble the code we have so far:</p>
+
+<pre><code>class XY(val x: Int, val y: Int) {
+    def +(other: XY) = new XY(x+other.x, y+other.y)
+}
+object XY {
+    def random(rnd: Random) = new XY(rnd.nextInt(3)-1, rnd.nextInt(3)-1)
+}</code></pre>
+
+<p>We have a <code>class</code> definition with a <code>+</code> method and a companion <code>object</code> with a
+<code>random()</code> factory function. Using the <code>new</code> keyword, we can construct class instances
+and using the factory methods we can generate random instances. Now, we know of the
+syntactic sugar we get with methods called <code>apply()</code>, so why don't we add one:</p>
+
+<pre><code>...
+object XY {
+    def apply(x: Int, y: Int) = new XY(x, y)
+    def random(rnd: Random) = XY(rnd.nextInt(3)-1, rnd.nextInt(3)-1)
+}</code></pre>
+
+<p>Now, instead of littering our code with <code>new XY(x,y)</code> we can say just <code>XY(x, y)</code> to 
+construct <code>XY</code> instances:</p>
+
+<pre><code>val xy3 = XY(1, 1) + XY(2, 2)</code></pre>
+
+<h2 id = "Step_6:_upgrading_to_a__code_case_class__code_">Step 6: upgrading to a <code>case class</code></h2>
+
+<p>Next, we'll &ldquo;upgrade&rdquo; our class definition to a <code>case class</code>:</p>
+
+<pre><code>case class XY(x: Int, y: Int)</code></pre>
+
+<p>The modifier keyword <code>case</code> before the <code>class</code> keyword basically instructs the compiler:
+&ldquo;add all the stuff to my class that a sane person will usually want&rdquo;. This includes:</p>
+
+<ul>
+<li>an immutable field for each parameter of the <code>class</code> definition <br/></li>
+<li>an <code>equals()</code> method that tests equality by checking each field</li>
+<li>a <code>hashCode</code> method that takes into account each field</li>
+<li>a <code>toString</code> method that takes into account each field</li>
+</ul>
+
+<p>as well as a few others. Upgrading a <code>class</code> to a <code>case class</code> also automatically 
+generates a companion object of the same name with an <code>apply()</code> function as a 
+factory function that takes the parameters of the <code>class</code> as its arguments. The
+new code in its entirety looks like this: </p>
+
+<pre><code>case class XY(x: Int, y: Int) {
+    def +(other: XY) = XY(x+other.x, y+other.y)
+}
+object XY {
+    def random(rnd: Random) = XY(rnd.nextInt(3)-1, rnd.nextInt(3)-1)
+}</code></pre>
+
+<p>Where our hand-coded <code>apply()</code> was removed from the definition of <code>object XY</code>
+because the compiler now generates it automatically for us at compile time.</p>
+
+<p>We can now do stuff like this:</p>
+
+<pre><code>assert(XY(1,1) == XY(1,1))
+assert(XY(1,1) != XY(2,2))
+assert(XY(1,1).hashCode == XY(1,1).hashCode)
+assert(XY(1,1).toString == "XY(1,1)")
+assert(XY(1,1) + XY(2,2) = XY(3,3))</code></pre>
+
+<h2 id = "Step_7:_adding_a_few_other_methods">Step 7: adding a few other methods</h2>
+
+<p>We can add methods like the following to our <code>class</code>:</p>
+
+<pre><code>case class XY(x: Int, y: Int) {
+    // ...
+    def isNonZero = x!=0 || y!=0
+    def isZero = x==0 &amp;&amp; y==0
+    def isNonNegative = x&gt;=0 &amp;&amp; y&gt;=0
+
+    def updateX(newX: Int) = XY(newX, y)
+    def updateY(newY: Int) = XY(x, newY)
+
+    def addToX(dx: Int) = XY(x+dx, y)
+    def addToY(dy: Int) = XY(x, y+dy)
+
+    def +(pos: XY) = XY(x+pos.x, y+pos.y)
+    def -(pos: XY) = XY(x-pos.x, y-pos.y)
+    def *(factor: Double) = XY((x*factor).intValue, (y*factor).intValue)
+
+    def distanceTo(pos: XY) : Double = (this-pos).length
+    def length : Double = math.sqrt(x*x + y*y)
+
+    def signum = XY(x.signum, y.signum)
+
+    def negate = XY(-x, -y)
+    def negateX = XY(-x, y)
+    def negateY = XY(x, -y)
+}</code></pre>
+
+<p>And we can expand out static code in <code>object</code> as well:</p>
+
+<pre><code>object XY {
+    val Zero = XY(0,0)
+    val One =  XY(1,1)
+
+    val Right      = XY( 1,  0)
+    val RightUp    = XY( 1, -1)
+    val Up         = XY( 0, -1)
+    val UpLeft     = XY(-1, -1)
+    val Left       = XY(-1,  0)
+    val LeftDown   = XY(-1,  1)
+    val Down       = XY( 0,  1)
+    val DownRight  = XY( 1,  1)
+}</code></pre>
+
+<h2 id = "Step_8:_the_modified_bot">Step 8: the modified bot</h2>
+
+<p>Using the <code>XY</code> class we just defined, we can update our bot's <code>respond()</code> method as follows:</p>
+
+<pre><code>def respond(input: String): String = {
+    val (opcode, paramMap) = CommandParser(input)
+    if( opcode == "React" ) {
+        val generation = paramMap("generation").toInt
+        if( generation == 0 ) {
+            if( paramMap("energy").toInt &gt;= 100 &amp;&amp; rnd.nextDouble() &lt; 0.05 ) {
+                val heading = XY.random(rnd)
+                val headingStr = heading.x + ":" + heading.y // e.g. "-1:1"
+                "Spawn(direction=" + headingStr + ",heading=" + headingStr + ")"
+            } else ""
+        } else {
+            val headingStr = paramMap("heading")
+            val directions = headingStr.split(':').map(_.toInt) // e.g. "-1:1" =&gt; Array(-1,1)
+            "Move(direction=" + directions(0) + ":" + directions(1) + ")"
+        }
+    } else ""
+}</code></pre>
+
+<p>We notice that we could also shift the encoding and decoding of the <code>heading</code> state parameter
+into the <code>XY</code> class:</p>
+
+<pre><code>case class XY(x: Int, y: Int) {
+    // ...
+    override def toString = x + ":" + y
+}
+
+object XY {
+    // ...
+    def fromString(s: String) = {
+        val xy = s.split(':').map(_.toInt) // e.g. "-1:1" =&gt; Array(-1,1)
+        XY(xy(0), xy(1))
+    }
+}</code></pre>
+
+<p>Note the <code>override</code> modifier on the definition of <code>toString</code>. In Scala, overriding a method
+that is already defined in a base class or trait requires this modifier in order to keep
+you from inadvertently overriding a parent method you may not even have noticed was there,
+thus changing the behavior of the code in unexpected ways.</p>
+
+<p>We then obtain the almost-final variant of our <code>respond()</code> method:</p>
+
+<pre><code>def respond(input: String): String = {
+    val (opcode, paramMap) = CommandParser(input)
+    if( opcode == "React" ) {
+        val generation = paramMap("generation").toInt
+        if( generation == 0 ) {
+            if( paramMap("energy").toInt &gt;= 100 &amp;&amp; rnd.nextDouble() &lt; 0.05 ) {
+                val heading = XY.random(rnd)
+                "Spawn(direction=" + heading + ",heading=" + heading + ")"
+            } else ""
+        } else {
+            val headingStr = paramMap("heading")
+            val heading = XY.fromString(headingStr)
+            "Move(direction=" + heading + ")"
+        }
+    } else ""
+}</code></pre>
+
+<p>Note that in the construction of the <code>Spawn</code> and <code>Move</code> response strings, we are not explicitly
+calling <code>XY.toString</code>. The compiler detects that, in order to assemble the concatenated values
+into a string, it needs to convert our <code>direction</code> values from type <code>XY</code> into type <code>String</code>
+and automatically inserts calls to <code>XY.toString</code> to accomplish that.</p>
+
+<h2 id = "Step_9:_changing__code_fromString__code__to__code_apply__code_">Step 9: changing <code>fromString</code> to <code>apply</code></h2>
+
+<p>The static method <code>XY.fromString()</code> is essentially a factory method that, instead of <code>Int</code> x and y
+coordinates, takes a specially formatted <code>String</code> value as a parameter. So it makes sense to also
+define an <code>apply()</code> function on <code>object XY</code>:</p>
+
+<pre><code>object XY {
+    def apply(s: String) : XY = {
+        val xy = s.split(':').map(_.toInt) // e.g. "-1:1" =&gt; Array(-1,1)
+        XY(xy(0), xy(1))
+    }
+}</code></pre>
+
+<p>As before, because the function is overloaded, we need to declare the return value explicitly to
+be of type <code>XY</code>.</p>
+
+<p>After making this change, we can change the earlier code:</p>
+
+<pre><code>val heading = XY.fromString(headingStr)</code></pre>
+
+<p>into this slightly more concise format:</p>
+
+<pre><code>val heading = XY(headingStr)</code></pre>
+
+<h1 id = "Bot__10:_Food_Finder">Bot #10: Food Finder</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>The bot for the first time examines its surroundings, searches for the nearest food item
+(edible plant), runs towards it and eats it. To realize this, we need to examine the
+string value the server passes to the control function in the &ldquo;view&rdquo; parameter. The string
+looks something like this:</p>
+
+<pre><code>WWWWWWWW_____WW_____WW__M__WW_____WW____PWWWWWWWW</code></pre>
+
+<p>Note that this is a simplified version; the actual string sent by the game server will
+contain a larger view and will be be much longer. The size of the &ldquo;view&rdquo; string is described
+in detail in the document <strong>Scalatron Game Rules</strong>.</p>
+
+<p>The string has a very simple structure: it is a cell-by-cell rendering of the surroundings
+of the bot into an ASCII string. Every letter in the string corresponds to a cell on the
+game board. The view is always square and its edges span an odd number of cells.</p>
+
+<p>The example string above contains 49 characters, leading us to deduce that it is a
+rendering of a 7x7 square of cells. Each letter corresponds to a game entity. If we
+break the view into multiple lines by fragmenting it at every 7th letter, we obtain:</p>
+
+<pre><code>WWWWWWW
+W_____W
+W_____W
+W__M__W
+W_____W
+W____PW
+WWWWWWW</code></pre>
+
+<p>The game entity character codes are described in detail in the document <strong>Scalatron Protocol</strong>.
+Here is an excerpt:</p>
+
+<ul>
+<li>&ldquo;_&rdquo; empty cell</li>
+<li>&ldquo;W&rdquo; wall</li>
+<li>&ldquo;M&rdquo; Bot (=master; yours, always in the center unless seen by a slave)</li>
+<li>&ldquo;P&rdquo; Zugar (=good plant, food)</li>
+</ul>
+
+<p>So what the bot observes in the example is:</p>
+
+<ul>
+<li>the view is completely surrounded by wall blocks (<code>W</code>)</li>
+<li>the bot itself resides exactly at the center (<code>M</code>)</li>
+<li>at the bottom right there is an edible plant (<code>P</code>)</li>
+</ul>
+
+<p>Given this string, the bot now needs to find the nearest food item and move towards it.
+We'll again develop the code to achieve this in several steps.</p>
+
+<h2 id = "Step__1:_a_view_parser_class">Step #1: a view parser class</h2>
+
+<p>Obviously, in a programming game in which bots must react to what they see in the game,
+there'll be a lot of view parsing and analyzing. So we anticipate that we'll benefit from
+having a smarter representation of the view string than a sequence of ASCII characters.
+Since the view won't change while we work on it each cycle, a simple solution would be to
+just wrap the string and add whatever fields and methods we may want:</p>
+
+<pre><code>case class View(cells: String)</code></pre>
+
+<p>To access the cell at a particular index, we can provide an <code>apply()</code> method, like this:</p>
+
+<pre><code>case class View(cells: String) {
+    def apply(index: Int) = cells.charAt(index)
+}</code></pre>
+
+<p>We could use this code in our control function as follows:</p>
+
+<pre><code>val viewString = paramMap("view")
+val view = View(viewString)
+val cell = view(10)</code></pre>
+
+<h2 id = "Step__2:_XY_cell_access">Step #2: XY cell access</h2>
+
+<p>However, we'll want to mostly access cells using <code>XY</code> coordinates, via the 2D integer vector
+class we just defined in the preceding chapter. To do that, we need a method that translates
+<code>XY</code> coordinates into indices, like so:</p>
+
+<pre><code>def indexFromAbsPos(absPos: XY) = absPos.x + absPos.y * size</code></pre>
+
+<p>We refer to this addressing scheme as using &ldquo;absolute positions&rdquo; since the <code>XY</code> value
+is relative to the top-left corner of the view. We'll look at positioning relative to
+the bot's location shortly.</p>
+
+<p>However, the absolute position to index translation code relies on an as-yet-undefined
+value <code>size</code>, which contains the number of cells per line. We could compute this on-the-fly
+of course by defining a method <code>size</code>:</p>
+
+<pre><code>def size = math.sqrt(cells.length).intValue</code></pre>
+
+<p>But since this method would be called <em>a lot</em> we probably want to cache the value. So we
+could convert the definition from a method into an immutable field, which would be
+initialized at construction time:</p>
+
+<pre><code>val size = math.sqrt(cells.length).intValue</code></pre>
+
+<p>The <code>View</code> class now looks like this:</p>
+
+<pre><code>case class View(cells: String) {
+    val size = math.sqrt(cells.length).intValue
+    def indexFromAbsPos(absPos: XY) = absPos.x + absPos.y * size
+    def apply(absPos: XY) = cells.charAt(indexFromAbsPos(absPos))
+}</code></pre>
+
+<p>We can now construct and use <code>View</code> instances as follows:</p>
+
+<pre><code>val viewString = paramMap("view")
+val view = View(viewString)
+val cell = view(XY(1,1))</code></pre>
+
+<h3 id = "Detour:_class_parameter_versus_field">Detour: class parameter versus field</h3>
+
+<p>As a quick detour, let's examine an alternative implementation. Why not shift the <code>size</code>
+field into the <code>case class</code> parameter list at the top and provide a factory method that
+computes this value up front? Like so:</p>
+
+<pre><code>object View {
+    def apply(view: String): View = View(math.sqrt(view.length).toInt, view)
+}
+case class View(size: Int, cells: String) {
+    def indexFromAbsPos(absPos: XY) = absPos.x + absPos.y * size
+    def apply(absPos: XY) = cells.charAt(indexFromAbsPos(absPos))
+}</code></pre>
+
+<p>Note that here, the Scala compiler requires that we specify the return type of the <code>apply()</code>
+method because the method is overloaded. How is it overloaded even though there is only one
+variant here? Well, we defined <code>View</code> as a <code>case class</code>, so the compiler automatically
+generates an <code>apply()</code> method for the parameters of the class at compile time, which is
+not visible for us in the source code. For overloaded functions, Scala requires an
+explicitly specified return type, which we therefore specify here. The reason we add another
+<code>apply()</code> function is that it allows users of the <code>View</code> class to omit the <code>size</code> parameter
+now expected by the auto-generated <code>apply()</code>.</p>
+
+<p>But would this even be a good alternative? It would certainly work, but recalling that
+using a <code>case class</code> also generates implementations of <code>toString</code>, <code>equals</code> and <code>hashCode</code>
+for us that are based on the class parameter list, we'd now burden each one with the <code>size</code>
+parameter which really is redundant: for equality or hashing we only need the string. So
+while this solution is possible, it is here better to leave <code>size</code> as a field that is
+defined within the class body, more like a class-local constant value.</p>
+
+<h2 id = "Step__3:_relative_addressing">Step #3: relative addressing</h2>
+
+<p>Absolute addressing (relative to top-left of the view) is useful, but eventually we'll
+always want to guide a bot to some location, and the game server expects all movement commands
+to contain offsets relative to the bot position. So a very common use case is relative
+addressing, where we supply and receive coordinates relative to the center of the view
+(where the bot resides).</p>
+
+<p>So we'll expand the <code>View</code> class with relative addressing, modify the <code>apply()</code> method to
+expect relative <code>XY</code> addresses and add a few more utility methods. Here is the enhanced
+<code>View</code> class:</p>
+
+<pre><code>case class View(cells: String) {
+    val size = math.sqrt(cells.length).toInt
+    val center = XY(size/2, size/2)
+
+    def apply(relPos: XY) = cellAtRelPos(relPos)
+
+    def indexFromAbsPos(absPos: XY) = absPos.x + absPos.y * size
+    def absPosFromIndex(index: Int) = XY(index % size, index / size)
+    def absPosFromRelPos(relPos: XY) = relPos + center
+    def cellAtAbsPos(absPos: XY) = cells.apply(indexFromAbsPos(absPos))
+
+    def indexFromRelPos(relPos: XY) = indexFromAbsPos(absPosFromRelPos(relPos))
+    def relPosFromAbsPos(absPos: XY) = absPos - center
+    def relPosFromIndex(index: Int) = relPosFromAbsPos(absPosFromIndex(index))
+    def cellAtRelPos(relPos: XY) = cells(indexFromRelPos(relPos))
+}</code></pre>
+
+<h2 id = "Step__4:_finding_the_nearest_food_item">Step #4: finding the nearest food item</h2>
+
+<p>Let's now add a method that the bot can use to find the nearest food item visible in its
+view. In Java style, we might declare such a method with the signature</p>
+
+<pre><code>def offsetToNearest(c: Char) : XY</code></pre>
+
+<p>where we pass the ASCII letter that we're looking for (here, <code>P</code>) as a parameter and expect
+the relative <code>XY</code> coordinate as a result.</p>
+
+<p>What if no cell of the desired type is presently visible within the view, however? In Java,
+we might return <code>null</code> to indicate this special case, or, somewhat better, we might define
+some instance of <code>XY</code> to act as a sentinel value. We might also throw an exception (not that
+this would be a good choice here, since it is not really an unexpected occurrence).</p>
+
+<p>But in none of these cases, what the function returns is obvious to a caller without
+additional documentation. We might forget to handle a <code>null</code> value and get a
+<code>NullPointerException</code>, or we might screw up the comparison to our sentinel value,
+which in addition clutters our namespace.</p>
+
+<p>Fortunately, Scala offers a much better approach, which is to return an <code>Option</code> value.
+An <code>Option</code> is a generic abstract class whose instances are either <code>None</code> (a singleton)
+or a <code>Some</code> value that wraps the actual result value. Using <code>Option</code>, we can change
+the signature of our method to:</p>
+
+<pre><code>def offsetToNearest(c: Char) : Option[XY]</code></pre>
+
+<p>All potential users of this method immediately know that the result may be either
+<code>None</code> if no such character occurrence is found or <code>Some(xy)</code> if one is found. Using
+<code>Option</code> is absolutely the preferred way to handle such cases in Scala and for this
+reason most Scala programmers haven't seen a <code>NullPointerException</code> in a long time.</p>
+
+<p>Adopting this signature, we can implement the method in a variety of ways. Here are
+three options, just to give you an idea of the options available to you.</p>
+
+<h3 id = "Variant_A:_procedural_style_with__code_for__code_">Variant A: procedural style with <code>for</code></h3>
+
+<p>Here is a version that is closest to the classic procedural style known from Java or C++
+(note that this function should reside inside the View class definition):</p>
+
+<pre><code>def offsetToNearest(c: Char) = {
+    var nearestPosOpt : Option[XY] = None
+    var nearestDistance = Double.MaxValue
+    for(i &lt;- 0 until cells.length) {
+        if(c == cells(i)) {
+            val pos = absPosFromIndex(i)
+            val distanceToCenter = pos.distanceTo(center)
+            if(distanceToCenter &lt; nearestDistance) {
+                nearestDistance = distanceToCenter
+                nearestPosOpt = Some(pos - center)
+            }
+        }
+    }
+    nearestPosOpt
+}</code></pre>
+
+<p>The method uses a <code>for()</code> expression to scans all cell indices in a loop. The <code>for()</code> expression
+works by iterating over elements drawn from a <strong>range</strong> (of integers) generated by the expression
+<code>0 until cells.length</code>. It uses two mutable values to store the nearest cell found so far and
+its distance to the bot.</p>
+
+<p>Using constructs like <code>for()</code>, it is generally straight-forward to translate Java code into
+Scala code. In fact, in IntelliJ IDEA, you can copy Java code from a Java source file and
+paste it directly as Scala code into a Scala source file, with automatic translation.</p>
+
+<h3 id = "Variant_B:_functional_style">Variant B: functional style</h3>
+
+<p>However, for any such procedural implementation there is generally a more compact and more
+elegant purely functional implementation. Having mutable values, doing manual range
+comparisons and generally writing code that is longer than necessary introduces opportunities
+for errors to sneak in. So here is an example of a functional implementation that gets by
+without any mutable state:</p>
+
+<pre><code>def offsetToNearest(c: Char) = {
+    val relativePositions =
+        cells
+        .view
+        .zipWithIndex
+        .filter(_._1 == c)
+        .map(p =&gt; relPosFromIndex(p._2))
+    if(relativePositions.isEmpty)
+        None
+    else
+        Some(relativePositions.minBy(_.length))
+}</code></pre>
+
+<p>Let's take this apart:</p>
+
+<ul>
+<li><code>cells.view</code> indicates that the subsequent call to <code>zipWithIndex</code> should not generate
+a new collection instance but rather a transient view onto the existing collection.
+This ensures that no new copy of the collection will be made.</li>
+<li><code>.zipWithIndex</code> generates a collection of pairs in which each element of the
+original collection (the <code>Char</code> elements of our <code>cells</code> <code>String</code>) is paired with its
+index in the collection.</li>
+<li><code>.filter(_._1 == c)</code> generates a collection that contains only those elements which
+match the filter predicate. The predicate we use is <code>_._1 == c</code>, i.e. whether the
+first element of the (just-zipped) pair equals the desired character value stored
+in <code>c</code>. Note there that the first underscore is an anonymous reference to the parameter
+passed to the predicate function. More verbosely, this could be written as
+<code>pair =&gt; { pair._1 == c}</code>.</li>
+<li><code>.map(p =&gt; relPosFromIndex(p._2))</code> transforms the collection of pairs into a collection
+of <code>XY</code> instances representing the relative cell coordinates of the matching cells.
+This is achieved by supplying a transform function to match that receives a pair
+as its parameter (accessible via the parameter name <code>p</code>) and maps the second element
+of the pair (the index) to a relative position via an invocation of <code>relPosFromIndex()</code>.</li>
+<li><code>if(relativePositions.isEmpty)</code> then tests whether the resulting collection is empty
+(i.e. there were no matches) and if so, returns <code>None</code>. If there were matches,
+it uses&hellip;</li>
+<li><code>.minBy(_.length)</code> to find the one nearest to the center. This works by supplying a
+&ldquo;scoring&rdquo; function to <code>minBy</code> that, for each element in the collection, returns a value
+for which an ordering exists (here, an <code>Int</code>). The expression <code>_.length</code> is the usual
+short-hand employing an underscore as a reference to the (anonymous) call parameter.
+The verbose variant would be <code>relPos =&gt; { relPos.length }</code>.</li>
+<li><code>Some(...)</code> finally wraps the result into a <code>Some</code> instance, matching expected the
+<code>Option[XY]</code> return type.</li>
+</ul>
+
+<h3 id = "Variant_C:_procedural_style_with__code_while__code_">Variant C: procedural style with <code>while</code></h3>
+
+<p>So the functional style is very concise and for many reasons preferable for the vast
+majority of code one might write. However, you may have noticed that a lot is going
+on here, with several traversals and potential interim copies of the collection being
+generated in calls like <code>zipWithIndex</code>. Some of this overhead can be eliminated or
+minimized, for example by using <code>view</code> to avoid a copy.</p>
+
+<p>But what about the 1% of your code where you really, absolutely require optimal
+efficiency? The answer is that in those rare cases, you may want to write procedural
+code with mutable state. And the good news is that you can do that. Here is a more
+performance-conscious version of the <code>offsetToNearest</code> method that uses a <code>while</code>
+loop to do an efficient traversal:</p>
+
+<pre><code>def offsetToNearest(c: Char) = {
+    var nearestPosOpt : Option[XY] = None
+    var nearestDistance = Double.MaxValue
+    for(i &lt;- 0 until cells.length) {
+        if(c == cells(i)) {
+            val pos = absPosFromIndex(i)
+            val distanceToCenter = pos.distanceTo(center)
+            if(distanceToCenter &lt; nearestDistance) {
+                nearestDistance = distanceToCenter
+                nearestPosOpt = Some(pos - center)
+            }
+        }
+    }
+    nearestPosOpt
+}</code></pre>
+
+<p>The traversal with <code>while</code> will often be slightly faster than with <code>for</code> because
+<code>for</code> will be translated by the compiler into functional code using closures, which
+carry a slight overhead.</p>
+
+<p>The takeaway is that initially, Scala allows you to start coding like you would in
+Java, using familiar constructs like <code>for</code> loops. As you learn about functional
+programming, Scala lets you write concise, error-minimizing functional code for the
+99% of your code where productivity trumps performance. In the other 1% of your code
+where performance trumps productivity, Scala also lets you write procedural code that
+is as fast as anything you might write in Java.</p>
+
+<h3 id = "Variant_D:_but__hellip__there_is_also_parallelism">Variant D: but &hellip; there is also parallelism</h3>
+
+<p>For <em>sequential</em> code, that is. If you expect to be able to exploit multiple CPU
+cores, the picture changes again dramatically. Now, purely functional code that embraces
+immutability gains an upper hand because it is so much more readily parallelizable.</p>
+
+<p>Let's imagine for a moment that we were not processing a few hundred characters in
+a bot view, as we expect to be doing here, but rather millions. What would it take
+to parallelize this code to exploit multiple cores? For the procedural code, use
+your own experience to judge the amount of work this would take.</p>
+
+<p>For the functional version, here is the only change we'd have to make: we'd replace
+the reference to <code>cells</code> at the top with <code>cells.par</code>, turning it into a parallel
+collection. That's it.</p>
+
+<p>Here is a real-life example from the Scalatron game server. The primary bottleneck for
+the server is the drawing code, which uses unaccelerated Java drawing code. On an 8-core
+system, the single-threaded variant of the server generates close to 100% CPU load, i.e.
+it loads only a single CPU, as would be expected. After spending an hour or so to add
+some hand-crafted threading code to introduce double buffering and parallelize drawing
+and state updating, the CPU load rises to 180%. But then, after spending about ten seconds
+to add a call to <code>.par</code> in the bot response generation code to parallelize all bot
+control function invocations, the load rises to 300%.</p>
+
+<h2 id = "Step__5:_exploiting_the_nearest_food_item">Step #5: exploiting the nearest food item</h2>
+
+<p>Now that we have the <code>offsetToNearest</code> method available, we can use it in our bot's control
+function like this:</p>
+
+<pre><code>def respond(input: String): String = {
+    val (opcode, paramMap) = CommandParser(input)
+    if( opcode == "React" ) {
+        val viewString = paramMap("view")
+        val view = View(viewString)
+        view.offsetToNearest('P') match {
+            case Some(offset) =&gt;
+                val unitOffset = offset.signum
+                "Move(direction=" + unitOffset + ")"
+            case None =&gt;
+                ""
+        }
+    } else ""
+}</code></pre>
+
+<p>Let's look at what this code does in more detail.</p>
+
+<h3 id = "What_do__code_match__code__and__code_case__code__do_">What do <code>match</code> and <code>case</code> do?</h3>
+
+<p>In Java, we can handle situations in which a value can take on one of several possible
+values with a <code>switch</code> statement. Scala provides pattern matching via <code>match</code> and <code>case</code>,
+which is more general. To see how this works, let's isolate the associated example code:</p>
+
+<pre><code>view.offsetToNearest('P') match {
+    case Some(offset) =&gt; /* handler code */
+    case None =&gt; /* handler code */
+}</code></pre>
+
+<p>The value to be examined precedes the <code>match</code> keyword. Here, we wish to examine the value
+returned by <code>view.offsetToNearest('P')</code>, i.e. an <code>Option</code> value that may or may not contain
+an <code>XY</code> instance. Within the curly braces that follow after the <code>match</code> keyword, we define
+the cases to be handled. We do this by using the <code>case</code> keyword, followed by the pattern we
+want to match against, followed by a <code>=&gt;</code> symbol, followed by the handler code for that case.</p>
+
+<p>So in the code above, since we know the result type of <code>offsetToNearest</code> to be an <code>Option[XY]</code>,
+we have two handlers: one for the case where <code>None</code> is returned and one for the case where
+<code>Some(offset)</code> is returned.</p>
+
+<p>Like <code>if</code> or <code>try</code>, a <code>match</code> expression yields a value. It is the value associated with
+the first matching handler. Here, the handler for <code>None</code> simply yields the empty string; the handler
+for <code>Some(offset)</code> assembles a <code>Move</code> command that instructs the bot to move in the direction
+of the nearest visible plant.</p>
+
+<p>Some other notes on <code>match</code> and <code>case</code>:</p>
+
+<ul>
+<li>In Scala, unlike Java, there is no fall-through from one case to the next.</li>
+<li><p>The last pattern can be an underscore ('_'), which matches any pattern:</p>
+
+<p>foo match {
+    // handlers for specific cases
+    case _ => // handler for everything else
+}</p></li>
+<li><p>Patterns can be constants, like so:</p>
+
+<p>foo match {
+    case &ldquo;Frank&rdquo; => // handler for &ldquo;Frank&rdquo;
+    case &ldquo;Joe&rdquo; =>   // handler for &ldquo;Joe&rdquo;
+    case &ldquo;Tina&rdquo; =>  // handler for &ldquo;Tina&rdquo;
+}</p></li>
+<li><p>Patterns can be types, with a symbol name to bind the value to if the type
+matches, like so:</p>
+
+<p>foo match {
+    case n: Int => println("an Int: " + b)
+    case s: String => println("a String: " + s)
+    case c: Char => println("a Char: " + c)
+}</p></li>
+</ul>
+
+<p>Caveat: in Scala, since it is based on and constrained by the Java Virtual Machine and its
+generic type system, generic types are subject to type erasure just like they are in Java.
+Due to this limitation, <code>case</code> patterns cannot distinguish between variants of a generic
+type by subtype. Code like the following will therefore not work:</p>
+
+<pre><code>anOption match {
+    case a: Some[A] =&gt; // ...
+    case b: Some[B] =&gt; // ...
+}</code></pre>
+
+<p>The only exception to this rule is <code>Array</code>, which is not subject to type erasure.</p>
+
+<h3 id = "What_does__code_case_Some_offset___code__do_">What does <code>case Some(offset)</code> do?</h3>
+
+<p>The <code>match</code> expression we just examined contains one <code>case</code> handler that is neither
+a constant nor (just) a type:</p>
+
+<pre><code>... match {
+    case Some(offset) =&gt; // handler code
+}</code></pre>
+
+<p>Here, Scala <em>extracts</em> the value contained in the <code>Some</code> instance for us and binds it
+to a symbol <code>offset</code>, which is of type <code>XY</code> (since the matched value was an <code>Option[XY]</code>).</p>
+
+<p>This parameter extraction is available for classes whose companion object implements a
+(static) method <code>unapply()</code>, which the compiler uses to extract the class parameters.</p>
+
+<h2 id = "Complete_Listing">Complete Listing</h2>
+
+<p>Here is a complete listing for the bot, which you can cut and paste into a single source file.
+Some unused functions were omitted.</p>
+
+<pre><code>class ControlFunctionFactory {
+    def create = new ControlFunction().respond _
+}
+
+class ControlFunction {
+    def respond(input: String): String = {
+        val (opcode, paramMap) = CommandParser(input)
+
+        if( opcode == "React" ) {
+            val viewString = paramMap("view")
+            val view = View(viewString)
+            view.offsetToNearest('P') match {
+                case Some(offset) =&gt;
+                    val unitOffset = offset.signum
+                    "Move(direction=" + unitOffset + ")"
+                case None =&gt;
+                    ""
+            }
+        } else ""
+    }
+}
+
+case class View(cells: String) {
+    val size = math.sqrt(cells.length).toInt
+    val center = XY(size/2, size/2)
+
+    def indexFromAbsPos(absPos: XY) = absPos.x + absPos.y * size
+    def absPosFromIndex(index: Int) = XY(index % size, index / size)
+    def absPosFromRelPos(relPos: XY) = relPos + center
+    def cellAtAbsPos(absPos: XY) = cells.charAt(indexFromAbsPos(absPos))
+
+    def indexFromRelPos(relPos: XY) = indexFromAbsPos(absPosFromRelPos(relPos))
+    def relPosFromAbsPos(absPos: XY) = absPos - center
+    def relPosFromIndex(index: Int) = relPosFromAbsPos(absPosFromIndex(index))
+    def cellAtRelPos(relPos: XY) = cells.charAt(indexFromRelPos(relPos))
+
+    def offsetToNearest(c: Char) = {
+        val relativePositions = cells.par.view.zipWithIndex.filter(_._1 == c).map(p =&gt; relPosFromIndex(p._2))
+        if(relativePositions.isEmpty) None
+        else Some(relativePositions.minBy(_.length))
+    }
+}
+
+case class XY(x: Int, y: Int) {
+    override def toString = x + ":" + y
+    def +(pos: XY) = XY(x+pos.x, y+pos.y)
+    def -(pos: XY) = XY(x-pos.x, y-pos.y)
+    def distanceTo(pos: XY) : Double = (this-pos).length
+    def length : Double = math.sqrt(x*x + y*y)
+    def signum = XY(x.signum, y.signum)
+    def toEntityName = x + "_" + y
+}
+
+object CommandParser {
+    def apply(command: String) = {
+        def splitParam(param: String) = {
+            val segments = param.split('=')
+            if( segments.length != 2 )
+                throw new IllegalStateException("invalid key/value pair: " + param)
+            (segments(0),segments(1))
+        }
+
+        val segments = command.split('(')
+        if( segments.length != 2 )
+            throw new IllegalStateException("invalid command: " + command)
+
+        val params = segments(1).dropRight(1).split(',')
+        val keyValuePairs = params.map( splitParam ).toMap
+        (segments(0), keyValuePairs)
+    }
+}</code></pre>
+
+<h1 id = "Debugging_Your_Bot">Debugging Your Bot</h1>
+
+<h2 id = "Approaches">Approaches</h2>
+
+<p>One important area was omitted from the tutorial so far: how do you debug your bot code?
+There are multiple options. Which one is best depends on your goals and your development
+environment. Here are the three main approaches:</p>
+
+<ul>
+<li><p><strong>Using the Scalatron IDE for browser-based development</strong>: since compilation and execution
+occur on the server computer (to which you may not have any other access) and the IDE is
+fairly basic, there is no way to debug the code by setting break-points ot single-stepping
+through it. You can, however, single-step through the simulation and inspect the input and
+state of your entities (bots and mini-bots), as well as have your bot output debug
+information.</p></li>
+<li><p><strong>Using IntelliJ IDEA with a local test server</strong>: if you are using IDEA to build your
+bots (the same may also be true for the Scala IDE), you can install and run a local test
+server, have it load your plug-in and then debug with breakpoints and single-stepping
+within the IDE. This approach is probably the most powerful. It is recommended for
+serious enthusiasts that want to build really clever and complex bots. For more information,
+see the chapter on debugging with IDEA in the <em>Player Setup</em> guide.</p></li>
+<li><p><strong>Using local builds with a central tournament server</strong>: the only option for debugging
+in this scenario is to use server-side logging into a user-specific directory.</p></li>
+</ul>
+
+<p>Some of these options will be elaborated on in the next few bot examples of the tutorial.</p>
+
+<h2 id = "Making_State_Visible">Making State Visible</h2>
+
+<p>The debugging approach with longest history is also the simplest: use outputs generated by
+your program to trace its behavior at points of interest and to narrow the location of
+aberrations. The Scalatron protocol provides several mechanisms for doing this:</p>
+
+<ul>
+<li><p><strong>Status()</strong> &mdash; using the <code>Status</code> opcode, a bot or mini-bot can display a short message
+above its location on the tournament screen. This can be used to indicate some aspects of
+the state of the bot in a way that is visible while it is running in a multi-player
+tournament round. You can, for example, display messages like &ldquo;Searching&hellip;&rdquo; while the bot
+is scouting for food, &ldquo;Approaching&hellip;&rdquo; while it is closing in on a food item, etc.</p></li>
+<li><p><strong>Say()</strong> &mdash; using the <code>Say</code> opcode, a bot or mini-bot can leave a textual &ldquo;bread-crumb&rdquo; at
+its current location on the screen. The bread-crumb will stay in its initial location even
+when the bot moves away and will gradually fade away over the course of a few seconds.
+<code>Say</code> is thus a good way to generate records of events or state changes (as opposed to states
+themselves). They remain visible even as the simulation moves on. Examples include messages
+like &ldquo;Spotted Food&rdquo;, &ldquo;Proximity Fuse&rdquo; or &ldquo;Fighting&rarr;Harvesting&rdquo;.</p></li>
+<li><p><strong>Log()</strong> &mdash; using the <code>Log</code> opcode, a bot or mini-bot can record a multi-line debug message
+in its entity state. This debug message can be inspected in the browser-based Scalatron IDE
+while running in a sandbox. You can essentially record whatever you want, with the unfortunate
+limitation that the server's relatively dumb parser must not be confused by it. So certain
+characters are not permitted: comma (<code>,</code>), equals sign (<code>=</code>), parentheses (<code>(</code>, <code>)</code>),
+pipe (<code>|</code>).</p></li>
+<li><p><strong>Set()</strong> &mdash; using the <code>Set</code> opcode, a bot or mini-bot can record key/value pairs into the
+state parameters which the server maintains for it. These state parameters can be inspected
+in the browser-based Scalatron IDE while single-stepping through a sandboxed simulation.</p></li>
+</ul>
+
+<h1 id = "Bot__11:_Handler_Methods">Bot #11: Handler Methods</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>In the bot examples shown so far, we've gradually introduced command parsing and expanded the
+functionality of the bots. It is now time to make the bot structure a bit more elegant. We will
+do this in several steps, spread out over multiple example bots. The first step will be to break
+the control function up into handlers for the various opcodes sent by the server.</p>
+
+<h2 id = "Source_Code">Source Code</h2>
+
+<pre><code>// omitted: class ControlFunctionFactory
+// omitted: class CommandParser
+// omitted: class View
+
+class ControlFunction() {
+    // this method is called by the server
+    def respond(input: String): String = {
+        val (opcode, params) = CommandParser(input)
+        opcode match {
+            case "Welcome" =&gt;
+                welcome(
+                    params("name"),
+                    params("path"),
+                    params("apocalypse").toInt,
+                    params("round").toInt
+                )
+            case "React" =&gt;
+                react(
+                    params("generation").toInt,
+                    View(params("view")),
+                    params
+                )
+            case "Goodbye" =&gt;
+                goodbye(
+                    params("energy").toInt
+                )
+            case _ =&gt;
+                "" // OK
+        }
+    }
+
+    def welcome(name: String, path: String, apocalypse: Int, round: Int) = ""
+
+    def react(generation: Int, view: View, params: Map[String, String]) =
+        if( generation == 0 ) reactAsMaster(view, params)
+        else reactAsSlave(view, params)
+
+    def goodbye(energy: Int) = ""
+
+    def reactAsMaster(view: View, params: Map[String, String]) = "Status(text=Master)"
+
+    def reactAsSlave(view: View, params: Map[String, String]) = "Status(text=Slave)"
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>The changes are quite staright-forward and not Scala-specific, which is why we won't spend
+a lot of time on them. Instead of handling the invocations from the server inside the
+<code>respond()</code> method, we parse the command and feed it through a <code>match</code>/ <code>case</code>
+pattern matcher. The pattern matcher contains one handler for each of the opcodes the
+server may send (we ignore unknown opcodes).</p>
+
+<p>Each handler extracts frequently-used parameters from the parsed parameter maps and
+feeds them as arguments to an opcode-specific handler method:</p>
+
+<ul>
+<li>the <code>welcome()</code> method handles the <code>Welcome</code> opcode</li>
+<li>the <code>react()</code> method handles the <code>React</code> opcode</li>
+<li>the <code>goodbye()</code> method handles the <code>Goodbye</code> opcode</li>
+</ul>
+
+<p>Within the <code>react()</code> handler method we inspect the entity for which a response is
+required and then branch into the appropriate entity-specific handler:</p>
+
+<ul>
+<li>the <code>reactAsMaster()</code> method handles <code>React</code> invocations for the (master) bot</li>
+<li>the <code>reactAsSlave()</code> method handles <code>React</code> invocations for mini-bots</li>
+</ul>
+
+<p>When you build and publish this bot, you will see that the master bot displays a little
+status text bubble saying &ldquo;Master&rdquo; next to it.</p>
+
+<h1 id = "You_Made_It_">You Made It!</h1>
+
+<p>For the moment, this is where the tutorial ends. If you are interested in advancing further,
+have a look at the various frameworks for Scalatron bots that people have published online.
+You can find some references to them in the <a href="http://scalatron.github.com/pages/elsewhere.html">online resources page</a>
+of the Scalatron web site.</p>
+
+<h1 id = "Cheat_Sheet:__code_String__code_">Cheat Sheet: <code>String</code></h1>
+
+<h2 id = "Constructing_a_String">Constructing a String</h2>
+
+<pre><code>val a = "A"
+val ab = "A" + "B"
+val a1b = "A" + 1 + "B"</code></pre>
+
+<h2 id = "Taking_a_String_apart">Taking a String apart</h2>
+
+<p>To break a string into segments at all occurrences of a character:</p>
+
+<pre><code>val segments = string.split('=')</code></pre>
+
+<p>To retrieve the character at a specific index within the string:</p>
+
+<pre><code>val c = string.charAt(5)
+val c = string(5)</code></pre>
+
+<h2 id = "Comparing_Strings">Comparing Strings</h2>
+
+<pre><code>string.compareTo("other")
+string.compareToIgnoreCase("other")</code></pre>
+
+<h2 id = "Miscellaneous">Miscellaneous</h2>
+
+<pre><code>string.isEmpty
+string.head     // first character
+string.last     // last character
+string.filter(c =&gt; c == 'A')
+string.foreach(c =&gt; println(c))
+string.map(c =&gt; c+1)
+"abc".zipWithIndex // =&gt; ('a',0), ('b',1), ('c',2)</code></pre>
+
+<h1 id = "Cheat_Sheet:__code_Map__code_">Cheat Sheet: <code>Map</code></h1>
+
+<p>Note that this cheat sheet covers only the immutable variant of <code>Map</code>.</p>
+
+<h2 id = "Constructing_a_Map">Constructing a Map</h2>
+
+<p>Constructing a <code>Map</code> from key/value pairs:</p>
+
+<pre><code>val map = Map("A" -&gt; 1, "B" -&gt; 2, "C" -&gt; 3)</code></pre>
+
+<p>which uses syntactic sugar for tuples and is identical to:</p>
+
+<pre><code>val map = Map(("A",1), ("B",2), ("C",3))</code></pre>
+
+<p>Converting a <code>List</code> of <code>Tuple2</code> into a <code>Map</code>:</p>
+
+<pre><code>val map = List(("A",1), ("B",2), ("C",3)).toMap</code></pre>
+
+<p>Constructing an empty map:</p>
+
+<pre><code>val map = Map.empty[String,Int]</code></pre>
+
+<h2 id = "Updating_a_Map">Updating a Map</h2>
+
+<pre><code>val newMap = map.updated(key, value)</code></pre>
+
+<h2 id = "Lookups">Lookups</h2>
+
+<p>If the key must exist (exception thrown if not):</p>
+
+<pre><code>val value = map.apply(key)</code></pre>
+
+<p>which is identical to:</p>
+
+<pre><code>val value = map(key)</code></pre>
+
+<p>If the key may or may not exist: </p>
+
+<pre><code>val valueOpt = map.get(key) // returns Option[]</code></pre>
+
+<h2 id = "Keys_and_Values">Keys and Values</h2>
+
+<p>To obtain an iterable collection of the map's values:</p>
+
+<pre><code>val values = map.values</code></pre>
+
+<p>To obtain an iterable collection of the map's keys:</p>
+
+<pre><code>val keys = map.keys</code></pre>
+
+<h2 id = "Transformations">Transformations</h2>
+
+<p>To apply a transformation function to every element, obtaining a new, transformed <code>Map</code>:</p>
+
+<pre><code>val newMap = map.map(entry =&gt; (entry._1, entry._2))</code></pre>
+
+<p>To apply a transformation function to all values, obtaining an Iterable collection:</p>
+
+<pre><code>val newMap = map.values.map(value =&gt; { (*...*/ })</code></pre>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

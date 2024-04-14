@@ -1,0 +1,51 @@
+----------------------------------------------------------------------
+Report for cell TOP_CNT.struct
+
+Register bits: 16 of 4752 (0%)
+PIC Latch:       0
+I/O cells:       4
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                              CCU2B        8       100.0
+                            FD1P3BX        1       100.0
+                            FD1P3DX       13       100.0
+                            FD1S3BX        1       100.0
+                                GSR        1       100.0
+                                 IB        3       100.0
+                                INV        1       100.0
+                                 OB        1       100.0
+                           OFS1P3DX        1       100.0
+                           ORCALUT4       11       100.0
+                                PUR        1       100.0
+                                VHI        3       100.0
+                                VLO        3       100.0
+SUB MODULES 
+                             CNT167        1       100.0
+                              CNT23        1       100.0
+                            
+                         TOTAL            50           
+----------------------------------------------------------------------
+Report for cell CNT167.netlist
+     Instance path:  CNT_2
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                              CCU2B        5        62.5
+                            FD1P3DX        8        61.5
+                           ORCALUT4        7        63.6
+                                VHI        1        33.3
+                                VLO        1        33.3
+                            
+                         TOTAL            22           
+----------------------------------------------------------------------
+Report for cell CNT23.netlist
+     Instance path:  CNT_1
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                              CCU2B        3        37.5
+                            FD1P3BX        1       100.0
+                            FD1P3DX        5        38.5
+                           ORCALUT4        3        27.3
+                                VHI        1        33.3
+                                VLO        1        33.3
+                            
+                         TOTAL            14           

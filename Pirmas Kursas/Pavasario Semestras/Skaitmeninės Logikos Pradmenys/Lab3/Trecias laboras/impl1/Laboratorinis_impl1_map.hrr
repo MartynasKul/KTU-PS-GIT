@@ -1,0 +1,9 @@
+---------------------------------------------------
+Report for cell SCH
+   Instance path: SCH
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      13.00        100.0
+                                  LUT4	      20.00        100.0
+                                 IOBUF	         11        100.0
+                                PFUREG	          5        100.0

@@ -1,0 +1,19 @@
+NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
+NOTE All Rights Reserved *
+NOTE DATE CREATED: Thu Apr 28 10:23:33 2022 *
+NOTE DESIGN NAME: SCH *
+NOTE DEVICE NAME: LFXP2-5E-6TQFP144 *
+NOTE PIN ASSIGNMENTS *
+NOTE PINS Q0 : 37 : out *
+NOTE PINS rst : 58 : in *
+NOTE PINS A1 : 56 : in *
+NOTE PINS A0 : 57 : in *
+NOTE PINS DR : 54 : in *
+NOTE PINS DL : 50 : in *
+NOTE PINS Q1 : 38 : out *
+NOTE PINS Q2 : 39 : out *
+NOTE PINS Q3 : 40 : out *
+NOTE PINS Q4 : 43 : out *
+NOTE PINS clk : 19 : in *
+NOTE CONFIGURATION MODE: NONE *
+NOTE COMPRESSION: off *

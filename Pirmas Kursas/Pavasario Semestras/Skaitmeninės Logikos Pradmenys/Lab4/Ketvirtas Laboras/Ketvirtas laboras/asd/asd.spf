@@ -1,0 +1,9 @@
+<BaliSimProject version="1.3" path="." stage="0" language="-1" name="asd" simType="ModelSim">
+    <Source worklib="work" path="../4laboras/cntr167.vhd" type="VHDL" langstandard="" include="none"/>
+    <Source worklib="work" path="../4laboras/cntr23.vhd" type="VHDL" langstandard="" include="none"/>
+    <Source worklib="work" path="../4laboras/top_cntr.vhd" type="VHDL" langstandard="" include="none"/>
+    <SimLib value="pmi_work ovi_xp2"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <TopModule instance="" language="VHDL" name="TOP_CNT"/>
+</BaliSimProject>

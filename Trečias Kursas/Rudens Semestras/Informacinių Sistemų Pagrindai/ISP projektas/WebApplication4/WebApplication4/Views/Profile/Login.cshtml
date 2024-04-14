@@ -1,0 +1,42 @@
+﻿@model UserViewModel
+@inject AuthenticationService AuthenticationService
+
+@{
+    ViewData["Title"] = "Login";
+}
+<form method="post" asp-controller="Profile" asp-action="Login" asp-route-id="1">
+    <div class="container">
+        <h1>Login</h1>
+        <p>Please fill in this form to login to an account.</p>
+        <hr>
+<table>
+            <tr>
+                <th>
+                    <label asp-for="Email" for="email"><b>Email</b></label>
+                    <input asp-for="Email" type="text" placeholder="Enter Email" name="email" id="email" required>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label asp-for="Password" for="password"><b>Password</b></label>
+                    <input asp-for="Password" type="password" placeholder="Enter Password" name="password" id="password" required>
+                </th>
+            </tr>
+           
+            
+
+        </table>
+
+        
+         <button type="submit" class="loginbtn">Login</button>
+
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <p style="color: red;">@ViewBag.ErrorMessage</p>
+    }
+    </div>
+
+    <div class="container signin">
+        <p>Don't' have an account? <a href="Register">Register</a>.</p>
+    </div>
+</form>

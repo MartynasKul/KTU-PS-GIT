@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="Lab1" device="LFXP2-5E-6TN144C" default_implementation="Schema1">
+    <Options>
+        <Option name="HDL type" value="VHDL"/>
+    </Options>
+    <Implementation title="Schema1" dir="Schema1" description="Schema1" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="KLASIKA"/>
+        <Source name="Klasika.sch" type="Schematic" type_short="Schematic">
+            <Options top_module="KLASIKA"/>
+        </Source>
+        <Source name="Lab1.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="laba/laba.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="laboratorinis1/laboratorinis1.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lasba/lasba.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lol/lol.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="projektas/projektas.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="sim2/sim2.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="Lab11.sty"/>
+</BaliProject>

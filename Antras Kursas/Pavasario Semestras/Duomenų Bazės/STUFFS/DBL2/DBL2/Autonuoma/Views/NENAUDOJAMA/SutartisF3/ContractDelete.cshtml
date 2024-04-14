@@ -1,0 +1,71 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.SutartisF3.SutartisCE
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Sutarties šalinimas (F3)"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-ced">
+@using( Html.BeginForm(FormMethod.Post, new { @class="entity-d" }) )
+{
+	@Html.AntiForgeryToken()
+
+	<fieldset>
+		<legend class="confirm-msg">Ar tikrai norite šalinti šią sutartį?</legend>
+
+		<dl>
+			<dt>@Html.DisplayNameFor(m => m.Sutartis.Nr)</dt>
+			<dd>@Html.DisplayFor(m => m.Sutartis.Nr)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.Sutartis.SutartiesData)</dt>
+			<dd>@String.Format("{0:yyyy-MM-dd}", Model.Sutartis.SutartiesData)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.Sutartis.Kaina)</dt>
+			<dd>@Html.DisplayFor(m => m.Sutartis.Kaina)</dd>			
+		</dl>
+
+		@if( ViewData["deletionNotPermitted"] != null )
+		{
+			<div class="fail-msg">
+				<i class="fa-solid fa-circle-exclamation"></i> Šios sutaries pašalinti negalima, 
+				nes ji yra <i>Patvirtinta</i> arba <i>Užbaigta</i>.
+			</div>
+		}
+		else
+		{
+			<div class="buttons">
+				<button
+					formaction="@Url.Action("ContractDeleteConfirm", new {id = Model.Sutartis.Nr})"
+					class="btn btn-danger"
+					style="white-space: nowrap;"
+				><i class="fa-solid fa-trash"></i> Šalinti</button>
+			</div>			
+		}
+	</fieldset>
+}
+</div>
+
+@* content footer *@
+<div class="main-content-footer">
+	<span class="title"></span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>

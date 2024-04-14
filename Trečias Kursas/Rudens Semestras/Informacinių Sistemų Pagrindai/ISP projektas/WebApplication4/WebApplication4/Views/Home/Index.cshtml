@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+        var userType = ViewContext.HttpContext.Session.GetInt32("UserType");
+        var userName = ViewContext.HttpContext.Session.GetString("Username");
+        var userId = ViewContext.HttpContext.Session.GetInt32("UserID");  
+        
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome to the shop</h1>
+    <p>Your one stop shop to victory</a>.</p>
+
+    @if(userType == 2)
+    {
+        <form id="promoteForm" method="post" asp-action="PromoteItems">
+        <button type="submit" class="btn btn-primary">Promote Items</button>
+    </form>
+    }
+    
+</div>
+<div id="successMessage" class="alert alert-success" style="display: none;"></div>
+<div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+@if (!string.IsNullOrEmpty(TempData["Message"]?.ToString()))
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#promoteForm').submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            $('#successMessage').text(result.message).fadeIn('fast');
+                            setTimeout(function () {
+                                $('#successMessage').fadeOut('fast');
+                            }, 2000);
+                        } else {
+                            $('#errorMessage').text(result.message).fadeIn('fast');
+                            setTimeout(function () {
+                                $('#errorMessage').fadeOut('fast');
+                            }, 2000);
+                        }
+                    },
+                    error: function () {
+                        $('#errorMessage').text('An error occurred while sending the email.').fadeIn('fast');
+                        setTimeout(function () {
+                            $('#errorMessage').fadeOut('fast');
+                        }, 2000);
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,143 @@
+<!-- Comparison.cshtml -->
+@model WebApplication4.Models.Comparison
+@{
+    ViewData["Title"] = "Compare Items";
+}
+@{
+    // Inject the ItemController into the view
+    var itemController = new WebApplication4.Controllers.ItemController();
+}
+<h2>Comparison</h2>
+
+@if (Model == null || Model.Size() < 2)
+{
+    <p>Add at least two items to compare them</p>
+}
+else
+{
+    <div class="row">
+        @for (int i = 0; i < Model.Size(); i++)
+        {
+            <div class="col-md-6">
+                <div class="comparison-item">
+                    <div style="height: 150px; overflow: hidden;">
+                        <img class="product-image img-thumbnail" src="@itemController.GetItemById(Model.Get(i).Id).Picture" alt="@itemController.GetItemById(Model.Get(i).Id).Name" style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div><b>Item @(i + 1)</b></div>
+                    
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Name"><b>Pavadinimas</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Name" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Price"><b>Kaina</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Price" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Svoris"><b>Svoris</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Svoris" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Pagaminimo_data"><b>Pagaminimo_data</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Pagaminimo_data" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Serija"><b>Serija</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Serija" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Spalva"><b>Spalva</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Spalva" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Plotis"><b>Plotis</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Plotis" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Aukstis"><b>Aukstis</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Aukstis" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Ilgis"><b>Ilgis</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Ilgis" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Garantija"><b>Garantija</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Garantija" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Ekrano_dydis"><b>Ekrano_dydis</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Ekrano_dydis" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Operacine_sistema"><b>Operacine_sistema</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Operacine_sistema" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Procesorius"><b>Procesorius</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Procesorius" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Kietasis_diskas"><b>Kietasis_diskas</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Kietasis_diskas" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Vaizdo_plokste"><b>Vaizdo_plokste</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Vaizdo_plokste" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Jungtys"><b>Jungtys</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Jungtys" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Baterija"><b>Baterija</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Baterija" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Papildoma_info"><b>Papildoma_info</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Papildoma_info" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).Procesoriaus_karta"><b>Procesoriaus_karta</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).Procesoriaus_karta" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).FK_CategoryID"><b>Kategorija</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).FK_CategoryID" class="form-control" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@itemController.GetItemById(Model.Get(i).Id).FK_ManufacturerID"><b>Gamintojas</b></label>
+                        <input asp-for="@itemController.GetItemById(Model.Get(i).Id).FK_ManufacturerID" class="form-control" readonly>
+                    </div>
+
+                    
+                </div>
+            </div>
+        }
+        <div class="col-md-12 text-center" style="margin-top: 25px;">
+            <form asp-action="DeleteFromComparison" asp-controller="Comparison" method="post">
+                <button type="submit" class="btn btn-danger">Remove All Items From Comparison</button>
+            </form>
+        </div>
+    </div>
+}

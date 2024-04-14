@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron CLI (Command Line Interface)</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron CLI (Command Line Interface)</h1>
+            <h2 id="project_tagline">Developer Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "Overview">Overview</h1>
+
+<p>Scalatron is a server application running on a central computer. This server hosts both a tournament loop
+that continuously simulates short rounds of the Scalatron BotWar game and a web server that exposes a
+browser-based user interface and a RESTful API.</p>
+
+<p>The Scalatron CLI (Command Line Interface) exposes a subset of the functionality of the RESTful web API via
+a command line tool. For more information about the RESTful web API, see the <em>Scalatron APIs</em> documentation.</p>
+
+<p>Both the CLI and RESTful API are a work in progress.</p>
+
+<h1 id = "Syntax">Syntax</h1>
+
+<h2 id = "Invocation">Invocation</h2>
+
+<p>The Scalatron CLI is a Java application and as such must be launched via the Java Runtime Environment's
+<code>java</code> interpreter. Two invocation options are available</p>
+
+<pre><code>java -jar ScalatronTest.jar -help</code></pre>
+
+<p>displays help information, while</p>
+
+<pre><code>java -jar ScalatronTest.jar [-key value] [-key value] [...]</code></pre>
+
+<p>performs an operation. In this case, <code>[-key value]</code> corresponds to one of the following key/value pairs:</p>
+
+<pre><code>-verbose yes|no     print verbose output (default: no)
+-api &lt;string&gt;       the relative path of the server api (default: /api)
+-port &lt;int&gt;         the port the server is listening on (default: 8080)
+-hostname &lt;name&gt;    the hostname of the server (default: localhost)
+-user &lt;name&gt;        the user name to log on as (default: Administrator)
+-password &lt;string&gt;  the password to use for log on (default: empty password)
+-cmd &lt;command&gt;</code></pre>
+
+<p>where <command> may require addition parameters:</p>
+
+<pre><code>users                       lists all users; does not require logon
+
+createUser                  create new user; as Administrator only
+    -targetUser &lt;name&gt;      the user name for the new user (required)
+    -newPassword &lt;string&gt;   the password for the new user (default: empty password)
+
+deleteUser                  deletes an existing user (along with all content!); Administrator only
+    -targetUser &lt;name&gt;      the name of the user to delete (required)
+
+deleteAllUsers              deletes all existing users (along with all content!); Administrator only
+
+setUserAttribute            sets a configuration attribute for a user; as user or Administrator
+    -targetUser &lt;name&gt;      the name of the user to set attribute on (default: name of '-user' option)
+    -key &lt;name&gt;             the key of the attribute to set
+    -value &lt;name&gt;           the value of the attribute to set
+
+getUserAttribute            gets a configuration attribute from a user; as user or Administrator
+    -targetUser &lt;name&gt;      the name of the user to get attribute from (default: name of '-user' option)
+    -key &lt;name&gt;             the key of the attribute to set
+
+sources                     gets the source files from a user's server workspace; as user only
+    -targetDir &lt;path&gt;       the path of the local directory where the source files should be stored
+
+updateSources               updates a source files in the user's server workspace; as user only
+    -sourceDir &lt;path&gt;       the path of the local directory where the source files can be found
+
+build                       builds the source files currently in the user's server workspace; as user only
+
+publish                     publishes the most recently built bot version into the tournament loop; as user only
+
+versions                    lists all versions available in the user workspace; as user only
+
+createVersion               creates a new version in the user's server workspace; as user only
+    -sourceDir &lt;path&gt;       the path of the local directory where the source files can be found
+    -label &lt;name&gt;           the label to apply to the versions (default: empty)
+
+restoreVersion              restores the version with the given ID in the user's workspace and fetches the associated files; as user only
+    -targetDir &lt;path&gt;       the path of the local directory where the source files should be stored
+    -id &lt;string&gt;            the version's ID
+
+benchmark                   runs standard isolated-bot benchmark on given source files; as user only
+    -sourceDir &lt;path&gt;       the path of the local directory where the source files can be found
+
+stresstest                  runs a stress test, simulating a hack-a-thon workload on the server; as Administrator only
+    -clients &lt;int&gt;          the number of clients to simulate (default: 1)</code></pre>
+
+<h2 id = "Examples:">Examples:</h2>
+
+<pre><code>java -jar ScalatronCLI.jar -cmd users
+
+java -jar ScalatronCLI.jar -user Administrator -password a -cmd createUser -targetUser Frankie
+
+java -jar ScalatronCLI.jar -user Administrator -password a -cmd setUserAttribute -targetUser Frankie -key theKey -value theValue
+
+java -jar ScalatronCLI.jar -user Administrator -password a -cmd getUserAttribute -targetUser Frankie -key theKey
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd sources -targetDir /tempsrc
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd updateSources -sourceDir /tempsrc
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd build
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd publish
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd versions
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd createVersion -sourceDir /tempsrc -label "updated"
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd restoreVersion -targetDir /tempsrc -id a1ae813f274b4a33bc61535e0e0de5345bb08d42
+
+java -jar ScalatronCLI.jar -user Frankie -password a -cmd benchmark -sourceDir /tempsrc
+
+java -jar ScalatronCLI.jar -cmd stresstest -clients 10</code></pre>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+@W: MT529 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\trecias laboras\impl1\sch.vhd":88:3:88:5|Found inferred clock SCH|clk which controls 5 sequential elements including I21. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 

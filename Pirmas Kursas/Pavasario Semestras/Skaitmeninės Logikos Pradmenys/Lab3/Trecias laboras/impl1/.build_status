@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BuildStatus>
+    <Strategy name="Strategy1">
+        <Milestone name="Convert_HDL" build_result="2" build_time="1652314762">
+            <Task name="HDL_Conv" build_result="2" update_result="0" update_time="1652314762"/>
+        </Milestone>
+        <Milestone name="Export" build_result="0" build_time="0">
+            <Task name="IBIS" build_result="0" update_result="3" update_time="0"/>
+            <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
+            <Task name="TimingSimFileVHD" build_result="0" update_result="2" update_time="1652314766"/>
+            <Task name="Bitgen" build_result="0" update_result="2" update_time="1652314766"/>
+        </Milestone>
+        <Milestone name="Generate_HDL" build_result="2" build_time="1652314762">
+            <Task name="HDL_Gen" build_result="2" update_result="0" update_time="1652314762"/>
+        </Milestone>
+        <Milestone name="Map" build_result="0" build_time="1652314766">
+            <Task name="Map" build_result="0" update_result="2" update_time="1652314766"/>
+            <Task name="MapTrace" build_result="0" update_result="3" update_time="0"/>
+            <Task name="MapVerilogSimFile" build_result="0" update_result="3" update_time="0"/>
+            <Task name="MapVHDLSimFile" build_result="0" update_result="2" update_time="1652314766"/>
+        </Milestone>
+        <Milestone name="PAR" build_result="0" build_time="1652314766">
+            <Task name="PAR" build_result="0" update_result="2" update_time="1652314766"/>
+            <Task name="PARTrace" build_result="0" update_result="2" update_time="1652314766"/>
+            <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
+        </Milestone>
+        <Milestone name="Synthesis" build_result="0" build_time="1652314762">
+            <Task name="Synplify_Synthesis" build_result="0" update_result="2" update_time="1652314762"/>
+        </Milestone>
+        <Milestone name="TOOL_Report" build_result="0" build_time="0">
+            <Task name="HDLE" build_result="0" update_result="2" update_time="1651732144"/>
+            <Task name="BKM" build_result="0" update_result="2" update_time="1651732144"/>
+            <Task name="SSO" build_result="0" update_result="2" update_time="1651130484"/>
+            <Task name="PIODRC" build_result="0" update_result="2" update_time="1651130484"/>
+            <Task name="DEC" build_result="0" update_result="2" update_time="1651130484"/>
+        </Milestone>
+        <Milestone name="Translate" build_result="0" build_time="1652314766">
+            <Task name="Translate" build_result="0" update_result="2" update_time="1652314766"/>
+        </Milestone>
+        <Report name="KetvirtasLaboras_impl1.bgn" last_build_time="1651733818" last_build_size="3717"/>
+        <Report name="KetvirtasLaboras_impl1.edi" last_build_time="1651733978" last_build_size="33411"/>
+        <Report name="KetvirtasLaboras_impl1.jed" last_build_time="1651733818" last_build_size="1268064"/>
+        <Report name="KetvirtasLaboras_impl1.ncd" last_build_time="1651733270" last_build_size="26737"/>
+        <Report name="KetvirtasLaboras_impl1.ngd" last_build_time="1651733994" last_build_size="29951"/>
+        <Report name="KetvirtasLaboras_impl1.twr" last_build_time="1651733272" last_build_size="89641"/>
+        <Report name="KetvirtasLaboras_impl1_map.ncd" last_build_time="1651732780" last_build_size="17713"/>
+        <Report name="KetvirtasLaboras_impl1_mapvho.sdf" last_build_time="1651733360" last_build_size="23388"/>
+        <Report name="KetvirtasLaboras_impl1_mapvho.vho" last_build_time="1651733360" last_build_size="35787"/>
+        <Report name="KetvirtasLaboras_impl1_vho.sdf" last_build_time="1651733274" last_build_size="25012"/>
+        <Report name="KetvirtasLaboras_impl1_vho.vho" last_build_time="1651733274" last_build_size="35816"/>
+        <Report name="Laboratorinis_impl1.bgn" last_build_time="1651130614" last_build_size="3693"/>
+        <Report name="Laboratorinis_impl1.edi" last_build_time="1651130390" last_build_size="12415"/>
+        <Report name="Laboratorinis_impl1.jed" last_build_time="1651130614" last_build_size="1268228"/>
+        <Report name="Laboratorinis_impl1.ncd" last_build_time="1651130596" last_build_size="17141"/>
+        <Report name="Laboratorinis_impl1.ngd" last_build_time="1651130416" last_build_size="14424"/>
+        <Report name="Laboratorinis_impl1.twr" last_build_time="1651130600" last_build_size="44639"/>
+        <Report name="Laboratorinis_impl1_map.ncd" last_build_time="1651130588" last_build_size="11693"/>
+        <Report name="Laboratorinis_impl1_mapvho.sdf" last_build_time="1649919448" last_build_size="11497"/>
+        <Report name="Laboratorinis_impl1_mapvho.vho" last_build_time="1649919448" last_build_size="35740"/>
+        <Report name="sch.vhd" last_build_time="1652314762" last_build_size="4065"/>
+    </Strategy>
+</BuildStatus>

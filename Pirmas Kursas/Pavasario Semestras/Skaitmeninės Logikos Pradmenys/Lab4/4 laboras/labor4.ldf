@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="labor4" device="LFXP2-8E-6TN144C" default_implementation="impl1">
+    <Options/>
+    <Implementation title="impl1" dir="impl1" description="impl1" synthesis="synplify" default_strategy="Strategy1">
+        <Options def_top="TOP_CNT"/>
+        <Source name="cntr19.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="cntr49.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="cntr136.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="JM2.vhd" type="VHDL" type_short="VHDL">
+            <Options top_module="TOP_CNT"/>
+        </Source>
+        <Source name="asd/asd.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+        <Source name="labor4.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Implementation title="impl1clone" dir="impl1clone" description="impl1clone" synthesis="synplify" default_strategy="Strategy1">
+        <Options/>
+        <Source name="impl1clone/source/cntr19.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="impl1clone/source/cntr49.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="impl1clone/source/cntr136.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="impl1clone/source/JM2.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="impl1clone/impl1.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+        <Source name="impl1clone/source/asd.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="impl1clone/source/labor4.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="labor41.sty"/>
+</BaliProject>

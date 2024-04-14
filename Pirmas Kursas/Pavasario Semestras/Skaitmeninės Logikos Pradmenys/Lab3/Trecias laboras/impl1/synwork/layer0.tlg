@@ -1,0 +1,28 @@
+@N: CD630 :"C:\Users\markul4\Desktop\4laboras\top_cntr.vhd":11:7:11:13|Synthesizing work.top_cnt.struct.
+@W: CD638 :"C:\Users\markul4\Desktop\4laboras\top_cntr.vhd":22:7:22:7|Signal c is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"C:\Users\markul4\Desktop\4laboras\cntr167.vhd":11:7:11:12|Synthesizing work.cnt167.rtl.
+Post processing for work.cnt167.rtl
+Running optimization stage 1 on CNT167 .......
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr167.vhd":27:2:27:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr167.vhd":27:2:27:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT167 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 91MB)
+@N: CD630 :"C:\Users\markul4\Desktop\4laboras\cntr23.vhd":11:7:11:11|Synthesizing work.cnt23.rtl.
+Post processing for work.cnt23.rtl
+Running optimization stage 1 on CNT23 .......
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr23.vhd":26:2:26:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr23.vhd":26:2:26:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT23 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Post processing for work.top_cnt.struct
+Running optimization stage 1 on TOP_CNT .......
+Finished optimization stage 1 on TOP_CNT (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on CNT23 .......
+Finished optimization stage 2 on CNT23 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on CNT167 .......
+Finished optimization stage 2 on CNT167 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on TOP_CNT .......
+Finished optimization stage 2 on TOP_CNT (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias laboras\impl1\synwork\layer0.rt.csv
+

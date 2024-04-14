@@ -1,0 +1,19 @@
+if {![file exists "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/Ketvirtas laboras/asd/asd.mpf"]} { 
+	project new "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/Ketvirtas laboras/asd" asd
+	project addfile "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/4laboras/cntr167.vhd"
+	project addfile "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/4laboras/cntr23.vhd"
+	project addfile "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/4laboras/top_cntr.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/4laboras/cntr167.vhd"
+	vcom -work work "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/4laboras/cntr23.vhd"
+	vcom -work work "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/4laboras/top_cntr.vhd"
+} else {
+	project open "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/Ketvirtas Laboras/Ketvirtas laboras/asd/asd"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_xp2  TOP_CNT
+view wave
+add wave /*
+run 1000ns

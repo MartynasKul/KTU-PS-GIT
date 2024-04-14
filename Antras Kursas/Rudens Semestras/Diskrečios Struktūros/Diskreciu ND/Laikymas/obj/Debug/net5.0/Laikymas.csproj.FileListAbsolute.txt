@@ -1,0 +1,16 @@
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.csproj.AssemblyReference.cache
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.AssemblyInfoInputs.cache
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.AssemblyInfo.cs
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.csproj.CoreCompileInputs.cache
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\Laikymas.exe
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\Laikymas.deps.json
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\Laikymas.runtimeconfig.json
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\Laikymas.runtimeconfig.dev.json
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\Laikymas.dll
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\ref\Laikymas.dll
+C:\Users\markul4\Desktop\Laikymas\bin\Debug\net5.0\Laikymas.pdb
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.dll
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\ref\Laikymas.dll
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.pdb
+C:\Users\markul4\Desktop\Laikymas\obj\Debug\net5.0\Laikymas.genruntimeconfig.cache

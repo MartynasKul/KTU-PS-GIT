@@ -1,0 +1,3 @@
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias laboras\impl1\sch.vhd":25:10:25:12|Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias laboras\impl1\sch.vhd":26:10:26:12|Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.
+

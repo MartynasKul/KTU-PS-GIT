@@ -1,0 +1,23 @@
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\U3_8.exe.config
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\U3_8.exe
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\U3_8.pdb
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.csproj.CoreCompileInputs.cache
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.exe
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.pdb
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City1.csv
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City2.csv
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.csprojAssemblyReference.cache
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City3.csv
+E:\Objektinis programavimas\Laborai\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City4.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City1.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City2.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City3.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\City4.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\U3_8.exe.config
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\U3_8.exe
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\bin\Debug\U3_8.pdb
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.csproj.AssemblyReference.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.csproj.SuggestedBindingRedirects.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.csproj.CoreCompileInputs.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.exe
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L3\Laboratorinis 3\LD3_U3_8\U3_8\obj\Debug\U3_8.pdb

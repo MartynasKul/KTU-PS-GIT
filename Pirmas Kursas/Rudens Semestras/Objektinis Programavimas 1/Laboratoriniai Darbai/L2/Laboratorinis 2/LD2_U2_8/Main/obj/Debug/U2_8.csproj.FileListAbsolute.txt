@@ -1,0 +1,19 @@
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Main.exe.config
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Main.exe
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Main.pdb
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\U2_8.csproj.CoreCompileInputs.cache
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\Main.exe
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\Main.pdb
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\City1.csv
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\City2.csv
+E:\Objektinis programavimas\Laborai\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\U2_8.csproj.AssemblyReference.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Resources\City1.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Resources\City2.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Main.exe.config
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Main.exe
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\bin\Debug\Main.pdb
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\U2_8.csproj.AssemblyReference.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\U2_8.csproj.CoreCompileInputs.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\Main.exe
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\Main.pdb
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L2\Laboratorinis 2\LD2_U2_8\Main\obj\Debug\U2_8.csproj.SuggestedBindingRedirects.cache

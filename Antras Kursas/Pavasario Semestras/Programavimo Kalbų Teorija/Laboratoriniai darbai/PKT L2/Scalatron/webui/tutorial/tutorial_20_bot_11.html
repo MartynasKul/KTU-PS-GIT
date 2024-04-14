@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Tutorial" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./tutorial.css">
+
+    <title>Bot #12 - Handler Object</title>
+
+    <!-- the following code snippets activates Google Analytics, which allows me to understand which parts of
+         the tutorial are being used and how the tutorial could be improved.
+         Thanks for your support. -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31522898-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+<body>
+<h1 id = "Bot__12:_Handler_Object">Bot #12: Handler Object</h1>
+
+<h2 id = "Objective">Objective</h2>
+
+<p>In preceding bot versions we occasionally held some state inside the Bot object, which contained
+our control function.</p>
+
+<h2 id = "Source_Code_v2">Source Code v2</h2>
+
+<pre><code>// omitted: class ControlFunctionFactory
+// omitted: class CommandParser
+// omitted: class View
+
+class ControlFunction() {
+    // this method is called by the server
+    def respond(input: String): String = {
+        val (opcode, params) = CommandParser(input)
+        opcode match {
+            case "Welcome" =&gt;
+                welcome(
+                    params("name"),
+                    params("path"),
+                    params("apocalypse").toInt,
+                    params("round").toInt
+                )
+            case "React" =&gt;
+                react(
+                    View(params("view")),
+                    params("entity"),
+                    params
+                )
+            case "Goodbye" =&gt;
+                goodbye(
+                    params("energy").toInt
+                )
+            case _ =&gt;
+                "" // OK
+        }
+    }
+
+    def welcome(name: String, path: String, apocalypse: Int, round: Int) = ""
+
+    def react(view: View, entity: String, params: Map[String, String]) =
+        if( entity == "Master" ) reactAsMaster(view, params)
+        else reactAsSlave(view, params)
+
+    def goodbye(energy: Int) = ""
+
+    def reactAsMaster(view: View, params: Map[String, String]) = ""
+
+    def reactAsSlave(view: View, params: Map[String, String]) = ""
+}</code></pre>
+
+<h2 id = "What_is_going_on_">What is going on?</h2>
+
+<p>The setup is quite staright-forward: instead of handling the invocations from the server
+inside the <code>respond()</code> method, we parse the command and feed it through a <code>match</code>/ <code>case</code>
+pattern matcher. The pattern matcher contains one handler for each of the opcodes the
+server may send (we ignore unknown opcodes).</p>
+
+<p>Each handler extracts frequently-used parameters from the parsed parameter maps and
+feeds them as arguments to an opcode-specific handler method:</p>
+
+<ul>
+<li>the <code>welcome()</code> method handles the <code>Welcome</code> opcode</li>
+<li>the <code>react()</code> method handles the <code>React</code> opcode</li>
+<li>the <code>goodbye()</code> method handles the <code>Goodbye</code> opcode</li>
+</ul>
+
+<p>Within the <code>react()</code> handler method we inspect the entity for which a response is
+required and then branch into the appropriate entity-specific handler:</p>
+
+<ul>
+<li>the <code>reactAsMaster()</code> method handles <code>React</code> invocations for the (master) bot</li>
+<li>the <code>reactAsSlave()</code> method handles <code>React</code> invocations for mini-bots</li>
+</ul>
+</body>
+</html>

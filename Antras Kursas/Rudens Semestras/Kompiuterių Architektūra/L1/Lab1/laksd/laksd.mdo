@@ -1,0 +1,29 @@
+if {![file exists "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/laksd/laksd.mpf"]} { 
+	project new "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/laksd" laksd
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_flg.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_reg.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_cnt.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_rom.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_alu_s.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_mux.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_ctrl.vhd"
+	project addfile "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_top.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_flg.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_reg.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_cnt.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_rom.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_alu_s.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_mux.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_ctrl.vhd"
+	vcom -work work "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/Priverstine_adr/F_top.vhd"
+} else {
+	project open "C:/Users/markul4/Desktop/Kompiuteriu architektura/L1/Lab1/laksd/laksd"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_xp2  TOP
+view wave
+add wave /*
+run 1000ns

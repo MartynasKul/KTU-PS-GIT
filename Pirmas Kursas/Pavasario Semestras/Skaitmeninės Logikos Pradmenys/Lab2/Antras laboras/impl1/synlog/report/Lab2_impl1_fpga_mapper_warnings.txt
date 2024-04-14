@@ -1,0 +1,2 @@
+@W: MT246 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\antras laboras\impl1\schema.vhd":131:3:131:4|Blackbox ND2 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)
+@W: MT246 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\antras laboras\impl1\schema.vhd":109:3:109:4|Blackbox ND3 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)

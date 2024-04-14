@@ -1,0 +1,74 @@
+Running in Lattice mode
+
+Starting:    C:\lscc\diamond\3.12\synpbase\bin64\mbin\synplify.exe
+Install:     C:\lscc\diamond\3.12\synpbase
+Hostname:    IF11R205-11
+Date:        Mon May 23 18:32:04 2022
+Version:     Q-2020.03L-SP1
+
+Arguments:   -product synplify_pro -tcl E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/launch_synplify.tcl
+ProductType: synplify_pro
+
+
+
+
+
+No project opened.
+TCL script complete: "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/launch_synplify.tcl"
+log file: "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\impl1.srr"
+Running: impl1 in foreground
+
+Running impl1_syn|impl1
+
+Running Flow: compile (Compile) on impl1_syn|impl1
+# Mon May 23 18:32:13 2022
+
+Running Flow: compile_flow (Compile Process) on impl1_syn|impl1
+# Mon May 23 18:32:13 2022
+
+Running: compiler (Compile Input) on impl1_syn|impl1
+# Mon May 23 18:32:13 2022
+Copied E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_comp.srs to E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\impl1.srs
+
+compiler completed
+# Mon May 23 18:32:22 2022
+
+Return Code: 0
+Run Time:00h:00m:09s
+
+Running: multi_srs_gen (Multi-srs Generator) on impl1_syn|impl1
+# Mon May 23 18:32:22 2022
+
+multi_srs_gen completed
+# Mon May 23 18:32:25 2022
+
+Return Code: 0
+Run Time:00h:00m:02s
+Copied E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_mult.srs to E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\impl1.srs
+Complete: Compile Process on impl1_syn|impl1
+
+Running: premap (Premap) on impl1_syn|impl1
+# Mon May 23 18:32:25 2022
+
+premap completed with warnings
+# Mon May 23 18:32:42 2022
+
+Return Code: 1
+Run Time:00h:00m:17s
+Complete: Compile on impl1_syn|impl1
+
+Running Flow: map (Map) on impl1_syn|impl1
+# Mon May 23 18:32:42 2022
+
+Running: fpga_mapper (Map & Optimize) on impl1_syn|impl1
+# Mon May 23 18:32:42 2022
+Copied E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_m.srm to E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\impl1.srm
+
+fpga_mapper completed with warnings
+# Mon May 23 18:32:56 2022
+
+Return Code: 1
+Run Time:00h:00m:14s
+Complete: Map on impl1_syn|impl1
+Complete: Logic Synthesis on impl1_syn|impl1
+0exit status=0

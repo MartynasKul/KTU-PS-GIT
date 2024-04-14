@@ -1,0 +1,28 @@
+#Start recording tcl command: 5/19/2022 09:30:07
+#Project Location: E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras; Project name: labor4
+prj_project open "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/labor4.ldf"
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/TOP_CNTR.vhd"
+prj_run Synthesis -impl impl1
+prj_run Translate -impl impl1
+prj_run Synthesis -impl impl1
+prj_src remove "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/TOP_CNTR.vhd"
+prj_src remove "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19 FPGA.vhd"
+prj_run Synthesis -impl impl1
+prj_run Translate -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.spf"
+prj_run Synthesis -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.spf"
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.spf"
+pgr_project save "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/impl1.xcf"
+prj_src add -exclude "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/impl1.xcf"
+prj_src enable "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/impl1.xcf"
+prj_run PAR -impl impl1
+prj_impl new "fail" -dir "fail" -strategy "Area" -synthesis "synplify"
+prj_impl delete "fail"
+prj_impl clone "impl1clone" -dir "impl1clone" -impl "impl1" -copyRef
+pgr_project close
+prj_project save
+prj_project close
+#Stop recording: 5/19/2022 10:28:41

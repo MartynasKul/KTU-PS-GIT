@@ -1,0 +1,169 @@
+# Reading pref.tcl
+# do {E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/proj/proj.mdo}
+# Loading project proj
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 08:55:48 on Mar 31,2022
+# vcom -reportprogress 300 -work work E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/impl1/Schema.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package components
+# -- Compiling entity SCHEMA
+# -- Compiling architecture SCHEMATIC of SCHEMA
+# End time: 08:55:49 on Mar 31,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -L work -L pmi_work -L ovi_xp2 SCHEMA 
+# Start time: 08:55:50 on Mar 31,2022
+# //  ModelSim - Lattice FPGA Edition 2020.3 Oct 14 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim - Lattice FPGA Edition and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading xp2.components(body)
+# Loading work.schema(schematic)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading xp2.nd3(v)
+# Loading xp2.nd2(v)
+# Loading xp2.xor2(v)
+# Loading xp2.or2(v)
+# Loading xp2.inv(v)
+# .main_pane.wave.interior.cs.body.pw.wf
+# Paste insertion failed: restart: ** UI-Msg: (vish-4014) No objects found matching 'restart'.
+# Paste insertion failed: f: ** UI-Msg: (vish-4014) No objects found matching 'f'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/rst: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/rst'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 0,: ** UI-Msg: (vish-4014) No objects found matching '0,'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 10 ps: ** UI-Msg: (vish-4014) No objects found matching '10 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x1: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x1'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 0,: ** UI-Msg: (vish-4014) No objects found matching '0,'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 25 ps: ** UI-Msg: (vish-4014) No objects found matching '25 ps'.
+# Paste insertion failed: -r: Missing signal name or pattern.
+# Paste insertion failed: 50: ** UI-Msg: (vish-4014) No objects found matching '50'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x2: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x2'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 0,: ** UI-Msg: (vish-4014) No objects found matching '0,'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 70 ps: ** UI-Msg: (vish-4014) No objects found matching '70 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x2: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x2'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 220,: ** UI-Msg: (vish-4014) No objects found matching '220,'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 320 ps: ** UI-Msg: (vish-4014) No objects found matching '320 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x2: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x2'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 370: ** UI-Msg: (vish-4014) No objects found matching '370'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x3: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x3'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 0,: ** UI-Msg: (vish-4014) No objects found matching '0,'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 70 ps: ** UI-Msg: (vish-4014) No objects found matching '70 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x3: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x3'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 170,: ** UI-Msg: (vish-4014) No objects found matching '170,'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 370 ps: ** UI-Msg: (vish-4014) No objects found matching '370 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x4: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x4'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 0,: ** UI-Msg: (vish-4014) No objects found matching '0,'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 120 ps: ** UI-Msg: (vish-4014) No objects found matching '120 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x4: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x4'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 170,: ** UI-Msg: (vish-4014) No objects found matching '170,'.
+# Paste insertion failed: 1: ** UI-Msg: (vish-4014) No objects found matching '1'.
+# Paste insertion failed: 270 ps: ** UI-Msg: (vish-4014) No objects found matching '270 ps'.
+# Paste insertion failed: force: ** UI-Msg: (vish-4014) No objects found matching 'force'.
+# Paste insertion failed: -freeze: Unrecognized option: "-freeze" ignored.
+# Missing signal name or pattern.
+# Paste insertion failed: sim:/Lab2/x4: ** UI-Msg: (vish-4014) No objects found matching '/Lab2/x4'.
+# Paste insertion failed: 0: ** UI-Msg: (vish-4014) No objects found matching '0'.
+# Paste insertion failed: 370: ** UI-Msg: (vish-4014) No objects found matching '370'.
+# Paste insertion failed: run: ** UI-Msg: (vish-4014) No objects found matching 'run'.
+# Paste insertion failed: 400: ** UI-Msg: (vish-4014) No objects found matching '400'.
+restart f
+# Warning: Invalid arguments 'f' to restart ignored.
+force -freeze sim:/Lab2/rst 0 0, 1 {10 ps}
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/rst' not found.
+# 
+force -freeze sim:/Lab2/x1 1 0, 0 {25 ps} -r 50
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x1' not found.
+# 
+force -freeze sim:/Lab2/x2 1 0, 0 {70 ps}
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x2' not found.
+# 
+force -freeze sim:/Lab2/x2 1 220, 0 {320 ps}
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x2' not found.
+# 
+force -freeze sim:/Lab2/x2 1 370
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x2' not found.
+# 
+force -freeze sim:/Lab2/x3 1 0, 0 {70 ps}
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x3' not found.
+# 
+force -freeze sim:/Lab2/x3 1 170, 0 {370 ps}
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x3' not found.
+# 
+force -freeze sim:/Lab2/x4 0 0, 1 {120 ps}
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x4' not found.
+# 
+force -freeze sim:/Lab2/x4 0 170, 1 {270 ps}
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x4' not found.
+# 
+force -freeze sim:/Lab2/x4 0 370
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/Lab2/x4' not found.
+# 
+run 400
+restart f
+# Warning: Invalid arguments 'f' to restart ignored.
+force -freeze sim:/......./x1 0 0, 1 {50 ps}  -r 100
+force -freeze sim:/......./rst 0 0, 1 {25 ps}  
+force -freeze sim:/......./x2 0 0, 1 125, 0 225, 1 425, 0 725
+force -freeze sim:/......./x3 0 0, 1 125, 0 325, 1 525 
+force -freeze sim:/......./x4 0 0, 1 325, 0 425, 1 625  
+
+run 400
+# End time: 09:08:21 on Mar 31,2022, Elapsed time: 0:12:31
+# Errors: 0, Warnings: 1

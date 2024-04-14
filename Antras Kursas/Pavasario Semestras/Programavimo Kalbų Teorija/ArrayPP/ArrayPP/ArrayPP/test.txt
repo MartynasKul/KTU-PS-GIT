@@ -1,0 +1,30 @@
+int[] arr = [1, 1, 1, 1, 1, 1];
+arr.insert(-1, 1);
+print(arr.length);
+print(arr);
+arr[-2].remove;
+print(arr);
+arr.randomise;
+print(arr);
+arr.fill(10, 5); //index value
+print(arr);
+arr.insert(-1, 1);
+print(arr);
+//arr.unique;
+//print(arr);
+arr.filter(1, 3);
+print(arr);
+arr.slice(5, 1); // iki ntojo indexo nuo xtojo indekso
+int []arr2;
+arr2 = arr;
+print(arr2);
+
+function foo(int arr)
+{
+    //arr.insert(-1, 9);
+    return;
+}
+int a = 1;
+fun(a);
+print(a);
+print(arr);

@@ -1,0 +1,66 @@
+#OPTIONS:"|-layerid|0|-orig_srs|G:\\Kompiuteriu architektura\\L1\\Lab1\\impl1\\synwork\\Laboratorinis1_impl1_comp.srs|-top|TOP|-prodtype|synplify_pro|-fixsmult|-infer_seqShift|-nram|-sdff_counter|-divnmod|-nostructver|-encrypt|-pro|-lite|-ui|-fid2|-ram|-sharing|on|-ll|2000|-autosm|-ignore_undefined_lib|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\bin64\\c_vhdl.exe":1628576442
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\location.map":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\std.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\snps_haps_pkg.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\std1164.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\numeric.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\umr_capim.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\arith.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\unsigned.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\synpbase\\lib\\vhd\\hyperents.vhd":1628575622
+#CUR:"C:\\lscc\\diamond\\3.12\\cae_library\\synthesis\\vhdl\\xp2.vhd":1542231136
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_alu_s.vhd":1536045340
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_cnt.vhd":1536045340
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_ctrl.vhd":1536045340
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_flg.vhd":1536045340
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_mux.vhd":1536045340
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_reg.vhd":1536045340
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_rom.vhd":1664520942
+#CUR:"G:\\Kompiuteriu architektura\\L1\\Lab1\\Priverstine_adr\\F_top.vhd":1630511034
+0			"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd" vhdl
+1			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd" vhdl
+2			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd" vhdl
+3			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd" vhdl
+4			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd" vhdl
+5			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_mux.vhd" vhdl
+6			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_reg.vhd" vhdl
+7			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd" vhdl
+8			"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd" vhdl
+#Dependency Lists(Uses List)
+0 -1
+1 -1
+2 -1
+3 -1
+4 -1
+5 -1
+6 -1
+7 -1
+8 4 6 2 7 1 5 3
+#Dependency Lists(Users Of)
+0 -1
+1 8
+2 8
+3 8
+4 8
+5 8
+6 8
+7 8
+8 -1
+#Design Unit to File Association
+module work top 8
+arch work top struct 8
+module work rom 7
+arch work rom rtl 7
+module work reg 6
+arch work reg rtl 6
+module work mux 5
+arch work mux rtl 5
+module work flg 4
+arch work flg rtl 4
+module work ctrl 3
+arch work ctrl rtl 3
+module work cnt 2
+arch work cnt rtl 2
+module work alu_s 1
+arch work alu_s rtl 1

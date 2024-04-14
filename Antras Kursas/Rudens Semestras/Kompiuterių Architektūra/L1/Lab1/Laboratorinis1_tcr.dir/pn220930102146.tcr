@@ -1,0 +1,8 @@
+#Start recording tcl command: 9/30/2022 09:08:13
+#Project Location: G:/Kompiuteriu architektura/L1/Lab1; Project name: Laboratorinis1
+prj_project open "G:/Kompiuteriu architektura/L1/Lab1/Laboratorinis1.ldf"
+prj_run Synthesis -impl impl1
+prj_src add "G:/Kompiuteriu architektura/L1/Lab1/asd/asd.spf"
+prj_run Synthesis -impl impl1
+prj_src add "G:/Kompiuteriu architektura/L1/Lab1/asd/asd.spf"
+#Stop recording: 9/30/2022 10:21:46

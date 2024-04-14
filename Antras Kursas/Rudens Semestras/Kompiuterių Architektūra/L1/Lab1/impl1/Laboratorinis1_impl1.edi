@@ -1,0 +1,232 @@
+(edif TOP
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timeStamp 2022 9 30 9 56 18)
+      (author "Synopsys, Inc.")
+      (program "Synplify Pro" (version "R-2021.03L-SP1, mapper map202103lat, Build 070R"))
+     )
+   )
+  (library LUCENT
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell OB (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port I (direction INPUT))
+           (port O (direction OUTPUT))
+         )
+       )
+    )
+    (cell GSR (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port GSR (direction INPUT))
+         )
+       )
+    )
+    (cell VHI (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port Z (direction OUTPUT))
+         )
+       )
+    )
+    (cell VLO (cellType GENERIC)
+       (view PRIM (viewType NETLIST)
+         (interface
+           (port Z (direction OUTPUT))
+         )
+       )
+    )
+  )
+  (library work
+    (edifLevel 0)
+    (technology (numberDefinition ))
+    (cell TOP (cellType GENERIC)
+       (view struct (viewType NETLIST)
+         (interface
+           (port CLK (direction INPUT))
+           (port RST (direction INPUT))
+           (port (array (rename din "Din(15:0)") 16) (direction INPUT))
+           (port (array (rename main_dout "MAIN_Dout(15:0)") 16) (direction OUTPUT))
+           (port S_Done (direction OUTPUT))
+         )
+         (contents
+          (instance GND_0 (viewRef PRIM (cellRef VLO (libraryRef LUCENT)))          )
+          (instance VCC_0 (viewRef PRIM (cellRef VHI (libraryRef LUCENT)))          )
+          (instance GSR_INST (viewRef PRIM (cellRef GSR (libraryRef LUCENT)))
+          )
+          (instance S_Done_pad (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_15 "MAIN_Dout_pad[15]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_14 "MAIN_Dout_pad[14]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_13 "MAIN_Dout_pad[13]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_12 "MAIN_Dout_pad[12]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_11 "MAIN_Dout_pad[11]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_10 "MAIN_Dout_pad[10]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_9 "MAIN_Dout_pad[9]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_8 "MAIN_Dout_pad[8]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_7 "MAIN_Dout_pad[7]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_6 "MAIN_Dout_pad[6]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_5 "MAIN_Dout_pad[5]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_4 "MAIN_Dout_pad[4]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_3 "MAIN_Dout_pad[3]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_2 "MAIN_Dout_pad[2]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_1 "MAIN_Dout_pad[1]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (instance (rename MAIN_Dout_pad_0 "MAIN_Dout_pad[0]") (viewRef PRIM (cellRef OB (libraryRef LUCENT)))          )
+          (net GND (joined
+           (portRef Z (instanceRef GND_0))
+           (portRef I (instanceRef MAIN_Dout_pad_0))
+           (portRef I (instanceRef MAIN_Dout_pad_1))
+           (portRef I (instanceRef MAIN_Dout_pad_2))
+           (portRef I (instanceRef MAIN_Dout_pad_3))
+           (portRef I (instanceRef MAIN_Dout_pad_4))
+           (portRef I (instanceRef MAIN_Dout_pad_5))
+           (portRef I (instanceRef MAIN_Dout_pad_6))
+           (portRef I (instanceRef MAIN_Dout_pad_7))
+           (portRef I (instanceRef MAIN_Dout_pad_8))
+           (portRef I (instanceRef MAIN_Dout_pad_9))
+           (portRef I (instanceRef MAIN_Dout_pad_10))
+           (portRef I (instanceRef MAIN_Dout_pad_11))
+           (portRef I (instanceRef MAIN_Dout_pad_12))
+           (portRef I (instanceRef MAIN_Dout_pad_13))
+           (portRef I (instanceRef MAIN_Dout_pad_14))
+           (portRef I (instanceRef MAIN_Dout_pad_15))
+           (portRef I (instanceRef S_Done_pad))
+          ))
+          (net VCC (joined
+           (portRef Z (instanceRef VCC_0))
+           (portRef GSR (instanceRef GSR_INST))
+          ))
+          (net CLK (joined
+           (portRef CLK)
+          ))
+          (net RST (joined
+           (portRef RST)
+          ))
+          (net (rename Din_0 "Din[0]") (joined
+           (portRef (member din 15))
+          ))
+          (net (rename Din_1 "Din[1]") (joined
+           (portRef (member din 14))
+          ))
+          (net (rename Din_2 "Din[2]") (joined
+           (portRef (member din 13))
+          ))
+          (net (rename Din_3 "Din[3]") (joined
+           (portRef (member din 12))
+          ))
+          (net (rename Din_4 "Din[4]") (joined
+           (portRef (member din 11))
+          ))
+          (net (rename Din_5 "Din[5]") (joined
+           (portRef (member din 10))
+          ))
+          (net (rename Din_6 "Din[6]") (joined
+           (portRef (member din 9))
+          ))
+          (net (rename Din_7 "Din[7]") (joined
+           (portRef (member din 8))
+          ))
+          (net (rename Din_8 "Din[8]") (joined
+           (portRef (member din 7))
+          ))
+          (net (rename Din_9 "Din[9]") (joined
+           (portRef (member din 6))
+          ))
+          (net (rename Din_10 "Din[10]") (joined
+           (portRef (member din 5))
+          ))
+          (net (rename Din_11 "Din[11]") (joined
+           (portRef (member din 4))
+          ))
+          (net (rename Din_12 "Din[12]") (joined
+           (portRef (member din 3))
+          ))
+          (net (rename Din_13 "Din[13]") (joined
+           (portRef (member din 2))
+          ))
+          (net (rename Din_14 "Din[14]") (joined
+           (portRef (member din 1))
+          ))
+          (net (rename Din_15 "Din[15]") (joined
+           (portRef (member din 0))
+          ))
+          (net (rename MAIN_Dout_0 "MAIN_Dout[0]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_0))
+           (portRef (member main_dout 15))
+          ))
+          (net (rename MAIN_Dout_1 "MAIN_Dout[1]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_1))
+           (portRef (member main_dout 14))
+          ))
+          (net (rename MAIN_Dout_2 "MAIN_Dout[2]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_2))
+           (portRef (member main_dout 13))
+          ))
+          (net (rename MAIN_Dout_3 "MAIN_Dout[3]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_3))
+           (portRef (member main_dout 12))
+          ))
+          (net (rename MAIN_Dout_4 "MAIN_Dout[4]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_4))
+           (portRef (member main_dout 11))
+          ))
+          (net (rename MAIN_Dout_5 "MAIN_Dout[5]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_5))
+           (portRef (member main_dout 10))
+          ))
+          (net (rename MAIN_Dout_6 "MAIN_Dout[6]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_6))
+           (portRef (member main_dout 9))
+          ))
+          (net (rename MAIN_Dout_7 "MAIN_Dout[7]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_7))
+           (portRef (member main_dout 8))
+          ))
+          (net (rename MAIN_Dout_8 "MAIN_Dout[8]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_8))
+           (portRef (member main_dout 7))
+          ))
+          (net (rename MAIN_Dout_9 "MAIN_Dout[9]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_9))
+           (portRef (member main_dout 6))
+          ))
+          (net (rename MAIN_Dout_10 "MAIN_Dout[10]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_10))
+           (portRef (member main_dout 5))
+          ))
+          (net (rename MAIN_Dout_11 "MAIN_Dout[11]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_11))
+           (portRef (member main_dout 4))
+          ))
+          (net (rename MAIN_Dout_12 "MAIN_Dout[12]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_12))
+           (portRef (member main_dout 3))
+          ))
+          (net (rename MAIN_Dout_13 "MAIN_Dout[13]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_13))
+           (portRef (member main_dout 2))
+          ))
+          (net (rename MAIN_Dout_14 "MAIN_Dout[14]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_14))
+           (portRef (member main_dout 1))
+          ))
+          (net (rename MAIN_Dout_15 "MAIN_Dout[15]") (joined
+           (portRef O (instanceRef MAIN_Dout_pad_15))
+           (portRef (member main_dout 0))
+          ))
+          (net S_Done (joined
+           (portRef O (instanceRef S_Done_pad))
+           (portRef S_Done)
+          ))
+         )
+        (property orig_inst_of (string "TOP"))
+       )
+    )
+  )
+  (design TOP (cellRef TOP (libraryRef work))
+	(property PART (string "lfxp2_5e-6") ))
+)

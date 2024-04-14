@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Org.Ktu.Isk.P175B602.Autonuoma.Models.Darbuotojas>
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Darbuotojai"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Sukurti naują</a>
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-lst">
+	<table class="entity-list">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Tabelis)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Vardas)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Pavarde)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model) {
+			<tr>
+				<td>
+					@Html.DisplayFor(model => item.Tabelis)
+				</td>
+				<td>
+					@Html.DisplayFor(model => item.Vardas)
+				</td>
+				<td>
+					@Html.DisplayFor(model => item.Pavarde)
+				</td>
+				<td>
+					<a href="@Url.Action("Edit", new { id = item.Tabelis })" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Redaguoti</a>
+					<a href="@Url.Action("Delete", new { id = item.Tabelis })" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Šalinti</a>
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>

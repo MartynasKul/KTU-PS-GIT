@@ -1,0 +1,91 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.ContractsReport.Report
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Automobilių ataskaita"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+</div>
+
+@* content itself *@
+<div class="main-content-rep">
+@using( Html.BeginForm(FormMethod.Get, new { @class="rep" }) )
+{
+	<p><strong>Parengta:</strong> @String.Format("{0:yyyy-MM-dd HH:mm}", DateTime.Now)</p>
+
+	@* filter section *@
+	<div class="filter">
+		<div class="fields">
+			<div class="field">
+				<label>Automobiliai su id nuo:</label>
+				@Html.TextBoxFor(m => m.idFrom, new {@Value = "Iveskite norimą id", @class = "number" })
+			</div>
+
+			<div class="field">
+				<label>Automobiliai su id iki:</label>
+				@Html.TextBoxFor(m => m.idTo, new {@Value = "Iveskite norimą id", @class = "number" })
+			</div>
+		</div>
+
+		<div class="buttons">
+			<button class="btn btn-success"><i class="fa-solid fa-filter"></i> Atrinkti</button>
+		</div>
+	</div>
+
+	@* report data *@
+	<table class="report">
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(m => m.Automobiliai[0].Id)</th>
+
+				<th>@Html.DisplayNameFor(m => m.Automobiliai[0].Modelis)</th>				
+				<th>@Html.DisplayNameFor(m => m.Automobiliai[0].ValstybinisNr)</th>
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			@if( Model.Automobiliai.Count == 0 )
+			{
+				@* no data message *@
+				<tr class="no-data-msg">
+					<td colspan="4" align="center">Nurodytame id tarpe automobilių nėra</td>
+				</tr>
+			}
+			else 
+			{
+				@* groups *@
+				@for( int i = 0; i < Model.Automobiliai.Count; i++ )
+				{
+					
+					@* group content *@
+					<tr>
+						<th>@Html.DisplayFor(m => m.Automobiliai[i].Id)</th>
+
+						<th>@Html.DisplayFor(m => m.Automobiliai[i].Modelis)</th>
+						
+						<th>@Html.DisplayFor(m => m.Automobiliai[i].ValstybinisNr)</th>
+						
+						
+					</tr>
+
+					
+				}
+
+				@* grand total *@
+				<tr class="grand-total-header">
+					<td colspan="4" align="center"><b>Viso</b></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"></td>
+					<td>
+						@Html.DisplayFor(m => Model.VisoAuto)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+</div>

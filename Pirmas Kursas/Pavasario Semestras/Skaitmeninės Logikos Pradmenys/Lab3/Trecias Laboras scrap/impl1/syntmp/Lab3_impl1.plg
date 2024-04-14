@@ -1,0 +1,13 @@
+@P:  Worst Slack : 3.390
+@P:  SCH|clk - Estimated Frequency : 621.2 MHz
+@P:  SCH|clk - Requested Frequency : 200.0 MHz
+@P:  SCH|clk - Estimated Period : 1.610
+@P:  SCH|clk - Requested Period : 5.000
+@P:  SCH|clk - Slack : 3.390
+@P:  System - Estimated Frequency : 10857.8 MHz
+@P:  System - Requested Frequency : 200.0 MHz
+@P:  System - Estimated Period : 0.092
+@P:  System - Requested Period : 5.000
+@P:  System - Slack : 4.908
+@P:  Total Area : 10.0
+@P:  CPU Time : 0h:00m:03s

@@ -1,0 +1,138 @@
+# Mon May 23 18:32:26 2022
+
+
+Copyright (C) 1994-2020 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Q-2020.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-11
+
+Implementation : impl1
+Synopsys Lattice Technology Pre-mapping, Version map202003lat, Build 172R, Built Nov  2 2020 09:31:45, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 117MB peak: 117MB)
+
+@A: MF827 |No constraint file specified.
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\impl1_scck.rpt 
+See clock summary report "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\impl1_scck.rpt"
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 128MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 128MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 138MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 140MB)
+
+@N: BN362 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr136.vhd":20:2:20:3|Removing sequential instance CNT_C (in view: work.CNT136(rtl)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+@W: MT462 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr49.vhd":20:2:20:3|Net CNT_2.CNT_C appears to be an unidentified clock source. Assuming default frequency. If this is a required clock, declare a clock constraint on this net in your constraint file.
+
+Starting clock optimization phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 169MB peak: 169MB)
+
+@N: MF578 |Incompatible asynchronous control logic preventing generated clock conversion.
+
+Finished clock optimization phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+Starting clock optimization report phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+Finished clock optimization report phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+@N: FX1184 |Applying syn_allowed_resources blockrams=12 on top level netlist TOP_CNT 
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+
+Clock Summary
+******************
+
+          Start                           Requested     Requested     Clock                            Clock                     Clock
+Level     Clock                           Frequency     Period        Type                             Group                     Load 
+--------------------------------------------------------------------------------------------------------------------------------------
+0 -       System                          542.3 MHz     1.844         system                           system_clkgroup           8    
+                                                                                                                                      
+0 -       TOP_CNT|CLK_I                   1.0 MHz       1000.000      inferred                         Autoconstr_clkgroup_0     8    
+1 .         CNT19|CNT_C_derived_clock     1.0 MHz       1000.000      derived (from TOP_CNT|CLK_I)     Autoconstr_clkgroup_0     7    
+======================================================================================================================================
+
+
+
+Clock Load Summary
+***********************
+
+                              Clock     Source                      Clock Pin              Non-clock Pin     Non-clock Pin
+Clock                         Load      Pin                         Seq Example            Seq Example       Comb Example 
+--------------------------------------------------------------------------------------------------------------------------
+System                        8         -                           CNT_3.CNT_A[7:0].C     -                 -            
+                                                                                                                          
+TOP_CNT|CLK_I                 8         CLK_I(port)                 RST_internal.C         -                 -            
+CNT19|CNT_C_derived_clock     7         CNT_1.CNT_C.Q[0](dffse)     CNT_2.CNT_A[5:0].C     -                 -            
+==========================================================================================================================
+
+@W: MT531 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr136.vhd":20:2:20:3|Found signal identified as System clock which controls 8 sequential elements including CNT_3.CNT_A[7:0].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
+@W: MT529 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr19.vhd":20:2:20:3|Found inferred clock TOP_CNT|CLK_I which controls 8 sequential elements including CNT_1.CNT_A[4:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+
+ICG Latch Removal Summary:
+Number of ICG latches removed: 0
+Number of ICG latches not removed:	0
+
+
+@S |Clock Optimization Summary
+
+
+
+#### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[
+
+1 non-gated/non-generated clock tree(s) driving 8 clock pin(s) of sequential element(s)
+2 gated/generated clock tree(s) driving 15 clock pin(s) of sequential element(s)
+0 instances converted, 15 sequential instances remain driven by gated/generated clocks
+
+=========================== Non-Gated/Non-Generated Clocks ============================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
+---------------------------------------------------------------------------------------
+@KP:ckid0_3       CLK_I               port                   8          CNT_CO         
+=======================================================================================
+============================================================== Gated/Generated Clocks ==============================================================
+Clock Tree ID     Driving Element      Drive Element Type     Unconverted Fanout     Sample Instance      Explanation                               
+----------------------------------------------------------------------------------------------------------------------------------------------------
+@KP:ckid0_0       CNT_2.CNT_C.Q[0]     dffre                  8                      CNT_3.CNT_A[7:0]     Clock source is invalid for GCC           
+@KP:ckid0_1       CNT_1.CNT_C.Q[0]     dffse                  7                      CNT_2.CNT_C          Derived clock on input (not legal for GCC)
+====================================================================================================================================================
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######
+
+@N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
+Finished Pre Mapping Phase.
+
+Starting constraint checker (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+Finished constraint checker (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:02s; Memory used current: 171MB peak: 171MB)
+
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:02s; Memory used current: 87MB peak: 173MB)
+
+Process took 0h:00m:14s realtime, 0h:00m:02s cputime
+# Mon May 23 18:32:41 2022
+
+###########################################################]

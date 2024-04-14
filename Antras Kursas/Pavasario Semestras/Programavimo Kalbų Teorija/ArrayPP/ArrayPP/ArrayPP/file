@@ -1,0 +1,109 @@
+int[] arr = [1, 2, 3, 4, 5, 6, 7];
+
+print("");
+print("--------------------------------------------");
+
+print("");
+print("Pradinis masyvas:");
+print(arr);
+
+print("");
+print("Išfiltruojami visi skaičiai nuo 4 iki 6:");
+arr.filter(4, 6);
+print(arr);
+
+print("");
+print("Įterpiamas skaičius 10 į -2 indeksą (antrą nuo galo):");
+arr.insert(-2, 10);
+print(arr);
+
+print("");
+print("Ištrinamas -3 indekse esantis skaičius (trečias nuo galo):");
+arr[-3].remove;
+print(arr);
+
+print("");
+print("Sumaišomas masyvas:");
+arr.randomise;
+print(arr);
+
+print("");
+print("Užpildomas masyvas 10-čia 5-etų:");
+arr.fill(10, 5); //index value
+print(arr);
+
+print("");
+print("Įterpiamas skaičius 1 į -1 indeksą (paskutinį):");
+arr.insert(-1, 1);
+print(arr);
+
+print("");
+print("Masyvas atkerpamas nuo 2 iki 9 indekso:");
+arr.slice(2, 9); // iki ntojo indexo nuo xtojo indekso
+print(arr);
+
+print("");
+print("Atrenkami unikalūs masyvo skaičiai:");
+arr.unique;
+print(arr);
+
+print("");
+print("Nukopijuojamas masyvas:");
+int []arr2;
+arr2 = arr;
+print(arr2);
+
+print("");
+print("--------------------------------------------");
+
+print("");
+print("Programos veikimas (for, if):");
+
+int skaicius = 1;
+for(int i = 0; i < 10; i=i+1)
+{
+    if ( skaicius != 6) 
+    {
+        skaicius = skaicius + 1;
+    }
+}
+print(skaicius);
+
+print("");
+print("--------------------------------------------");
+
+print("");
+print("Programos veikimas (while):");
+
+int sk = 1;
+while(sk < 8)
+{
+    sk = sk + 1;
+}
+print(sk);
+
+print("");
+print("--------------------------------------------");
+
+print("");
+print("Programos veikimas (rekursija):");
+
+function recursive(int rec)
+{
+    if(rec != 10) 
+    {
+        rec = rec + 1;
+        print(rec);
+        recursive(rec);
+    }
+    else 
+    {
+        return;
+    }
+}
+
+int rekursija = 0;
+recursive(rekursija);
+
+print("");
+print("--------------------------------------------");

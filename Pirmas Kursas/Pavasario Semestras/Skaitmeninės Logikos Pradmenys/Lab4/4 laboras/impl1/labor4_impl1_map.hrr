@@ -1,0 +1,43 @@
+---------------------------------------------------
+Report for cell TOP_CNT
+   Instance path: TOP_CNT
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      28.00        100.0
+                                 IOLGC	       1.00        100.0
+                                  LUT4	      34.00        100.0
+                                 IOREG	          1        100.0
+                                 IOBUF	          4        100.0
+                                PFUREG	         22        100.0
+                                RIPPLE	          8        100.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                                CNT136	          1        42.9
+                                 CNT49	          1        25.0
+                                 CNT19	          1        31.0
+---------------------------------------------------
+Report for cell CNT136
+   Instance path: TOP_CNT/CNT_3
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      12.00        42.9
+                                  LUT4	      11.00        32.4
+                                PFUREG	          8        36.4
+                                RIPPLE	          5        62.5
+---------------------------------------------------
+Report for cell CNT49
+   Instance path: TOP_CNT/CNT_2
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       7.00        25.0
+                                  LUT4	      13.00        38.2
+                                PFUREG	          7        31.8
+---------------------------------------------------
+Report for cell CNT19
+   Instance path: TOP_CNT/CNT_1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       8.67        31.0
+                                  LUT4	      10.00        29.4
+                                PFUREG	          6        27.3
+                                RIPPLE	          3        37.5

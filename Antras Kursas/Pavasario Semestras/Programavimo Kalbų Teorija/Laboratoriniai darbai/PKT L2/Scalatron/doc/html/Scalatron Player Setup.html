@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron Player Setup</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron Player Setup</h1>
+            <h2 id="project_tagline">Player Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "Overview">Overview</h1>
+
+<p>Scalatron is a game server application running on a central computer. This server hosts
+the bot tournament by continuously simulating short rounds of the Scalatron BotWar game.
+Players participate in the tournament by publishing their bots into the server.</p>
+
+<p>To publish a bot, a player has to provide the server with a <code>.jar</code> archive file that contains the
+bot's control function, which was implemented in Scala and then compiled. There are three approaches
+to doing this, which in the Scalatron documentation are referred to as the &ldquo;serious&rdquo;, &ldquo;intermediate&rdquo;
+and &ldquo;casual&rdquo; paths, respectively.</p>
+
+<h2 id = "The__ldquo_Casual_rdquo__Path">The &ldquo;Casual&rdquo; Path</h2>
+
+<p>The &ldquo;casual&rdquo; path is intended for less experienced programmers or for shorter bot coding sessions
+(2-3 hours).</p>
+
+<p>On this path, players write, build, debug and publish their bots in a web browser. The
+browser-based development environment is provided by an embedded web server which is hosted
+inside the game server and requires no setup by the user.</p>
+
+<p>A subsequent chapter of this document describe how to code and build your bot using the
+browser-based development environment that is provided by the Scalatron server.</p>
+
+<h2 id = "The__ldquo_Intermediate_rdquo__Path">The &ldquo;Intermediate&rdquo; Path</h2>
+
+<p>The &ldquo;intermediate&rdquo; path is intended for programmers who wish to use their trusted editor or IDE on
+their local computer but want to minimize the setup overhead required for compiling and publishing
+(namely, installing Scala and using a network share for publication).</p>
+
+<p>On this path, players use their editor or IDE of choice to write their bots, but then debug and
+publish from the web browser. Changes are synchronised with the server by using Git, a distributed
+version control system.</p>
+
+<h2 id = "The__ldquo_Serious_rdquo__Path">The &ldquo;Serious&rdquo; Path</h2>
+
+<p>The &ldquo;serious&rdquo; path is intended for experienced programmers planning for a longer bot coding
+session (5-7 hours).</p>
+
+<p>On this path, bots are built locally by each player, using an IDE or command
+line tools. The bots are then published into the tournament by copying them into the plug-in
+directory on the central computer from which the game server loads them at the start of each
+round.</p>
+
+<p>If you intend to go down the &ldquo;serious&rdquo; path, you need to complete the following steps in
+order to publish a bot program into the Scalatron game server:</p>
+
+<ol>
+<li>write a Scala program consisting of one or more <code>.scala</code> source files</li>
+<li>compile the Scala source code into Java <code>.class</code> files</li>
+<li>bundle those class files into a Java <code>.jar</code> archive file</li>
+<li>publish your <code>.jar</code> archive file into the plug-in directory used by the game server</li>
+</ol>
+
+<p>Although all of these steps can be performed with a simple text editor and by using the
+command line, many people prefer to use an Integrated Development Environment (IDE) that
+supports Scala, such as Eclipse or IntelliJ IDEA. Unfortunately, the setup process is pretty
+involved and may take up to 30 minutes. Ideally someone in your group should already familiar
+with the development environment you intend to use.</p>
+
+<h1 id = "The_Casual_Path:_Using_the_Scalatron_Browser_IDE">The Casual Path: Using the Scalatron Browser IDE</h1>
+
+<p>The Scalatron server provides a built-in, browser-based development environment, the <em>Scalatron IDE</em>.
+To use this environment, you need to have access to a running Scalatron server somewhere on the
+network, or on your own computer. If you are participating in a workshop with multiple users, ask
+the organizer for the address of that machine.</p>
+
+<p>If you want to run your own server on your local machine, follow the simple steps outlined in
+the Scalatron <em>Server Setup</em> guide. Basically:</p>
+
+<ol>
+<li>download the Scalatron distribution, e.g. from http://scalatron.github.com</li>
+<li>unzip the compressed file to a local directory, e.g. <code>/Scalatron</code></li>
+<li>launch the game server by double-clicking the application, e.g. at <code>Scalatron/bin/Scalatron.jar</code></li>
+<li>open a browser and point it to the server, usually at <code>http://servername:8080</code></li>
+<li>log in as <code>Administrator</code> and create a user account for yourself</li>
+</ol>
+
+<p>Once you have access to a running Scalatron server and have an account on it, perform the following
+steps:</p>
+
+<ol>
+<li>open a browser and point it to the server (e.g. using <code>http://servername:8080</code>, where
+<code>servername</code> is the name of the computing running the Scalatron server; if you are running
+it locally, use <code>localhost</code>)</li>
+<li>This will display a log-in screen that should show your name as one of the available user
+accounts. Log in.</li>
+<li>This will take you into a browser-based code editor, with a bare-bones bot pre-loaded.
+Edit the bot, then click <strong>Run in Sandbox</strong> to build your bot and run it in a private sandbox game.</li>
+<li>Once you have something that works, click <strong>Publish into Tournament</strong> to build your bot and publish
+it into the tournament.</li>
+<li>Woohoo!</li>
+</ol>
+
+<h1 id = "The_Intermediate_Path:_Using_Your_Editor_Of_Choice__Plus_Git_Version_Control">The Intermediate Path: Using Your Editor Of Choice, Plus Git Version Control</h1>
+
+<h2 id = "Overview">Overview</h2>
+
+<p>The intermediate path uses <em>Git</em>, a distributed version control system, to exchange locally edited
+files with the Scalatron server and to trigger automatic compilation and publication. The Scalatron server
+runs an embedded version of Git and maintains a collection of Git repositories, one per user, to hold the
+source code version histories.
+You can retrieve these sources files and upload new versions using a Git client installed on your local computer.
+Many popular development environments have built-in or installable support for Git, so these operations
+are likely to be available directly within your IDE.</p>
+
+<p>In the &ldquo;intermediate&rdquo; path, editing and publication work roughly as follows:</p>
+
+<ol>
+<li>Set up the Git version control system on your computer to interact with the Scalatron Git server</li>
+<li>Clone the code in the central Git repository managed by Scalatron to your local computer</li>
+<li>Edit the source code of your bots on your local machine, using your editor of choice</li>
+<li>When you want to test your code, push your changes back to the Scalatron server</li>
+<li>Use the browser-based Scalatron IDE (see the &ldquo;casual&rdquo; path description) to debug and publish your bot</li>
+</ol>
+
+<p>Each of these steps is described in more detail in the following sections.</p>
+
+<h2 id = "Set_Up_The_Scalatron_Server">Set Up The Scalatron Server</h2>
+
+<p>The Scalatron server provides Git versioning services and a web server exposing the browser-based development environment.
+Install the Scalatron server and verify that it is up-and-running by following the instructions laid out for the
+&ldquo;casual&rdquo; path in the preceding chapter.</p>
+
+<h2 id = "Install_Git_On_Your_Computer">Install Git On Your Computer</h2>
+
+<p>You will be exchanging source code files with the Scalatron server by using a version control system called <em>Git</em>.
+The Scalatron server runs an embedded version of Git. To interact with it, you will need a local Git client.
+If you do not already have Git installed, go to <a href="http://git-scm.com/download">http://git-scm.com/download</a>,
+download the Git version appropriate for your operating system and follow the installation instructions.</p>
+
+<h2 id = "Find_Out_The_Link_To_Your_Central_Git_Repository">Find Out The Link To Your Central Git Repository</h2>
+
+<p>Access to the central Git repositories managed by the Scalatron server is provided through the HTTP-based API of Git,
+which is exposed by Scalatron's embedded web server in the same way as Scalatron's own RESTful web API. To access
+it, you need to know the hostname or IP address of the Scalatron server; the port number at which the web server
+listens for requests; the resource name on the server under which the API is accessible; and your user name (and
+optionally your password).</p>
+
+<p>The structure of the URL is as follows:</p>
+
+<pre><code>http://{user}@{hostname}:{port}/git/{user}</code></pre>
+
+<p>You can find out the hostname and port number in a variety of ways:</p>
+
+<ul>
+<li>When Scalatron starts up, it prints the hostname and port number it thinks it is reachable on to the console</li>
+<li>Scalatron automatically launches a browser to its welcome page at start up; the address displayed for that browser page contains the hostname and port number</li>
+<li>If you are running Scalatron locally, the hostname <code>localhost</code> should work; the default port number used by Scalatron is <code>8080</code></li>
+</ul>
+
+<p>The user name will be the name of the user account that you or an organizer created for you (see the associated
+steps in the instructions for the &ldquo;casual&rdquo; path).</p>
+
+<p><strong>Example</strong>: if your hostname is <code>localhost</code>, your port number is <code>8080</code> and your user name is <code>Daniel</code>, the URL
+to access Git will be:</p>
+
+<pre><code>http://Daniel@localhost:8080/git/Daniel</code></pre>
+
+<h2 id = "Clone_your_Bot">Clone your Bot</h2>
+
+<p>To begin working on your source code, &ldquo;clone&rdquo; the central Git repository that Scalatron maintains for you to a
+directory on your local computer. This will transfer a copy of the files currently present in the central repository
+to local working directory so that you can edit them. Initially, this will be a single source file called <code>Bot.scala</code>
+containing a minimal bot implementation that Scalatron automatically generated for you.</p>
+
+<p>To clone your personal bot locally, invoke the &ldquo;clone&rdquo; command on your local Git client installation
+from the command line, using the URL you found out above:</p>
+
+<pre><code>git clone http://{user}@{hostname}:{port}/git/{user}</code></pre>
+
+<p>Or for people who don't want to keep typing their password:</p>
+
+<pre><code>git clone http://{user}:{password}@{hostname}:{port}/git/{user}</code></pre>
+
+<p><strong>Example</strong>: if your hostname is <code>localhost</code>, your port number is <code>8080</code> and your user name and password are
+<code>Daniel</code> and <code>abc123</code>, the command you would type would be:</p>
+
+<pre><code>git clone http://Daniel:abc123@localhost:8080/git/Daniel</code></pre>
+
+<h2 id = "Set_Up_Your_Development_Environment">Set Up Your Development Environment</h2>
+
+<p>You can use any development environment or editor you want, since the only interaction with Scalatron is via
+the Git client. For an example, check out the setup of IntelliJ IDEA described in the &ldquo;serious&rdquo; path setup below
+(note that you can ignore the chapter &ldquo;Configure the .jar Artifact&rdquo;, as this is not required). The project can be a
+raw Scala project, with no extra dependencies.</p>
+
+<p>The root of the project should be the directory of your newly cloned repository.</p>
+
+<h2 id = "Synchronising_Your_Changes">Synchronising Your Changes</h2>
+
+<p>After you've edited the source code of your bot, you'll want to upload it to the Scalatron server to build,
+test and publish it. To do that, you will again use your local Git client.</p>
+
+<p>From the command line, execute the following commands to push your changes back to Scalatron:</p>
+
+<pre><code>git add .
+git commit -m "Some change I just made"
+git push</code></pre>
+
+<p>The <code>add</code> command scans your local directory for changes and notes and modifications you made.
+The <code>commit</code> command wraps all of the detected changes into a &ldquo;commit&rdquo;, which is a labeled package of changes.
+The <code>push</code> command sends these changes to the server to update the remote repository. Note that this final step
+triggers a Scala compiler run on the server, which may initially take a bit of time.</p>
+
+<p>Performing these operations will often also be possible from within your IDE, depending on the installed plugins.
+Please refer to your IDE or editor documentation to find out how this works in your particular environment.</p>
+
+<h2 id = "Working_With_Your_Bot">Working With Your Bot</h2>
+
+<p>Whenever you <code>push</code> your changes to the central Git repository managed by Scalatron, the Scalatron server will
+not only update the version history but will automatically build your bot for you, reporting back any compiler
+errors that may have occurred. When the Scala compiler starts up for the first time, it has to scan the entire
+Scala library, which may take a while. The <code>push</code> command waits for a response from the server, so it may appear
+to hang while the compiler works through your code. This should be slow only the first time, though.</p>
+
+<p>Once you pushed your bot code and Git reports back that the build was successful, you will have an <em>unpublished</em>
+bot version in your workspace on the server. You can now either start a private game using the unpublished bot (to
+test it out) or publish it into the tournament loop. Both tasks can be performed via the browser-based Scalatron IDE.</p>
+
+<h3 id = "Testing_Your_Bot_In_A_Private_Game">Testing Your Bot In A Private Game</h3>
+
+<p>To test and debug your bot, you can launch it into a private game instance - a &ldquo;sandbox&rdquo; game - managed for you
+by the Scalatron server. To do that, refresh your browser to make it display the source version you just pushed.
+Then click <strong>Run in Sandbox</strong> to start a private game and display it in the browser-based debugger.
+You may need to do this multiple times as you make changes and wish to test the results.</p>
+
+<h3 id = "Publishing_Your_Bot_Into_The_Tournament_Loop">Publishing Your Bot Into The Tournament Loop</h3>
+
+<p>Once you are happy with your bot, you can follows the same steps as for testing (refresh the browser if you just
+pushed a new version) and then click <strong>Publish Into Tournament</strong>.</p>
+
+<h3 id = "Using_the_Scalatron_Command_Line_Interface">Using the Scalatron Command Line Interface</h3>
+
+<p>Although describing the details is beyond the scope of this chapter, you can also use the Scalatron CLI (Command
+Line Interface) to work with the bot version you uploaded and built via Git. See the documentation for the
+Scalatron CLI for details.</p>
+
+<p><strong>Example</strong>: to publish an unpublished bot version (such as one that was automatically built via <code>git push</code>),
+run the following command from the command line:</p>
+
+<pre><code>java -jar ScalatronCLI.jar -user Daniel -password abc123 -cmd publish</code></pre>
+
+<h2 id = "Accessing_Changes_Made_in_the_Browser">Accessing Changes Made in the Browser</h2>
+
+<p>If you make changes in the browser and used <strong>Save</strong> to commit them into the version history, you can replicate
+those changes locally by using the Git command <code>pull</code>:</p>
+
+<pre><code>git pull</code></pre>
+
+<h1 id = "The_Serious_Path:_Building_Locally">The Serious Path: Building Locally</h1>
+
+<h2 id = "Set_up_Java">Set up Java</h2>
+
+<ul>
+<li>Scala source code compiles into Java byte code, which can be executed with a <em><a href="http://en.wikipedia.org/wiki/Java&#95;virtual&#95;machine">Java Virtual Machine (JVM)</a></em>.
+In order to execute applications written in Scala, you therefore need such a JVM on your computer.
+The JVM is part of the <em>Java Runtime Environment (JRE)</em>, which is generally pre-installed on
+most operating systems. If it is not, you can <a href="http://www.java.com/">download it for free</a>.</li>
+<li>To compile Scala code and to properly work with the Java library (e.g., to see its source code),
+however, you also need the the <em><a href="http://en.wikipedia.org/wiki/Java&#95;Development&#95;Kit">Java Development Kit (JDK)</a></em>.
+If you have already been developing for Java, you should obviously already have this, too.
+If not, download a JDK <a href="http://www.oracle.com/technetwork/java/javase/downloads">from Oracle</a>
+or from the web site of your OS provider.</li>
+<li>Please refer to the documentation of the IDE you will be using on how to configure it to use
+the appropriate JDK. Maybe some day we'll be able to also add the steps to this guide&hellip;</li>
+</ul>
+
+<h2 id = "Set_up_Scala">Set up Scala</h2>
+
+<ul>
+<li><p>Compiled Scala code relies on functionality defined in the Scala standard library, which is
+therefore required to be present on your computer (as a Java archive .jar file).  There are
+several ways to obtain and install this package, but the most convenient way is to get
+the entire 'stack' of Scala technologies available from Typesafe, a company that supports a
+range of key Scala projects. So:</p></li>
+<li><p>Download the Typesafe Stack from http://typesafe.com</p></li>
+<li>Install the Typesafe stack
+<ul>
+<li>on OSX, the default directory is <code>/Applications/typesafe-stack</code></li>
+<li>on Windows, the default directory is <code>C:/Program Files/typesafe-stack</code></li>
+</ul></li>
+</ul>
+
+<h2 id = "Set_up_a_Development_Environment">Set up a Development Environment</h2>
+
+<p>Subsequent chapters of this document describe how to build your bot on the &ldquo;serious&rdquo; path
+via the following alternatives:</p>
+
+<ol>
+<li>Using <em>IntelliJ IDEA</em>, a sophisticated development environment for Java that has pretty good
+Scala support (this is a commercial tool, but a free &ldquo;Community Edition&rdquo; is available)</li>
+<li>Using the command line</li>
+<li>Using SBT, the <em>Simple Build Tool</em> for Scala</li>
+</ol>
+
+<h1 id = "Set_up_IntelliJ_IDEA">Set up IntelliJ IDEA</h1>
+
+<p><em>IntelliJ IDEA</em> is a commercial development environment for Java and many other languages. It
+now (March 2012) has quite adequate support for Scala development via a Scala plug-in. But it
+is just one of several options you can use. Another one is the <em>Scala IDE</em> based on <em>Eclipse</em>.
+Unfortunately, this tutorial is not (yet) able to cover both environments, so the following
+steps are, for the moment, specific to IntelliJ IDEA. They were tested with IDEA version 11.2
+on MacOS X.</p>
+
+<h2 id = "Installation__span_class__amp___amp___span__Configuration">Installation <span class="amp">&amp;</span> Configuration</h2>
+
+<h3 id = "Download_and_Install_the_IDE">Download and Install the IDE</h3>
+
+<ul>
+<li>Download IntelliJ IDEA from http://jetbrains.com</li>
+<li>You can use either of the following versions:
+<ul>
+<li>Ultimate Edition (Evaluation Version)</li>
+<li>Community Edition</li>
+</ul></li>
+</ul>
+
+<h3 id = "Install_the_Scala_plug-in">Install the Scala plug-in</h3>
+
+<ul>
+<li>In the main menu, select <strong>IntelliJ IDEA</strong> > <strong>Preferences</strong></li>
+<li>In the list on the left, scroll down to to the entry <strong>Plugins</strong></li>
+<li>At the bottom of the pane that appears, choose <strong>Browse Repositories</strong></li>
+<li>Via the search box at the top right, search for <em>'Scala'</em></li>
+<li>In the list that appears on the left, scroll down to the entry called <strong>Scala</strong></li>
+<li>Control-click on that entry and select <strong>Download and Install&hellip;</strong></li>
+<li>After the plug-in was downloaded and installed, you will have to re-start IDEA</li>
+</ul>
+
+<h3 id = "Configure_the_Scala_Compiler">Configure the Scala Compiler</h3>
+
+<ul>
+<li>In order to compile Scala code in IDEA, we need to tell IDEA (or rather, the Scala plug-in
+within IDEA) where it can find the Scala compiler. The Scala compiler comes as part of the
+Typesafe stack which we already installed, and resides in a Java archive file called
+<code>scala-compiler.jar</code>.</li>
+<li>We now need to create a kind of 'library bundle' containing both the Scala compiler and the
+Scala library, which we'll then tell the plug-in to use when it wants to compile our code.</li>
+<li>In the main menu, select <strong>File</strong> > <strong>Project Structure&hellip;</strong></li>
+<li>In list at upper left, select <strong>Global Libraries</strong></li>
+<li>We want to add an entry called 'scala-compiler' to the list of 'library packages' in the
+center. To do that, we&hellip;</li>
+<li>Click on the '+' icon above the list in the center</li>
+<li>In the <strong>Select Library Files</strong> dialog that appears&hellip;</li>
+<li>Browse for and select the following libraries on disk:
+<ul>
+<li>/Applications/typesafe-stack/lib/scala-compiler.jar</li>
+<li>/Applications/typesafe-stack/lib/scala-library.jar</li>
+</ul></li>
+<li>this will add an entry &ldquo;scala-compiler&rdquo; to the global library list</li>
+<li>We can now configure the IDEA Scala plug-in to use this 'library package' in order to access
+the compiler and to compile our Scala code.</li>
+</ul>
+
+<h3 id = "Configure_the_Fast_Scala_Compiler_option">Configure the Fast Scala Compiler option</h3>
+
+<ul>
+<li>In the main menu, select <strong>IntelliJ IDEA</strong> > <strong>Preferences</strong> (Mac) or <strong>File</strong> > <strong>Settings</strong> (Windows)</li>
+<li>This will pop up a dialog with the title Settings</li>
+<li>In this dialog, in the tree at left navigate to <strong>Compiler</strong> > <strong>Scala Compiler</strong></li>
+<li>In the right hand panel, find the box titled <strong>Project FSC</strong></li>
+<li>In the drop-down list <strong>Compiler library</strong>, select the Scala compiler 'library package' we
+created earlier: <code>scala-compiler.jar</code> (or something similar, whatever you'd entered as the name).</li>
+<li>This will allow IDEA to do fast incremental compilations using an internal compilation server.</li>
+</ul>
+
+<h3 id = "Configure_the_Scala_Library">Configure the Scala Library</h3>
+
+<ul>
+<li>Note: this step is NOT a duplicate of the preceding step! You really need to do this, too!</li>
+<li><p>Before, we created a 'library package' for the IDEA Scala plug-in that contained the Scala
+compiler and the Scala standard library. For our own projects, we'll also need to include
+the Scala standard library as a dependency - but we don't need the compiler. We'll therefore
+create another 'library package', but this time one that contains ONLY the Scala standard
+library (<code>scala-library.jar</code>).</p></li>
+<li><p>File > Project structure&hellip;</p></li>
+<li>in list at upper left, select &ldquo;Global Libraries&rdquo;</li>
+<li>add one library by selecting the following libraries:
+<ul>
+<li>/Applications/typesafe-stack/lib/scala-library.jar
+=> this will add an entry &ldquo;scala-library&rdquo; to the global library list
+(your module will depend on this library)</li>
+</ul></li>
+<li>we will later add this &ldquo;scala-library.jar&rdquo; to your Module's Dependencies</li>
+</ul>
+
+<h2 id = "Set_up_a_Project_for_Your_Bot">Set up a Project for Your Bot</h2>
+
+<p>The following steps are specific to IntelliJ IDEA and were tested with IDEA version 11.2.</p>
+
+<h3 id = "Create_a_Scala_Bot_project">Create a Scala Bot project</h3>
+
+<ul>
+<li>this is the project you will use to write and compile your bot source code</li>
+<li>File > New Project&hellip;</li>
+<li>enter project name ("ScalatronBot&rdquo;)</li>
+<li>accept all defaults</li>
+<li>do not yet configure Scala - we will do this manually</li>
+</ul>
+
+<h3 id = "Add_the_Scala_Facet_to_you_Project">Add the Scala Facet to you Project</h3>
+
+<ul>
+<li>A 'Facet' is IDEA's way of knowing what technologies your project uses and to store
+configuration information for these technologies. We need to add the 'Scala' facet to your
+project. In the next step, we'll configure it.</li>
+<li>File > Project Structure&hellip;</li>
+<li>in list at upper left, select &ldquo;Facets&rdquo;</li>
+<li>above the middle list, click the '+' icon to add a new facet</li>
+<li>add the Scala facet to your project/module</li>
+</ul>
+
+<h3 id = "Configure_the_Scala_Facet">Configure the Scala Facet</h3>
+
+<ul>
+<li>First we'll configure your project to use the <em>Fast Scala Compiler</em>. The Fast Scala Compiler
+is an incremental compile server managed by the Scala plug-in within IDEA. Using it dramatically
+accelerates your build times because symbols do not need to be re-loaded for every build.</li>
+<li>From the preceding step, you should still have the <strong>Project Structure</strong> dialog visible. In
+the list at the left, you should have selected <strong>Facet</strong> and in the list in the middle you
+should have selected the <strong>Scala</strong> facet.</li>
+<li>Now in the panel on the right titled <strong>Compiler instantiation</strong>, check the box <strong>use project FSC</strong>
+('FSC' is the 'Fast Scala Compiler').</li>
+<li>This tells IDEA that to compile your Scala source code, it should use the Fast Scala Compiler.
+We configured this compiler earlier on to use the appropriate Scala compiler library.</li>
+<li>In the same dialog, check the box <strong>Explain type errors</strong> further down. This tells the compiler
+to generate more verbose error messages when it encounters type errors.</li>
+</ul>
+
+<h3 id = "Configure_Scala_Library_as_Module_Dependency">Configure Scala Library as Module Dependency</h3>
+
+<ul>
+<li>We now need to tell IDEA that your Scala 'ScalatronBot' project depends on the Scala
+'library package' containing <code>scala-library.jar</code> which we created earlier.</li>
+<li>From the preceding step, you should still have the <strong>Project Structure</strong> dialog visible.</li>
+<li>in list at upper left, select &ldquo;Modules&rdquo;</li>
+<li>click on your module ("ScalatronBot&rdquo;)</li>
+<li>in panel on right, traverse to the tab &ldquo;Dependencies&rdquo;</li>
+<li>click '+' at bottom of panel to add a dependency</li>
+<li>from pop-up menu, select &ldquo;Library&hellip;&rdquo;</li>
+<li>from the list, select &ldquo;scala-library.jar&rdquo;</li>
+<li>close the dialog with &ldquo;OK&rdquo; to apply the settings</li>
+</ul>
+
+<h3 id = "Configure_the__jar_Artifact">Configure the .jar Artifact</h3>
+
+<ul>
+<li><p>An 'artifact' is something of (hopefully) permanent value generated by the build process.
+In our case it will be a Java archive (<code>.jar</code>) file that contains the compiled bot. The
+server will attempt to locate and open this <code>.jar</code> file and to extract a factory class from
+it which it can then use to instantiate a control function for our bot.</p></li>
+<li><p>In the main menu, select <strong>File</strong> > <strong>Project Structure&hellip;</strong></p></li>
+<li>This re-opens the <strong>Project Structure</strong> dialog</li>
+<li>In list at upper left, select <strong>Artifacts</strong></li>
+<li>Above the list in the middle of the dialog, click the '+' icon to add a new artifact</li>
+<li>From the pop-up menu, select <strong>Jar</strong></li>
+<li>In the options that appear, select <strong>from Modules with dependencies&hellip;</strong></li>
+<li>This will pop up a dialog with the title <strong>Create Jar from Modules</strong></li>
+<li>Leave the field <strong>Main class</strong> empty</li>
+<li>In the section <strong>Jar files from libraries</strong> select the option <strong>copy to the output directory and link via manifest</strong></li>
+<li>The reason we do this is because we do not need or want the Scala standard library
+(the <code>scala-library.jar</code> file, which takes up about 9MB) to be bundled into your bot, since
+the game server has that code anyway. We only want the <code>.class</code> files generated from your own
+<code>.scala</code> source files in the plug-in (these will be closer to 25KB). This also saves a bit of
+copy time each time you build.</li>
+<li>Confirm with OK</li>
+<li>In the main dialog, in the list in the middle, an entry called 'ScalatronBot.jar' should have
+appeared and be selected. In the associated panel on the right, check the box <strong>Build on make</strong>.
+This will tell IDEA to automatically create the plug-in <code>.jar</code> file we just configured as an
+artifact each time you build your code.</li>
+<li>Optionally, you can remove the scala-library entry from the list titled <strong>Output Layout</strong></li>
+<li>Now change the output directory to your plug-in directory on the network share where the
+game server will be looking for bot plug-ins, e.g. (if your name is Frank), to:
+<ul>
+<li>/Volume/bots/Frank/</li>
+</ul></li>
+</ul>
+
+<h2 id = "Write_and_Build_Your_Bot">Write and Build Your Bot</h2>
+
+<p>The following steps are specific to IntelliJ IDEA and were tested with IDEA version 11.2 on MacOS X.</p>
+
+<h3 id = "Create_a_Bot_Code_File">Create a Bot Code File</h3>
+
+<ul>
+<li>You should now be in the main window of IDEA, with a panel containing a tree structure
+showing the contents of your project on the left.</li>
+<li>Optionally, in the drop-down at the top of that panel at the left (called <strong>Project</strong>), change
+the view setting from <strong>Project</strong> to <strong>Packages</strong>. This simplifies the display a bit and only
+shows packages relevant to your project.</li>
+<li>Right-click on the Module ("ScalatronBot&rdquo;) and select New > Scala Class</li>
+<li>Enter the class name &ldquo;ControlFunctionFactory&rdquo; and click OK</li>
+<li><p>In the file, enter the following code:</p>
+
+<p>class ControlFunctionFactory {
+    def create = (input: String) => &ldquo;Status(text=Hello World)&rdquo;
+}</p></li>
+</ul>
+
+<h3 id = "Build_your_Bot">Build your Bot</h3>
+
+<ul>
+<li>In the main menu, select <strong>Build</strong> > <strong>Make Project</strong>. You'll soon use this a lot.
+Make a mental note of the keyboard shortcut&hellip;</li>
+<li>This should compile the Scala code in your <code>Bot.scala</code> file into the <code>.jar</code> artifact file we
+configured earlier.</li>
+<li>If you configured your artifact's destination path to be your personal directory below the
+shared plug-in directory on the game server, the <code>.jar</code> file will be copied into that
+directory and the next time the server starts a game round and re-scans the plug-in
+directories, your plug-in will be picked up and your bot should appear in the game arena,
+saying 'Hello World'.</li>
+<li>Now read the <strong>Game Rules</strong>, the <strong>Protocol</strong> and then get started with the <strong>Tutorial</strong>! Have fun!</li>
+</ul>
+
+<h2 id = "Debug_Your_Bot">Debug Your Bot</h2>
+
+<p>The IntelliJ IDEA development environment provides a very convenient mechanism for debugging
+your bot by connecting to a running Scalatron server application, generally on your local
+machine.</p>
+
+<h3 id = "Setting_up_Remote_Debugging">Setting up Remote Debugging</h3>
+
+<p>To use the remote debugging mechanism, follow these steps:</p>
+
+<ul>
+<li>In IDEA, select <strong>Run</strong> > <strong>Edit Configurations</strong> in the main menu.</li>
+<li>In the dialog <strong>Run/Debug Configurations</strong> that appears, add a new configuration by clicking
+the <code>+</code> at the top left.</li>
+<li>In the pop-up menu <strong>Add New Configuration</strong> that appears, select <strong>Remote</strong> as the
+configuration type.</li>
+<li>In the tab that appears on the right, choose a name for your configuration, such as **Scalatron
+Remote**.</li>
+<li>The text in the table also explains the option that you need to add to the command line
+invocation of the Scalatron server: <code>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</code></li>
+<li>Choose the option at the bottom <strong>Build on Make</strong> to automatically build your .jar file before
+you connect to the server.</li>
+<li>Close the dialog with <strong>OK</strong></li>
+</ul>
+
+<h3 id = "Initiating_a_Remote_Debugging_Session">Initiating a Remote Debugging Session</h3>
+
+<p>To debug your bot, you now need to follow a two-step process:</p>
+
+<ol>
+<li>Start the Scalatron Server with the required JVM options.</li>
+<li>Build your bot and connect the debugger to the running server</li>
+</ol>
+
+<p>To start your server, you have again two options:</p>
+
+<ul>
+<li>open a terminal window, then launch it from the command line</li>
+<li>within the IDE, configure the Scalatron server as a tool and run it from there</li>
+</ul>
+
+<p>In both cases, you will need to specify the command line options you want. For details, please
+refer to the Scalatron <em>Server Setup</em> guide. Here is an example command that integrates the
+remote debugging options with some Scalatron options:</p>
+
+<pre><code>java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005 -jar Scalatron.jar -headless no -x 50 -y 50</code></pre>
+
+<p>To build the bot and connect to the debugger, simply select the <strong>Scalatron Remote</strong>
+configuration you created earlier and choose <strong>Run</strong> > <strong>Run&hellip;</strong> from the main
+menu.</p>
+
+<h1 id = "Working_with_the_Command_Line">Working with the Command Line</h1>
+
+<p>The following guide was adapted from an article written by Lauri Lehmijoki, which he kindly made
+available on his blog at http://lauri.lehmijoki.net/en/nerd/scalatron-on-cli.html and gave
+permission to include here.</p>
+
+<h2 id = "Background">Background</h2>
+
+<p>Lauri says: &ldquo;I believe that working on the &#42;nix command-line interface (CLI) is important if you
+want to get an in-depth understanding of the programming system you are learning. Here are some of
+the benefits of working on the CLI instead of an IDE:</p>
+
+<ul>
+<li>You get to understand the compiler, because you have to compile the software yourself.</li>
+<li>You will understand the meaning of every file in your project, since you've created them yourself.</li>
+<li>You will learn the APIs by heart, since you have to look at the documentation instead of relying
+on the IDE's auto-complete feature</li>
+<li>You'll be only a couple of keypresses away from the powerful Unix tools that dwell behind the CLI</li>
+<li>Working on the CLI allows you to be fully in control of everything that happens during development -
+modern IDEs easily abstract away too many things, causing you to be at their mercy.&rdquo;</li>
+</ul>
+
+<h2 id = "Preparing_the_Scala_environment">Preparing the Scala environment</h2>
+
+<p>We'll assume that you don't have Scala installed on your system. We are going to download the
+latest Scala version from the language's home page, and then install it onto your Mac or Linux
+(other Unix systems will also do here).</p>
+
+<p>Its possible to install Scala via a package manager such as Apt-get on Ubuntu, but the Scala
+version in your package manager's repository might be outdated. Because of that and the idea
+that working on the CLI helps you understand the programming system you want to learn, I
+suggest that you install Scala with the steps below.</p>
+
+<h3 id = "Installing_Scala">Installing Scala</h3>
+
+<p>First, download Scala (you can check for the latest release on the <a href="http://www.scala-lang.org/downloads">Scala download page</a>; here we are using the version 2.9.1):</p>
+
+<p><code>curl http://www.scala-lang.org/downloads/distrib/files/scala-2.9.1-1.zip &gt; /tmp/scala.zip</code></p>
+
+<p>Create the directory where to put Scala and then unpack the zip:</p>
+
+<p><code>mkdir ~/Install</code></p>
+
+<p><code>unzip /tmp/scala.zip -d ~/Install</code></p>
+
+<h3 id = "Configuring_environment">Configuring environment</h3>
+
+<p>Create the <code>SCALA\_HOME</code> environment variable by appending a string to your shell configuration:</p>
+
+<p><code>echo "export SCALA_HOME=~/Install/scala-2.9.1-1" &gt;&gt; ~/.bash_profile</code></p>
+
+<p>We also need to add Scala into your command path, so that you can invoke Scala without having to
+rememer the full path to the installation:</p>
+
+<p><code>echo "export PATH=\$PATH:\$SCALA_HOME/bin" &gt;&gt; ~/.bash_profile</code></p>
+
+<p>Let's reload <em>.bash_profile</em> to activate the <code>SCALA\_HOME</code> environment variable and the path setting:</p>
+
+<p><code>source ~/.bash_profile</code></p>
+
+<p>As the final step we make all the Scala binaries executable:</p>
+
+<p><code>chmod u+x $SCALA_HOME/bin/*</code></p>
+
+<p>Your &#42;nix now has Scala. You can give Scala a test run by opening the interpreter with
+the <code>scala</code> command.</p>
+
+<h2 id = "Installing_Scalatron_server">Installing Scalatron server</h2>
+
+<p>Scalatron server is the software that contains the game engine and the graphical interface to
+the game. You need it for running your Scalatron bots. The Scalatron web site has
+<a href="http://scalatron.github.com/download">documentation</a> on how to set up a shared server.</p>
+
+<p>You can also install the Scalatron server with the following steps:</p>
+
+<ol>
+<li>Download the latest release from the <a href="http://scalatron.github.com/download">Scalatron download page</a></li>
+<li>Unpack the downloaded file</li>
+<li>Go to the directory where you unpacked the file and invoke <code>cd bin &amp;&amp; java -jar Scalatron.jar</code> to start the server</li>
+</ol>
+
+<h2 id = "Developing_Scalatron_bots_on_CLI">Developing Scalatron bots on CLI</h2>
+
+<h3 id = "Creating_new_Scalatron_project">Creating new Scalatron project</h3>
+
+<p>Create a new project directory for your bot:</p>
+
+<p><code>mkdir MorningLightMountain &amp;&amp; cd MorningLightMountain</code></p>
+
+<p>(MorningLightMountain is a nefarious alien in Peter Hamilton's Commonwealth Saga, a science fiction book series.)</p>
+
+<p>Then create the required sub-directories:</p>
+
+<p><code>mkdir bin src</code></p>
+
+<p>Edit the file <em>src/Bot.scala</em> and add the code for the simplest bot:</p>
+
+<pre><code>// Contents of src/Bot.scala
+class ControlFunctionFactory {
+    def create = (input: String) =&gt; "Status(text=MorningLightMountain will conquer the whole universe!)"
+}</code></pre>
+
+<p>Next we'll compile the Scalatron bot, and then we'll deploy it on the server. Will humans prevail,
+or will MorningLightMountain take over and enslave us?</p>
+
+<h3 id = "Compiling_Scala_and_Scalatron">Compiling Scala and Scalatron</h3>
+
+<p>Add an empty <em>MANIFEST.MF</em> file into your project's root:</p>
+
+<p><code>touch MANIFEST.MF</code></p>
+
+<p>Jar needs it as a header file.</p>
+
+<p>With the following script (available as a gist on github at <code>https://gist.github.com/2276912</code>) you
+can compile your Scalatron bot:</p>
+
+<pre><code>#!/bin/bash
+# For compiling a Scalatron bot.
+# Assumes that the MANIFEST.MF file is located in the current directory.
+# Author: Lauri Lehmijoki - http://lauri.lehmijoki.net
+set -e
+
+BUILD_DIR=.build
+rm -rf $BUILD_DIR &amp;&amp; mkdir $BUILD_DIR
+
+echo "Building the Scalatron bot..."
+
+scalac -sourcepath src -d $BUILD_DIR `find src -name *.scala`
+
+cd $BUILD_DIR
+
+# MANIFEST.MF can be an empty file, but it has to exist
+jar -cfm ../bin/ScalatronBot.jar ../MANIFEST.MF *.*
+
+cd ..
+
+echo "...ready!"
+echo "Produced bin/ScalatronBot.jar"</code></pre>
+
+<p>Save the script with name <code>build</code> into your project's root and make it executable with <code>chmod u+x build</code>.</p>
+
+<p>Now you can compile the Scalatron bot with <code>./build</code>.</p>
+
+<h3 id = "Publishing_the_bot_to_the_server">Publishing the bot to the server</h3>
+
+<p>This step is easy. All we need to do is to make the <code>Scalatron.jar</code> available for the server.
+Symbolic links will help us. Let's assume that you've installed the Scalatron server in
+<em>~/Scala/Scalatron/server</em> and the MorningLightMountain project is in <em>~/Scala/Scalatron/MorningLightMountain</em>.
+Run the following commands to create the symbolic link:</p>
+
+<p><code>mkdir ~/Scala/Scalatron/server/bots/MorningLightMountain</code></p>
+
+<p><code>ln -s ~/Scala/Scalatron/MorningLightMountain/bin/ScalatronBot.jar ~/Scala/Scalatron/server/bots/MorningLightMountain/ScalatronBot.jar</code></p>
+
+<p>Start the Scalatron server, and MorningLightMountain is there!</p>
+
+<h3 id = "VIM_and_Scala">VIM and Scala</h3>
+
+<p>VIM is fits well into Scala development. However, it doesn't have built-in support for Scala
+indentation and syntax highlighting. Lorenzo Danielsson has written a <a href="http://lorenzod8n.wordpress.com/2008/01/11/getting-scala-syntax-hightlighting-to-work-in-vim">blog post</a>
+on how to get them working.</p>
+
+<h1 id = "Working_with_SBT__Simple_Build_Tool_">Working with SBT (Simple Build Tool)</h1>
+
+<p>The following guide was adapted from an article written by J. M. Hofer, which he kindly made
+available on his blog at http://jmhofer.johoop.de/?p=292 and gave permission to include here.</p>
+
+<h2 id = "Background">Background</h2>
+
+<p>J. M. Hofer says: &ldquo;Unfortunately, it's not yet well documented or obvious how to set the
+Scalatron environment up, except for a huuuge instructions document for IntelliJ IDEA. I mean,
+13 pages?! - That just has to be doable in an easier way! As I'm an Eclipse user and somewhat
+fluent with SBT, I thought I'd try to setup Scalatron with an SBT build. With the sbteclipse
+(and sbt-idea) plugins, I'll then get the IDE setup for free.&rdquo;</p>
+
+<h2 id = "A_Basic_SBT_Build_File">A Basic SBT Build File</h2>
+
+<p>So, let's create a basic SBT build file. As I already suspect that I'll need a build that's a bit
+more complicated than a few lines of configuring standard settings, let's start with a <code>Build.scala</code>
+file:</p>
+
+<pre><code>import sbt._
+import Keys._
+
+object Build extends Build {
+  val bot = Project(
+    id = "mybot",
+    base = file("."),
+    settings = Project.defaultSettings ++ botSettings)
+
+  val botSettings = Seq[Setting[_]](
+    organization := "de.johoop",
+    name := "my-scalatron-bot",
+    version := "1.0.0-SNAPSHOT",
+
+    scalaVersion := "2.9.1",
+    scalacOptions ++= Seq("-deprecation", "-unchecked"))
+}</code></pre>
+
+<p>This simply initializes my bot project and adds a few standard Scala options I usually like to use.</p>
+
+<h2 id = "Scalatron_Dependency_and_Tests">Scalatron Dependency and Tests</h2>
+
+<p>Next, I want to add the dependency to the Scalatron jar file to the project. As Scalatron isn't
+published anywhere, I'll just create a lib directory and put the jar file from the Scalatron
+distribution in there.</p>
+
+<p>Another basic thing that's still missing from the build is the configuration of some kind of
+tests. I absolutely want to write tests against my bot's functionality, as it's very difficult
+to debug a bot during a running bot war. I'll use <em>Specs2</em> for that, of course, because it's
+all kinds of genius. We'll add the following lines to our <code>botSettings</code>:</p>
+
+<pre><code>libraryDependencies ++= Seq(
+  "org.specs2" %% "specs2" % "1.8.2" % "test",
+  "org.pegdown" % "pegdown" % "1.0.2" % "test",
+  "junit" % "junit" % "4.7" % "test"),
+
+testOptions := Seq(
+    Tests.Filter(_ == "de.johoop.scalatron.BotSpec"),
+    Tests.Argument("html", "console")),
+
+testOptions &lt;+= crossTarget map { ct =&gt;
+  Tests.Setup { () =&gt;
+    System.setProperty("specs2.outDir",
+        new File(ct, "specs2").getAbsolutePath)
+  }
+},</code></pre>
+
+<p>The first few lines add all required dependencies: pegdown for the nice HTML reports, <em>junit</em>
+for running the tests from within Eclipse using JUnit.</p>
+
+<p>Then I tell SBT to just execute my main test specification called <code>BotSpec</code> and ignore any sub
+specifications. And I tell it to create HTML reports, too, and where to put them.</p>
+
+<h2 id = "Starting_the_Scalatron_Simulation">Starting the Scalatron Simulation</h2>
+
+<p>I can now already hack and test my bot to my heart's content. However, I can't yet try it out
+in the Scalatron environment. Let's do something about this. I need a way to start the Scalatron
+simulation, and I probably want to configure the directory where all the bots are kept (the
+enemy bots as well as my own).</p>
+
+<p>For this, I first create two simple SBT keys and add them to the Build class:</p>
+
+<pre><code>val botDirectory = SettingKey[File]("bot-directory")
+val play = TaskKey[Unit]("play")</code></pre>
+
+<p>The <code>botDirectory</code> setting will simply be initialized to where I want to keep the bots (in the <code>botSettings</code> sequence):</p>
+
+<pre><code>botDirectory := file("bots"),</code></pre>
+
+<p>The <code>play</code> task will have the job to take my bot jar and deploy it into the bot directory,
+and then to start a (forked) Scalatron simulation. In order to be able to do this, it will
+require quite a few dependencies as inputs:</p>
+
+<ul>
+<li><code>botDirectory</code>: where the bots go,</li>
+<li><code>name</code>: in order to name my bot in the bot directory,</li>
+<li><code>javaOptions</code>: so that I can configure memory settings and the like for the simulation,</li>
+<li><code>unmanagedClasspath</code> in Compile: to retrieve the Scalatron.jar from and finally</li>
+<li><code>Keys.package</code> in Compile: to retrieve my bot's jar from.</li>
+</ul>
+
+<p>So, here we go (again, add this to the <code>botSettings</code>):</p>
+
+<pre><code>play &lt;&lt;= (botDirectory, name, javaOptions,
+          unmanagedClasspath in Compile,
+          Keys.`package` in Compile) map {
+            (bots, name, javaOptions, ucp, botJar) =&gt;
+
+  IO createDirectory (bots / name)
+  IO copyFile (botJar, bots / name / "ScalatronBot.jar")
+
+  val cmd = "java %s -cp %s scalatron.main.Main -plugins %s" format (
+      javaOptions mkString " ",
+      Seq(ucp.files.head, botJar).absString,
+      bots.absolutePath)
+  cmd run
+}</code></pre>
+
+<h2 id = "Conclusion">Conclusion</h2>
+
+<p>And that's it!</p>
+
+<p>I can now deploy my bot to the bot directory and run the simulation from within SBT just by
+typing play into the SBT console.</p>
+
+<p>Except&hellip; except that I noticed that the simulation seems to use a lot of memory, so I added a
+java option for this:</p>
+
+<pre><code>javaOptions += "-Xmx1g"</code></pre>
+
+<p>And also, the Eclipse project I generate via the sbteclipse plugin unfortunately warns me about
+two Scala runtimes (one generated by the plugin, one inside the Scalatron jar). I won't do
+anything against this, hoping that we'll soon get a clean published Scalatron jar that doesn't
+automatically include the Scala runtime&hellip;</p>
+
+<p>Here's my complete build file as a gist: https://gist.github.com/2260897</p>
+
+<p>Now go and create your own Scalatron bot!</p>
+
+<h2 id = "A_CLI-Friendly_Scalatron_Template">A CLI-Friendly Scalatron Template</h2>
+
+<p>Independently, David Winslow (@godwinsgo) was so kind as to post a command-line-friendly SBT
+template for Scalatron on github at <code>https://github.com/dwins/scalatron-template</code>. Thanks!</p>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

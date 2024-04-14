@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe  -link  -top  TOP  -multisrs  "G:\Kompiuteriu architektura\L1\Lab1\impl1\synwork\Laboratorinis1_impl1_comp.srs"  -osyn  "G:\Kompiuteriu architektura\L1\Lab1\impl1\synwork\Laboratorinis1_impl1_mult.srs"  -log  "G:\Kompiuteriu architektura\L1\Lab1\impl1\synlog\Laboratorinis1_impl1_multi_srs_gen.srr" 
+relcom:C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe -link -top TOP -multisrs "G:\Kompiuteriu architektura\L1\Lab1\impl1\synwork\Laboratorinis1_impl1_comp.srs" -osyn "G:\Kompiuteriu architektura\L1\Lab1\impl1\synwork\Laboratorinis1_impl1_mult.srs" -log "G:\Kompiuteriu architektura\L1\Lab1\impl1\synlog\Laboratorinis1_impl1_multi_srs_gen.srr"
+rc:0 success:1 runtime:2
+file:..\synwork\Laboratorinis1_impl1_comp.srs|io:i|time:1664520958|size:16027|exec:0|csum:DE86881D7EF738E220FCA24A65C003FF
+file:..\synwork\Laboratorinis1_impl1_mult.srs|io:o|time:1664520964|size:5894|exec:0|csum:
+file:..\synlog\Laboratorinis1_impl1_multi_srs_gen.srr|io:o|time:1664520964|size:1145|exec:0|csum:
+file:C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe|io:i|time:1628576558|size:8899584|exec:1|csum:163057E8B8449A642661642A20A2247D

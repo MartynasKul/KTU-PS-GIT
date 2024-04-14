@@ -1,0 +1,9 @@
+#Start recording tcl command: 5/5/2022 10:02:18
+#Project Location: E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Ketvirtas laboras; Project name: ketvlab
+prj_project new -name "ketvlab" -impl "impl1" -dev LFXP2-5E-6TN144C -synthesis "synplify"
+prj_src add "C:/Users/markul4/Desktop/4laboras/cntr23.vhd" "C:/Users/markul4/Desktop/4laboras/cntr167.vhd" "C:/Users/markul4/Desktop/4laboras/top_cntr.vhd"
+prj_project save
+prj_run Synthesis -impl impl1
+prj_run Translate -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Ketvirtas laboras/asd/asd.spf"
+#Stop recording: 5/5/2022 10:08:39

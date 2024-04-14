@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron Server Setup</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron Server Setup</h1>
+            <h2 id="project_tagline">Organizer Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "Summary">Summary</h1>
+
+<p>Scalatron is a game server application running on a central computer. This server hosts
+the bot tournament by continuously simulating short rounds of the Scalatron BotWar game. Players
+participate in the tournament by publishing their bots into the server.</p>
+
+<p>To publish a bot, a player has to provide the server with a <code>.jar</code> archive file that contains the
+bot's control function, which was implemented in Scala and then compiled. There are two approaches
+to doing this, which in the Scalatron documentation are referred to as the &ldquo;serious&rdquo; and &ldquo;casual&rdquo;
+paths, respectively.</p>
+
+<h2 id = "The__ldquo_Serious_rdquo__Path">The &ldquo;Serious&rdquo; Path</h2>
+
+<p>The &ldquo;serious&rdquo; path is intended for experienced programmers planning for a longer bot coding
+session (5-7 hours).</p>
+
+<p>On this path, bots are built locally by each player, using an IDE or command
+line tools. The bots are then published into the tournament by copying them into the plug-in
+directory on the central computer from which the game server loads them at the start of each
+round.</p>
+
+<h3 id = "Pros:">Pros:</h3>
+
+<ul>
+<li>Players can work with the editor of their choice and can use the build tools they are already
+accustomed to.</li>
+<li>Working with an IDE allows for very comfortable debugging with breakpoints and
+single-stepping.</li>
+<li>Each player ends up with a fully configured Scala build environment and is able to keep
+coding in Scala beyond the bot coding session.</li>
+</ul>
+
+<h3 id = "Cons:">Cons:</h3>
+
+<ul>
+<li>The server administrator has to set up network sharing for the plug-in directory.</li>
+<li>Each player has to set up a local working environment (IDE, SBT or command line).</li>
+<li>Based on experience, setting this up can take anywhere from 30 to 60 minutes.</li>
+</ul>
+
+<h2 id = "The__ldquo_Casual_rdquo__Path">The &ldquo;Casual&rdquo; Path</h2>
+
+<p>The &ldquo;casual&rdquo; path is intended for less experienced programmers or for shorter bot coding sessions
+(2-3 hours).</p>
+
+<p>On this path, players write, build, debug and publish their bots in a web browser. The
+browser-based development environment is provided by an embedded web server which is hosted
+inside the game server and requires no setup by the user.</p>
+
+<h3 id = "Pros:">Pros:</h3>
+
+<ul>
+<li>Players do not have to install or configure anything.</li>
+<li>The server administrator does not have to configure a network-shared directory; just unzip
+the distribution and double-click the application.</li>
+</ul>
+
+<h3 id = "Cons:">Cons:</h3>
+
+<ul>
+<li>Debugging is only possible via state watches and debug output in the browser; no breakpoints
+can be set in the code and no variables can be inspected at run time.</li>
+<li>After the tournament, players leave without a working local development environment.</li>
+</ul>
+
+<h1 id = "Setup_Steps">Setup Steps</h1>
+
+<h2 id = "The__ldquo_Serious_rdquo__Path">The &ldquo;Serious&rdquo; Path</h2>
+
+<ol>
+<li>Select a computer to be the central server</li>
+<li>Unzip the Scalatron distribution on that server</li>
+<li>Configure a directory for sharing over the network with read/write access for all players</li>
+<li>Make sure that a Java Runtime Environment is available on the server computer</li>
+<li>Launch the game application</li>
+<li>Have fun!</li>
+</ol>
+
+<h2 id = "The__ldquo_Casual_rdquo__Path">The &ldquo;Casual&rdquo; Path</h2>
+
+<ol>
+<li>Select a computer to be the central server</li>
+<li>Unzip the Scalatron distribution on that server</li>
+<li>Make sure that a Java Runtime Environment is available on the server computer</li>
+<li>Launch the game application</li>
+<li>Have fun!</li>
+</ol>
+
+<h1 id = "Installing_the_Scalatron_Server">Installing the Scalatron Server</h1>
+
+<p><strong>Installation is required for both the &ldquo;serious&rdquo; and &ldquo;casual&rdquo; paths.</strong></p>
+
+<p>The following setup steps were tested on MacOS X 10.6.</p>
+
+<ul>
+<li><p>Optional: provide a dedicated computer for the Scalatron game server which you will use during
+the live coding workshop. Change the name of that computer to something users will easily
+recognize on the network, such as <code>Scalatron</code>. On MacOS X, you can do this in the
+<strong>System Preferences</strong> app via the icon <strong>Sharing</strong>.</p></li>
+<li><p>Optional: create an account that you will use to run the Scalatron game server during the
+live coding workshop, for example for a user <code>Scalatron</code> with standard user rights.
+On MacOS X, you can do this in the <strong>System Preferences</strong> app via the icon <strong>Accounts</strong>.</p></li>
+<li><p>Log in as the user account that you will use for running the game server. In this example setup,
+that account would be <code>Scalatron</code>.</p></li>
+<li><p>Now copy the compressed Scalatron distribution archive of the version you want to use
+(e.g. <code>scalatron-0.9.7.zip</code>) into the parent directory (e.g. <code>/Users/Scalatron</code>) and
+decompress it there. This will create a sub-directory called <code>scalatron-0.9.7</code> containing
+a directory <code>Scalatron</code>. Move that <code>Scalatron</code> directory below your user directory.
+On MacOS X, the path to this directory would then be <code>/Users/Scalatron/Scalatron</code>.</p></li>
+<li><p>The structure you want to end up with is roughly the following:</p>
+
+<p>/Users
+    /Scalatron
+        /Scalatron
+            /bin
+                Scalatron.jar
+            /bots
+                /BrownianMotion
+                    ScalatronBot.jar
+            /doc
+            /src</p></li>
+<li><p>Now either open a console, navigate to the <code>bin</code> directory and launch the app, using e.g.</p>
+
+<pre><code>cd /Users/Scalatron/Scalatron/bin
+java -jar Scalatron.jar</code></pre></li>
+<li><p>Or just double-click on the <code>Scalatron.jar</code> file in the <code>bin</code> directory.</p></li>
+<li><p>The game server will then tell you where it is looking for plug-ins (the default location is
+a <code>bots</code> directory that resides next to the <code>bin</code> directory from which the app was launched)
+and which address players can point their browsers to (the default is the host name of the
+server computer with port 8080, e.g. &ldquo;http://scalatron:8080&rdquo;).</p></li>
+</ul>
+
+<h1 id = "Sharing_the_Plug-in_Directory">Sharing the Plug-in Directory</h1>
+
+<p><strong>This step is not required for the &ldquo;casual&rdquo; path.</strong></p>
+
+<ul>
+<li><p>Once you got the server application to launch, share the bot directory so that the players
+can upload their bot files. On a game server running MacOS X, you can do this as follows:</p>
+
+<ul>
+<li>open the <strong>System Preferences</strong> application</li>
+<li>click the icon <strong>Sharing</strong></li>
+<li>in the list <strong>Shared Folders</strong> in the middle, click <code>+</code> to add a new shared folder</li>
+<li>this may require you to enter an administrator password</li>
+<li>then browse to the <code>bots</code> folder (e.g. at <code>/Users/Scalatron/Scalatron/bots</code>) and add
+that folder as a network share</li>
+<li>set the permissions on the <code>bots</code> folder so that <code>everyone</code> can <code>Read &amp; Write</code></li>
+</ul></li>
+<li><p>Test that it works. On a participant computer running MacOS X, you would do this as follows:</p>
+
+<ul>
+<li>open a <strong>Finder</strong> window</li>
+<li>in the main menu, select <strong>Go > Network</strong></li>
+<li>under <strong>Network</strong>, you should now see an entry for the game server computer (e.g. <code>Scalatron</code>)</li>
+<li>click on it</li>
+<li>you should now briefly see a message <code>connecting...</code></li>
+<li>then a folder called <code>bots</code> should appear</li>
+<li>click on it</li>
+<li>if you created the file structure on the server by unzipping the Scalatron archive (e.g. <code>scalatron-0.9.5.zip</code>)
+then the folder should now already show a range of directories: the example bots, e.g.
+<code>BrownianMotion</code> and <code>FoodFetcher</code>. Each directory should contain a Scala source file and
+a <code>ScalatronBot.jar</code> plug-in.</li>
+<li>now try to create a new player directory in the <code>bots</code> folder. If you were doing this
+for a player (i.e., programmer) called <strong>Tina</strong>, then the new directory would be called
+<code>Tina</code>.</li>
+<li>control-click on the new directory and select <strong>Get Info</strong>. This will pop up a window
+where you can see the file system path on the local system for the player's remote plug-in
+directory. It will be something like <code>/Volumes/bots/Tina</code>.</li>
+<li>now copy one of the existing <code>ScalatronBot.jar</code> files into the <code>Tina</code> directory.</li>
+<li>if that works, you have the proper file access permissions</li>
+</ul></li>
+<li><p>Setting the permissions on the <code>bots</code> folder on the game server so that <code>everyone</code> can <code>Read &amp; Write</code>
+lets users create new directories for their plug-ins in the bots folder. But it will not allow
+the game server to write files into those directories while the game is running. This, however,
+is required so that the debug logging explained in the Scalatron Tutorial works. To make this
+work, you need to expand the permissions on the shared folder. On MacOS X you can do this
+<strong>on the game server</strong> as follows:</p>
+
+<ul>
+<li>open a <strong>Finder</strong> window</li>
+<li>browse to the <code>bots</code> folder, e.g. at <code>/Users/Scalatron/Scalatron/bots</code></li>
+<li>control-click to open a context menu, then select <strong>Get Info</strong></li>
+<li>in the window that pops up, click the lock at the bottom right to make changes;
+this may prompt you to enter an Administrator password</li>
+<li>the permissions on the folder should already be set so that <code>everyone</code> can <code>Read &amp; Write</code></li>
+<li>now click on the little toothed wheel at the bottom and select <strong>Apply to enclosed items&hellip;</strong></li>
+<li>this will propagate the access permissions to all the enclosed plug-in directories</li>
+<li>now the bots should be able to create log files in their plug-in directories</li>
+</ul></li>
+</ul>
+
+<h1 id = "Configuring_the_Scalatron_Server">Configuring the Scalatron Server</h1>
+
+<p><strong>This step is optional for both the &ldquo;serious&rdquo; and &ldquo;casual&rdquo; paths.</strong></p>
+
+<p>The Scalatron game application can be launched either from the command line or by double-clicking it.
+This will launch the application in its default configuration, which in most cases will be
+sufficient. To launch it with a different configuration, you must use the command line. You can
+display a list of command line options by using the single option <code>-help</code>:</p>
+
+<pre><code>java -jar Scalatron.jar -help</code></pre>
+
+<p>The parameters available on the command line fall into three groups, as follows:</p>
+
+<pre><code>java java-options -jar Scalatron.jar scalatron-options botwar-options</code></pre>
+
+<h2 id = "Java_VM_Options">Java VM Options</h2>
+
+<p>The options for configuring the Java Virtual Machine apply where the command line option
+example above contains the string <code>java-options</code>. Here you can provide the usual JVM launch
+options, including:</p>
+
+<pre><code>-server
+-Xmx512M</code></pre>
+
+<p>Recommended options:</p>
+
+<pre><code>-server -Xmx512M</code></pre>
+
+<h2 id = "Scalatron_Server_Options">Scalatron Server Options</h2>
+
+<p>The options for configuring the Scalatron server framework apply where the command line option
+example above contains the string <code>scalatron-options</code>. These include:</p>
+
+<pre><code>-verbose yes|no         print verbose output (default: no)
+
+-headless yes|no        run without visual output (default: no)
+-rounds int             run this many tournament rounds, then exit (default: unlimited)
+-plugins directory      Scalatron plugin base directory (default: ../bots)
+-browser yes|no         open a web browser showing browser UI (default: yes)
+
+-port int               port to serve browser UI &amp; REST API at (default: 8080)
+-webui directory        directory containing browser UI (default: ../webui)
+-users directory        directory containing browser UI workspaces (default: ../users)
+-samples directory      directory containing example bots (default: ../samples)</code></pre>
+
+<p>Recommended options:</p>
+
+<ul>
+<li>You will generally not need to modify any of these settings if you have installed the server
+by unzipping the Scalatron distribution, since all directories will be in the places where
+the server expects them.</li>
+<li>If for some reason you would like the server to load its bot plug-ins from a different
+directory (for example because you have an existing network share), you can point the server
+to that directory using <code>-plugins</code> option.</li>
+</ul>
+
+<h2 id = "BotWar_Game_Options">BotWar Game Options</h2>
+
+<p>The options for configuring the BotWar game run by the Scalatron server apply where the command line option example above contains the string <code>botwar-options</code>. These include:</p>
+
+<pre><code>-frameX int|max        window width (pixels; `max` = full screen; default: 640)
+-frameY int|max        window height (pixels; `max` = full screen; default: 500)
+
+-steps int             steps per game cycle (default: 5000)
+-maxfps int            maximum steps/second (to reduce CPU load; default: 50)
+
+-x int                 game arena width (cells; default: depends on plugin count)
+-y int                 game arena height (cells; default: depends on plugin count)
+-perimeter option      arena perimeter: none, open, or closed (default: open)
+
+-walls int             count of wall elements in arena (default: x*y/300)
+-zugars int            count of good plants in arena (default: x*y/250)
+-toxifera int          count of bad plants in arena (default: x*y/350)
+-fluppets int          count of good beasts in arena (default: x*y/350)
+-snorgs int            count of bad beasts in arena (default: x*y/500)</code></pre>
+
+<p>Recommended options:</p>
+
+<ul>
+<li>You will generally not need to modify any of these settings.</li>
+<li>The server determines the <code>-frameX</code> and <code>-frameY</code> parameters using the size of the screen
+on which the window will appear. Adjust only if that does not give adequate results.</li>
+<li>The server determines the <code>-x</code> and <code>-y</code> parameters based on the number of plug-ins
+loaded each round. The default will be a square arena whose cell count increases with the
+player count. Adjust only if that does not give adequate results.</li>
+<li>For the initial experimental phase (focus on quick turn-around) use arund 1000 steps per
+game round: <code>-steps 1000</code></li>
+<li>For the later refinement/competition phase, use up to 10000 steps per game
+round: <code>-steps 10000</code></li>
+<li>You can significantly change the nature of the game by reducing or increasing the number
+of entities of various kinds that the simulator sprinkles into the arena. Try <code>-snorgs 300</code>
+or <code>-walls 0</code>.</li>
+<li>If your server CPU load is too high and the browser-based Scalatron IDE is sluggish to
+respond to user requests (e.g. builds take a long time), try throttling the CPU load of the
+simulation loop by specifying a maximum frame rate with the <code>-maxfps</code> option, for example
+using <code>-maxfps 20</code>.</li>
+</ul>
+
+<h2 id = "Examples">Examples</h2>
+
+<pre><code>java -server -jar Scalatron.jar -plugins /Users/Scalatron/Scalatron/bots
+java -server -jar Scalatron.jar -x 200 -y 150 -frameX 640 -frameY 500</code></pre>
+
+<h1 id = "Keyboard_Commands">Keyboard Commands</h1>
+
+<p>The following keyboard commands are available by typing into the game server's display
+window while games are in progress:</p>
+
+<ul>
+<li>space &mdash; freeze/unfreeze the action</li>
+<li>'1'   &mdash; no delay between simulation steps</li>
+<li>'2'   &mdash; delay = 50ms</li>
+<li>'3'   &mdash; delay = 100ms</li>
+<li>'4'   &mdash; delay = 250ms</li>
+<li>'5'   &mdash; delay = 500ms</li>
+<li>'6'   &mdash; delay = 1000ms</li>
+<li>'7'   &mdash; delay = 2000ms</li>
+<li>'h'   &mdash; show/hide bot horizons</li>
+<li>'r'   &mdash; abort current round, reload all plug-ins and start next round;
+       round counter and leaderboard are unaffected;
+       useful while developing bots to prompt immediate re-scan for updated plug-ins</li>
+<li>'+/-' &mdash; step focus through players</li>
+</ul>
+
+<h1 id = "The_Screen_Layout">The Screen Layout</h1>
+
+<p>When launched, the Scalatron server application displays a window that consists of the
+following components:</p>
+
+<ul>
+<li>top left / main area: the game arena. This is the playing field in which bots compete.</li>
+<li>bottom left area: the statistics panel. Shows operational data for the game server:
+<ul>
+<li>the index of the game round currently in progress</li>
+<li>the number of steps computed so far and the total number to compute</li>
+<li>the real-time duration of the game round so far, in seconds</li>
+<li>the average per-frame time during the current game round, in milliseconds</li>
+<li>the number of bots (players, beasts, plants and walls) in the game</li>
+<li>the number of decorations (explosions, bonks, bonus breadcrumbs etc.)</li>
+</ul></li>
+<li>top right area: the score board. Displays, for each player and sorted by score, the following information:
+<ul>
+<li>at left, from the top:
+<ul>
+<li>the player�s bot icon</li>
+<li>the player�s name (the name of the plug-in directory)</li>
+<li>the player�s score</li>
+</ul></li>
+<li>at right, from the top:
+<ul>
+<li>the time spent in the plug-in�s control function, in milliseconds. If the game slows down because some player is hogging CPU resources, you�ll be able to see it here.</li>
+<li>the rank of the player (e.g. �#1�)</li>
+<li>the quartile of the player (e.g. �1st Q�). The quartile is based on the player�s relative rank. It affects the distance from which beasts in the game can sense the player�s master bot.</li>
+</ul></li>
+</ul></li>
+<li>bottom right area: the leader board. Displays the player(s) that had&hellip;
+<ul>
+<li>the highest score(s) in the most recent round</li>
+<li>the highest average score(s) across the most recent 5 rounds</li>
+<li>the highest average score(s) across the most recent 20 rounds</li>
+<li>the highest average score(s) across all rounds</li>
+</ul></li>
+</ul>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

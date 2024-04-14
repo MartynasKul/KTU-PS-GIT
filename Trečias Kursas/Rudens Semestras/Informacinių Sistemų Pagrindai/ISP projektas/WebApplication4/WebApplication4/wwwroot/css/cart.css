@@ -1,0 +1,89 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.product-image {
+    max-width: 300px;
+    max-height: 300px;
+    display: block;
+}
+
+.my-table {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+    .my-table td {
+        padding: 15px;
+        border-bottom: 1px solid #f2f2f2;
+        vertical-align: middle;
+        font-size: 20px;
+    }
+
+    .my-table th {
+        background-color: white;
+        font-weight: bold;
+        border-bottom: 2px solid black;
+        padding: 10px;
+    }
+
+    .my-table td tr {
+        height: 400px
+    }
+
+    .my-table th, .table td {
+        font-size: 1.1em;
+    }
+
+    .my-table tbody tr:hover {
+        background-color: #f2f2f2;
+    }
+
+input[type="number"] {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    input[type="number"]:hover,
+    input[type="number"]:focus {
+        border-color: royalBlue;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(65, 105, 225, 0.25);
+    }
+
+.btn-danger {
+    background-color: white;
+    color: royalBlue;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    border: 1px solid royalBlue;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .btn-danger:hover {
+        background-color: royalBlue;
+        color: white;
+        border-color: royalBlue;
+    }
+
+.total {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.orderText {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.Delete {
+    font-family: 'Arial';
+    font-weight: bold;
+}

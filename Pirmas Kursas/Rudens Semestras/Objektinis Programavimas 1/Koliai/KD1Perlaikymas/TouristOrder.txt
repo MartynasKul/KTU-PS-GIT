@@ -1,0 +1,7 @@
+﻿Vardas;8;3
+Vardas3;4;2
+Vardas5;17;2
+Vardas1;18;5
+Vardas2;4;3
+Vardas4;17;1
+Vardas7;8;1

@@ -1,0 +1,6 @@
+force -freeze sim:/klasika/X6 0 0, 1 {50 ps} -r 100
+force -freeze sim:/klasika/X5 0 0, 1 {100 ps} -r 200
+force -freeze sim:/klasika/X4 0 0, 1 {200 ps} -r 400
+force -freeze sim:/klasika/X3 0 0, 1 {400 ps} -r 800
+force -freeze sim:/klasika/X2 0 0, 1 {800 ps} -r 1600
+force -freeze sim:/klasika/X1 0 0, 1 {1600 ps} -r 3200

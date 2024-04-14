@@ -1,0 +1,118 @@
+<HTML>
+<HEAD><TITLE>Lattice TCL Log</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="pn220519090947"></A><B><U><big>pn220519090947</big></U></B>
+#Start recording tcl command: 5/19/2022 08:59:21
+#Project Location: E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras; Project name: labor4
+prj_project new -name "labor4" -impl "impl1" -dev LFXP2-8E-6TN144C -synthesis "synplify"
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/bendras JM.vhd" "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/bendras M.vhd" "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19 FPGA.vhd" "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19.vhd" "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr49.vhd" "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr136.vhd" "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd"
+prj_project save
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_src remove "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/bendras M.vhd"
+prj_src remove "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/bendras JM.vhd"
+prj_run Synthesis -impl impl1
+#Stop recording: 5/19/2022 09:09:47
+
+
+
+<A name="pn220519102841"></A><B><U><big>pn220519102841</big></U></B>
+#Start recording tcl command: 5/19/2022 09:30:07
+#Project Location: E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras; Project name: labor4
+prj_project open "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/labor4.ldf"
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/TOP_CNTR.vhd"
+prj_run Synthesis -impl impl1
+prj_run Translate -impl impl1
+prj_run Synthesis -impl impl1
+prj_src remove "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/TOP_CNTR.vhd"
+prj_src remove "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19 FPGA.vhd"
+prj_run Synthesis -impl impl1
+prj_run Translate -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.spf"
+prj_run Synthesis -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.spf"
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.spf"
+pgr_project save "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/impl1.xcf"
+prj_src add -exclude "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/impl1.xcf"
+prj_src enable "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/impl1/impl1.xcf"
+prj_run PAR -impl impl1
+prj_impl new "fail" -dir "fail" -strategy "Area" -synthesis "synplify"
+prj_impl delete "fail"
+prj_impl clone "impl1clone" -dir "impl1clone" -impl "impl1" -copyRef
+pgr_project close
+prj_project save
+prj_project close
+#Stop recording: 5/19/2022 10:28:41
+
+
+
+<A name="pn220523184415"></A><B><U><big>pn220523184415</big></U></B>
+#Start recording tcl command: 5/23/2022 18:30:11
+#Project Location: E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras; Project name: labor4
+prj_project open "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/labor4.ldf"
+launch_synplify_prj impl1
+launch_synplify_prj impl1
+#Stop recording: 5/23/2022 18:44:15
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

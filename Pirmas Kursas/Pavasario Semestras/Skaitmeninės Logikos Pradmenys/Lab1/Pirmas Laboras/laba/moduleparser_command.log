@@ -1,0 +1,1 @@
+C:/lscc/diamond/3.12/bin/nt64/moduleparser.exe -PROJ laba -pf C:/lscc/diamond/3.12/cae_library/synthesis/vhdl/xp2.vhd -lib xp2 -pf C:/lscc/diamond/3.12/cae_library/synthesis/verilog/xp2.v -pkg C:/lscc/diamond/3.12/cae_library/vhdl_packages/vdbs -lst E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/laba/source_files.lst

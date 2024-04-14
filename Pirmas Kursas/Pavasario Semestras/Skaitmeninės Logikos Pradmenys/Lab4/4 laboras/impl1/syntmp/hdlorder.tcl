@@ -1,0 +1,2 @@
+set_option -top_module work.CNT19
+project -fileorder "C:/lscc/diamond/3.12/cae_library/synthesis/vhdl/xp2.vhd" "E:/KTU\ PIRMI\ METAI/Pavasario\ semestras/Skaitmenine\ Logika/Lab4/4\ laboras/cntr19\ FPGA.vhd" 

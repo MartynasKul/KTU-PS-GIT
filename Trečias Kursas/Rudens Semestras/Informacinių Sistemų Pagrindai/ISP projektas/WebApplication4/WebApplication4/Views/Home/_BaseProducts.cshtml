@@ -1,0 +1,223 @@
+﻿@using Microsoft.AspNetCore.Http
+@using WebApplication4.Models
+@using Newtonsoft.Json;
+@{
+    int itemsPerPage = Convert.ToInt32(Context.Request.Query["itemsPerPage"].FirstOrDefault() ?? "30");
+    int totalPages = (int)Math.Ceiling((double)Model.Count / itemsPerPage);
+    int currentPage = Convert.ToInt32(Context.Request.Query["page"]);
+    if (currentPage == 0 || currentPage > totalPages)
+    {
+        currentPage = 1;
+    }
+    int numItemsOnCurrentPage = Math.Min(Model.Count - (currentPage - 1) * itemsPerPage, itemsPerPage);
+    int numRowsOnCurrentPage = (int)Math.Ceiling((double)numItemsOnCurrentPage / 3);
+    int bodyHeight = numRowsOnCurrentPage * 1100;
+    if (currentPage == totalPages && numItemsOnCurrentPage % 3 != 0)
+    {
+        bodyHeight -= (3 - numItemsOnCurrentPage % 3) * 1100;
+    }
+}
+@{
+        var userType = ViewContext.HttpContext.Session.GetInt32("UserType");
+        var userName = ViewContext.HttpContext.Session.GetString("Username");
+        var userId = ViewContext.HttpContext.Session.GetInt32("UserID");  
+        
+}
+<head>
+    <link rel="stylesheet" href="~/css/body.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<h1>@ViewData["Title"]</h1>
+<div class="container" style="display: flex;">
+
+    <main role="main" style="height: @bodyHeight px; flex: 2;">
+        <div class="div2" style="height=@bodyHeight;">
+            @for (int i = (currentPage - 1) * itemsPerPage; i < currentPage * itemsPerPage && i < Model.Count; i++)
+            {
+                <div class="myDiv">
+                    <h2 id="myH2">@Model[i].Name</h2>
+                    <div><img src=@Model[i].Picture alt=@Model[i].Name></div>
+                    <p>Price: <span class="price">@Model[i].Price</span></p>
+                    <a class="btn btn-dark" href="#" id="@Model[i].Id" name="@Model[i].Name">Add to Cart</a> 
+                   
+                    @if(userType == 2)
+                    {
+                         <a class="btn btn-info" href="#" id="@Model[i].Id">Edit</a>
+                        <button class="btn btn-danger deleteButton" onclick="Delete(@Model[i].Id)" data-item-id="@Model[i].Id">Delete</button>
+                    }
+                    
+                    <a class="btn btn-success" href="#" id="@Model[i].Id" >Compare</a>
+                    
+
+                </div>
+            }
+        </div>
+        <div class="pagination">
+            <span>Page:</span>
+            @if (totalPages > 1)
+            {
+                for (int i = 1; i <= totalPages; i++)
+                {
+                    <a href="?page=@i&itemsPerPage=@itemsPerPage" class="@((i == currentPage) ? "active" : "")">@i</a>
+                }
+            }
+        </div>
+        <div class="items-per-page">
+            <span>Items per page:</span>
+            <button type="button" class="btn @((itemsPerPage == 15) ? "active" : "")" onclick="location.href='?page=@currentPage&itemsPerPage=15'">15</button>
+            <button type="button" class="btn @((itemsPerPage == 30) ? "active" : "")" onclick="location.href='?&page=@currentPage&itemsPerPage=30'">30</button>
+            <button type="button" class="btn @((itemsPerPage == 45) ? "active" : "")" onclick="location.href='?&page=@currentPage&itemsPerPage=45'">45</button>
+            <button type="button" class="btn @((itemsPerPage == 60) ? "active" : "")" onclick="location.href='?&page=@currentPage&itemsPerPage=60'">60</button>
+        </div>
+    </main>
+</div>
+<script src="/js/recommendation.js"></script>
+
+<script>
+    $(document).ready(function () {
+        //suggestItemForUser();
+        $('.btn-success').click(function (event) {
+            event.preventDefault();
+            var itemId = this.getAttribute('id');
+            console.log(itemId);
+            addToComparison(itemId);
+            //recordUserInteraction(itemId);
+        });
+        $('.btn-dark').click(function (event) {
+            event.preventDefault();
+            addToCart(this.id, this.name);
+            //recordUserInteraction(this.id);
+        });
+          $('.btn-info').click(function (event) {
+            event.preventDefault();
+            //var itemId = $(this).data('item-ids');
+            // Redirect to the Edit view
+            var itemId = this.getAttribute('id');
+            editItem(itemId);
+        }); 
+         $('.deleteButton').click(function (event) {
+            event.preventDefault();
+            var itemId = $(this).data('item-id');
+
+            // Confirm deletion (you can customize the confirmation dialog)
+            if (confirm('Are you sure you want to delete this item?')) {
+                Delete(itemId);
+                alert('Item with ID ' + itemId + ' deleted!');
+               // recordUserInteraction(itemId);
+            }
+        });
+    });
+
+    
+
+      
+    function editItem(id) {
+    // Convert id to a number if it's a string
+    //console.log('ID' , id);
+
+    // Ensure the id is a valid positive integer
+    if (id <= 0) {
+        console.error('Invalid item ID for editing.');
+        return;
+    }
+
+    $.ajax({
+        type: 'GET',
+        url: '@Url.Action("EditItem", "Item")',
+        data: { id: parseInt(id)},
+        success: function (response) {
+            // Handle the response, which may be HTML or JSON, based on your server implementation
+            // For example, you can replace the entire HTML content with the response
+            $('html').html(response);
+        },
+        error: function () {
+            console.error('Error loading edit page.');
+        }
+    });
+}
+// Add this global variable to track user interactions
+
+    function addToComparison(id) {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("AddToComparison", "Comparison")',
+            data: { id: id },
+            success: function () {
+                var message = $('<div>').addClass('popup-message').text('Item added to comparison!');
+                $('body').append(message);
+
+                setTimeout(function () {
+                    message.fadeOut('fast');
+                }, 2000);
+            },
+            error: function () {
+                var message = $('<div>').addClass('popup-message').text('Error adding item to comparison!');
+                $('body').append(message);
+
+                setTimeout(function () {
+                    message.fadeOut('fast');
+                }, 2000);
+            }
+        });
+    }
+    function addToCart(id, name) {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("AddToCart", "Cart")',
+            data: { id: id, name: name },
+            success: function () {
+                var message = $('<div>').addClass('popup-message').text('Item added to cart!');
+                $('body').append(message);
+
+                setTimeout(function () {
+                    message.fadeOut('fast');
+                }, 2000);
+            },
+            error: function () {
+                var message = $('<div>').addClass('popup-message').text('Error adding item to cart!');
+                $('body').append(message);
+
+                setTimeout(function () {
+                    message.fadeOut('fast');
+                }, 2000);
+            }
+        });
+    }
+    function Delete (id){
+        $.ajax({
+            type: 'DELETE',
+            url: '@Url.Action("DeleteItem", "Item")',
+            data: {id: id},
+            success: function () {
+                var message = $('<div>').addClass('popup-message').text('Item deletet Sucessfully');
+                $('body').append(message);
+
+                setTimeout(function () {
+                    message.fadeOut('fast');
+                    location.reload();
+                }, 2000);
+            },
+            error: function () {
+                var message = $('<div>').addClass('popup-message').text('Error deleting item!');
+                $('body').append(message);
+
+                setTimeout(function () {
+                    message.fadeOut('fast');
+                }, 2000);
+            }
+         });
+    }
+
+
+// Usage example: Call this function when you want to suggest an item to the user
+
+
+// Call this function to suggest an item for the current user
+
+</script>
+
+
+
+
+

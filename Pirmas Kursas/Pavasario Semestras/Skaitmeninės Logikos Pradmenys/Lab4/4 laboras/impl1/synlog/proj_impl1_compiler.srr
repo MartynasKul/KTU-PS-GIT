@@ -1,0 +1,106 @@
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys HDL Compiler, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys VHDL Compiler, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+@N:"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd":5:7:5:11|Top entity is set to CNT19.
+File E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd changed - recompiling
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd'.
+VHDL syntax check successful!
+File E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd changed - recompiling
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd":5:7:5:11|Synthesizing work.cnt19.rtl.
+Post processing for work.cnt19.rtl
+Running optimization stage 1 on CNT19 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd":20:2:20:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT19 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 91MB)
+Running optimization stage 2 on CNT19 .......
+Finished optimization stage 2 on CNT19 (CPU Time 0h:00m:00s, Memory Used current: 90MB peak: 91MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\layer0.rt.csv
+
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 91MB)
+
+Process took 0h:00m:02s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 10:37:20 2022
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys Synopsys Netlist Linker, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+File E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\layer0.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 90MB peak: 90MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 10:37:21 2022
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\proj_impl1_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:00s; Memory used current: 23MB peak: 23MB)
+
+Process took 0h:00m:04s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 10:37:22 2022
+
+###########################################################]

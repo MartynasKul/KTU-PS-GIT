@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe  -link  -top  CNT19  -multisrs  "C:\Users\markul4\Desktop\lab4 PLIS\impl1\synwork\lab4PLIS_impl1_comp.srs"  -osyn  "C:\Users\markul4\Desktop\lab4 PLIS\impl1\synwork\lab4PLIS_impl1_mult.srs"  -log  "C:\Users\markul4\Desktop\lab4 PLIS\impl1\synlog\lab4PLIS_impl1_multi_srs_gen.srr" 
+relcom:..\..\..\..\..\..\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe -link -top CNT19 -multisrs "C:\Users\markul4\Desktop\lab4 PLIS\impl1\synwork\lab4PLIS_impl1_comp.srs" -osyn "C:\Users\markul4\Desktop\lab4 PLIS\impl1\synwork\lab4PLIS_impl1_mult.srs" -log "C:\Users\markul4\Desktop\lab4 PLIS\impl1\synlog\lab4PLIS_impl1_multi_srs_gen.srr"
+rc:0 success:1 runtime:0
+file:..\synwork\lab4PLIS_impl1_comp.srs|io:i|time:1653318194|size:2207|exec:0|csum:ADD716492761901FD7F9B931E1FD8E9E
+file:..\synwork\lab4PLIS_impl1_mult.srs|io:o|time:1653318195|size:1975|exec:0|csum:
+file:..\synlog\lab4PLIS_impl1_multi_srs_gen.srr|io:o|time:1653319250|size:1095|exec:0|csum:
+file:..\..\..\..\..\..\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe|io:i|time:1603955922|size:8875008|exec:1|csum:43373AFF0ED6BCEB26CB4B4947B972DD

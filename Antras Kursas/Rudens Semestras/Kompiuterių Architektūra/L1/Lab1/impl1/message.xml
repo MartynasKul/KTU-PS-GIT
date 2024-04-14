@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="Synplify_Synthesis">
+        <Message>
+            <ID>2011000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd&quot;:154:8:154:15|Signal sflg_cmd is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd</Navigation>
+            <Navigation>154</Navigation>
+            <Navigation>8</Navigation>
+            <Navigation>154</Navigation>
+            <Navigation>15</Navigation>
+            <Navigation>Signal sflg_cmd is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd&quot;:172:8:172:18|Signal s_ctrl_data is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd</Navigation>
+            <Navigation>172</Navigation>
+            <Navigation>8</Navigation>
+            <Navigation>172</Navigation>
+            <Navigation>18</Navigation>
+            <Navigation>Signal s_ctrl_data is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd&quot;:176:8:176:15|Signal s_c_flag is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd</Navigation>
+            <Navigation>176</Navigation>
+            <Navigation>8</Navigation>
+            <Navigation>176</Navigation>
+            <Navigation>15</Navigation>
+            <Navigation>Signal s_c_flag is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd&quot;:177:8:177:18|Signal s_alu_flags is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd</Navigation>
+            <Navigation>177</Navigation>
+            <Navigation>8</Navigation>
+            <Navigation>177</Navigation>
+            <Navigation>18</Navigation>
+            <Navigation>Signal s_alu_flags is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL116 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd&quot;:52:2:52:3|Input data for signal FLG_Dout(1 to 18) contains references to signal edges. An asynchronous reset may be missing from the sensitivity list.</Dynamic>
+            <Navigation>CL116</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd</Navigation>
+            <Navigation>52</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>52</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Input data for signal FLG_Dout(1 to 18) contains references to signal edges. An asynchronous reset may be missing from the sensitivity list.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL113 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd&quot;:27:2:27:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Dynamic>
+            <Navigation>CL113</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL113 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd&quot;:27:2:27:3|Feedback mux created for signal CNT_Flag. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Dynamic>
+            <Navigation>CL113</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Feedback mux created for signal CNT_Flag. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL116 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd&quot;:61:2:61:3|Input data for signal ROM_Dout(1 to 80) contains references to signal edges. An asynchronous reset may be missing from the sensitivity list.</Dynamic>
+            <Navigation>CL116</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd</Navigation>
+            <Navigation>61</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>61</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Input data for signal ROM_Dout(1 to 80) contains references to signal edges. An asynchronous reset may be missing from the sensitivity list.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd&quot;:34:2:34:5|All reachable assignments to FLG_ALU_CMD(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd</Navigation>
+            <Navigation>34</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>34</Navigation>
+            <Navigation>5</Navigation>
+            <Navigation>All reachable assignments to FLG_ALU_CMD(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL169 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning unused register LS_2(0 to 3). Make sure that there are no unused intermediate registers.</Dynamic>
+            <Navigation>CL169</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning unused register LS_2(0 to 3). Make sure that there are no unused intermediate registers.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL169 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning unused register Logic_Jump_3. Make sure that there are no unused intermediate registers.</Dynamic>
+            <Navigation>CL169</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning unused register Logic_Jump_3. Make sure that there are no unused intermediate registers.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL169 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning unused register current_3(1 to 80). Make sure that there are no unused intermediate registers.</Dynamic>
+            <Navigation>CL169</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning unused register current_3(1 to 80). Make sure that there are no unused intermediate registers.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL169 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning unused register C_ADDR_2(0 to 7). Make sure that there are no unused intermediate registers.</Dynamic>
+            <Navigation>CL169</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning unused register C_ADDR_2(0 to 7). Make sure that there are no unused intermediate registers.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL169 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning unused register N_ADDR_6(0 to 7). Make sure that there are no unused intermediate registers.</Dynamic>
+            <Navigation>CL169</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning unused register N_ADDR_6(0 to 7). Make sure that there are no unused intermediate registers.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL169 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning unused register CNT_clk_2. Make sure that there are no unused intermediate registers.</Dynamic>
+            <Navigation>CL169</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning unused register CNT_clk_2. Make sure that there are no unused intermediate registers.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL111 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|All reachable assignments to CMD(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Dynamic>
+            <Navigation>CL111</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>All reachable assignments to CMD(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL190 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Optimizing register bit MUX_CMD(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</Dynamic>
+            <Navigation>CL190</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Optimizing register bit MUX_CMD(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL190 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Optimizing register bit ALU_CMD(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</Dynamic>
+            <Navigation>CL190</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Optimizing register bit ALU_CMD(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL190 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Optimizing register bit ALU_CMD(4) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</Dynamic>
+            <Navigation>CL190</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Optimizing register bit ALU_CMD(4) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL260 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning register bit 3 of MUX_CMD(3 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.</Dynamic>
+            <Navigation>CL260</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning register bit 3 of MUX_CMD(3 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL279 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:67:2:67:3|Pruning register bits 4 to 3 of ALU_CMD(4 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</Dynamic>
+            <Navigation>CL279</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>67</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning register bits 4 to 3 of ALU_CMD(4 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL247 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:21:2:21:8|Input port bit 50 of rom_din(1 to 80) is unused</Dynamic>
+            <Navigation>CL247</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>21</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>21</Navigation>
+            <Navigation>8</Navigation>
+            <Navigation>Input port bit 50 of rom_din(1 to 80) is unused </Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL246 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd&quot;:25:2:25:6|Input port bits 16 to 18 of flagv(1 to 18) are unused. Assign logic for all port bits or change the input port size.</Dynamic>
+            <Navigation>CL246</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd</Navigation>
+            <Navigation>25</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>25</Navigation>
+            <Navigation>6</Navigation>
+            <Navigation>Input port bits 16 to 18 of flagv(1 to 18) are unused. Assign logic for all port bits or change the input port size.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL246 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd&quot;:18:2:18:8|Input port bits 4 to 3 of alu_cmd(4 downto 0) are unused. Assign logic for all port bits or change the input port size.</Dynamic>
+            <Navigation>CL246</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd</Navigation>
+            <Navigation>18</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>18</Navigation>
+            <Navigation>8</Navigation>
+            <Navigation>Input port bits 4 to 3 of alu_cmd(4 downto 0) are unused. Assign logic for all port bits or change the input port size.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL279 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd&quot;:61:2:61:3|Pruning register bits 1 to 78 of ROM_Dout(1 to 80). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</Dynamic>
+            <Navigation>CL279</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd</Navigation>
+            <Navigation>61</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>61</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning register bits 1 to 78 of ROM_Dout(1 to 80). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL279 :&quot;G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd&quot;:52:2:52:3|Pruning register bits 1 to 17 of FLG_Dout(1 to 18). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</Dynamic>
+            <Navigation>CL279</Navigation>
+            <Navigation>G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd</Navigation>
+            <Navigation>52</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>52</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Pruning register bits 1 to 17 of FLG_Dout(1 to 18). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>BN132 :&quot;g:\kompiuteriu architektura\l1\lab1\priverstine_adr\f_reg.vhd&quot;:32:2:32:3|Removing sequential instance REG_F.REG_Dout[15:0] because it is equivalent to instance REG_F.A[15:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</Dynamic>
+            <Navigation>BN132</Navigation>
+            <Navigation>g:\kompiuteriu architektura\l1\lab1\priverstine_adr\f_reg.vhd</Navigation>
+            <Navigation>32</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>32</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Removing sequential instance REG_F.REG_Dout[15:0] because it is equivalent to instance REG_F.A[15:0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</Navigation>
+        </Message>
+    </Task>
+</BaliMessageLog>

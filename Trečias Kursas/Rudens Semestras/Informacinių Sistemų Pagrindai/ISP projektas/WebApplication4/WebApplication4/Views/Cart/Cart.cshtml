@@ -1,0 +1,81 @@
+﻿@model Cart
+@using Microsoft.AspNetCore.Mvc
+@{
+    ViewData["Title"] = "Cart";
+}
+@{
+        var userType = ViewContext.HttpContext.Session.GetInt32("UserType");
+        var userName = ViewContext.HttpContext.Session.GetString("Username");
+        var userId = ViewContext.HttpContext.Session.GetInt32("UserID");         
+}
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/cart.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="min-height:1000px">
+    <h1>Cart</h1>
+
+    @if (Model == null || Model.Size() == 0)
+    {
+        <p>Your cart is empty</p>
+    }
+    else
+    {
+        <table class="my-table">
+            <thead>
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Size(); i++)
+                {
+                    <tr>
+                        <td><img class="product-image" src="@Model.Get(i).Picture"></td>
+                        <td>@Model.Get(i).Name</td>
+                        <td class="price">@Model.Get(i).Price.ToString("0.00")</td>
+                        <td>
+                            <form method="post" asp-controller="Cart" asp-action="ChangeCartItemDetails">
+                                <input type="hidden" name="productName" value="@Model.Get(i).Name" />
+                                <input type="number" name="amount" value="@Model.GetAmount(i)" min="1" onchange="this.form.submit()" />
+                            </form>
+                        </td>
+                        <td class="price">@((Model.Get(i).Price * Model.GetAmount(i)).ToString("0.00"))</td>
+                        <td>
+                            <form method="post" asp-controller="Cart" asp-action="DeleteFromCart">
+                                <input type="hidden" name="id" value="@Model.Get(i).Id" />
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-times Delete">X</i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p class="total">Total: <span class="price">@Model.Price().ToString("0.00")</span></p>
+        @if(userType == 1 || userType == 2)
+        {
+            <a class="btn btn-success" href="@Url.Action("CreateOrder", "Order")">Create Order</a>
+        }
+        else
+        {
+            <a class="btn btn-success" href="@Url.Action("Login", "Profile")">Create Order</a>
+        }
+
+        <form method="post" asp-controller="Cart" asp-action="DeleteFromCartAll">
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-times DeleteAll">Delete all items</i>
+            </button>
+            <a class="btn btn-success" href="@Url.Action("DownloadCartAsPdf", "Cart")">Download as PDF</a>
+        </form>
+    }
+</body>
+</html>

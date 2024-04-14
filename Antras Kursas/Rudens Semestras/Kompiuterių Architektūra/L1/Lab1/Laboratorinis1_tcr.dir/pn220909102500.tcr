@@ -1,0 +1,11 @@
+#Start recording tcl command: 9/9/2022 10:12:21
+#Project Location: C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1; Project name: Laboratorinis1
+prj_project new -name "Laboratorinis1" -impl "impl1" -dev LFXP2-5E-6TN144C -synthesis "synplify"
+prj_project save
+prj_src add "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_alu_s.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_cnt.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_ctrl.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_flg.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_mux.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_reg.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_rom.vhd" "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_top.vhd"
+prj_run Synthesis -impl impl1
+prj_src add "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/proj1/proj1.spf"
+prj_run Synthesis -impl impl1
+prj_src add "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/proj1/proj1.spf"
+prj_src add "C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/proj1/proj1.spf"
+#Stop recording: 9/9/2022 10:25:00

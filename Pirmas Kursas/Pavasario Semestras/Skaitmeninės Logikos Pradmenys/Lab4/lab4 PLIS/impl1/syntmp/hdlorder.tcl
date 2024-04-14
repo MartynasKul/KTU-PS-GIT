@@ -1,0 +1,1 @@
+project -fileorder "C:/lscc/diamond/3.12/cae_library/synthesis/vhdl/xp2.vhd" "C:/Users/markul4/Desktop/lab4\ PLIS/impl1/source/cntr19\ FPGA.vhd" 

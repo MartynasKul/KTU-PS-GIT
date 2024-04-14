@@ -1,0 +1,2 @@
+set_option -top_module work.SCH
+project -fileorder "C:/lscc/diamond/3.12/cae_library/synthesis/vhdl/xp2.vhd" "E:/KTU\ PIRMI\ METAI/Pavasario\ semestras/Skaitmenine\ Logika/Trecias\ Laboras\ scrap/impl1/sch.vhd" 

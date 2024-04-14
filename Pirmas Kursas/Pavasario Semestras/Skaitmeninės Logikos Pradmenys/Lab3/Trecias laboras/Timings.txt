@@ -1,0 +1,53 @@
+restart –f
+force -freeze sim:/.../rst 0 0, 1 {25 ps}
+force -freeze sim:/.../clk 0 0, 1 {25 ps} -r 50
+force -freeze sim:/.../A1 1 0, 0 {100 ps}
+force -freeze sim:/.../A1 1 400
+force -freeze sim:/.../A0 1 0, 0 {100 ps}
+force -freeze sim:/.../A0 1 150, 0 {350 ps}
+force -freeze sim:/.../A0 1 400, 0 {450 ps}
+force -freeze sim:/.../DR 0 0, 1 {200 ps}
+force -freeze sim:/.../DR 0 300
+force -freeze sim:/.../DL 0 0, 1 {550 ps}
+force -freeze sim:/.../D4 1 0
+force -freeze sim:/.../D3 1 0
+force -freeze sim:/.../D2 0 0
+force -freeze sim:/.../D1 0 0
+force -freeze sim:/.../D0 1 0
+run 700
+
+restart -f
+force -freeze sim:/.../rst 0 0, 1 {25 ps}
+force -freeze sim:/.../clk 0 0, 1 {25 ps} -r 50
+force -freeze sim:/.../A1 1 0, 0 {100 ps}
+force -freeze sim:/.../A1 1 400
+force -freeze sim:/.../A0 1 0, 0 {100 ps}
+force -freeze sim:/.../A0 1 150, 0 {350 ps}
+force -freeze sim:/.../A0 1 400, 0 {450 ps}
+force -freeze sim:/.../DR 0 0, 1 {200 ps}
+force -freeze sim:/.../DR 0 300
+force -freeze sim:/.../DL 0 0, 1 {550 ps}
+force -freeze sim:/.../D4 1 0
+force -freeze sim:/.../D3 1 0
+force -freeze sim:/.../D2 0 0
+force -freeze sim:/.../D1 0 0
+force -freeze sim:/.../D0 1 0
+run 700
+
+restart -f
+force -freeze sim:/.../rst 0 0, 1 {25 ps}
+force -freeze sim:/.../clk 0 0, 1 {25 ps} -r 50
+force -freeze sim:/.../A1 1 0, 0 {100 ps}
+force -freeze sim:/.../A1 1 400
+force -freeze sim:/.../A0 1 0, 0 {100 ps}
+force -freeze sim:/.../A0 1 150, 0 {350 ps}
+force -freeze sim:/.../A0 1 400, 0 {450 ps}
+force -freeze sim:/.../DR 0 0, 1 {200 ps}
+force -freeze sim:/.../DR 0 300
+force -freeze sim:/.../DL 0 0, 1 {550 ps}
+force -freeze sim:/.../D4 1 0
+force -freeze sim:/.../D3 1 0
+force -freeze sim:/.../D2 0 0
+force -freeze sim:/.../D1 0 0
+force -freeze sim:/.../D0 1 0
+run 700

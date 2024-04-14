@@ -1,0 +1,2 @@
+
+sch2vhd -FPGA -lib LatticeXP2 -i {E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/sch.sch} -o {E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/impl1/sch.vhd} -gui -msgset {E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/promote.xml}

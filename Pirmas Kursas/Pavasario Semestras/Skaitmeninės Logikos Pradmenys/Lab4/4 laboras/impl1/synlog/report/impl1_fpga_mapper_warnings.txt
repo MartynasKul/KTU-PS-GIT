@@ -1,0 +1,2 @@
+@W: MT462 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr49.vhd":20:2:20:3|Net C2 appears to be an unidentified clock source. Assuming default frequency. If this is a required clock, declare a clock constraint on this net in your constraint file.
+@W: MT420 |Found inferred clock TOP_CNT|CLK_I with period 3.66ns. Please declare a user-defined clock on port CLK_I.

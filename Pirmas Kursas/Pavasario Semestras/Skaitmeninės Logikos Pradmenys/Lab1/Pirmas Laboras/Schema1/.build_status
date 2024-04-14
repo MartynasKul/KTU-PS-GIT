@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BuildStatus>
+    <Strategy name="Strategy1">
+        <Milestone name="Convert_HDL" build_result="2" build_time="1646850584">
+            <Task name="HDL_Conv" build_result="2" update_result="0" update_time="1646850584"/>
+        </Milestone>
+        <Milestone name="Export" build_result="0" build_time="0">
+            <Task name="IBIS" build_result="0" update_result="3" update_time="0"/>
+            <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
+            <Task name="TimingSimFileVHD" build_result="0" update_result="3" update_time="0"/>
+            <Task name="Bitgen" build_result="0" update_result="3" update_time="0"/>
+        </Milestone>
+        <Milestone name="Generate_HDL" build_result="2" build_time="1646850584">
+            <Task name="HDL_Gen" build_result="2" update_result="0" update_time="1646850584"/>
+        </Milestone>
+        <Milestone name="Map" build_result="0" build_time="1646850738">
+            <Task name="Map" build_result="0" update_result="2" update_time="1646850738"/>
+            <Task name="MapTrace" build_result="0" update_result="3" update_time="0"/>
+            <Task name="MapVerilogSimFile" build_result="0" update_result="3" update_time="0"/>
+            <Task name="MapVHDLSimFile" build_result="0" update_result="3" update_time="0"/>
+        </Milestone>
+        <Milestone name="PAR" build_result="0" build_time="0">
+            <Task name="PAR" build_result="0" update_result="3" update_time="0"/>
+            <Task name="PARTrace" build_result="0" update_result="3" update_time="0"/>
+            <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
+        </Milestone>
+        <Milestone name="Synthesis" build_result="2" build_time="1646850696">
+            <Task name="Synplify_Synthesis" build_result="2" update_result="0" update_time="1646850696"/>
+        </Milestone>
+        <Milestone name="Translate" build_result="2" build_time="1646850738">
+            <Task name="Translate" build_result="2" update_result="0" update_time="1646850738"/>
+        </Milestone>
+        <Report name="Klasika.vhd" last_build_time="1646850584" last_build_size="10550"/>
+        <Report name="Lab1_Schema1.edi" last_build_time="1646850682" last_build_size="29607"/>
+        <Report name="Lab1_Schema1.ngd" last_build_time="1646850738" last_build_size="20930"/>
+        <Report name="Lab1_Schema1_map.ncd" last_build_time="1645083788" last_build_size="7634"/>
+    </Strategy>
+</BuildStatus>

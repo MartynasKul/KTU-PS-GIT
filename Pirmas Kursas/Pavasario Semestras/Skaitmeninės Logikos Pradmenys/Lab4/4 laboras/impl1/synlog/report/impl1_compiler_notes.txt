@@ -1,0 +1,11 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N:"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":5:7:5:13|Top entity is set to TOP_CNT.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":5:7:5:13|Synthesizing work.top_cnt.struct.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":5:7:5:12|Synthesizing work.cnt136.rtl.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":5:7:5:11|Synthesizing work.cnt49.rtl.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":5:7:5:11|Synthesizing work.cnt19.rtl.
+@N|Running in 64-bit mode
+@N: NF107 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\jm2.vhd":5:7:5:13|Selected library: work cell: TOP_CNT view struct as top level
+@N: NF107 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\jm2.vhd":5:7:5:13|Selected library: work cell: TOP_CNT view struct as top level
+

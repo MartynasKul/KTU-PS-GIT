@@ -1,0 +1,54 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.10, Oct 14 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/laba
+Eklasika
+Z1 w1645690320
+Z2 DPx3 xp2 10 components 0 22 zeL]n]k`h]4OzW>IL1K2Y2
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z5 8E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/Schema1/Klasika.vhd
+Z6 FE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/Schema1/Klasika.vhd
+l0
+L8 1
+VCnfc88gM_NQneH3acDd<a1
+!s100 NKE6UX`5^8O76jmK^nzSz1
+Z7 OT;C;2020.3;71
+32
+Z8 !s110 1645690452
+!i10b 1
+Z9 !s108 1645690452.000000
+Z10 !s90 -reportprogress|300|-work|work|E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/Schema1/Klasika.vhd|
+!s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/Schema1/Klasika.vhd|
+!i113 1
+Z11 o-work work -O0
+Z12 tExplicit 1 CvgOpt 0
+Aschematic
+R2
+R3
+R4
+DEx4 work 7 klasika 0 22 Cnfc88gM_NQneH3acDd<a1
+!i122 0
+l183
+L21 319
+VcT6TDKoG8o28_mfBE12]00
+!s100 a>Pg0MUSYCc>ZDNb0029T1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+Z13 !s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/Schema1/Klasika.vhd|
+!i113 1
+R11
+R12

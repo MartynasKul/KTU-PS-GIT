@@ -1,0 +1,2 @@
+ckid0_0:@|S:CNT_1.CNT_C.Q[0]@|E:CNT_2.CNT_A[7:0]@|F:@syn_dgcc_clockid0_0==1@|M:ClockId_0_0
+ckid0_2:@|S:CLK_I@|E:CNT_CO@|F:@syn_dgcc_clockid0_2==1@|M:ClockId_0_2

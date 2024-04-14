@@ -1,0 +1,12 @@
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Data1.txt
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Data2.txt
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Laboratorinis1.exe.config
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Laboratorinis1.exe
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Laboratorinis1.pdb
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\obj\Debug\Laboratorinis1.csproj.AssemblyReference.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\obj\Debug\Laboratorinis1.csproj.CoreCompileInputs.cache
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\obj\Debug\Laboratorinis1.exe
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\obj\Debug\Laboratorinis1.pdb
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Data1.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\bin\Debug\Data2.csv
+E:\KTU\KTU ANTRI METAI\Rudens semestras\Objektinis programavimas 1\Laborai\L1\Laboratorinis1\Laboratorinis1\obj\Debug\Laboratorinis1.csproj.SuggestedBindingRedirects.cache

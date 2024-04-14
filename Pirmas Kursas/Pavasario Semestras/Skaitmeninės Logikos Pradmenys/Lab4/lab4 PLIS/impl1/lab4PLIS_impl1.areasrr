@@ -1,0 +1,21 @@
+----------------------------------------------------------------------
+Report for cell CNT19.rtl
+
+Register bits: 6 of 4752 (0%)
+PIC Latch:       0
+I/O cells:       9
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                              CCU2B        3       100.0
+                            FD1P3DX        5       100.0
+                                GSR        1       100.0
+                                 IB        3       100.0
+                                INV        6       100.0
+                                 OB        6       100.0
+                           OFS1P3BX        1       100.0
+                           ORCALUT4        7       100.0
+                                PUR        1       100.0
+                                VHI        1       100.0
+                                VLO        1       100.0
+                            
+                         TOTAL            35           

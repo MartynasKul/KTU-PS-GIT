@@ -1,0 +1,8 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N:"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd":5:7:5:11|Top entity is set to CNT19.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd'.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19 FPGA.vhd":5:7:5:11|Synthesizing work.cnt19.rtl.
+@N|Running in 64-bit mode
+

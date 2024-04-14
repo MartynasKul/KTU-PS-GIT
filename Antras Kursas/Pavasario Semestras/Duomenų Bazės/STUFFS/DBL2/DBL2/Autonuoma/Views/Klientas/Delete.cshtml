@@ -1,0 +1,80 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.Klientas
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Kliento šalinimas"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-ced">
+@using( Html.BeginForm(FormMethod.Post, new { @class="entity-d" }) )
+{
+	@Html.AntiForgeryToken()
+
+	<fieldset>
+		<legend class="confirm-msg">Ar tikrai norite šalinti šį klientą?</legend>
+
+		<dl>
+			<dt>@Html.DisplayNameFor(m => m.AsmensKodas)</dt>
+			<dd>@Html.DisplayFor(m => m.AsmensKodas)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.Vardas)</dt>
+			<dd>@Html.DisplayFor(m => m.Vardas)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.Pavarde)</dt>
+			<dd>@Html.DisplayFor(m => m.Pavarde)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.GimimoData)</dt>
+			<dd>@Html.DisplayFor(m => m.GimimoData)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.Telefonas)</dt>
+			<dd>@Html.DisplayFor(m => m.Telefonas)</dd>
+
+			<dt>@Html.DisplayNameFor(m => m.Epastas)</dt>
+			<dd>@Html.DisplayFor(m => m.Epastas)</dd>
+		</dl>
+
+		@if( ViewData["deletionNotPermitted"] != null )
+		{
+			<div class="fail-msg">
+				<i class="fa-solid fa-circle-exclamation"></i> Šio kliento pašalinti negalima, nes 
+				jis turi ryšių į priklausomas esybes.
+			</div>
+		}
+		else
+		{
+			<div class="buttons">
+				<button
+					formaction="@Url.Action("DeleteConfirm", new {id = Model.AsmensKodas})"
+					class="btn btn-danger"
+					style="white-space: nowrap;"
+				><i class="fa-solid fa-trash"></i> Šalinti</button>
+			</div>			
+		}
+	</fieldset>
+}
+</div>
+
+@* content footer *@
+<div class="main-content-footer">
+	<span class="title"></span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>

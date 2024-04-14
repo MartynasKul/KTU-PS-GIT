@@ -1,0 +1,15 @@
+i CNT_1.CNT_C_i
+m 0 0
+u 1 8
+n ckid0_0 {t:CNT_2.CNT_A[7:0].C} Derived clock on input (not legal for GCC)
+p {t:CNT_1.CNT_C.Q[0]}{t:CNT_1.CNT_C_derived_clock.I[0]}{t:CNT_1.CNT_C_derived_clock.OUT[0]}{p:CNT_1.CNT_C}{t:CNT_1.CNT_C}{t:CNT_2.CLK}{p:CNT_2.CLK}{t:CNT_2.CNT_A[7:0].C}
+e ckid0_0 {t:CNT_2.CNT_A[7:0].C} dffre
+d ckid0_1 {t:CNT_1.CNT_C.Q[0]} dffse Derived clock on input (not legal for GCC)
+i CLK_I
+m 0 0
+u 4 8
+p {p:CLK_I}{t:CNT_CO.C}
+e ckid0_2 {t:CNT_CO.C} dffe
+c ckid0_2 {p:CLK_I} port Unsupported/too complex instance on clock path
+l 0 0 0 0 0 0
+r 0 0 0 0 0 0 0 0

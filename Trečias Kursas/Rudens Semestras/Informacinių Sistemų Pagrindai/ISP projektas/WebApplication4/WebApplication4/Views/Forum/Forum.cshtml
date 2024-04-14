@@ -1,0 +1,164 @@
+﻿@model List<WebApplication4.Models.Post>
+
+@{
+    ViewData["Title"] = "Forum";
+}
+@{
+    var items = ViewBag.Items as SelectList;
+    Console.WriteLine($"Number of items: {items?.Count()}");
+}
+@{
+        var userType = ViewContext.HttpContext.Session.GetInt32("UserType");
+        var userName = ViewContext.HttpContext.Session.GetString("Username");
+        var userId = ViewContext.HttpContext.Session.GetInt32("UserID");         
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div id="error-popup" class="popup">
+        <span class="close" onclick="closeErrorPopup()">&times;</span>
+        <p id="error-message" class="error-message"></p>
+    </div>
+
+    <script>
+        function openErrorPopup(message) {
+            document.getElementById('error-message').innerText = message;
+            document.getElementById('error-popup').style.display = 'block';
+        }
+
+        function closeErrorPopup() {
+            document.getElementById('error-popup').style.display = 'none';
+        }
+
+        // Check for error message and open the popup
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (errorMessage) {
+            openErrorPopup(errorMessage);
+            // Remove the message to avoid displaying it on subsequent requests
+            TempData.Remove("ErrorMessage");
+        }
+    </script>
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/Forum.css" asp-append-version="true">
+    
+    <script>
+        function toggleComments(postId) {
+            var commentsDropdown = document.getElementById('comments-dropdown-' + postId);
+            commentsDropdown.style.display = commentsDropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function openCreatePostForm() {
+            var popup = document.getElementById('create-post-popup');
+            popup.style.display = 'block';
+        }
+
+        function closeCreatePostForm() {
+            var popup = document.getElementById('create-post-popup');
+            popup.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <h1>Forum</h1>
+    @if(userType != null || userType.HasValue)
+     {
+         <button id="create-post-button" class="create-post-button" onclick="openCreatePostForm()">Create Post</button>
+<div id="create-post-popup" class="popup" style="display: none;">
+    <h2>Create a New Post</h2>
+    <form id="new-post-form" asp-controller="Forum" asp-action="CreatePost" method="post">
+        <label for="Title">Title:</label>
+        <input type="text" id="Title" name="Title" required>
+
+        <label for="Text">Text:</label>
+        <textarea style="width:50px; max-height:30px; min-height:30px" id="Text" name="Text" required></textarea>
+
+        <label for="ItemId">Select Item:</label>
+        <select id="ItemId" name="ItemId" asp-items="@ViewBag.Items"></select>
+
+
+        <button type="submit">Create Post</button>
+        <button type="button" onclick="closeCreatePostForm()">Cancel</button>
+    </form>
+</div>
+     }
+    
+
+    @foreach (var post in Model)
+    {
+        <div class="post">
+            <div class="post-title">@post.Title</div>
+            <div class="post-info">
+                <p style="color: black; font-size: 18px;">@post.Text</p>
+                <p>Item: @post.Item</p>
+                <p>Posted by: @post.User_  |@post.Date</p>         
+                <p>Likes: @post.Likes</p>
+                
+                <p>                               
+                </p>
+                <p>
+                    <span class="show-comments" onclick="toggleComments(@post.Id)">Comments</span>
+                </p>
+                <p>
+                <p></p>
+                @if(userType != null || userType.HasValue)
+                {
+
+                    <form asp-controller="Forum" asp-action="AddComment" method="post">
+                <input type="hidden" name="postId" value="@post.Id" />
+                <textarea style="max-height:50px; min-height:50px" name="commentText" required></textarea>
+                <button class="addcomment" type="submit">Add Comment</button>
+                </form>
+
+                <form asp-controller="Forum" asp-action="AddLike" method="post" style="display:inline;">
+                <input type="hidden" name="postId" value="@post.Id" />
+                <button type="submit">Like</button>
+                </form>
+
+                }
+                
+                @if(userType==2)
+                {
+                    <form asp-controller="Forum" asp-action="DeletePost" method="post" style="display:inline; ">
+                    <input type="hidden" name="postId" value="@post.Id" />
+                    <button class="delete" type="submit">Delete Post</button>
+                    </form>
+
+                }
+                @if(userType==1)
+                {
+                    @if(userId == post.UserId)
+                    {
+                        <form asp-controller="Forum" asp-action="DeletePost" method="post" style="display:inline; ">
+                        <input type="hidden" name="postId" value="@post.Id" />
+                     <button class="delete" type="submit">Delete Post</button>
+                        </form>
+                    }
+                }
+
+
+                </p>
+
+            </div>
+
+             <div class="comments-dropdown" id="comments-dropdown-@post.Id">
+                <h3>Comments:</h3>
+                @foreach (var comment in post.comments)
+                {
+                    <div class="comment">
+                        <p>@comment.Text</p>
+                        <p>Posted on: @comment.Date</p>
+                    </div>
+                }
+            </div>
+
+            
+        </div>
+    }
+</body>
+</html>
+

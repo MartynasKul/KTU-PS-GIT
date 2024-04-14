@@ -1,0 +1,15 @@
+if {![file exists "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/projekt/projekt.mpf"]} { 
+	project new "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/projekt" projekt
+	project addfile "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/impl1/Schema.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/impl1/Schema.vhd"
+} else {
+	project open "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Antras laboras/projekt/projekt"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_xp2  SCHEMA
+view wave
+add wave /*
+run 1000ns

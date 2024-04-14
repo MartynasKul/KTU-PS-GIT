@@ -1,0 +1,33 @@
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":8:7:8:13|Synthesizing work.klasika.schematic.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":23:10:23:12|Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":24:10:24:12|Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":913:10:913:12|Synthesizing work.inv.syn_black_box.
+Post processing for work.inv.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":74:10:74:13|Synthesizing work.and3.syn_black_box.
+Post processing for work.and3.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1324:10:1324:12|Synthesizing work.or3.syn_black_box.
+Post processing for work.or3.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1315:10:1315:12|Synthesizing work.or2.syn_black_box.
+Post processing for work.or2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1334:10:1334:12|Synthesizing work.or4.syn_black_box.
+Post processing for work.or4.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1144:10:1144:12|Synthesizing work.nd3.syn_black_box.
+Post processing for work.nd3.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1154:10:1154:12|Synthesizing work.nd4.syn_black_box.
+Post processing for work.nd4.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1135:10:1135:12|Synthesizing work.nd2.syn_black_box.
+Post processing for work.nd2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1033:10:1033:14|Synthesizing work.mux41.syn_black_box.
+Post processing for work.mux41.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":84:10:84:13|Synthesizing work.and4.syn_black_box.
+Post processing for work.and4.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1345:10:1345:12|Synthesizing work.or5.syn_black_box.
+Post processing for work.or5.syn_black_box
+Post processing for work.klasika.schematic
+Running optimization stage 1 on KLASIKA .......
+Running optimization stage 2 on KLASIKA .......
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\layer0.rt.csv
+

@@ -1,0 +1,6 @@
+@W: CD638 :"C:\Users\markul4\Desktop\4laboras\top_cntr.vhd":22:7:22:7|Signal c is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr167.vhd":27:2:27:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr167.vhd":27:2:27:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr23.vhd":26:2:26:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\4laboras\cntr23.vhd":26:2:26:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+

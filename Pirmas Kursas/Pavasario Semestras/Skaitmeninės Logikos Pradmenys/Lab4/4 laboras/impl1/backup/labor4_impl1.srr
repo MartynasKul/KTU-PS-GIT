@@ -1,0 +1,751 @@
+#Build: Synplify Pro (R) R-2021.03L-SP1, Build 093R, Aug 10 2021
+#install: C:\lscc\diamond\3.12\synpbase
+#OS: Windows 8 6.2
+#Hostname: IF11R205-14
+
+# Thu May 19 09:47:19 2022
+
+#Implementation: impl1
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys HDL Compiler, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys VHDL Compiler, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+@N:"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":5:7:5:13|Top entity is set to TOP_CNT.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd'.
+VHDL syntax check successful!
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":5:7:5:13|Synthesizing work.top_cnt.struct.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":16:7:16:7|Signal c is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":5:7:5:12|Synthesizing work.cnt136.rtl.
+Post processing for work.cnt136.rtl
+Running optimization stage 1 on CNT136 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":20:2:20:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT136 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 91MB)
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":5:7:5:11|Synthesizing work.cnt49.rtl.
+Post processing for work.cnt49.rtl
+Running optimization stage 1 on CNT49 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":20:2:20:3|Feedback mux created for signal CNT_A[5:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT49 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":5:7:5:11|Synthesizing work.cnt19.rtl.
+Post processing for work.cnt19.rtl
+Running optimization stage 1 on CNT19 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":20:2:20:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT19 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Post processing for work.top_cnt.struct
+Running optimization stage 1 on TOP_CNT .......
+Finished optimization stage 1 on TOP_CNT (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on CNT19 .......
+Finished optimization stage 2 on CNT19 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on CNT49 .......
+Finished optimization stage 2 on CNT49 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on CNT136 .......
+Finished optimization stage 2 on CNT136 (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+Running optimization stage 2 on TOP_CNT .......
+Finished optimization stage 2 on TOP_CNT (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\layer0.rt.csv
+
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 92MB)
+
+Process took 0h:00m:03s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 09:47:24 2022
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys Synopsys Netlist Linker, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 90MB peak: 90MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 09:47:31 2022
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\labor4_impl1_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:10s; CPU Time elapsed 0h:00m:01s; Memory used current: 29MB peak: 29MB)
+
+Process took 0h:00m:10s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 09:47:31 2022
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys Synopsys Netlist Linker, Version comp202103synp2, Build 093R, Built Aug 10 2021 09:15:36, @
+
+@N|Running in 64-bit mode
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 90MB peak: 91MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Thu May 19 09:47:34 2022
+
+###########################################################]
+Premap Report
+
+# Thu May 19 09:47:35 2022
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys Lattice Technology Pre-mapping, Version map202103lat, Build 070R, Built Oct  6 2021 11:12:38, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 118MB peak: 118MB)
+
+
+Done reading skeleton netlist (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 121MB peak: 130MB)
+
+@A: MF827 |No constraint file specified.
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\labor4_impl1_scck.rpt 
+See clock summary report "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\labor4_impl1_scck.rpt"
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 130MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 125MB peak: 130MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 138MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 138MB peak: 140MB)
+
+@N: BN362 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr136.vhd":20:2:20:3|Removing sequential instance CNT_C (in view: work.CNT136(rtl)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+
+Starting clock optimization phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 169MB peak: 169MB)
+
+@N: MF578 |Incompatible asynchronous control logic preventing generated clock conversion.
+
+Finished clock optimization phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 170MB peak: 170MB)
+
+
+Starting clock optimization report phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:00s; Memory used current: 170MB peak: 170MB)
+
+
+Finished clock optimization report phase (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+@N: FX1184 |Applying syn_allowed_resources blockrams=12 on top level netlist TOP_CNT 
+
+Finished netlist restructuring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+
+Clock Summary
+******************
+
+          Start                             Requested     Requested     Clock                                        Clock                   Clock
+Level     Clock                             Frequency     Period        Type                                         Group                   Load 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       TOP_CNT|CLK_I                     200.0 MHz     5.000         inferred                                     Inferred_clkgroup_0     8    
+1 .         CNT19|CNT_C_derived_clock       200.0 MHz     5.000         derived (from TOP_CNT|CLK_I)                 Inferred_clkgroup_0     7    
+2 ..          CNT49|CNT_C_derived_clock     200.0 MHz     5.000         derived (from CNT19|CNT_C_derived_clock)     Inferred_clkgroup_0     8    
+==================================================================================================================================================
+
+
+
+Clock Load Summary
+***********************
+
+                              Clock     Source                      Clock Pin              Non-clock Pin     Non-clock Pin
+Clock                         Load      Pin                         Seq Example            Seq Example       Comb Example 
+--------------------------------------------------------------------------------------------------------------------------
+TOP_CNT|CLK_I                 8         CLK_I(port)                 RST_internal.C         -                 -            
+CNT19|CNT_C_derived_clock     7         CNT_1.CNT_C.Q[0](dffse)     CNT_2.CNT_C.C          -                 -            
+CNT49|CNT_C_derived_clock     8         CNT_2.CNT_C.Q[0](dffse)     CNT_3.CNT_A[7:0].C     -                 -            
+==========================================================================================================================
+
+@W: MT529 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr19.vhd":20:2:20:3|Found inferred clock TOP_CNT|CLK_I which controls 8 sequential elements including CNT_1.CNT_A[4:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+
+ICG Latch Removal Summary:
+Number of ICG latches removed: 0
+Number of ICG latches not removed:	0
+For details review file gcc_ICG_report.rpt
+
+
+@S |Clock Optimization Summary
+
+
+
+#### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[
+
+1 non-gated/non-generated clock tree(s) driving 8 clock pin(s) of sequential element(s)
+2 gated/generated clock tree(s) driving 15 clock pin(s) of sequential element(s)
+0 instances converted, 15 sequential instances remain driven by gated/generated clocks
+
+=========================== Non-Gated/Non-Generated Clocks ============================
+Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
+---------------------------------------------------------------------------------------
+@KP:ckid0_4       CLK_I               port                   8          CNT_CO         
+=======================================================================================
+============================================================== Gated/Generated Clocks ==============================================================
+Clock Tree ID     Driving Element      Drive Element Type     Unconverted Fanout     Sample Instance      Explanation                               
+----------------------------------------------------------------------------------------------------------------------------------------------------
+@KP:ckid0_0       CNT_2.CNT_C.Q[0]     dffse                  8                      CNT_3.CNT_A[7:0]     Derived clock on input (not legal for GCC)
+@KP:ckid0_2       CNT_1.CNT_C.Q[0]     dffse                  7                      CNT_2.CNT_A[5:0]     Derived clock on input (not legal for GCC)
+====================================================================================================================================================
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######
+
+@N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
+Finished Pre Mapping Phase.
+
+Starting constraint checker (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:01s; Memory used current: 170MB peak: 170MB)
+
+
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:01s; Memory used current: 171MB peak: 171MB)
+
+
+Finished constraint checker (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:01s; Memory used current: 172MB peak: 172MB)
+
+Pre-mapping successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:01s; Memory used current: 91MB peak: 173MB)
+
+Process took 0h:00m:07s realtime, 0h:00m:01s cputime
+# Thu May 19 09:47:44 2022
+
+###########################################################]
+Map & Optimize Report
+
+# Thu May 19 09:47:46 2022
+
+
+Copyright (C) 1994-2021 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: R-2021.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: IF11R205-14
+
+Implementation : impl1
+Synopsys Lattice Technology Mapper, Version map202103lat, Build 070R, Built Oct  6 2021 11:12:38, @
+
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 118MB peak: 118MB)
+
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 119MB peak: 130MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 119MB peak: 130MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 134MB peak: 134MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 135MB peak: 137MB)
+
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 168MB peak: 168MB)
+
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 171MB peak: 171MB)
+
+@N: MO231 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr136.vhd":20:2:20:3|Found counter in view:work.TOP_CNT(struct) instance CNT_3.CNT_A[7:0] 
+@N: MO231 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr19.vhd":20:2:20:3|Found counter in view:work.CNT19(rtl) instance CNT_A[4:0] 
+@N: MO231 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr49.vhd":20:2:20:3|Found counter in view:work.CNT49(rtl) instance CNT_A[5:0] 
+
+Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 172MB peak: 172MB)
+
+
+Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 172MB peak: 172MB)
+
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 173MB peak: 173MB)
+
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 173MB peak: 173MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 173MB peak: 173MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 173MB peak: 173MB)
+
+
+Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 173MB peak: 173MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 174MB peak: 174MB)
+
+Pass		 CPU time		Worst Slack		Luts / Registers
+------------------------------------------------------------
+   1		0h:00m:01s		     1.17ns		  16 /        23
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 174MB peak: 174MB)
+
+@N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 174MB peak: 174MB)
+
+
+Start Writing Netlists (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 138MB peak: 175MB)
+
+Writing Analyst data base E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\labor4_impl1_m.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:02s; Memory used current: 175MB peak: 175MB)
+
+Writing EDIF Netlist and constraint files
+@N: FX1056 |Writing EDF file: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\labor4_impl1.edi
+@N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
+
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:02s; Memory used current: 180MB peak: 180MB)
+
+
+Finished Writing Netlists (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:02s; Memory used current: 180MB peak: 180MB)
+
+
+Start final timing analysis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:02s; Memory used current: 180MB peak: 180MB)
+
+@W: MT420 |Found inferred clock TOP_CNT|CLK_I with period 5.00ns. Please declare a user-defined clock on port CLK_I.
+@N: MT615 |Found clock CNT19|CNT_C_derived_clock with period 5.00ns 
+@N: MT615 |Found clock CNT49|CNT_C_derived_clock with period 5.00ns 
+
+
+##### START OF TIMING REPORT #####[
+# Timing report written on Thu May 19 09:47:52 2022
+#
+
+
+Top view:               TOP_CNT
+Requested Frequency:    200.0 MHz
+Wire load mode:         top
+Paths requested:        5
+Constraint File(s):    
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+
+
+
+Performance Summary
+*******************
+
+
+Worst slack in design: 0.594
+
+                              Requested     Estimated     Requested     Estimated               Clock                                        Clock              
+Starting Clock                Frequency     Frequency     Period        Period        Slack     Type                                         Group              
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+CNT19|CNT_C_derived_clock     200.0 MHz     459.7 MHz     5.000         2.175         2.980     derived (from TOP_CNT|CLK_I)                 Inferred_clkgroup_0
+CNT49|CNT_C_derived_clock     200.0 MHz     384.5 MHz     5.000         2.601         3.734     derived (from CNT19|CNT_C_derived_clock)     Inferred_clkgroup_0
+TOP_CNT|CLK_I                 200.0 MHz     226.9 MHz     5.000         4.407         0.594     inferred                                     Inferred_clkgroup_0
+================================================================================================================================================================
+
+
+
+
+
+Clock Relationships
+*******************
+
+Clocks                                                |    rise  to  rise   |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+--------------------------------------------------------------------------------------------------------------------------------------------
+Starting                   Ending                     |  constraint  slack  |  constraint  slack  |  constraint  slack  |  constraint  slack
+--------------------------------------------------------------------------------------------------------------------------------------------
+TOP_CNT|CLK_I              TOP_CNT|CLK_I              |  5.000       0.594  |  No paths    -      |  No paths    -      |  No paths    -    
+CNT19|CNT_C_derived_clock  TOP_CNT|CLK_I              |  5.000       2.980  |  No paths    -      |  No paths    -      |  No paths    -    
+CNT19|CNT_C_derived_clock  CNT19|CNT_C_derived_clock  |  5.000       5.650  |  No paths    -      |  No paths    -      |  No paths    -    
+CNT49|CNT_C_derived_clock  TOP_CNT|CLK_I              |  5.000       3.734  |  No paths    -      |  No paths    -      |  No paths    -    
+CNT49|CNT_C_derived_clock  CNT49|CNT_C_derived_clock  |  5.000       4.798  |  No paths    -      |  No paths    -      |  No paths    -    
+============================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+
+====================================
+Detailed Report for Clock: CNT19|CNT_C_derived_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                   Starting                                                         Arrival          
+Instance           Reference                     Type        Pin     Net            Time        Slack
+                   Clock                                                                             
+-----------------------------------------------------------------------------------------------------
+CNT_2.CNT_A[2]     CNT19|CNT_C_derived_clock     FD1P3DX     Q       CNT_2_O[2]     0.994       2.980
+CNT_2.CNT_A[0]     CNT19|CNT_C_derived_clock     FD1P3DX     Q       CNT_2_O[0]     0.994       3.734
+CNT_2.CNT_A[4]     CNT19|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[4]       0.994       5.650
+CNT_2.CNT_A[5]     CNT19|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[5]       0.994       5.650
+CNT_2.CNT_A[1]     CNT19|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[1]       0.929       6.777
+CNT_2.CNT_A[3]     CNT19|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[3]       0.929       6.850
+=====================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                   Starting                                                                 Required          
+Instance           Reference                     Type         Pin     Net                   Time         Slack
+                   Clock                                                                                      
+--------------------------------------------------------------------------------------------------------------
+CNT_CO_0io         CNT19|CNT_C_derived_clock     OFS1P3DX     D       un14_cnt_3_o_0_a3     4.908        2.980
+RST_internal       CNT19|CNT_C_derived_clock     FD1S3BX      D       un14_cnt_3_o_0_a3     4.908        2.980
+CNT_2.CNT_A[5]     CNT19|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[5]            10.069       5.650
+CNT_2.CNT_A[3]     CNT19|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[3]            10.069       5.723
+CNT_2.CNT_A[4]     CNT19|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[4]            10.069       5.723
+CNT_2.CNT_A[1]     CNT19|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[1]            10.069       5.796
+CNT_2.CNT_A[2]     CNT19|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[2]            10.069       5.796
+CNT_2.CNT_C        CNT19|CNT_C_derived_clock     FD1P3BX      D       cnt_c2_0_0_i          9.389        7.226
+CNT_2.CNT_A[0]     CNT19|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[0]            10.069       7.226
+==============================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      5.000
+    - Setup time:                            0.092
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         4.908
+
+    - Propagation time:                      1.928
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 2.980
+
+    Number of logic level(s):                2
+    Starting point:                          CNT_2.CNT_A[2] / Q
+    Ending point:                            CNT_CO_0io / D
+    The start point is clocked by            CNT19|CNT_C_derived_clock [rising] (rise=0.000 fall=2.500 period=5.000) on pin CK
+    The end   point is clocked by            TOP_CNT|CLK_I [rising] (rise=0.000 fall=2.500 period=5.000) on pin SCLK
+
+Instance / Net                             Pin      Pin               Arrival     No. of    
+Name                          Type         Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------------
+CNT_2.CNT_A[2]                FD1P3DX      Q        Out     0.994     0.994 r     -         
+CNT_2_O[2]                    Net          -        -       -         -           3         
+CNT_1.un14_cnt_3_o_0_a3_1     ORCALUT4     B        In      0.000     0.994 r     -         
+CNT_1.un14_cnt_3_o_0_a3_1     ORCALUT4     Z        Out     0.754     1.749 r     -         
+un14_cnt_3_o_0_a3_1           Net          -        -       -         -           1         
+CNT_1.un14_cnt_3_o_0_a3       ORCALUT4     A        In      0.000     1.749 r     -         
+CNT_1.un14_cnt_3_o_0_a3       ORCALUT4     Z        Out     0.179     1.928 r     -         
+un14_cnt_3_o_0_a3             Net          -        -       -         -           2         
+CNT_CO_0io                    OFS1P3DX     D        In      0.000     1.928 r     -         
+============================================================================================
+
+
+
+
+====================================
+Detailed Report for Clock: CNT49|CNT_C_derived_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                   Starting                                                         Arrival          
+Instance           Reference                     Type        Pin     Net            Time        Slack
+                   Clock                                                                             
+-----------------------------------------------------------------------------------------------------
+CNT_3.CNT_A[0]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_3_O[0]     0.994       3.734
+CNT_3.CNT_A[1]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_3_O[1]     0.994       3.734
+CNT_3.CNT_A[2]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[2]       0.929       4.863
+CNT_3.CNT_A[3]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[3]       0.929       4.863
+CNT_3.CNT_A[4]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[4]       0.929       4.863
+CNT_3.CNT_A[5]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[5]       0.929       4.863
+CNT_3.CNT_A[6]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[6]       0.929       4.863
+CNT_3.CNT_A[7]     CNT49|CNT_C_derived_clock     FD1P3DX     Q       CNT_A[7]       0.929       5.617
+=====================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                   Starting                                                                 Required          
+Instance           Reference                     Type         Pin     Net                   Time         Slack
+                   Clock                                                                                      
+--------------------------------------------------------------------------------------------------------------
+CNT_CO_0io         CNT49|CNT_C_derived_clock     OFS1P3DX     D       un14_cnt_3_o_0_a3     4.908        3.734
+RST_internal       CNT49|CNT_C_derived_clock     FD1S3BX      D       un14_cnt_3_o_0_a3     4.908        3.734
+CNT_3.CNT_A[7]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[7]            10.069       4.798
+CNT_3.CNT_A[5]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[5]            10.069       4.871
+CNT_3.CNT_A[6]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[6]            10.069       4.871
+CNT_3.CNT_A[3]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[3]            10.069       4.944
+CNT_3.CNT_A[4]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[4]            10.069       4.944
+CNT_3.CNT_A[1]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[1]            10.069       5.017
+CNT_3.CNT_A[2]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[2]            10.069       5.017
+CNT_3.CNT_A[0]     CNT49|CNT_C_derived_clock     FD1P3DX      D       CNT_A_s[0]            10.069       6.448
+==============================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      5.000
+    - Setup time:                            0.092
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         4.908
+
+    - Propagation time:                      1.173
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (non-critical) :                 3.734
+
+    Number of logic level(s):                1
+    Starting point:                          CNT_3.CNT_A[0] / Q
+    Ending point:                            CNT_CO_0io / D
+    The start point is clocked by            CNT49|CNT_C_derived_clock [rising] (rise=0.000 fall=2.500 period=5.000) on pin CK
+    The end   point is clocked by            TOP_CNT|CLK_I [rising] (rise=0.000 fall=2.500 period=5.000) on pin SCLK
+
+Instance / Net                           Pin      Pin               Arrival     No. of    
+Name                        Type         Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------
+CNT_3.CNT_A[0]              FD1P3DX      Q        Out     0.994     0.994 r     -         
+CNT_3_O[0]                  Net          -        -       -         -           3         
+CNT_1.un14_cnt_3_o_0_a3     ORCALUT4     C        In      0.000     0.994 r     -         
+CNT_1.un14_cnt_3_o_0_a3     ORCALUT4     Z        Out     0.179     1.173 r     -         
+un14_cnt_3_o_0_a3           Net          -        -       -         -           2         
+CNT_CO_0io                  OFS1P3DX     D        In      0.000     1.173 r     -         
+==========================================================================================
+
+
+
+
+====================================
+Detailed Report for Clock: TOP_CNT|CLK_I
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                   Starting                                             Arrival          
+Instance           Reference         Type        Pin     Net            Time        Slack
+                   Clock                                                                 
+-----------------------------------------------------------------------------------------
+CNT_1.CNT_A[2]     TOP_CNT|CLK_I     FD1P3DX     Q       CNT_A[2]       1.091       0.594
+CNT_1.CNT_A[0]     TOP_CNT|CLK_I     FD1P3DX     Q       CNT_1_O[0]     0.994       0.618
+CNT_1.CNT_A[1]     TOP_CNT|CLK_I     FD1P3DX     Q       CNT_A[1]       0.929       0.755
+CNT_1.CNT_A[4]     TOP_CNT|CLK_I     FD1P3DX     Q       CNT_A[4]       1.091       2.024
+CNT_1.CNT_A[3]     TOP_CNT|CLK_I     FD1P3DX     Q       CNT_A[3]       0.929       2.072
+=========================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                   Starting                                                     Required          
+Instance           Reference         Type         Pin     Net                   Time         Slack
+                   Clock                                                                          
+--------------------------------------------------------------------------------------------------
+CNT_1.CNT_A[3]     TOP_CNT|CLK_I     FD1P3DX      D       CNT_A_lm[3]           4.389        0.594
+CNT_1.CNT_A[4]     TOP_CNT|CLK_I     FD1P3DX      D       CNT_A_lm[4]           4.389        0.594
+CNT_1.CNT_A[1]     TOP_CNT|CLK_I     FD1P3DX      D       CNT_A_lm[1]           4.389        0.691
+CNT_1.CNT_A[2]     TOP_CNT|CLK_I     FD1P3DX      D       CNT_A_lm[2]           4.389        0.691
+CNT_1.CNT_A[0]     TOP_CNT|CLK_I     FD1P3DX      D       CNT_A_lm[0]           4.389        2.072
+CNT_1.CNT_C        TOP_CNT|CLK_I     FD1P3BX      D       cnt_c2_0_0_i          4.389        2.072
+CNT_CO_0io         TOP_CNT|CLK_I     OFS1P3DX     D       un14_cnt_3_o_0_a3     4.908        2.980
+RST_internal       TOP_CNT|CLK_I     FD1S3BX      D       un14_cnt_3_o_0_a3     4.908        2.980
+==================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      5.000
+    - Setup time:                            0.611
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         4.389
+
+    - Propagation time:                      3.796
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     0.594
+
+    Number of logic level(s):                3
+    Starting point:                          CNT_1.CNT_A[2] / Q
+    Ending point:                            CNT_1.CNT_A[4] / D
+    The start point is clocked by            TOP_CNT|CLK_I [rising] (rise=0.000 fall=2.500 period=5.000) on pin CK
+    The end   point is clocked by            TOP_CNT|CLK_I [rising] (rise=0.000 fall=2.500 period=5.000) on pin CK
+
+Instance / Net                        Pin      Pin               Arrival     No. of    
+Name                     Type         Name     Dir     Delay     Time        Fan Out(s)
+---------------------------------------------------------------------------------------
+CNT_1.CNT_A[2]           FD1P3DX      Q        Out     1.091     1.091 r     -         
+CNT_A[2]                 Net          -        -       -         -           7         
+CNT_1.CNT_A_cry_0[1]     CCU2B        A1       In      0.000     1.091 r     -         
+CNT_1.CNT_A_cry_0[1]     CCU2B        COUT     Out     1.056     2.147 r     -         
+CNT_A_cry[2]             Net          -        -       -         -           1         
+CNT_1.CNT_A_cry_0[3]     CCU2B        CIN      In      0.000     2.147 r     -         
+CNT_1.CNT_A_cry_0[3]     CCU2B        S1       Out     1.234     3.381 r     -         
+CNT_A_s[4]               Net          -        -       -         -           1         
+CNT_1.CNT_A_lm_0[4]      ORCALUT4     C        In      0.000     3.381 r     -         
+CNT_1.CNT_A_lm_0[4]      ORCALUT4     Z        Out     0.415     3.796 r     -         
+CNT_A_lm[4]              Net          -        -       -         -           1         
+CNT_1.CNT_A[4]           FD1P3DX      D        In      0.000     3.796 r     -         
+=======================================================================================
+
+
+
+##### END OF TIMING REPORT #####]
+
+Timing exceptions that could not be applied
+
+Finished final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:03s; Memory used current: 180MB peak: 180MB)
+
+
+Finished timing report (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:03s; Memory used current: 180MB peak: 181MB)
+
+---------------------------------------
+Resource Usage Report
+Part: lfxp2_8e-6
+
+Register bits: 23 of 8352 (0%)
+PIC Latch:       0
+I/O cells:       4
+
+
+Details:
+CCU2B:          12
+FD1P3BX:        2
+FD1P3DX:        19
+FD1S3BX:        1
+GSR:            1
+IB:             3
+INV:            1
+OB:             1
+OFS1P3DX:       1
+ORCALUT4:       15
+PUR:            1
+VHI:            4
+VLO:            4
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:03s; Memory used current: 65MB peak: 181MB)
+
+Process took 0h:00m:07s realtime, 0h:00m:03s cputime
+# Thu May 19 09:47:54 2022
+
+###########################################################]

@@ -1,0 +1,146 @@
+saving shit: 
+lab 4
+
+import bpy
+from mathutils import Matrix
+
+objektas = bpy.context.object
+
+s = 0.75
+
+C = objektas.matrix_world
+
+def Tower(scale, kiekis):
+    M2 = Matrix.Identity(4)
+    
+    s = Matrix.Scale(scale, 4)
+    S = Matrix.Identity(4)
+    
+    for i in range(kiekis):
+        naujas_objektas = objektas.copy()
+        naujas_objektas.data = objektas.data.copy()
+        
+        M2[2][3] += objektas.dimensions[2] * (scale + 1) * pow(scale, i) / 2 / objektas.scale[1]
+        
+        S = S @ s
+        
+        naujas_objektas.matrix_world = C @ M2 @ S
+        bpy.data.scenes[0].collection.objects.link(naujas_objektas)
+        
+Tower(s, 5)
+
+lab2
+
+import bpy
+import math
+from mathutils import Matrix as Matrica
+from mathutils import Vector as V
+
+objektas = bpy.context.object
+
+M1 = objektas.matrix_world
+
+def ScMo(axis1, axis2, axis3, coeficient1, coeficient2, coeficient3, scale, DM):
+    M = Matrica.Identity(4)
+    
+    new_object = objektas.copy()
+    new_object_data = objektas.data.copy()
+    
+    
+    M[axis1][3] = ((1-scale)/2+scale)*DM[axis1]*coeficient1
+    M[axis2][3] = ((1-scale)/2+scale)*DM[axis2]*coeficient2
+    M[axis3][3] = ((1-scale)/2+scale)*DM[axis3]*coeficient3
+    
+    S = Matrica.Scale(scale, 4)
+    
+    new_object.matrix_world = M1 @ M @ S
+    bpy.data.scenes[0].collection.objects.link(new_object)
+    
+    return
+
+DM = objektas.dimensions
+
+
+ScMo(0, 1, 2, 1, 1, 1, 0.5, DM)
+ScMo(0, 1, 2, -1, 1, 1, 0.5, DM)
+ScMo(0, 1, 2, 1, -1, 1, 0.5, DM)
+ScMo(0, 1, 2, 1, 1, -1, 0.5, DM)
+ScMo(0, 1, 2, -1, -1, 1, 0.5, DM)
+ScMo(0, 1, 2, 1, -1, -1, 0.5, DM)
+ScMo(0, 1, 2, -1, 1, -1, 0.5, DM)
+ScMo(0, 1, 2, -1, -1, -1, 0.5, DM)
+
+
+import bpy
+import math
+from mathutils import Matrix
+ 
+parent = bpy.context.object
+    
+    
+def add_cubes(object, axis, direction):
+    o_axis = None
+    if axis == 1:
+        o_axis = 0
+    else:
+        o_axis = 1
+        
+    for i in range(4):
+        scale = 0.25
+        movement = parent.dimensions[o_axis]
+        new_object = object.copy()
+        T = Matrix.Identity(4)
+        T[axis][3] = parent.matrix_world[axis][3] + movement*direction
+        T[o_axis][3] = (parent.dimensions[o_axis] - parent.dimensions[o_axis]/8*5 - (parent.dimensions[o_axis]/4)*i) / parent.scale[o_axis]
+        S = Matrix.Scale(scale, 4)
+        O = parent.matrix_world
+        
+        new_object.matrix_world = O @ T @ S
+        
+        bpy.data.scenes[0].collection.objects.link(new_object)
+ 
+ 
+ 
+ 
+ 
+add_cubes(parent, 0, 1)
+add_cubes(parent, 0, -1)
+add_cubes(parent, 1, 1)
+add_cubes(parent, 1, -1)
+
+
+import bpy
+import math
+from mathutils import Vector as Vektorius 
+from mathutils import Matrix as Matrica
+pi = math.pi
+objektas = bpy.context.object
+M = objektas.matrix_world 
+DM = objektas.dimensions
+
+def MoRoMoScale(move_axis1, move_axis2, move_lenght1, move_lenght2, scale, copy_cnt):
+    
+    M2 = Matrica.Identity(4) 
+    M1 = Matrica.Identity(4)
+    asis1 = abs(move_axis1) - 1
+    asis2 = abs(move_axis2) - 1
+    if move_axis1 > 0:
+         M1[asis1][3] = move_lenght1*DM[asis1]/(objektas.scale[asis1])
+    if move_axis1 < 0:
+        M1[asis1][3] = (-1)*move_lenght1*DM[asis1]/(objektas.scale[asis1])
+    S = Matrica.Scale(scale, 4)
+    for i in range(copy_cnt): 
+        if move_axis2 > 0:
+            M2[asis2][3] = i*DM[asis2]*move_lenght2/(objektas.scale[asis2])
+        if move_axis2 < 0:
+            M2[asis2][3] = (-1)*i*DM[asis2]*move_lenght2/(objektas.scale[asis2])
+        naujas_objektas = objektas.copy() 
+        naujas_objektas.data = objektas.data.copy() 
+        R = Matrica.Rotation((i+1)*pi/8, 4, 'Z') 
+     
+        naujas_objektas.matrix_world = M @ M2 @ R @ M1 @ S 
+        bpy.data.scenes[0].collection.objects.link(naujas_objektas) 
+    return
+
+MoRoMoScale(2, 3, 1.5, 0.5, 0.5, 8)
+MoRoMoScale(-2, -3, 1.5, 0.5, 0.5, 8)

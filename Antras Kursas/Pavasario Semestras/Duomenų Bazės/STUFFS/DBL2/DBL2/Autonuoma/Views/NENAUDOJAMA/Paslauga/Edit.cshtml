@@ -1,0 +1,133 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.Paslauga.PaslaugaCE
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Paslaugos redagavimas"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-ced">
+@using( Html.BeginForm(FormMethod.Post, new { @class="entity-ce" }) )
+{
+	@Html.AntiForgeryToken()
+
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+	@* add hidden form fields for non-visible properties, otherwise they will get lost in code that handles button presses *@
+	@Html.HiddenFor(m => m.Paslauga.Id)
+
+	<fieldset>
+		<legend class="text-center">Paslauga</legend>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Paslauga.Pavadinimas)
+			@Html.EditorFor(m => m.Paslauga.Pavadinimas)
+			@Html.ValidationMessageFor(m => m.Paslauga.Pavadinimas, "")
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Paslauga.Aprasymas)
+			@Html.TextAreaFor(m => m.Paslauga.Aprasymas, new { rows="3" })
+			@Html.ValidationMessageFor(m => m.Paslauga.Aprasymas, "")
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<div class="container-fluid d-flex d-row justify-content-between align-items-center">
+			<span></span>
+			<legend style="width: unset; margin-bottom: 0px;">Paslaugos kainos</legend>
+			<button
+				name="add"
+				value="1"
+				formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+				formaction="@Url.Action()#listEnd"
+				class="btn btn-info"
+				style="white-space: nowrap;"
+			><i class="fa-solid fa-plus"></i> Pridėti</button>
+		</div>
+
+		<table class="table table-striped table-hover w-100">
+			<thead>
+				<tr>
+					<th>Kaina</th>
+					<th>Galioja nuo</th>
+					<th style="width: 1px;"></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for( var i = 0; i < Model.Kainos.Count; i++ ) {
+				<tr>
+					<td class="form-group">
+						@* add hidden form fields for non-visible properties, otherwise they will get lost in code that handles button presses *@
+						@Html.HiddenFor(m => Model.Kainos[i].InListId)
+						@Html.HiddenFor(m => Model.Kainos[i].IsReadonly)
+						@Html.HiddenFor(m => Model.Kainos[i].FkPaslauga)
+
+						@Html.EditorFor(
+							m => Model.Kainos[i].Kaina,
+							Model.Kainos[i].IsReadonly ?
+								new { htmlAttributes = new { @readonly = "readonly" }} :
+								new { htmlAttributes = new {}}
+						)
+						@Html.ValidationMessageFor(m => Model.Kainos[i].Kaina, "")
+					</td>
+					<td class="form-group">
+						@Html.TextBoxFor(
+							m => Model.Kainos[i].GaliojaNuo,
+							"{0:yyyy-MM-dd}",
+							Model.Kainos[i].IsReadonly ?
+								new { @class = "date-picker", @readonly = "readonly" }:
+								new { @class = "date-picker" }
+						)
+						@Html.ValidationMessageFor(m => Model.Kainos[i].GaliojaNuo, "")
+					</td>
+					<td>
+						@if( !Model.Kainos[i].IsReadonly ) {
+						<button
+							name="remove"
+							value="@Model.Kainos[i].InListId"
+							formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+							formaction="@Url.Action()#listEnd"
+							class="btn btn-danger"
+							style="white-space: nowrap;"
+						><i class="fa-solid fa-trash"></i> Šalinti</button>
+						}
+					</td>
+				</tr>
+				}
+			</tbody>
+		</table>
+
+		@* this is used as a marker to automatically scroll down to the end of items list when returning from button presses *@
+		<span id="listEnd"></span>
+	</fieldset>
+
+	<div class="container-fluid d-flex d-row justify-content-end">
+		<button name="save" value="1" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Išsaugoti</button>
+	</div>
+}
+</div>
+
+@* content footer *@
+<div class="main-content-footer">
+	<span class="title"></span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>

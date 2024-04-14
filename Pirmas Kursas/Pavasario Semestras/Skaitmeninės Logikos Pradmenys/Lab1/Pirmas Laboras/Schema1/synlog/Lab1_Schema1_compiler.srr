@@ -1,0 +1,125 @@
+
+Copyright (C) 1994-2020 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Q-2020.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: MARTYNOPC
+
+Implementation : Schema1
+Synopsys HDL Compiler, Version comp202003synp2, Build 182R, Built Oct 29 2020 10:49:53, @
+
+@N|Running in 64-bit mode
+###########################################################[
+
+Copyright (C) 1994-2020 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Q-2020.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: MARTYNOPC
+
+Implementation : Schema1
+Synopsys VHDL Compiler, Version comp202003synp2, Build 182R, Built Oct 29 2020 10:49:53, @
+
+@N|Running in 64-bit mode
+@N:"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":8:7:8:13|Top entity is set to KLASIKA.
+Options changed - recompiling
+VHDL syntax check successful!
+Options changed - recompiling
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":8:7:8:13|Synthesizing work.klasika.schematic.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":23:10:23:12|Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\Klasika.vhd":24:10:24:12|Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":913:10:913:12|Synthesizing work.inv.syn_black_box.
+Post processing for work.inv.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":74:10:74:13|Synthesizing work.and3.syn_black_box.
+Post processing for work.and3.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1324:10:1324:12|Synthesizing work.or3.syn_black_box.
+Post processing for work.or3.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1315:10:1315:12|Synthesizing work.or2.syn_black_box.
+Post processing for work.or2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1334:10:1334:12|Synthesizing work.or4.syn_black_box.
+Post processing for work.or4.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1144:10:1144:12|Synthesizing work.nd3.syn_black_box.
+Post processing for work.nd3.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1154:10:1154:12|Synthesizing work.nd4.syn_black_box.
+Post processing for work.nd4.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1135:10:1135:12|Synthesizing work.nd2.syn_black_box.
+Post processing for work.nd2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1033:10:1033:14|Synthesizing work.mux41.syn_black_box.
+Post processing for work.mux41.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":84:10:84:13|Synthesizing work.and4.syn_black_box.
+Post processing for work.and4.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1345:10:1345:12|Synthesizing work.or5.syn_black_box.
+Post processing for work.or5.syn_black_box
+Post processing for work.klasika.schematic
+Running optimization stage 1 on KLASIKA .......
+Running optimization stage 2 on KLASIKA .......
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\layer0.rt.csv
+
+
+At c_vhdl Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:01s; Memory used current: 93MB peak: 94MB)
+
+Process took 0h:00m:03s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Wed Mar  9 20:30:59 2022
+
+###########################################################]
+###########################################################[
+
+Copyright (C) 1994-2020 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Q-2020.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: MARTYNOPC
+
+Implementation : Schema1
+Synopsys Synopsys Netlist Linker, Version comp202003synp2, Build 182R, Built Oct 29 2020 10:49:53, @
+
+@N|Running in 64-bit mode
+File C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe changed - recompiling
+File E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\layer0.srs changed - recompiling
+
+At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 91MB peak: 91MB)
+
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Wed Mar  9 20:31:00 2022
+
+###########################################################]
+
+For a summary of runtime and memory usage for all design units, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\Lab1_Schema1_comp.rt.csv
+
+@END
+
+At c_hdl Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:01s; Memory used current: 30MB peak: 30MB)
+
+Process took 0h:00m:04s realtime, 0h:00m:01s cputime
+
+Process completed successfully.
+# Wed Mar  9 20:31:00 2022
+
+###########################################################]

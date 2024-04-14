@@ -1,0 +1,1 @@
+@W: MT529 :"c:\users\markul4\desktop\4laboras\cntr23.vhd":26:2:26:3|Found inferred clock TOP_CNT|CLK_I which controls 8 sequential elements including CNT_1.CNT_A[4:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 

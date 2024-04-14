@@ -1,0 +1,51 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "Create Order";
+}
+<h1>@ViewBag.Title</h1>
+
+@if (Model == null || Model.Size() == 0)
+{
+    <p>Your cart is empty</p>
+}
+else
+{
+    <table class="my-table">
+        <thead>
+            <tr>
+                @*<th>Picture</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Total</th>*@
+                <th>Ordered Items</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Size(); i++)
+            {
+                <tr>
+                    <td>@Model.GetAmount(i)x</td>
+                    <td><img class="product-image" src="@Model.Get(i).Picture" style="width: 100px; height: auto;"></td>
+                    <td>@Model.Get(i).Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+<br>
+
+<p class="total"><strong>Total: <span class="price">@Model.Price().ToString("0.00")</span></strong></p>
+
+@using (Html.BeginForm("AddOrder", "Order", FormMethod.Post))
+{
+    <div>
+        <label for="Address">Address:</label>
+        <input class="form-control" type="text" name="Address" id="Address" required />
+    </div>
+
+    <div style="padding-top:10px">
+        <input class="btn btn-success" type="submit" value="Confirm Order" />
+    </div>
+}

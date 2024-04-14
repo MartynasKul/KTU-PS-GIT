@@ -1,0 +1,169 @@
+﻿
+.myDiv {
+    width: calc(100% / 3 - 10px);
+    padding: 2em;
+    margin: 0px 5px 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    height: 700px;
+    background-color: #f8faff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 1px solid #d4e7f4;
+    border-radius: 10px;
+    perspective: 1100px;
+    transition: transform 0.5s ease;
+}
+
+    .myDiv:hover {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .myDiv img {
+        max-width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.5s ease;
+        border: 2px solid #d4e7f4;
+        border-radius: 20px;
+    }
+
+        .myDiv img:hover {
+            animation: shake 0.5s ease-in-out;
+        }
+
+    .myDiv h2 {
+        height: 100px;
+        font-size: calc(20px + (26 - 20) * ((100vw - 300px) / (1600 - 300)));
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+.myList {
+    font-size: 0.8em;
+}
+
+    .myList li {
+        padding: 0.25em;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 0.25em 0;
+        list-style: none;
+    }
+
+ul.myList {
+    padding-left: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 100px);
+}
+
+
+
+
+
+
+.div2 {
+    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pagination {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+    .pagination a {
+        padding: 0.5em;
+        margin: 0.5em;
+        border-radius: 5px;
+        background-color: #ddd;
+        color: black;
+        text-decoration: none;
+    }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    .pagination span {
+        margin-right: 10px;
+        margin-top: 12px;
+        font-weight: bold;
+        color: #333;
+    }
+
+.items-per-page span {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.items-per-page button {
+    border: none;
+    margin-right: 10px;
+    font-size: 16px;
+    color: black;
+    background-color: #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+    .items-per-page button.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+.container {
+    margin-bottom: 25px;
+}
+
+body .items-per-page {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.popup-message {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    .div2 {
+        flex-direction: column;
+    }
+
+    .myDiv {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1700px) {
+    .myDiv {
+        width: calc(50% - 10px);
+    }
+}

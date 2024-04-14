@@ -1,0 +1,106 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.SutartisF2.SutartisCE
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Sutarties sukūrimas (F2)"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-ced">
+@using( Html.BeginForm(FormMethod.Post, new { @class="entity-ce" }) )
+{
+	@Html.AntiForgeryToken()
+
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+	@* add hidden form fields for non-visible properties, otherwise they will get lost in code that handles button presses *@
+	@Html.HiddenFor(m => m.Sutartis.Nr)
+
+	<fieldset>
+		<legend class="text-center">Sutartis</legend>
+
+		
+		<div class="form-group">
+			@Html.LabelFor(m => m.Sutartis.Kaina)
+			@Html.EditorFor(m => m.Sutartis.Kaina)
+			@Html.ValidationMessageFor(m => m.Sutartis.Kaina, "")
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend class="text-center">Automobilis</legend>
+
+		<div class="form-group">
+			@Html.LabelFor(m => m.Sutartis.fk_AUTOMOBILISid)
+			@Html.DropDownListFor(m => m.Sutartis.fk_AUTOMOBILISid, Model.Lists.Automobiliai, (string)ViewData["none-chosen"])
+			@Html.ValidationMessageFor(m => m.Sutartis.fk_AUTOMOBILISid, "")
+		</div>
+
+		
+		<div class="form-group">
+			@Html.LabelFor(m => m.Sutartis.PradRida)
+			@Html.EditorFor(m => m.Sutartis.PradRida)
+			@Html.ValidationMessageFor(m => m.Sutartis.PradRida, "")
+		</div>
+
+
+	</fieldset>
+
+	<fieldset>
+		<div class="container-fluid d-flex d-row justify-content-between align-items-center">
+			<span></span>
+			<legend style="width: unset; margin-bottom: 0px;">Papildomos paslaugos</legend>
+			<button
+				name="add"
+				value="1"
+				formnovalidate @*ASP.NET Core magic attribute to prevent client side validation when submit button is clicked*@
+				formaction="@Url.Action()#listEnd"
+				class="btn btn-info"
+			><i class="fa-solid fa-plus"></i> Pridėti</button>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Paslauga</th>
+					<th>Kaina</th>
+					<th>Kiekis</th>
+					<th></th>
+				</tr>
+			</thead>
+
+		</table>
+
+		@* this is used as a marker to automatically scroll down to the end of items list when returning from button presses *@
+		<span id="listEnd"></span>
+	</fieldset>
+
+	<div class="container-fluid d-flex d-row justify-content-end">
+		<button name="save" value="1" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Išsaugoti</button>
+	</div>
+}
+</div>
+
+@* content footer *@
+<div class="main-content-footer">
+	<span class="title"></span>
+	<span class="actions">
+		<a 
+			href="@Url.Action("Index")" 
+			class="btn btn-outline-primary btn-sm"
+		>
+			<i class="fa-solid fa-angles-left"></i> Atgal į sarašą
+		</a>
+	</span>
+</div>

@@ -1,0 +1,11 @@
+@N: CD630 :"C:\Users\markul4\Desktop\lab4 PLIS\impl1\source\cntr19 FPGA.vhd":5:7:5:11|Synthesizing work.cnt19.rtl.
+Post processing for work.cnt19.rtl
+Running optimization stage 1 on CNT19 .......
+@W: CL113 :"C:\Users\markul4\Desktop\lab4 PLIS\impl1\source\cntr19 FPGA.vhd":20:2:20:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\lab4 PLIS\impl1\source\cntr19 FPGA.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Running optimization stage 2 on CNT19 .......
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: C:\Users\markul4\Desktop\lab4 PLIS\impl1\synwork\layer0.rt.csv
+

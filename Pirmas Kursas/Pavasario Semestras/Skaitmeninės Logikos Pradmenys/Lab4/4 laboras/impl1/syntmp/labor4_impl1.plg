@@ -1,0 +1,21 @@
+@P:  Worst Slack : 0.472
+@P:  CNT19|CNT_C_derived_clock - Estimated Frequency : 435.7 MHz
+@P:  CNT19|CNT_C_derived_clock - Requested Frequency : 200.0 MHz
+@P:  CNT19|CNT_C_derived_clock - Estimated Period : 2.295
+@P:  CNT19|CNT_C_derived_clock - Requested Period : 5.000
+@P:  CNT19|CNT_C_derived_clock - Slack : 3.621
+@P:  TOP_CNT|CLK_I - Estimated Frequency : 231.6 MHz
+@P:  TOP_CNT|CLK_I - Requested Frequency : 200.0 MHz
+@P:  TOP_CNT|CLK_I - Estimated Period : 4.317
+@P:  TOP_CNT|CLK_I - Requested Period : 5.000
+@P:  TOP_CNT|CLK_I - Slack : 0.682
+@P:  System - Estimated Frequency : 220.8 MHz
+@P:  System - Requested Frequency : 200.0 MHz
+@P:  System - Estimated Period : 4.528
+@P:  System - Requested Period : 5.000
+@P:  System - Slack : 0.472
+@P:  Total Area : 33.0
+@P:  Total Area : 0.0
+@P:  Total Area : 0.0
+@P:  Total Area : 0.0
+@P:  CPU Time : 0h:00m:03s

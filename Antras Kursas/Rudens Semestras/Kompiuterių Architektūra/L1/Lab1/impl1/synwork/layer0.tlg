@@ -1,0 +1,98 @@
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":14:7:14:9|Synthesizing work.top.struct.
+@W: CD638 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":154:8:154:15|Signal sflg_cmd is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":172:8:172:18|Signal s_ctrl_data is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":176:8:176:15|Signal s_c_flag is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":177:8:177:18|Signal s_alu_flags is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":34:7:34:9|Synthesizing work.flg.rtl.
+Post processing for work.flg.rtl
+Running optimization stage 1 on FLG .......
+@W: CL116 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":52:2:52:3|Input data for signal FLG_Dout(1 to 18) contains references to signal edges. An asynchronous reset may be missing from the sensitivity list.
+Finished optimization stage 1 on FLG (CPU Time 0h:00m:00s, Memory Used current: 91MB peak: 92MB)
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_reg.vhd":12:7:12:9|Synthesizing work.reg.rtl.
+@N: CD364 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_reg.vhd":77:4:77:4|Removing redundant assignment.
+Post processing for work.reg.rtl
+Running optimization stage 1 on REG .......
+Finished optimization stage 1 on REG (CPU Time 0h:00m:00s, Memory Used current: 92MB peak: 92MB)
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd":12:7:12:9|Synthesizing work.cnt.rtl.
+Post processing for work.cnt.rtl
+Running optimization stage 1 on CNT .......
+@W: CL113 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd":27:2:27:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd":27:2:27:3|Feedback mux created for signal CNT_Flag. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Finished optimization stage 1 on CNT (CPU Time 0h:00m:00s, Memory Used current: 92MB peak: 92MB)
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":12:7:12:9|Synthesizing work.rom.rtl.
+Post processing for work.rom.rtl
+Running optimization stage 1 on ROM .......
+@W: CL116 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":61:2:61:3|Input data for signal ROM_Dout(1 to 80) contains references to signal edges. An asynchronous reset may be missing from the sensitivity list.
+Finished optimization stage 1 on ROM (CPU Time 0h:00m:00s, Memory Used current: 93MB peak: 94MB)
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd":16:7:16:11|Synthesizing work.alu_s.rtl.
+@N: CD604 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd":53:3:53:16|OTHERS clause is not synthesized.
+Post processing for work.alu_s.rtl
+Running optimization stage 1 on ALU_s .......
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd":34:2:34:5|All reachable assignments to FLG_ALU_CMD(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+Finished optimization stage 1 on ALU_s (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 94MB)
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_mux.vhd":12:7:12:9|Synthesizing work.mux.rtl.
+@N: CD604 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_mux.vhd":49:5:49:19|OTHERS clause is not synthesized.
+Post processing for work.mux.rtl
+Running optimization stage 1 on MUX .......
+Finished optimization stage 1 on MUX (CPU Time 0h:00m:00s, Memory Used current: 94MB peak: 94MB)
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":14:7:14:10|Synthesizing work.ctrl.rtl.
+Post processing for work.ctrl.rtl
+Running optimization stage 1 on CTRL .......
+@W: CL169 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning unused register LS_2(0 to 3). Make sure that there are no unused intermediate registers.
+@W: CL169 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning unused register Logic_Jump_3. Make sure that there are no unused intermediate registers.
+@W: CL169 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning unused register current_3(1 to 80). Make sure that there are no unused intermediate registers.
+@W: CL169 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning unused register C_ADDR_2(0 to 7). Make sure that there are no unused intermediate registers.
+@W: CL169 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning unused register N_ADDR_6(0 to 7). Make sure that there are no unused intermediate registers.
+@W: CL169 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning unused register CNT_clk_2. Make sure that there are no unused intermediate registers.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(0) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(1) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(2) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(3) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(4) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(5) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(6) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL111 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|All reachable assignments to CMD(7) are '0'; removing register. To preserve a constant register, use the syn_preserve attribute.
+@W: CL190 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Optimizing register bit MUX_CMD(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Optimizing register bit ALU_CMD(3) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL190 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Optimizing register bit ALU_CMD(4) to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning register bit 3 of MUX_CMD(3 downto 0). If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL279 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":67:2:67:3|Pruning register bits 4 to 3 of ALU_CMD(4 downto 0). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+Finished optimization stage 1 on CTRL (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Post processing for work.top.struct
+Running optimization stage 1 on TOP .......
+Finished optimization stage 1 on TOP (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Running optimization stage 2 on CTRL .......
+@W: CL247 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":21:2:21:8|Input port bit 50 of rom_din(1 to 80) is unused 
+@W: CL246 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":25:2:25:6|Input port bits 16 to 18 of flagv(1 to 18) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on CTRL (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Running optimization stage 2 on MUX .......
+Finished optimization stage 2 on MUX (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Running optimization stage 2 on ALU_s .......
+@W: CL246 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd":18:2:18:8|Input port bits 4 to 3 of alu_cmd(4 downto 0) are unused. Assign logic for all port bits or change the input port size.
+Finished optimization stage 2 on ALU_s (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Running optimization stage 2 on ROM .......
+@W: CL279 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":61:2:61:3|Pruning register bits 1 to 78 of ROM_Dout(1 to 80). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL189 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":61:2:61:3|Register bit ROM_Dout(79) is always 0.
+@N: CL189 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":61:2:61:3|Register bit ROM_Dout(80) is always 1.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":14:2:14:8|Input RST_ROM is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":15:2:15:4|Input clk is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":16:2:16:8|Input ROM_CMD is unused.
+Finished optimization stage 2 on ROM (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Running optimization stage 2 on CNT .......
+Finished optimization stage 2 on CNT (CPU Time 0h:00m:00s, Memory Used current: 95MB peak: 95MB)
+Running optimization stage 2 on REG .......
+Finished optimization stage 2 on REG (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 96MB)
+Running optimization stage 2 on FLG .......
+@W: CL279 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":52:2:52:3|Pruning register bits 1 to 17 of FLG_Dout(1 to 18). If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL189 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":52:2:52:3|Register bit FLG_Dout(18) is always 0.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":37:2:37:4|Input CLK is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":38:2:38:4|Input RST is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":39:2:39:4|Input Xin is unused.
+Finished optimization stage 2 on FLG (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 96MB)
+Running optimization stage 2 on TOP .......
+Finished optimization stage 2 on TOP (CPU Time 0h:00m:00s, Memory Used current: 96MB peak: 96MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: G:\Kompiuteriu architektura\L1\Lab1\impl1\synwork\layer0.rt.csv
+

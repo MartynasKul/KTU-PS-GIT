@@ -1,0 +1,355 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.10, Oct 14 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/proj1
+Ealu_s
+Z1 w1536045340
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 4
+R0
+Z5 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_alu_s.vhd
+Z6 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_alu_s.vhd
+l0
+L16 1
+VI5boc7ZHDS>V]SW3NWjBN2
+!s100 ILA[M:g`d@mGiC8mHVDdQ2
+Z7 OT;C;2020.3;71
+32
+Z8 !s110 1662708198
+!i10b 1
+Z9 !s108 1662708198.000000
+Z10 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_alu_s.vhd|
+Z11 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_alu_s.vhd|
+!i113 1
+Z12 o-work work -O0
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+DEx4 work 5 alu_s 0 22 I5boc7ZHDS>V]SW3NWjBN2
+!i122 4
+l31
+L29 32
+VTjCNT5XN3nGJSC^6_eTiB3
+!s100 eK;mf:?Nz<d9GdNg0B:lO0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ecnt
+R1
+R2
+R3
+R4
+!i122 2
+R0
+Z14 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_cnt.vhd
+Z15 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_cnt.vhd
+l0
+Z16 L12 1
+VZ8aFRDc1@4U_eVLY8XEYR0
+!s100 A7_m=i56XZ0>4K9]:X`S=1
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_cnt.vhd|
+Z18 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_cnt.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 3 cnt 0 22 Z8aFRDc1@4U_eVLY8XEYR0
+!i122 2
+l24
+L22 19
+Vk06K4>4gI=dBWC=bkaW?S1
+!s100 ZGK[jB0hOBQEG=IXc0G?W3
+R7
+32
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Ectrl
+R1
+R2
+R3
+R4
+!i122 6
+R0
+Z19 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_ctrl.vhd
+Z20 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_ctrl.vhd
+l0
+Z21 L14 1
+VN_UK?NAIW4c_I5WzOb>Li0
+!s100 Jb_oSL2PM7UPCOkCN<VgS3
+R7
+32
+Z22 !s110 1662708199
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_ctrl.vhd|
+Z24 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_ctrl.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 4 ctrl 0 22 N_UK?NAIW4c_I5WzOb>Li0
+!i122 6
+l64
+L56 427
+V1MTOe9_X1=b8@2nof7FI]2
+!s100 JSNdR3Rec84lB[T`emQob0
+R7
+32
+R22
+!i10b 1
+R9
+R23
+R24
+!i113 1
+R12
+R13
+Eflg
+R1
+R2
+R3
+R4
+!i122 0
+R0
+Z25 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_flg.vhd
+Z26 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_flg.vhd
+l0
+L34 1
+Vi^`XKCdDmM=jG0`c<?fg43
+!s100 YTI3^b`z7GV@fN]JTC0ge1
+R7
+32
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_flg.vhd|
+Z28 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_flg.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 3 flg 0 22 i^`XKCdDmM=jG0`c<?fg43
+!i122 0
+l48
+L45 16
+ViDad7f7kn_hOd6o]ikdDW2
+!s100 Y?RFCh=8eOlHSc?[:b=`N0
+R7
+32
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 1
+R12
+R13
+Emux
+R1
+R2
+R3
+R4
+!i122 5
+R0
+Z29 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_mux.vhd
+Z30 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_mux.vhd
+l0
+R16
+VF`An;B?D?a@z^7ncdXIch3
+!s100 gXPdg=PS4AC`9;4Cz2=JQ1
+R7
+32
+R8
+!i10b 1
+R9
+Z31 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_mux.vhd|
+Z32 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_mux.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 3 mux 0 22 F`An;B?D?a@z^7ncdXIch3
+!i122 5
+l32
+L31 24
+VIW@D[lk6kON<VE=ib0lz[3
+!s100 Gj:EfG:zjA0:F7Zzoa2fH2
+R7
+32
+R8
+!i10b 1
+R9
+R31
+R32
+!i113 1
+R12
+R13
+Ereg
+R1
+R2
+R3
+R4
+!i122 1
+R0
+Z33 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_reg.vhd
+Z34 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_reg.vhd
+l0
+R16
+VV8ddSG05_E?Eo<P7Gl@6o0
+!s100 W9K_JZzz61`1^952G95z62
+R7
+32
+R8
+!i10b 1
+R9
+Z35 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_reg.vhd|
+Z36 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_reg.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 3 reg 0 22 V8ddSG05_E?Eo<P7Gl@6o0
+!i122 1
+l29
+L26 61
+V[RABok=cKY>][<D:LjVL31
+!s100 6RRZGIW<fCWOTA^G1NMll1
+R7
+32
+R8
+!i10b 1
+R9
+R35
+R36
+!i113 1
+R12
+R13
+Erom
+Z37 w1662708124
+R2
+R3
+R4
+!i122 3
+R0
+Z38 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_rom.vhd
+Z39 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_rom.vhd
+l0
+R16
+V9D:h9:9Tb_D4EAf^G5X4B0
+!s100 IeP4DLIDZz>ec=Lbd^G`U1
+R7
+32
+R8
+!i10b 1
+R9
+Z40 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_rom.vhd|
+Z41 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_rom.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 3 rom 0 22 9D:h9:9Tb_D4EAf^G5X4B0
+!i122 3
+l41
+L21 33
+VT6O7I^FRi[jYhD8BUKfa91
+!s100 70Ne22B9=95EGc;aQHKSV1
+R7
+32
+R8
+!i10b 1
+R9
+R40
+R41
+!i113 1
+R12
+R13
+Etop
+Z42 w1630511034
+R2
+R3
+R4
+!i122 7
+R0
+Z43 8C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_top.vhd
+Z44 FC:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_top.vhd
+l0
+R21
+VnSe7f^X3Skn^8Nh59KAOZ1
+!s100 O3[jKQQfE>=g^dzWF[_az3
+R7
+32
+R22
+!i10b 1
+Z45 !s108 1662708199.000000
+Z46 !s90 -reportprogress|300|-work|work|C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_top.vhd|
+!s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_top.vhd|
+!i113 1
+R12
+R13
+Astruct
+R2
+R3
+R4
+DEx4 work 3 top 0 22 nSe7f^X3Skn^8Nh59KAOZ1
+!i122 7
+l183
+L27 317
+V@8IDZJMfA25:f8QLDhWm33
+!s100 DO`Y^E;nRO__PFNYAizLd1
+R7
+32
+R22
+!i10b 1
+R45
+R46
+Z47 !s107 C:/Users/markul4/Desktop/Kompiuteriu architektura/Lab1/Priverstine_adr/F_top.vhd|
+!i113 1
+R12
+R13

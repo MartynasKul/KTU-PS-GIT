@@ -1,0 +1,109 @@
+# Reading pref.tcl
+# do {E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd/asd.mdo}
+# Loading project asd
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 22:17:54 on May 25,2022
+# vcom -reportprogress 300 -work work E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr136.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CNT136
+# -- Compiling architecture rtl of CNT136
+# End time: 22:17:55 on May 25,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 22:17:55 on May 25,2022
+# vcom -reportprogress 300 -work work E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr49.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CNT49
+# -- Compiling architecture rtl of CNT49
+# End time: 22:17:55 on May 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 22:17:56 on May 25,2022
+# vcom -reportprogress 300 -work work E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CNT19
+# -- Compiling architecture rtl of CNT19
+# End time: 22:17:56 on May 25,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vcom 2020.3 Compiler 2020.10 Oct 14 2020
+# Start time: 22:17:56 on May 25,2022
+# vcom -reportprogress 300 -work work E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity TOP_CNT
+# -- Compiling architecture struct of TOP_CNT
+# End time: 22:17:57 on May 25,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -L work -L pmi_work -L ovi_xp2 TOP_CNT 
+# Start time: 22:17:57 on May 25,2022
+# //  ModelSim - Lattice FPGA Edition 2020.3 Oct 14 2020
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim - Lattice FPGA Edition and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top_cnt(struct)
+# Loading work.cnt19(rtl)
+# Loading work.cnt49(rtl)
+# Loading work.cnt136(rtl)
+# .main_pane.wave.interior.cs.body.pw.wf
+restart f
+# Warning: Invalid arguments 'f' to restart ignored.
+force -freeze sim:/top_cnt/CLK_I 0 0, 1 {10 ps} -r 20
+force -freeze sim:/top_cnt/ENBL_I 1 0, 0 {500 ps}
+force -freeze sim:/top_cnt/Enable 1 560
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** UI-Msg (suppressible): (vsim-4008) Object 'sim:/top_cnt/Enable' not found.
+# 
+force -freeze sim:/top_cnt/RST_I 1 0, 0 {5 ps}
+run 1400
+run 4000
+run 10000
+restart f
+# Warning: Invalid arguments 'f' to restart ignored.
+force -freeze sim:/top_cnt/CLK_I 0 0, 1 {10 ps} -r 20
+force -freeze sim:/top_cnt/ENBL_I 1 0, 0 {500 ps}
+force -freeze sim:/top_cnt/ENBL_I 1 560
+force -freeze sim:/top_cnt/RST_I 1 0, 0 {5 ps}
+run 1000000
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+
+run 100000000
+
+
+restart f
+# Warning: Invalid arguments 'f' to restart ignored.
+force -freeze sim:/top_cnt/CLK_I 0 0, 1 {10 ps} -r 20
+force -freeze sim:/top_cnt/ENBL_I 1 0, 0 {500 ps}
+force -freeze sim:/top_cnt/ENBL_I 1 560
+force -freeze sim:/top_cnt/RST_I 1 0, 0 {5 ps}
+run 10000000
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# End time: 22:20:31 on May 25,2022, Elapsed time: 0:02:34
+# Errors: 0, Warnings: 1

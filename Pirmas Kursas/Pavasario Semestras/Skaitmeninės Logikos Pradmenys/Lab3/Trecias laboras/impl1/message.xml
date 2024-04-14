@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="MapVHDLSimFile">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Map">
+        <Message>
+            <ID>51001030</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>RST_internal</Dynamic>
+        </Message>
+    </Task>
+    <Task name="TimingSimFileVHD">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Synplify_Synthesis">
+        <Message>
+            <ID>2011000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;C:\Users\markul4\Desktop\4laboras\top_cntr.vhd&quot;:22:7:22:7|Signal c is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>C:\Users\markul4\Desktop\4laboras\top_cntr.vhd</Navigation>
+            <Navigation>22</Navigation>
+            <Navigation>7</Navigation>
+            <Navigation>22</Navigation>
+            <Navigation>7</Navigation>
+            <Navigation>Signal c is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL113 :&quot;C:\Users\markul4\Desktop\4laboras\cntr167.vhd&quot;:27:2:27:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Dynamic>
+            <Navigation>CL113</Navigation>
+            <Navigation>C:\Users\markul4\Desktop\4laboras\cntr167.vhd</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL113 :&quot;C:\Users\markul4\Desktop\4laboras\cntr167.vhd&quot;:27:2:27:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Dynamic>
+            <Navigation>CL113</Navigation>
+            <Navigation>C:\Users\markul4\Desktop\4laboras\cntr167.vhd</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>27</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL113 :&quot;C:\Users\markul4\Desktop\4laboras\cntr23.vhd&quot;:26:2:26:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Dynamic>
+            <Navigation>CL113</Navigation>
+            <Navigation>C:\Users\markul4\Desktop\4laboras\cntr23.vhd</Navigation>
+            <Navigation>26</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>26</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CL113 :&quot;C:\Users\markul4\Desktop\4laboras\cntr23.vhd&quot;:26:2:26:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Dynamic>
+            <Navigation>CL113</Navigation>
+            <Navigation>C:\Users\markul4\Desktop\4laboras\cntr23.vhd</Navigation>
+            <Navigation>26</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>26</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>MT529 :&quot;c:\users\markul4\desktop\4laboras\cntr23.vhd&quot;:26:2:26:3|Found inferred clock TOP_CNT|CLK_I which controls 8 sequential elements including CNT_1.CNT_A[4:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance.</Dynamic>
+            <Navigation>MT529</Navigation>
+            <Navigation>c:\users\markul4\desktop\4laboras\cntr23.vhd</Navigation>
+            <Navigation>26</Navigation>
+            <Navigation>2</Navigation>
+            <Navigation>26</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>Found inferred clock TOP_CNT|CLK_I which controls 8 sequential elements including CNT_1.CNT_A[4:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. </Navigation>
+        </Message>
+        <Message>
+            <ID>2019993</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>MT420 |Found inferred clock TOP_CNT|CLK_I with period 5.00ns. Please declare a user-defined clock on port CLK_I.</Dynamic>
+            <Navigation>MT420</Navigation>
+            <Navigation>Found inferred clock TOP_CNT|CLK_I with period 5.00ns. Please declare a user-defined clock on port CLK_I.</Navigation>
+        </Message>
+    </Task>
+</BaliMessageLog>

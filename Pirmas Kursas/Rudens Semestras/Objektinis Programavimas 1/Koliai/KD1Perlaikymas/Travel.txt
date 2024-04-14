@@ -1,0 +1,8 @@
+﻿Norvegija;8;3;78,00
+Italija;4;1;33,00
+Danija;4;5;45,00
+Belgija;8;3;59,00
+Danija;18;8;59,00
+Anglija;17;1;137,00
+Norvegija;17;3;200,00
+Italija;4;3;45,00

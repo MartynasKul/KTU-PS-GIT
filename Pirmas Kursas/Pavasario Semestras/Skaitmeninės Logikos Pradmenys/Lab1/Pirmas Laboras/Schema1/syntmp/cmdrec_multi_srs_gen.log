@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe  -link  -top  KLASIKA  -multisrs  "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\Lab1_Schema1_comp.srs"  -osyn  "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\Lab1_Schema1_mult.srs"  -log  "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synlog\Lab1_Schema1_multi_srs_gen.srr" 
+relcom:C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe -link -top KLASIKA -multisrs "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\Lab1_Schema1_comp.srs" -osyn "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synwork\Lab1_Schema1_mult.srs" -log "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Pirmas Laboras\Schema1\synlog\Lab1_Schema1_multi_srs_gen.srr"
+rc:0 success:1 runtime:1
+file:..\synwork\Lab1_Schema1_comp.srs|io:i|time:1646850660|size:6211|exec:0|csum:30A25D3DEB66EB99DDF7B710516D48CD
+file:..\synwork\Lab1_Schema1_mult.srs|io:o|time:1646850664|size:6010|exec:0|csum:
+file:..\synlog\Lab1_Schema1_multi_srs_gen.srr|io:o|time:1646850664|size:1256|exec:0|csum:
+file:C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe|io:i|time:1603959522|size:8875008|exec:1|csum:43373AFF0ED6BCEB26CB4B4947B972DD

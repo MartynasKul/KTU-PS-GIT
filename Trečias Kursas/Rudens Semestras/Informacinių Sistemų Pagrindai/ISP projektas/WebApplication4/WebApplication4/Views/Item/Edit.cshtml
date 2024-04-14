@@ -1,0 +1,152 @@
+
+
+@model Item
+
+@{
+    ViewData["Title"] = "Edit Item";
+}
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+else if (TempData.ContainsKey("ErrorMessage"))
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+<h2>Edit Item</h2>
+
+<form asp-action="Update" asp-controller="Item" method="post">
+    <div>
+        <label asp-for="Id">Item ID</label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+    <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Name"><b>Item Name</b></label>
+                    <input asp-for="Name" class="form-control" required>
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Picture"><b>Item Picture URL</b></label>
+                    <input asp-for="Picture" class="form-control" required>
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price"><b>Item Price</b></label>
+                    <input asp-for="Price" class="form-control" required>
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Svoris"><b>Svoris</b></label>
+                    <input asp-for="Svoris" class="form-control" required>
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Pagaminimo_data"><b>Pagaminimo_data</b></label>
+                    <input asp-for="Pagaminimo_data" class="form-control" required>
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Serija"><b>Serija</b></label>
+                    <input asp-for="Serija" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Spalva"><b>Spalva</b></label>
+                    <input asp-for="Spalva" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Plotis"><b>Plotis</b></label>
+                    <input asp-for="Plotis" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Aukstis"><b>Aukstis</b></label>
+                    <input asp-for="Aukstis" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Ilgis"><b>Ilgis</b></label>
+                    <input asp-for="Ilgis" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Garantija"><b>Garantija</b></label>
+                    <input asp-for="Garantija" class="form-control">
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                
+                <div class="form-group">
+                    <label asp-for="Ekrano_dydis"><b>Ekrano_dydis</b></label>
+                    <input asp-for="Ekrano_dydis" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Operacine_sistema"><b>Operacine_sistema</b></label>
+                    <input asp-for="Operacine_sistema" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Procesorius"><b>Procesorius</b></label>
+                    <input asp-for="Procesorius" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Kietasis_diskas"><b>Kietasis_diskas</b></label>
+                    <input asp-for="Kietasis_diskas" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Vaizdo_plokste"><b>Vaizdo_plokste</b></label>
+                    <input asp-for="Vaizdo_plokste" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Jungtys"><b>Jungtys</b></label>
+                    <input asp-for="Jungtys" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Baterija"><b>Baterija</b></label>
+                    <input asp-for="Baterija" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Papildoma_info"><b>Papildoma_info</b></label>
+                    <input asp-for="Papildoma_info" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Procesoriaus_karta"><b>Procesoriaus_karta</b></label>
+                    <input asp-for="Procesoriaus_karta" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FK_CategoryID"><b>Kategorija</b></label>
+                    <input asp-for="FK_CategoryID" class="form-control">
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FK_ManufacturerID"><b>Gamintojas</b></label>
+                    <input asp-for="FK_ManufacturerID" class="form-control">
+                    <div style="color: red; font-size: smaller; margin-top: 5px;">Mandatory</div>
+                </div>
+            </div>
+        </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

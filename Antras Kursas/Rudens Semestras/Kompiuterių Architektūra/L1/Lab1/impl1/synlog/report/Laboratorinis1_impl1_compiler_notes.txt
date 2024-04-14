@@ -1,0 +1,34 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N:"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":14:7:14:9|Top entity is set to TOP.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_mux.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_reg.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd'.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd'.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_top.vhd":14:7:14:9|Synthesizing work.top.struct.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":34:7:34:9|Synthesizing work.flg.rtl.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_reg.vhd":12:7:12:9|Synthesizing work.reg.rtl.
+@N: CD364 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_reg.vhd":77:4:77:4|Removing redundant assignment.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_cnt.vhd":12:7:12:9|Synthesizing work.cnt.rtl.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":12:7:12:9|Synthesizing work.rom.rtl.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd":16:7:16:11|Synthesizing work.alu_s.rtl.
+@N: CD604 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_alu_s.vhd":53:3:53:16|OTHERS clause is not synthesized.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_mux.vhd":12:7:12:9|Synthesizing work.mux.rtl.
+@N: CD604 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_mux.vhd":49:5:49:19|OTHERS clause is not synthesized.
+@N: CD630 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_ctrl.vhd":14:7:14:10|Synthesizing work.ctrl.rtl.
+@N: CL189 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":61:2:61:3|Register bit ROM_Dout(79) is always 0.
+@N: CL189 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":61:2:61:3|Register bit ROM_Dout(80) is always 1.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":14:2:14:8|Input RST_ROM is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":15:2:15:4|Input clk is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_rom.vhd":16:2:16:8|Input ROM_CMD is unused.
+@N: CL189 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":52:2:52:3|Register bit FLG_Dout(18) is always 0.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":37:2:37:4|Input CLK is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":38:2:38:4|Input RST is unused.
+@N: CL159 :"G:\Kompiuteriu architektura\L1\Lab1\Priverstine_adr\F_flg.vhd":39:2:39:4|Input Xin is unused.
+@N|Running in 64-bit mode
+

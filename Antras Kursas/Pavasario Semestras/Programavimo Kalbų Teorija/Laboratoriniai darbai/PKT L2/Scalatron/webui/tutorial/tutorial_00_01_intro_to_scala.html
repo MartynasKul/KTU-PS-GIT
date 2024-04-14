@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Tutorial" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./tutorial.css">
+
+    <title>Introduction To Scala</title>
+
+    <!-- the following code snippets activates Google Analytics, which allows me to understand which parts of
+         the tutorial are being used and how the tutorial could be improved.
+         Thanks for your support. -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31522898-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+<body>
+<p><div id='TutorialDocumentData' data-prev='/tutorial/tutorial&#95;00&#95;00&#95;scala&#95;resources.html' data-next='/tutorial/tutorial&#95;00&#95;10&#95;intro&#95;to&#95;scalatron.html' /></p>
+
+<h1 id = "Introduction_To_Scala">Introduction To Scala</h1>
+
+<h2 id = "What_is_Scala_">What is Scala?</h2>
+
+<p>Scala is a programming language invented by Martin Odersky in 2000. It is statically typed
+(like Java) and combines functional (FP) and object oriented (OO) features. Just like Java,
+Scala compiles into Java byte code and can run on any Java Virtual Machine (JVM). Scala
+interoperates well with Java and can serve as a by-file or by-module replacement for Java.
+In many, many respects it fixes the things that are awkward or broken in Java.</p>
+
+<h2 id = "Comparison_to_Java">Comparison to Java</h2>
+
+<p>The syntax of Scala overall is quite similar to Java, but in general it omits elements that
+are not strictly necessary and place a burden on the programmer (such as semicolons or
+type declarations that are inferable for the compiler) and generally required less
+boilerplate code.</p>
+
+<p>The result is that Scala code is often only a third or a quarter of the size of equivalent
+Java code.</p>
+
+<h2 id = "Scala_Performance">Scala Performance</h2>
+
+<p>The performance of Scala depends on how you code. Code written in a functional style can be
+slower to execute in certain circumstances; code written in an imperative, procedural will
+be as fast as in Java.</p>
+
+<p>However, functional code is</p>
+
+<ul>
+<li>much more concise</li>
+<li>much faster to write</li>
+<li>much easier to compose</li>
+<li>much easier to parallelize</li>
+</ul>
+
+<p>So generally, writing functional code is preferable for the vast majority of code.
+Nevertheless, Scala lets you fall back to imperative code for performance critical
+sections.</p>
+</body>
+</html>

@@ -1,0 +1,166 @@
+@model WebApplication4.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+}
+<!DOCTYPE html>
+<html>
+
+<div class="wrapper">
+    <div class="logo">
+        <img src="https://img.freepik.com/premium-vector/blue-square-with-globe-icon-it_876006-15.jpg" alt="Logo" width="300" height="300" />
+        <h1>Your profile</h1>
+    </div>
+    <div>
+        <!-- Nario informacijos lentele -->
+        <table class="tableX">
+            <tr >
+                <th class="left_side"> Name:   </th>   
+                <th class="paddings">@Model.Name </th>
+            </tr> 
+            <tr>
+                <th class="left_side"> Last name:   </th>  
+                <th class="paddings"> @Model.SurName </th>
+            </tr>
+            <tr >
+                <th class="left_side"> Email:   </th>   
+                <th class="paddings">@Model.Email </th>
+            </tr>
+            <tr >
+                <th class="left_side"> Title </th>
+                    <th class="paddings">
+                        <select id="profileTitle" name="profileTitle">
+                            @foreach (var title in ViewBag.AvailableTitles)
+                            {
+                                <option value="@title">@title</option>
+                            }
+                        </select>
+
+                        <button type="submit" onclick="changeProfileTitle()" class="btn btn-outline-dark my-2 my-sm-0">Change Title</button>
+                </th>
+
+                </th></>
+                <th class="paddings">  </th>
+            </tr>
+            
+        </table>
+        <br />
+
+        <!-- Naudotojo Telefono numerio lentelė -->
+        <table class="tableX">
+            
+            <h2 class="toppaddings">Change Phone Number</h2>
+                <form id="phone-change-form" method="post" action="/Profile/ChangePhoneNumber">
+                        <div>
+                            <th class="left_side"> Phone Number: </th>
+                            <th class="paddings"> @Model.PhoneNumber </th>
+                        </div>
+                        <!-- Input for new phone number -->
+                       
+                        <div>
+                            <label for="newNumber">New Phone Number:</label>
+                            <input type="text" id="newNumber" name="newNumber" required />
+                        </div>
+
+                        <!-- Repeat new phone number -->
+                        <div>
+                            <label for="repeatNewNumber">Repeat New Phone Number:</label>
+                            <input type="text" id="repeatNewNumber" name="repeatNewNumber" required />
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-outline-dark my-2 my-sm-0">Change Phone Number</button>
+                        </div>
+                </form>
+        
+        </table>
+        <br/>
+        <br/>
+
+        <!-- Naudotojo Adreso numerio lentelė -->
+        <table class="tableX">
+            
+            <h2 class="toppaddings">Change Address</h2>
+                <form id="address-change-form" method="post" action="/Profile/ChangeAddress">
+                        <div>
+                            <th class="left_side"> Current address: </th>
+                            <th class="paddings"> @Model.Address </th>
+                        </div>
+                        <!-- Input for new phone number -->
+                       
+                        <div>
+                            <label for="newAddress">New address:</label>
+                            <input type="text" id="newAddress" name="newAddress" required />
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-outline-dark my-2 my-sm-0">Change Address</button>
+                        </div>
+                </form>
+        
+        </table>
+        <br/>
+        <br/>
+
+        <!-- Slaptažodžio keitimo lentelė -->
+       <h2 class="toppaddings">Password reset</h2>
+       <table class="tableX">
+            <tr>
+                <th class="paddings">
+                    <form method="post" action="/Profile/ChangePassword">
+                        <div>
+                            <label for="oldPassword">Old Password:</label>
+                            <input type="password" id="oldPassword" name="oldPassword" required />
+                        </div>
+
+                        <div>
+                            <label for="newPassword">New Password:</label>
+                            <input type="password" id="newPassword" name="newPassword" required />
+                        </div>
+
+                        <div>
+                            <label for="repeatNewPassword">Repeat New Password:</label>
+                            <input type="password" id="repeatNewPassword" name="repeatNewPassword" required />
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-outline-dark my-2 my-sm-0">Change Password</button>
+                        </div>
+                    </form>
+                </th>
+            </tr>
+            <br />
+        </table>
+        <br/>
+        <br/>
+
+        <!-- Anketos trynimas lentelė -->
+
+        <h2 class="toppaddings">Account removal</h2>
+        <table class="tableX">
+            <tr>
+                <!-- Account removal form -->
+                <form method="post" action="/Profile/RemoveAccount">
+                    <div>
+                        <button type="submit" class="btn btn-outline-dark my-2 my-sm-0">Remove account</button>
+                    </div>
+                </form>
+            </tr>
+            <tr>
+                <th class="left_side"> By pressing "Remove account" You agree to remove your account from our shop  </th>
+            </tr>
+            <br />
+        </table>
+        <br />
+        <br />
+
+        <li class="nav-item">
+            <form asp-controller="Profile" asp-action="Logout" method="post" class="form-inline my-2 my-lg-0">
+                <button type="submit" class="btn btn-outline-dark my-2 my-sm-0">Logout</button>
+            </form>
+        </li>
+
+
+
+
+</html>

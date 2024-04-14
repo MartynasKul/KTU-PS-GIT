@@ -1,0 +1,58 @@
+﻿@model Post
+
+@{
+    ViewData["Title"] = "Forum";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Post</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .post {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .post-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .post-content {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .post-info {
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="post">
+        <div class="post-title">@Model.Title</div>
+        <div class="post-content">
+        </div>
+        <div class="post-info">
+            <p>Posted by: TO be implemented</p>
+            <p>Posted on: @Model.Date</p>
+            <p>Likes: @Model.Likes</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<p>Forum</p>

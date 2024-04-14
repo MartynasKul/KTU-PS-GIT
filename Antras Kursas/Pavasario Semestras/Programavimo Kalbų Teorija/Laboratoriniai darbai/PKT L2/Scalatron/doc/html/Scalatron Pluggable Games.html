@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron Pluggable Games</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron Pluggable Games</h1>
+            <h2 id="project_tagline">Developer Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "About_Pluggable_Games">About Pluggable Games</h1>
+
+<p>The original version of Scalatron includes only a single game, called <em>BotWar</em>. This game is supported
+by a custom tutorial, example bots and pretty extensive documentation, which probably makes it a good
+entry point for new developers interested in Scala.</p>
+
+<p>However, having only a single game imposes some limitations. Once you've written a bot for that one
+game, and tuned it to your best ability, there is really no follow-on challenge within the context of
+Scalatron. And once the source code for good bots for that game is available on-line, as is the case
+now, it becomes more difficult to organize programming tournaments where everyone gets a fair start.
+It's a bit like a game console with only one cartridge.</p>
+
+<p>The obvious solution: more games! Not only can players and workshop organizers then choose from a
+variety of games, but writing a game that others can compete in now becomes an interesting project,
+a kind of meta-programming-game.</p>
+
+<p>Obviously, any experienced programmer can write a game like BotWar, and probably a much better one.
+But as the implementation of Scalatron demonstrates, there is lots of fiddly work involved in creating
+the infrastructure that is needed for a reasonably robust multi-player programming game. And, at least
+for most people, polishing and testing those parts is much less fun than creating the logic and graphics
+of an actual game.</p>
+
+<p>So the obvious next step is to turn Scalatron into a platform for programming games by making the games
+themselves plug-ins for the Scalatron server. Scalatron provides the basic services, such as a browser-based
+editor, background compilation, a RESTful web API, bot plug-in management and a command line interface.
+You can then focus on creating a game that is challenging and fun.</p>
+
+<h1 id = "Architecture_Primer">Architecture Primer</h1>
+
+<h2 id = "Scalatron_Architecture">Scalatron Architecture</h2>
+
+<p>There is a separate document that provides an overview of the
+<a href="https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Architecture.md">Scalatron Architecture</a>,
+so we won't repeat that here. But there are some aspects that are of specific interest for folks interested
+in developing game plug-ins.</p>
+
+<h2 id = "Startup_Sequence">Startup Sequence</h2>
+
+<p>When starting up, the Scalatron server will first launch its internal support services (web server, compilation
+service, etc.) and then load a game and ask it to start the tournament loop.</p>
+
+<p>The game to be loaded can be specified on the command line with the parameter <code>-game {name}</code>, which defaults
+to <code>BotWar</code>. The server will look for a <code>.jar</code> file with this name in the <code>/bin</code> directory below the main
+installation directory. For <code>BotWar</code>, for example, it would look for a file called <code>Scalatron/bin/BotWar.jar</code>.</p>
+
+<p>Within this <code>.jar</code> file, Scalatron then attempts to locate a class with the fully qualified class name
+<code>scalatron.GameFactory</code>. When such a class is found, Scalatron next looks for a method on that class called
+<code>create</code>, taking no parameters and returning an instance of a class implementing the trait <code>scalatron.core.Game</code>.</p>
+
+<p>Using this factory, Scalatron then creates an instance of a class implementing the trait <code>scalatron.core.Game</code> -
+the entry point of your game implementation.</p>
+
+<h2 id = "Headless_Or_Visual_">Headless Or Visual?</h2>
+
+<p>Next, Scalatron checks the command line for an argument <code>-headless yes|no</code> to see whether the user wants visual
+output (<code>-headless no</code>) or whether it should run in <em>headless</em> mode (<code>-headless yes</code>) with no main window.
+Depending on what the user selected, Scalatron then passes control to your game plug-in by invoking one of the
+following methods on your <code>Game</code> implementation:</p>
+
+<p>  def runVisually(rounds: Int, scalatron: scalatron.core.ScalatronInward)
+  def runHeadless(rounds: Int, scalatron: scalatron.core.ScalatronInward)</p>
+
+<p>The parameters are:</p>
+
+<ul>
+<li><code>rounds</code>, which specifies the number of tournament rounds (games) you should run before returning, and</li>
+<li><code>scalatron', which is a reference to a</code>trait ScalatronInward`, the API Scalatron exposes toward
+game plug-ins (as opposed to <code>ScalatronOutward</code>, which is what it exposes to external users, such as the main
+function and the web server).</li>
+</ul>
+
+<h2 id = "Implementation_Details">Implementation Details</h2>
+
+<p>Once control passes to <code>runVisually()</code> or <code>runHeadless()</code>, it's up to you what happens next. For details,
+you can refer either to the simple example implementation in <a href="https://github.com/scalatron/scalatron-demo-game">ScalatronDemoGame</a>
+or to the full and rather more complex implementation of <a href="https://github.com/scalatron/scalatron/tree/master/BotWar/src/scalatron">BotWar</a>.</p>
+
+<p>Roughly speaking, your plug-in should be doing the following things:</p>
+
+<ul>
+<li>run an outer loop, iterating over game rounds</li>
+<li>at the start of each round, ask Scalatron for a collection of control functions representing the bots</li>
+<li>run an inner loop, iterating over the simulations steps within a game; within each step:</li>
+<li>update the graphical display, drawing the entities in the game and each player's score</li>
+<li>compute what your entities can see and ask their control functions for appropriate responses</li>
+<li>decode the responses (presumably commands) and update the game state and scores as appropriate</li>
+<li>whenever a round ends, tell Scalatron about the results</li>
+</ul>
+
+<h2 id = "Loose_Ends">Loose Ends</h2>
+
+<p>There are a few more aspects you could pay attention to, even though they are not required for a minimal
+implementation (and may still change as the whole concept of pluggable games gets refined). These include:</p>
+
+<ul>
+<li><p>the method <code>Game.cmdArgList</code> is intended to enumerate the command line arguments that your game implementation
+understands and that a user can provide to configure your game. The BotWar game, for example uses settings like
+<code>x</code>, <code>y</code> and <code>walls</code> to configure the size of the arena and how many wall elements should be placed.</p></li>
+<li><p>the method <code>Game.startHeadless()</code> is invoked when a user starts a private, &ldquo;sandboxed&rdquo; game in the browser.
+Your plug-in is supposed to return the starting state of a game round. However, this is currently optimized
+only for BotWar and otherwise untested and unsupported, so you may or may not be able to do something interesting here.</p></li>
+<li><p>the method <code>GameState.entitiesOfPlayer(name: String)</code> is invoked when the browser-based &ldquo;sandbox&rdquo; debugger
+requests information about the entities controlled by a particular player. Again, this is currently optimized
+only for BotWar and otherwise untested and unsupported, so you may or may not be able to do something interesting here.</p></li>
+</ul>
+
+<h1 id = "How_To_Write_A_Game_Plug-In_For_Scalatron">How To Write A Game Plug-In For Scalatron</h1>
+
+<h2 id = "Step_1:_Pick_A_Name">Step 1: Pick A Name</h2>
+
+<p>Pick a name for your game. Then derive a standardized name from it that contains no spaces or other characters
+that would be illegal for a Scala <code>class</code> or <code>package</code> identifier. Something like <code>BotWar</code> or <code>PandaWood</code>.
+For this example, we'll use <code>MyGame</code>.</p>
+
+<h2 id = "Step_2:_Create_The_Project">Step 2: Create The Project</h2>
+
+<p>Create a directory structure for your project. The easiest way to do this is probably by copying and renaming
+the <a href="https://github.com/scalatron/scalatron-demo-game">ScalatronDemoGame template on Github</a>.</p>
+
+<p>The layout can be extremely simple:</p>
+
+<pre><code>/MyGame
+    /src
+        /scalatron
+            Game.scala</code></pre>
+
+<p>Your game plug-in will rely on the following libraries, which you will need to add as dependencies
+to your SBT build file or to your IDE-specific project file:</p>
+
+<pre><code>ScalatronCore.jar
+akka-actor-2.0.jar (Akka 2.0)
+scala-library-jar (Scala 2.9.1)</code></pre>
+
+<p>You can find the first library, <code>ScalatronCore.jar</code>, in the Scalatron installation directory of a Scalatron
+distribution of version 1.1.0.0 or later.</p>
+
+<p>You will then need to configure your project to generate a Java Archive (.jar) artifact with the appropriate
+name, in our case <code>MyGame.jar</code>. You can build this wherever you want, but to activate it, it will eventually
+have to end up in the Scalatron installation's <code>/bin</code> directory.</p>
+
+<h2 id = "Step_3:_Implement_The_Game_Logic">Step 3: Implement The Game Logic</h2>
+
+<p>A minimal game plug-in will consist of a small number of required classes, plus whatever other classes
+you may create to implement the game logic.</p>
+
+<h3 id = "Implement_The__code_Game__code__Trait">Implement The <code>Game</code> Trait</h3>
+
+<p>Implement a class <code>scalatron.Game</code> (or <code>scalatron.myGame.Game</code> if you want a custom package - it does not matter)
+that implements the <code>scalatron.core.Game</code> trait, like so:</p>
+
+<pre><code>package scalatron
+
+case object Game extends scalatron.core.Game {
+    ...
+}</code></pre>
+
+<h3 id = "Implement_A__code_GameFactory__code__Class">Implement A <code>GameFactory</code> Class</h3>
+
+<p>Implement a class <code>scalatron.GameFactory</code>, like so:</p>
+
+<pre><code>package scalatron
+
+class GameFactory { def create() = scalatron.myGame.Game }</code></pre>
+
+<h3 id = "Implement_Additional_Classes">Implement Additional Classes</h3>
+
+<p>Flesh out the functionality of your <code>Game</code> implementation, starting with the method <code>runVisually()</code>.
+Please check out the example code of the <code>ScalatronDemoGame</code> and the outline of the overally architecture above
+for details.</p>
+
+<h2 id = "Step_4:_Run_Your_Game">Step 4: Run Your Game</h2>
+
+<p>Run the Scalatron server, telling it to load your game plug-in:</p>
+
+<pre><code>cd Scalatron/bin
+java -jar Scalatron.jar -game ScalatronDemoGame</code></pre>
+
+<p>Note that you need to use a sufficiently recent version of the server that provides support for pluggable
+games. This feature is supported beginning with version 1.1.0.0, an experiemental release.</p>
+
+<h2 id = "Step_5:_Create_A_Bot_Plug-In">Step 5: Create A Bot Plug-In</h2>
+
+<p>Obviously you'll want one or more bots in your game. You will need to compile these bots as outlined in the
+<a href="https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Player%20Setup.md">Scalatron Player Setup</a>
+guide.</p>
+
+<p>The easiest way to do this is via the browser-based editor that is part of the Scalatron IDE provided by the
+Scalatron server. Follow these steps:</p>
+
+<ul>
+<li>Launch the Scalatron server app, as described above</li>
+<li>This should automatically bring up a browser window pointing at the correct address</li>
+<li>Create one or more user accounts that will be associated with your bots, say <code>PlayerA</code> and <code>PlayerB</code></li>
+<li>Log in as each of these players in turn</li>
+<li>Create a source code file that contains the required <code>ControlFunctionFactory</code> implementation (see the Player Setup guide)</li>
+<li>In the editor toolbar, click <strong>Publish into Tournament</strong></li>
+<li>This will upload the source code, build it and publish the bot into the tournament</li>
+</ul>
+
+<p>The next time your game plug-in starts a game round and fetches a fresh collection of <code>EntityController</code>
+instances from Scalatron, your bots should be part of them and show up in your game.</p>
+
+<h2 id = "Step_6:_Invite_Some_Friends_And_Run_A_Tournament">Step 6: Invite Some Friends And Run A Tournament</h2>
+
+<p>Obviously, some minimal preparatory work is required on your part:</p>
+
+<ul>
+<li>write some documentation for the rules of your game (see the <a href="https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Game%20Rules.md">Scalatron Game Rules for BotWar</a> for an example)</li>
+<li>write some documentation for the game/bot protocol of your game (see the <a href="https://github.com/scalatron/scalatron/blob/master/Scalatron/doc/markdown/Scalatron%20Protocol.md">Scalatron Protocol for BotWar</a> for an example)</li>
+<li>write a few simple bots as examples and for testing purposes</li>
+<li>do some testing :-)</li>
+</ul>
+
+<h1 id = "Missing_Pieces">Missing Pieces</h1>
+
+<p>As of this writing, pluggable games are an experimental feature available in special releases of
+Scalatron with a version number of 1.1.0.0 or higher. Lots of polishing is still missing for full
+support of this feature, but that should not keep you from playing around with it.</p>
+
+<p>Here is what seems to be missing:</p>
+
+<ul>
+<li>the browser-based UI will show the standard tutorial, which is focused on the BotWar game.
+In a future version, you will be able to provide a custom tutorial from within your game plug-in,
+which will be displayed by the browser UI using standardized entry points (starting page and index page).</li>
+<li>the browser-based UI, when <strong>Run in Sandbox</strong> is clicked, will show the BotWar debugger, which will
+very likely not work at all. In a future version, you should be able to replace this panel with a custom
+debugger / state monitor loaded from your game plug-in.</li>
+<li>the samples provided in the <code>Scalatron/samples/</code> directory are the sample bots for BotWar.
+Each game should have its own sample bots, obviously. Maybe the best way is to get rid of the samples
+in the installation altogether and to provide them online (maybe as <em>gists</em>) as well as through the tutorial
+panel.</li>
+<li>the secure mode of Scalatron is still a work in progress, so some utility methods may be provided here
+to make it easier to process your bots using Akka Futures in a way that times out and disables unruly or
+broken bots.</li>
+<li>probably lots of other details, including installation details, separate bot directories for each game, etc.</li>
+</ul>
+
+<p>So if you create a game plug-in, please keep in mind that these things will probably still be fiddled with.</p>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

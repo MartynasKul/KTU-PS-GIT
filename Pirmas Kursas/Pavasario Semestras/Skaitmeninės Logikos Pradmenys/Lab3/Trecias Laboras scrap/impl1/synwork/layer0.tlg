@@ -1,0 +1,19 @@
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias Laboras scrap\impl1\sch.vhd":8:7:8:9|Synthesizing work.sch.schematic.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":535:10:535:16|Synthesizing work.fd1s3ax.syn_black_box.
+Post processing for work.fd1s3ax.syn_black_box
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias Laboras scrap\impl1\sch.vhd":30:10:30:12|Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias Laboras scrap\impl1\sch.vhd":31:10:31:12|Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1033:10:1033:14|Synthesizing work.mux41.syn_black_box.
+Post processing for work.mux41.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":65:10:65:13|Synthesizing work.and2.syn_black_box.
+Post processing for work.and2.syn_black_box
+Post processing for work.sch.schematic
+Running optimization stage 1 on SCH .......
+Finished optimization stage 1 on SCH (CPU Time 0h:00m:00s, Memory Used current: 92MB peak: 92MB)
+Running optimization stage 2 on SCH .......
+Finished optimization stage 2 on SCH (CPU Time 0h:00m:00s, Memory Used current: 92MB peak: 92MB)
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Trecias Laboras scrap\impl1\synwork\layer0.rt.csv
+

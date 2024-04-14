@@ -1,0 +1,1 @@
+project -fileorder "C:/lscc/diamond/3.12/cae_library/synthesis/vhdl/xp2.vhd" "E:/KTU\ PIRMI\ METAI/Pavasario\ semestras/Skaitmenine\ Logika/Antras\ laboras/impl1/Schema.vhd" 

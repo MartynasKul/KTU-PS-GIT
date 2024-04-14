@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron APIs</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron APIs</h1>
+            <h2 id="project_tagline">Developer Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "Overview">Overview</h1>
+
+<h2 id = "Scalatron_Bot__ldquo_API_rdquo_">Scalatron Bot &ldquo;API&rdquo;</h2>
+
+<p>The interaction between bots and the game server, which in some sense could also be seen as
+an API, is not covered by this document. For information on that area of Scalatron, see the
+<em>Scalatron Protocol</em> document.</p>
+
+<h2 id = "Scalatron_Scala_API">Scalatron Scala API</h2>
+
+<p>The Scalatron source code contains an API entry point via the <code>Scalatron</code> trait. This native
+Scala API exposes methods and objects that provides access to most important states and
+operations of the server. For example:</p>
+
+<ul>
+<li>for managing (web) users;</li>
+<li>for updating source code in a local workspace;</li>
+<li>for building source code in a local workspace code into bots;</li>
+<li>for launching sandboxed, private game rounds that load the local bot version;</li>
+<li>for publishing the local bot version into the tournament plug-in directory;</li>
+<li>for creating, deleting and listing sample bots;</li>
+<li>and for tracking the state of the tournament loop.</li>
+</ul>
+
+<p>It is NOT intended for server/bot interaction. For For information on that area of Scalatron, see
+the <em>Scalatron Protocol</em> document.</p>
+
+<h2 id = "Scalatron_RESTful_web_API">Scalatron RESTful web API</h2>
+
+<p>The Scalatron server includes a web server, which does not just serve the browser-based user
+interface but also exposes the functionality of the Scalatron Scala API as a RESTful web API.</p>
+
+<p>You can use this API to create your own tools, like a tournament leaderboard tracker, integration
+into your IDE or writing your own client IDE. The resources and verbs of this API are described
+in the following section.</p>
+
+<p>The API design was inspired by a variety of blog entries, including:</p>
+
+<ul>
+<li>http://www.peej.co.uk/articles/restfully-delicious.html</li>
+<li>http://jcalcote.wordpress.com/2008/10/16/put-or-post-the-rest-of-the-story/</li>
+</ul>
+
+<p>Important Note:</p>
+
+<ul>
+<li>the web server and REST API are intended for serving information to local users during a
+workshop in which all participants are in the same room. It is neither designed for nor
+appropriate for serving sessions over the public Internet or to an audience that includes
+untrusted users. User authentication is insecure and intended for organizational purposes
+only - it is not designed for or capable of keeping out users with malicious intent.</li>
+</ul>
+
+<h2 id = "List_of_Resources__span_class__amp___amp___span__Implementation_Status">List of Resources <span class="amp">&amp;</span> Implementation Status</h2>
+
+<pre><code>status  url                                     verb    input   output  success failures        description
+------- --------------------------------------- ------- ------- ------- ------- --------------- --------------------------------
+tested  /api                                    GET     -       json    200     -               Entry Point
+tested  /api/users                              GET     -       json    200     -               Get Existing Users
+
+tested  /api/users/{user}/session               POST    json    json    200     401,404,500     Log-In As User
+tested  /api/users/{user}/session               DELETE  -       -       204     401,404         Log-Off As User
+
+tested  /api/users                              POST    json    json    200     400,401,403,500 Create User
+tested  /api/users/{user}                       DELETE  -       -       204     400,401,403,404,500 Delete User
+tested  /api/users/{user}                       PUT     json    -       204     400,401,404     Update User Attributes
+tested  /api/users/{user}                       GET     -       json    200     400,401,404,500 Get User Attributes &amp; Resources
+
+tested  /api/users/{user}/sources               GET     -       json    200     401,404,500     Get Source Files
+tested  /api/users/{user}/sources               PUT     json    -       204     401,404,500     Update Source Files
+tested  /api/users/{user}/sources/build         PUT     -       json    200     401,404,415     Build Source Files into Unpublished Bot
+
+n/a     /api/users/{user}/unpublished           PUT     jar     -       204     401,415         Upload Unpublished Bot
+n/a     /api/users/{user}/unpublished           GET     -       jar     200     401,404         Download Unpublished Bot
+
+tested  /api/users/{user}/unpublished/publish   PUT     -       -       204     401,404         Publish Unpublished Bot
+n/a     /api/users/{user}/published             PUT     jar     -       204     401,415         Publish Bot Via Upload
+
+tested  /api/users/{user}/sandboxes             POST    json    json    200     401,415         Create Sandbox
+untstd  /api/users/{user}/sandboxes             DELETE  -       -       204     401,404         Delete All Sandboxes
+tested  /api/users/{user}/sandboxes/{id}/{time} GET     -       json    200     401,404         Get Sandbox State
+
+tested  /api/users/{user}/versions              GET     -       json    200     401,404         Get Existing Versions
+tested  /api/users/{user}/versions              POST    json    url     201     401,415         Create Version
+tested  /api/users/{user}/versions/{versionId}  GET     -       json    200     401,404         Restore Version
+
+tested  /api/samples                            GET     -       json    200     401             Get Existing Samples
+untstd  /api/samples                            POST    json    -       201     401,415,500     Create Sample
+tested  /api/samples/{sample}                   GET     -       json    200     401,404,500     Get Sample Files
+untstd  /api/samples/{sample}                   DELETE  -       -       204     401,403,404,500 Delete Sample
+
+n/a     /api/tournament                         GET     -       json    200     -               Get Tournament Resources
+n/a     /api/tournament/stats                   GET     -       json    200     -               Get Tournament Stats</code></pre>
+
+<h2 id = "Entry_Point">Entry Point</h2>
+
+<h3 id = "Get_Available_Resources">Get Available Resources</h3>
+
+<p>Returns urls pointing to the primary resources exposed by the web API, such as <code>users</code>,
+<code>samples</code> and <code>tournament</code>.</p>
+
+<ul>
+<li>URL:              /api</li>
+<li>Method:           GET</li>
+<li>Returns:          200 OK <span class="amp">&amp;</span> JSON</li>
+<li>Authentication:   no need to be logged in</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "version" : "1.0.0.2",
+    "resources" :
+    [
+        { "name" : "Users",         "url" : "/api/users"},
+        { "name" : "Samples",       "url" : "/api/samples"},
+        { "name" : "Tournament",    "url" : "/api/tournament"}
+    ]
+}</code></pre>
+
+<h3 id = "Get_Existing_Users">Get Existing Users</h3>
+
+<p>Returns a list of all user accounts that currently exist on the server. Accounts can be created
+by the Administrator, either using the appropriate API call or via the browser-based UI.</p>
+
+<ul>
+<li>URL:              /api/users</li>
+<li>Method:           GET</li>
+<li>Returns:          200 OK <span class="amp">&amp;</span> JSON</li>
+<li>Authentication:   no need to be logged in</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "users" :
+    [
+        { "name" : "Administrator", "session" : "/api/users/Administrator/session", "resource" : "/api/users/Administrator"},
+        { "name" : "Frank",         "session" : "/api/users/Frank/session",         "resource" : "/api/users/Frank"},
+        { "name" : "Daniel",        "session" : "/api/users/Daniel/session",        "resource" : "/api/users/Daniel"},
+        { "name" : "{user}",        "session" : "/api/users/{user}/session"         "resource" : "/api/users/{user}"}
+    ]
+}</code></pre>
+
+<h2 id = "Authentication">Authentication</h2>
+
+<p>Before a user can perform operations on its resources, she must be authenticated on the system.
+This is done by logging in with a password (which may be empty). A session is terminated by
+logging off.</p>
+
+<h3 id = "Log-In_As_User">Log-In As User</h3>
+
+<p>Authenticates the caller as a particular user. The password must match the password configured
+for this user on the server, which may be empty.</p>
+
+<p>If successful, returns a list of resources available for the user, such as the source code;
+labeled versions of the source code; the unpublished, private bot plug-in .jar file; the user's
+private sandbox for testing bots; and the bot plug-in .jar file the user published into the
+tournament loop.</p>
+
+<p>If the user was previously logged in as another user, this operation automatically logs the
+user off first.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/session</li>
+<li>Method:           POST</li>
+<li>Request Body:     JSON</li>
+<li>Result Body:      JSON</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>401 Unauthorized (wrong password)</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (user configuration file not found)</li>
+</ul></li>
+<li>Authentication:   no need to be logged in</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "password" : ""
+}</code></pre>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "resources" :
+    [
+        { "name" : "Session",       "url" : "/api/users/{user}/session" },
+        { "name" : "Sources",       "url" : "/api/users/{user}/sources" },
+        { "name" : "Build",         "url" : "/api/users/{user}/sources/build" },
+        { "name" : "Sandboxes",     "url" : "/api/users/{user}/sandboxes" },
+        { "name" : "Publish",       "url" : "/api/users/{user}/unpublished/publish" }
+        { "name" : "Versions",      "url" : "/api/users/{user}/versions" },
+        { "name" : "Unpublished",   "url" : "/api/users/{user}/unpublished" },
+        { "name" : "Published",     "url" : "/api/users/{user}/published" }
+    ]
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is POST because conceptually a new session is created for the user.</li>
+</ul>
+
+<h3 id = "Log-Off_As_User">Log-Off As User</h3>
+
+<p>Deauthenticates the caller from a particular user account. Callers must log-out before they can
+log in as another user, for example when switching between the Administrator account and another
+user's account.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/session</li>
+<li>Method:           DELETE</li>
+<li>Returns:
+<ul>
+<li>204 No Content</li>
+<li>401 Unauthorized (not the currently logged in user)</li>
+<li>404 Not Found (if user does not exist)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is DELETE because conceptually the current session is deleted for the user.</li>
+</ul>
+
+<h2 id = "User_Management">User Management</h2>
+
+<p>Users for the purposes of this API are players connecting to the Scalatron server in order to
+participate in the tournament.</p>
+
+<p>User accounts need to exist for a user to be able to log in. Accounts can be created by the
+Administrator, either using the appropriate API call or via the browser-based UI.</p>
+
+<p>The Scalatron server maintains a private workspace for each user on the server computer.
+The workspace contains several bits of information, such as the users current source code;
+optional labeled versions of the source code; and the most recently built bot plug-in .jar
+file. For details about the locations of these items on disk on the server, please refer to
+the documentation of the Scalatron Scala API.</p>
+
+<h3 id = "Create_User">Create User</h3>
+
+<p>Creates a new user account for a given user name and a given password. Certain restrictions
+apply to the user name, which are described in the documentation of the Scalatron Scala API.
+The characters <code>.</code> and <code>/</code> are not permitted, for example. The password may be empty, in
+which case the new user will be able to log in without being prompted for a password.</p>
+
+<ul>
+<li>URL:              /api/users</li>
+<li>Method:           POST</li>
+<li>Request Body:     JSON</li>
+<li>Result Body:      JSON</li>
+<li>Returns:
+<ul>
+<li>200 Created <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>400 Bad Request (if the user name was invalid; reason is provided)</li>
+<li>401 Unauthorized (if not logged on as Administrator)</li>
+<li>403 Forbidden (if a user with the given name already exists)</li>
+<li>500 Internal Server Error (if user workspace could not be created on disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as Administrator</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "name" : "{user}",
+    "password" : ""
+}</code></pre>
+
+<p>Result JSON example:</p>
+
+<pre><code>{
+    "name" : "{user}",
+    "session" : "/api/users/{user}/session",
+    "resource" : "/api/users/{user}"
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>On success, a 201 Created response is returned along with a location header containing the
+URL of the newly created user resource: &ldquo;/api/users/{user}"</li>
+<li>The HTTP verb is POST because a new resource is created which did not previously exist.
+The operation is not idempotent.</li>
+</ul>
+
+<h3 id = "Delete_User">Delete User</h3>
+
+<p>Removes a user account from the system, deleting all associated content (source code,
+versions, private bot plug-in .jar, published bot plug-in .jar).</p>
+
+<ul>
+<li>URL:              /api/users/{user}</li>
+<li>Method:           DELETE</li>
+<li>Returns:
+<ul>
+<li>204 No Content (success)</li>
+<li>400 Bad Request (if the user name was invalid; reason is provided)</li>
+<li>401 Unauthorized (if not logged on as that user or as Administrator)</li>
+<li>403 Forbidden (if attempting to delete the Administrator account)</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (if there was a problem deleting the user's files on disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as Administrator</li>
+</ul>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is DELETE because a resource is deleted. The operation is not idempotent.</li>
+</ul>
+
+<h3 id = "Update_User_Attributes__including_password_">Update User Attributes (including password)</h3>
+
+<p>Updates one or more attributes for a particular user, which are recorded in the user's configuration
+file. Can only be invoked by the user who owns the account and by the Administrator.</p>
+
+<ul>
+<li>URL:              /api/users/{user}</li>
+<li>Method:           PUT</li>
+<li>Request Body:     JSON</li>
+<li>Returns:
+<ul>
+<li>204 No Content (success)</li>
+<li>400 Bad Request (if the user name was invalid; reason is provided)</li>
+<li>401 Unauthorized (if not logged on as Administrator or as the user in question)</li>
+<li>404 Not Found (if user does not exist)</li>
+</ul></li>
+<li>Authentication:   must be logged on as Administrator or as the user in question</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "attributes" :
+    [
+        { "name" : "keyA",       "value" : "valueA" },
+        { "name" : "keyB",       "value" : "valueB" }
+    ]
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>Since we don't want people to create new users using PUT, only update existing users, we'll
+return a 404 Not Found error if the resource doesn't already exist.</li>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.</li>
+</ul>
+
+<h3 id = "Get_User_Attributes__span_class__amp___amp___span__Resources">Get User Attributes <span class="amp">&amp;</span> Resources</h3>
+
+<p>Returns the attributes stored for a particular user in the user's configuration file,
+as well as the resources available for this user account.
+Can only be invoked by the user who owns the account and by the Administrator.
+The user's password is never returned.</p>
+
+<ul>
+<li>URL:              /api/users/{user}</li>
+<li>Method:           GET</li>
+<li>Request Body:     JSON</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> Result (success)</li>
+<li>400 Bad Request (if user name contained invalid characters)</li>
+<li>401 Unauthorized (if not logged on as Administrator or as the user in question)</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (configuration attribute file could not be read or was invalid)</li>
+</ul></li>
+<li>Authentication:   must be logged on as Administrator or as the user in question</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "attributes" :
+    [
+        { "name" : "keyA",       "value" : "valueA" },
+        { "name" : "keyB",       "value" : "valueB" }
+    ],
+    "resources" :
+    [
+        { "name" : "Sources",       "url" : "/api/users/{user}/sources" },
+        { "name" : "Build",         "url" : "/api/users/{user}/sources/build" },
+        { "name" : "Sandboxes",     "url" : "/api/users/{user}/sandboxes" },
+        { "name" : "Publish",       "url" : "/api/users/{user}/unpublished/publish" }
+        { "name" : "Versions",      "url" : "/api/users/{user}/versions" },
+        { "name" : "Unpublished",   "url" : "/api/users/{user}/unpublished" },
+        { "name" : "Published",     "url" : "/api/users/{user}/published" }
+    ]
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>Since we don't want people to create new users using PUT, only update existing users, we'll
+return a 404 Not Found error if the resource doesn't already exist.</li>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.</li>
+</ul>
+
+<h2 id = "User-Sources_Management">User-Sources Management</h2>
+
+<p>Manages the currently active versions of the source code files. The workspace on the server
+can contain several source files, which are generally expected and returned as a collection
+of (filename, code) string pairs. Currently files are restricted to all reside in the same
+directory, which no subdirectories permitted (this may change in the future).</p>
+
+<p>Note also that the browser-based Scalatron IDE currently only provides access to a single
+source code file, which is expected to have the name <code>Bot.scala</code>. If more than that one
+file is present, the behavior of the browser UI is undefined. This may change in the future.</p>
+
+<h3 id = "Get_Source_Files">Get Source Files</h3>
+
+<p>Retrieves the currently active versions of the source code files present in the user's
+workspace on the server. You might use this to retrieve the user's source code for display
+in an editor. The returned files are the files that were most recently written to disk on
+the server either when the user account was initialized or when an upload/update was performed
+via one of the APIs.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/sources</li>
+<li>Method:           GET</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>401 Unauthorized (if not logged on as {user})</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (error reading source files from disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as Administrator or as {user}</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "files" :
+    [
+        { "filename" : "Bot.scala", "code" : "class ControlFunctionFactory { ... }" },
+        { "filename" : "Util.scala", "code" : "class View { ... }" }
+    ]
+}</code></pre>
+
+<h3 id = "Update_Source_Files">Update Source Files</h3>
+
+<p>Updates the source code files in the user's workspace on the server.
+Before overwriting the currently present files with the uploaded source files, creates a backup version if
+the currently active source files are different from the latest version (using the given version label).</p>
+
+<ul>
+<li>URL:              /api/users/{user}/sources</li>
+<li>Method:           PUT</li>
+<li>Request Body:     JSON</li>
+<li>Returns:
+<ul>
+<li>204 No Content (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (error writing source files to disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "files" :
+    [
+        { "filename" : "Bot.scala", "code" : "class ControlFunctionFactory { ... }" },
+        { "filename" : "Util.scala", "code" : "class View { ... }" }
+    ],
+    "versionLabel" : "before Build and Publish into Tournament"
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>Since we don't want people to create new users using PUT, only update existing source
+files, we'll return a 404 Not Found error if the resource doesn't already exist.</li>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.
+The source files are treated like a property of the user object. Updating the sources files
+updates that property. The operation is idempotent because the same source files can be
+PUT multiple times, always resulting in the same final state.</li>
+<li>Actually, as of 1.0.0.1 backup versions are created if the files on the server are different
+from the latest version on the server, which only happens the first time, so the idempotency is
+no longer quite as accurate.</li>
+</ul>
+
+<h3 id = "Build_Source_Files_into_Unpublished_Bot">Build Source Files into Unpublished Bot</h3>
+
+<p>Builds the currently present source files of the user into a private, unpublished bot plug-in
+.jar file. The invocation returns the output of the Scala compiler in a way that allows an
+editor to jump to the associated source code location.</p>
+
+<p>Note: you may want to update the user's current source code beforehand by uploading the most
+recent version using PUT to /api/users/{user}/sources.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/sources/build</li>
+<li>Method:           PUT</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> Build Results</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (compile service unavailable, disk error, etc.)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Result JSON example:</p>
+
+<pre><code>{
+    "successful" : true,
+    "duration" : 100,       // milliseconds taken to patch and compile sources and package into .jar
+    "errors" : 1,
+    "warnings" : 1,
+    "messages" :
+    [
+        { "filename" : "Bot.scala", "line" : 1, "column" : 8, "severity": 1, "message" : "some compiler warning message" },
+        { "filename" : "Bot.scala", "line" : 2, "column" : 4, "severity": 2, "message" : "some compiler error message" }
+    ]
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.
+The unpublished bot is treated like a property of the user object. Updating the unpublished
+bot by building from sources updates that property. The operation is idempotent because
+you can build a bot (from the same sources) multiple times, always resulting in the same
+final state.</li>
+<li>The method could also have been PUT on just /api/users/{user}/sources, but that method is
+reserved for uploading bots that were built client-side.</li>
+</ul>
+
+<h2 id = "User-Unpublished-Bot_Management">User-Unpublished-Bot Management</h2>
+
+<p>Manages the user's private, unpublished bot plug-in .jar file. This file can either be generated
+by building from sources on the server or by uploading a pre-built file via the API. Once the
+file is present on the server, it can be published into the tournament loop or used to run a
+private test game in a sandbox.</p>
+
+<h3 id = "Upload_Unpublished_Bot">Upload Unpublished Bot</h3>
+
+<p>Uploads an already-build bot version to the server. The uploaded file will be placed into the
+location where the server expects to find the private, unpublished bot plug-in .jar file. Use
+this to upload a bot that was built client-side.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/unpublished</li>
+<li>Method:           PUT</li>
+<li>Request Body:     application/java-archive</li>
+<li>Returns:
+<ul>
+<li>204 No Content (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>415 Unsupported Media Type (malformed request, or other problem)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.
+The unpublished bot is treated like a property of the user object. Updating the unpublished
+bot by uploading it to the server updates that property. The operation is idempotent because
+you can upload the same bot multiple times, always resulting in the same final state.</li>
+</ul>
+
+<h3 id = "Download_Unpublished_Bot__Not_Implemented_">Download Unpublished Bot (Not Implemented)</h3>
+
+<p>Downloads the current version of the private, unpublished bot plug-in .jar file.
+This allows client-side tools to use the Scalatron server as a Scala build service:
+update sources, build sources, download unpublished bot.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/unpublished</li>
+<li>Method:           GET</li>
+<li>Result Body:      application/java-archive</li>
+<li>Returns:
+<ul>
+<li>501 Not Implemented
+Future:</li>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> Result (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (no unpublished bot present in workspace)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Comments:</p>
+
+<ul>
+<li>Currently not supported, maybe in a future version. But this is where it would be.</li>
+</ul>
+
+<h2 id = "User-Publication_Management">User-Publication Management</h2>
+
+<p>Manages the bot currently published by the user into the tournament loop.</p>
+
+<h3 id = "Publish_Unpublished_Bot">Publish Unpublished Bot</h3>
+
+<p>Publishes the unpublished bot version residing in the user's workspace into the tournament by
+copying the bot plug-in .jar file into the tournament bot directory appropriate for the user.</p>
+
+<p>Note: you may need to update the user's bot beforehand, either by uploading a .jar file built
+client-side via PUT to /api/users/{user}/unpublished or by building from sources (potentially
+also to be uploaded first) via PUT to /api/users/{user}/sources/build</p>
+
+<ul>
+<li>URL:              /api/users/{user}/unpublished/publish</li>
+<li>Method:           PUT</li>
+<li>Returns:
+<ul>
+<li>204 No Content (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if there is no unpublished bot plug-in .jar file)</li>
+<li>500 Internal Server Error (problems copying the bot on disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.
+The published bot is treated like a property of the user object. Updating the published
+bot by publishing the unpublished bot updates that property. The operation is idempotent
+because you can publish the same unpublished bot multiple times, always resulting in the
+same final state.</li>
+<li>In a future version, we could return a link to &ldquo;/api/users/{user}/published/stats&rdquo;
+and use that to provide stats on the current user's bot's performance in the tournament. This
+differs from the &ldquo;/api/tournament&rdquo; resource, since the latter provides stats for all users.</li>
+</ul>
+
+<h3 id = "Publish_Bot_Via_Upload__Not_Implemented_">Publish Bot Via Upload (Not Implemented)</h3>
+
+<p>Uploads an already-build bot version into the tournament bot directory appropriate for the user
+on the server. The uploaded file will be placed into the location where the server expects to
+find the published bot plug-in .jar file. Use this to upload a bot that was built client-side.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/unpublished</li>
+<li>Method:           PUT</li>
+<li>Request Body:     application/java-archive</li>
+<li>Returns:
+<ul>
+<li>501 Not Implemented
+Future:</li>
+<li>204 No Content (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>415 Unsupported Media Type (malformed request, or other problem)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is PUT because a resource is updated and the operation is idempotent.
+The published bot is treated like a property of the user object. Updating the published
+bot by uploading a new .jar file updates that property. The operation is idempotent
+because you can upload the same bot .jar file multiple times, always resulting in the
+same final state.</li>
+</ul>
+
+<h2 id = "User-Sandbox_Management">User-Sandbox Management</h2>
+
+<p>Manages the currently active sandbox of the user. The sandbox is a private, single-steppable
+game started for a particular user which loads the private, unpublished bot of the user. The
+server holds the state of the game, which can be updated via API calls. The server also
+provides information about the state of the user's entities (bots and mini-bots) in the
+game, such as the most recent:</p>
+
+<ul>
+<li>control function input (which contains the view the bot has of its environment, as well
+as the bot state parameters);</li>
+<li>control function input (which contains the response of the bot);</li>
+<li>debug output generated by the bot via the <code>Log()</code> opcode.</li>
+</ul>
+
+<h3 id = "Create_Sandbox">Create Sandbox</h3>
+
+<p>Creates a new, private sandbox run for the given user by launching a simulation run using
+the bot plug-in .jar file currently present in the user's workspace, as well as the given
+configuration parameters.</p>
+
+<p>Note: you may need to update the user's bot beforehand, either by uploading a .jar file built
+client-side via PUT to /api/users/{user}/unpublished or by building from sources (potentially
+also to be uploaded first) via PUT to /api/users/{user}/sources/build</p>
+
+<ul>
+<li>URL:              /api/users/{user}/sandboxes</li>
+<li>Method:           POST</li>
+<li>Request Body:     JSON</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> Result</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if there is no unpublished bot plug-in .jar file)</li>
+<li>500 Internal Server Error (failed to create sandboxed game)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "config" :
+    {
+        "-perimeter" : "open",
+        "-walls" : "30",
+        "-snorgs" : "200",
+    }
+}</code></pre>
+
+<p>Result JSON example:</p>
+
+<pre><code>{
+    "id" : {id},    // the ID of the sandbox instance
+
+    "url":         "/api/users/{user}/sandboxes/{id}/{time+0}",      // call to re-fetch this
+    "urlPlus1":    "/api/users/{user}/sandboxes/{id}/{time+1}",      // call to single-step
+    "urlPlus2":    "/api/users/{user}/sandboxes/{id}/{time+2}",      // call to step 2x
+    "urlPlus10":   "/api/users/{user}/sandboxes/{id}/{time+10}",     // call to step 10x
+
+    "time" : "0",
+    "entities" :
+    [
+        "entity" :
+        {
+            "id": 33,
+            "name": "Daniel",
+            "master": true,
+            "debugOutput": "line 1\nline 2\nline 3",
+            "input" :
+            {
+                "opcode" : "React",
+                "params" :
+                [
+                    { "name" : "energy", "value": 1200 },
+                    { "name" : "time", "value": 0 },
+                    ... other opcode parameters
+                ]
+            },
+            "output" :
+            [
+                {
+                    "opcode" : "Move",
+                    "params" :
+                    [
+                        { "name" : "direction", "value" : "2:3" }
+                        ... other opcode parameters
+                    ]
+                },
+                ... other commands
+            ]
+        }
+    ]
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>The HTTP verb is POST because each instance of a sandbox simulation is treated like a distinct
+resource (identified by a user-unique id, which is incorporated into the url in the result).</li>
+<li>Each simulation step has an associated time index and in theory (if users' bot control
+functions do not hold local state in the plug-in, such as a randomizer) iterating a simulation
+step is idempotent. Even if this does not always hold and &ldquo;rewinding&rdquo; a simulation may therefore
+not work, for the purposes of the API simulation steps are treated as distinct resources.
+However, only one step is guaranteed to be valid and retrievable at any one time, via its
+distinct URL. Once that was retrieved, only the URLs returned within that state are valid
+next URLs (see below).</li>
+<li>in the result JSON, the user's bots are returned in a collection &ldquo;userbots&rdquo; within an outer
+collection, &ldquo;entities&rdquo;. This gives us the option, in the future, to return additional entity
+lists like &ldquo;otherbots&rdquo;, &ldquo;beasts&rdquo;, &ldquo;plants&rdquo;, etc. to provide a fuller simulation state.</li>
+</ul>
+
+<h3 id = "Get_Sandbox_State">Get Sandbox State</h3>
+
+<p>Retrieves the state of the sandbox with the given ID at the given step/time.</p>
+
+<p>Note: for the purposes of the API, simulation steps (times) are treated as distinct resources.
+However, only certain times and one sandbox id are guaranteed to be valid and retrievable at
+any one time, namely those returned as follow-on URLs by a sandbox resource. Once one of
+those resources was retrieved, only the next follow-on URLs returned there are valid
+options.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/sandboxes/{id}/{time}</li>
+<li>Method:           GET</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> Result</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if the sandbox id or time are not valid)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Result JSON example:</p>
+
+<pre><code>see Result JSON of "Create Sandbox" / POST to "/api/users/{user}/sandboxes"</code></pre>
+
+<h3 id = "Delete_All_Sandboxes">Delete All Sandboxes</h3>
+
+<p>Deletes all private sandboxes currently held by the server for the given user.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/sandboxes</li>
+<li>Method:           DELETE</li>
+<li>Returns:
+<ul>
+<li>204 No Cortent (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if the user does not exist)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<h2 id = "User-Version_Management">User-Version Management</h2>
+
+<p>Since the user may be working in a browser with no immediate local saving capabilities, the
+server provides a simple version control system. Versions are simply packages of source files
+maintained under an associated ID and with an optional label.</p>
+
+<p>Note that the browser-based Scalatron IDE does not yet currently support creation and retrieval
+of versions; this may change in the future.</p>
+
+<h3 id = "Get_Existing_Versions">Get Existing Versions</h3>
+
+<p>Lists all versions currently available on the server for this particular user. Each version
+is exposed as a separate resource.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/versions</li>
+<li>Method:           GET</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if user does not exist)</li>
+<li>500 Internal Server Error (if version information could not be read from disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "versions" :
+    [
+        { "id" : "1499f03b85b29eac6bde835eed92f68336fb901b", "label" : "Label 1", "date" : "2012-04-13 08:22", "url" : "/api/users/{user}/versions/1499f03b85b29eac6bde835eed92f68336fb901b" },
+        { "id" : "56e43c370bfaaa9773f7cf1fb41b6cec494a3c43", "label" : "Label 2", "date" : "2012-04-13 08:23", "url" : "/api/users/{user}/versions/56e43c370bfaaa9773f7cf1fb41b6cec494a3c43" },
+        { "id" : "a1ae813f274b4a33bc61535e0e0de5345bb08d42", "label" : "Label 3", "date" : "2012-04-13 08:24", "url" : "/api/users/{user}/versions/a1ae813f274b4a33bc61535e0e0de5345bb08d42" }
+    ]
+}</code></pre>
+
+<p>Note that the returned &ldquo;date&rdquo; values are the number of milliseconds since the standard base time known as
+&ldquo;the epoch&rdquo;, namely January 1, 1970, 00:00:00 GMT. Put this into a Long value and use the Java new Date(Long)
+constructor to work with the value.</p>
+
+<h3 id = "Create_Version">Create Version</h3>
+
+<p>Creates a new version on the server from the given source files. Creating a version overwrites the source
+files that are currently in the user's working directory, then generates a new version from them.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/versions</li>
+<li>Method:           POST</li>
+<li>Request Body:     JSON</li>
+<li>Returns:
+<ul>
+<li>201 Created <span class="amp"><span class="amp">&amp;</span></span> Location (/api/users/{user}/versions/{id})</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>415 Unsupported Media Type (malformed request, or version already exists, or other problem)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "label" : "Label 1",
+    "files" :
+    [
+        { "filename" : "Bot.scala", "code" : "class ControlFunctionFactory { ... }" },
+        { "filename" : "Util.scala", "code" : "class View { ... }" }
+    ]
+}</code></pre>
+
+<p>Response JSON example:</p>
+
+<pre><code>{ "id" : "1", "label" : "Label 1", "date" : "1234556", "url" : "/api/users/{user}/versions/1" },</code></pre>
+
+<p>Note that the returned &ldquo;date&rdquo; values are the number of milliseconds since the standard base time known as
+&ldquo;the epoch&rdquo;, namely January 1, 1970, 00:00:00 GMT. Put this into a Long value and use the Java new Date(Long)
+constructor to work with the value.</p>
+
+<p>Comments:</p>
+
+<ul>
+<li>On success, a 201 Created response is returned along with a location header containing the
+URL of the newly created version resource: &ldquo;/api/users/{user}/versions/{versionId}"</li>
+<li>The HTTP verb is POST because a new resource (the version) is created.</li>
+</ul>
+
+<h3 id = "Restore_Version">Restore Version</h3>
+
+<p>Restores the user's workspace to the version with the given ID and returns the associated source files.</p>
+
+<ul>
+<li>URL:              /api/users/{user}/versions/{versionId}</li>
+<li>Method:           GET</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>401 Unauthorized (if not logged on as that user)</li>
+<li>404 Not Found (if user or versionId does not exist)</li>
+</ul></li>
+<li>Authentication:   must be logged on as that user</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "files" :
+    [
+        { "filename" : "Bot.scala", "code" : "class ControlFunctionFactory { ... }" },
+        { "filename" : "Util.scala", "code" : "class View { ... }" }
+    ]
+}</code></pre>
+
+<p>Comments: doing this with GET is not REST compliant; it is a temporary effect of the conversion to
+versioning with git. This needs to be fixed.</p>
+
+<h2 id = "Sample_Management">Sample Management</h2>
+
+<p>The server provides a repository of code samples, which are source code packages accessible for
+all users. The primary intent is to serve up the source code for the bots developed throughout
+the tutorial. However, it looks like this would be a useful mechanism for participants for
+sharing bot code through the server.</p>
+
+<h3 id = "Get_Existing_Samples">Get Existing Samples</h3>
+
+<p>Lists all samples currently available on the server.</p>
+
+<ul>
+<li>URL:              /api/samples</li>
+<li>Method:           GET</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>401 Unauthorized (if not logged on as any user)</li>
+</ul></li>
+<li>Authentication:   must be logged on as some user (any user is OK)</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "samples" :
+    [
+        { "name" : "Tutorial Bot 01", "url" : "/api/samples/Tutorial%20Bot%2001"},
+        { "name" : "Tutorial Bot 02", "url" : "/api/samples/Tutorial%20Bot%2002"},
+        { "name" : "Tutorial Bot 03", "url" : "/api/samples/Tutorial%20Bot%2003"},
+    ]
+}</code></pre>
+
+<h3 id = "Create_Sample">Create Sample</h3>
+
+<p>Creates a new sample from the given source code files.</p>
+
+<ul>
+<li>URL:              /api/samples</li>
+<li>Method:           POST</li>
+<li>Request Body:     JSON</li>
+<li>Returns:
+<ul>
+<li>201 Created <span class="amp"><span class="amp">&amp;</span></span> Location (/api/samples/{sample})</li>
+<li>401 Unauthorized (if not logged on as any user)</li>
+<li>415 Unsupported Media Type (malformed request, or sample already exists, or other problem)</li>
+</ul></li>
+<li>Authentication:   must be logged on as some user (any user is OK)</li>
+</ul>
+
+<p>Request JSON example:</p>
+
+<pre><code>{
+    "name" : "Tutorial Bot 03",
+    "files" :
+    [
+        { "filename" : "Bot.scala", "code" : "class ControlFunctionFactory { ... }" },
+        { "filename" : "Util.scala", "code" : "class View { ... }" }
+    ]
+}</code></pre>
+
+<p>Comments:</p>
+
+<ul>
+<li>On success, a 201 Created response is returned along with a location header containing the
+URL of the newly created sample resource: &ldquo;/api/samples/{sample}"</li>
+</ul>
+
+<h3 id = "Get_Sample_Files">Get Sample Files</h3>
+
+<p>Returns the source code files for a particular sample.</p>
+
+<ul>
+<li>URL:              /api/samples/{sample}</li>
+<li>Method:           GET</li>
+<li>Returns:
+<ul>
+<li>200 OK <span class="amp"><span class="amp">&amp;</span></span> JSON (success)</li>
+<li>401 Unauthorized (if not logged on as any user)</li>
+<li>404 Not Found (if sample does not exist)</li>
+<li>500 Internal Server Error (if sample files could not be deleted on disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as some user (any user is OK)</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "files" :
+    [
+        { "filename" : "Bot.scala", "code" : "class ControlFunctionFactory { ... }" },
+        { "filename" : "Util.scala", "code" : "class View { ... }" }
+    ]
+}</code></pre>
+
+<h3 id = "Delete_Sample">Delete Sample</h3>
+
+<p>Deletes a sample from the server, including all associated source code files.</p>
+
+<ul>
+<li>URL:              /api/samples/{sample}</li>
+<li>Method:           DELETE</li>
+<li>Returns:
+<ul>
+<li>204 No Content (success)</li>
+<li>401 Unauthorized (if not logged on as Administrator)</li>
+<li>403 Forbidden (sample is protected from deletion, e.g. because it is a built-in sample)</li>
+<li>404 Not Found (if sample does not exist)</li>
+<li>500 Internal Server Error (if sample files could not be deleted on disk)</li>
+</ul></li>
+<li>Authentication:   must be logged on as Administrator</li>
+</ul>
+
+<h2 id = "Tournament_Management">Tournament Management</h2>
+
+<p>This API section provides access to the state of the tournament loop. The loop generally runs
+in the foreground, with its output displayed on a projected screen (although a headless mode is
+also available). The stat includes information such as the leader board. At this point, the API
+does not yet expose the state of the game currently in progress, such as the scores of the
+bots in the current game round.</p>
+
+<h3 id = "Get_Tournament_Resources">Get Tournament Resources</h3>
+
+<p>Returns links to the resources available for tournament management.</p>
+
+<ul>
+<li>URL:              /api/tournament</li>
+<li>Method:           GET</li>
+<li>Returns:          200 OK <span class="amp">&amp;</span> JSON</li>
+<li>Authentication:   no need to be logged in</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "resources" :
+    [
+        { "name" : "Stats",         "url" : "/api/tournament/stats"}
+    ]
+}</code></pre>
+
+<h3 id = "Get_Tournament_Stats">Get Tournament Stats</h3>
+
+<p>Returns the number of rounds played so far as well as the current leader board.</p>
+
+<ul>
+<li>URL:              /api/tournament/stats</li>
+<li>Method:           GET</li>
+<li>Returns:          200 OK <span class="amp">&amp;</span> JSON</li>
+<li>Authentication:   no need to be logged in</li>
+</ul>
+
+<p>Response JSON example:</p>
+
+<pre><code>{
+    "roundsPlayed" : 15,
+    "leaderBoard" :
+    {
+        "last1" :
+        [
+            { "name" : "Daniel", "score" : 2000 },
+            { "name" : "Frank",  "score" : 1000 },
+            { "name" : "Linus",  "score" : 500 },
+        ],
+        "last5" :
+        [
+            { "name" : "Daniel", "score" : 2000 },
+            { "name" : "Frank",  "score" : 1000 },
+            { "name" : "Linus",  "score" : 500 },
+        ],
+        "last20" :
+        [
+            { "name" : "Daniel", "score" : 2000 },
+            { "name" : "Frank",  "score" : 1000 },
+            { "name" : "Linus",  "score" : 500 },
+        ],
+        "alltime" :
+        [
+            { "name" : "Daniel", "score" : 2000 },
+            { "name" : "Frank",  "score" : 1000 },
+            { "name" : "Linus",  "score" : 500 },
+        ],
+    }
+}</code></pre>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

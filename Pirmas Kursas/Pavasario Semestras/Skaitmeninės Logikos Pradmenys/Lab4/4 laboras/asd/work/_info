@@ -1,0 +1,183 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.10, Oct 14 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/asd
+Ecnt136
+Z1 w1652910744
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z5 8E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr136.vhd
+Z6 FE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr136.vhd
+l0
+L5 1
+V8ggJV?73EXJ3ihW0CV<XE2
+!s100 <>dcPTd`UU?R@Rj6;jXzf3
+Z7 OT;C;2020.3;71
+32
+Z8 !s110 1653506275
+!i10b 1
+Z9 !s108 1653506274.000000
+Z10 !s90 -reportprogress|300|-work|work|E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr136.vhd|
+Z11 !s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr136.vhd|
+!i113 1
+Z12 o-work work -O0
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+DEx4 work 6 cnt136 0 22 8ggJV?73EXJ3ihW0CV<XE2
+!i122 0
+l17
+Z14 L15 24
+VFN=NNlVYNAX9T`?9X65lz3
+!s100 cIBQI5hd<WSbZ^LAo;Fci1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ecnt19
+R1
+R2
+R3
+R4
+!i122 2
+R0
+Z15 8E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19.vhd
+Z16 FE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19.vhd
+l0
+L5 1
+VedZ<=[Lndnjof4LPb9XSJ2
+!s100 EP8?_YM;OhG_`aN@4c54Y0
+R7
+32
+Z17 !s110 1653506276
+!i10b 1
+Z18 !s108 1653506276.000000
+Z19 !s90 -reportprogress|300|-work|work|E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19.vhd|
+Z20 !s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr19.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 5 cnt19 0 22 edZ<=[Lndnjof4LPb9XSJ2
+!i122 2
+l17
+R14
+Vc>UN9zA^<XRVYMIC<jbFb1
+!s100 ]jP>`CEo4b?@BJ_GX>nfa3
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R12
+R13
+Ecnt49
+Z21 w1652945026
+R2
+R3
+R4
+!i122 1
+R0
+Z22 8E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr49.vhd
+Z23 FE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr49.vhd
+l0
+L5 1
+VX@SfMd=WLHaD4n5;F`[hb3
+!s100 IlzfDR?H@<L9SVIglei<k0
+R7
+32
+R8
+!i10b 1
+Z24 !s108 1653506275.000000
+Z25 !s90 -reportprogress|300|-work|work|E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr49.vhd|
+Z26 !s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/cntr49.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 5 cnt49 0 22 X@SfMd=WLHaD4n5;F`[hb3
+!i122 1
+l17
+L15 21
+VL@OFUZJW@oT?i4OR9maK<0
+!s100 oa3RCLJ]BFB8lbd9lQ`bO3
+R7
+32
+R8
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R12
+R13
+Etop_cnt
+Z27 w1652943464
+R2
+R3
+R4
+!i122 3
+R0
+Z28 8E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd
+Z29 FE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd
+l0
+L5 1
+VIT@Q1f;6[ofmEX@U=48X`3
+!s100 L[kfPhVl_gmK6an=Y9c4Z3
+R7
+32
+R17
+!i10b 1
+R18
+Z30 !s90 -reportprogress|300|-work|work|E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd|
+!s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd|
+!i113 1
+R12
+R13
+Astruct
+R2
+R3
+R4
+DEx4 work 7 top_cnt 0 22 IT@Q1f;6[ofmEX@U=48X`3
+!i122 3
+l49
+L14 65
+Vd439V`NejhfjbO`a:d7MC0
+!s100 Lz_K0YjE<j^OBUCH[L>B62
+R7
+32
+R17
+!i10b 1
+R18
+R30
+Z31 !s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Lab4/4 laboras/JM2.vhd|
+!i113 1
+R12
+R13

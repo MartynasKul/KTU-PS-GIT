@@ -1,0 +1,72 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.LateContractsReport.Report
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Vėluojančių sutarčių ataskaita"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+</div>
+
+@* content itself *@
+<div class="main-content-rep">
+@using( Html.BeginForm(FormMethod.Get, new { @class="rep" }) )
+{
+	<p><strong>Parengta:</strong> @String.Format("{0:yyyy-MM-dd HH:mm}", DateTime.Now)</p>
+
+	@* filter section *@
+	<div class="filter">
+		<div class="fields">
+			<div class="field">
+				<label>Sutartys nuo:</label>
+				@Html.TextBoxFor(m => m.DateFrom, "{0:yyyy-MM-dd}", new { @class = "date-picker" })
+			</div>
+
+			<div class="field">
+				<label>Sutartys iki:</label>
+				@Html.TextBoxFor(m => m.DateTo, "{0:yyyy-MM-dd}", new { @class = "date-picker" })
+			</div>
+		</div>
+
+		<div class="buttons">
+			<button class="btn btn-success"><i class="fa-solid fa-filter"></i> Atrinkti</button>
+		</div>
+	</div>
+
+	@* report data *@
+	<table class="report">
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(m => m.Sutartys[0].Nr)</th>
+				<th>@Html.DisplayNameFor(m => m.Sutartys[0].SutartiesData)</th>
+				<th>@Html.DisplayNameFor(m => m.Sutartys[0].Klientas)</th>
+				<th>@Html.DisplayNameFor(m => m.Sutartys[0].PlanuojamaGrData)</th>
+				<th>@Html.DisplayNameFor(m => m.Sutartys[0].FaktineGrData)</th>
+			</tr>
+		</thead>
+		<tbody>
+			@if( Model.Sutartys.Count == 0 )
+			{
+				@* no data message *@
+				<tr class="no-data-msg">
+					<td colspan="5" align="center">Nurodytame laikotarpyje nebuvo vėluojančių gražinti automobilį sutarčių</td>
+				</tr>
+			}
+			else 
+			{
+				@* data rows *@
+				@foreach( var item in Model.Sutartys )
+				{
+					<tr>
+						<td>#@Html.DisplayFor(m => item.Nr)</td>
+						<td>@Html.DisplayFor(m => item.SutartiesData)</td>
+						<td>@Html.DisplayFor(m => item.Klientas)</td>
+						<td>@Html.DisplayFor(m => item.PlanuojamaGrData)</td>
+						<td>@Html.DisplayFor(m => item.FaktineGrData)</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+}
+</div>

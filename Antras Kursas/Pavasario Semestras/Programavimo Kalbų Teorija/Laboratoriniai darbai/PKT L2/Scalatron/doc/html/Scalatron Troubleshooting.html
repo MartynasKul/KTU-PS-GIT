@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Documentation" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/stylesheet.css">
+
+    <title>Scalatron Troubleshooting</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <a id="forkme_banner" href="https://github.com/scalatron/scalatron">Fork Me on GitHub</a>
+
+        <a href="http://scalatron.github.com">
+            <h1 id="project_title">Scalatron Troubleshooting</h1>
+            <h2 id="project_tagline">Organizer Documentation</h2>
+        </a>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1 id = "About_Scalatron">About Scalatron</h1>
+
+<p>Scalatron is an educational resource for groups of programmers that want to learn more about
+the Scala programming language or want to hone their Scala programming skills. It is based on
+Scalatron BotWar, a competitive multi-player programming game in which coders pit bot programs
+(written in Scala) against each other.</p>
+
+<p>The documentation, tutorial and source code are intended as a community resource and are
+in the public domain. Feel free to use, copy, and improve them!</p>
+
+<h1 id = "Summary">Summary</h1>
+
+<p>A lot of things can go wrong in life, and running Scalatron is one of them. Whatever happens,
+though, you're probably not the only one experiencing it and so there's hope that by collecting
+problematic experiences and solutions some of your pain can be alleviated. Here is a list of
+things known to go wrong with Scalatron, and sometimes how to fix them:</p>
+
+<h2 id = "Problems_Starting_The_Server">Problems Starting The Server</h2>
+
+<p><strong>On Windows, double-clicking <code>/bin/Scalatron.jar</code> pops up an error dialog &ldquo;Could not find the main class. Program will exit.&rdquo;</strong></p>
+
+<p>Probable Cause:</p>
+
+<ul>
+<li>Very likely your Java Runtime Environment is too old.</li>
+<li>Scalatron requires Version 1.6 or newer is required.</li>
+</ul>
+
+<p>Steps to Solve:</p>
+
+<ul>
+<li>Go to <a href="http://www.java.com/download/">the Java download site</a></li>
+<li>Download a more recent Java Runtime Environment</li>
+<li><p>Install it and try again.</p>
+
+<p><strong>On Windows, running <code>java -jar /bin/Scalatron.jar</code> displays a &ldquo;UnsupportedClassVersionError&rdquo;</strong></p></li>
+</ul>
+
+<p>Probable Cause:</p>
+
+<ul>
+<li>Very likely your Java Runtime Environment is too old.</li>
+<li>Scalatron requires Version 1.6 or newer is required.</li>
+</ul>
+
+<p>Steps to Solve:</p>
+
+<ul>
+<li>Go to <a href="http://www.java.com/download/">the Java download site</a></li>
+<li>Download a more recent Java Runtime Environment</li>
+<li>Install it and try again.</li>
+</ul>
+
+<h2 id = "Performance_Problems">Performance Problems</h2>
+
+<p><strong>Server hangs intermittently</strong></p>
+
+<p>Probable Cause:</p>
+
+<ul>
+<li>Very likely Java has too little memory and spends too much time running garbage collection.</li>
+</ul>
+
+<p>Steps to Solve:</p>
+
+<ul>
+<li><p>give the Scalatron server more memory - as much as you can, in fact. Try starting it with the following options:</p>
+
+<p>java -Xmx2G -server -jar Scalatron.jar</p>
+
+<p><strong>Compilations are slow or time out</strong></p></li>
+</ul>
+
+<p>Probable Cause:</p>
+
+<ul>
+<li>The load on the server is too high, causing compilations to take too long.</li>
+<li>This generally means that the ratio of users and bots to available CPU cycles is too high.</li>
+</ul>
+
+<p>Steps to Solve:</p>
+
+<ul>
+<li>Run the server on a computer with more and/or faster CPU cores. Scalatron will use as many cores as you can provide.</li>
+<li>Ask users to write better-behaved bots - they should not spawn mini-bots with abandon.</li>
+<li>Spread your users across two servers, using one as a testing server (for frequent compilations) and
+one as a tournament server (for competitive runs of debugged bots).</li>
+<li>Provide more memory to the Scalatron server (see tips for &ldquo;Server hangs intermittently&rdquo;).</li>
+<li>Throttle the simulation using the <code>-maxfps</code> command line option, e.g. using `maxfps 20'.
+This will keep the simulator from eating up all available CPU cycles.</li>
+</ul>
+
+<h2 id = "Problems_Using_The_Browser_Client">Problems Using The Browser Client</h2>
+
+<p>The following browser/platform combinations should work:</p>
+
+<ul>
+<li>Firefox 12.0 on Windows XP</li>
+<li>Firefox 12.0 on MacOS 10.6.8</li>
+<li>Safari 5.1.5 on MacOS 10.6.8</li>
+</ul>
+
+<p>The following browser/platform combinations are known not to work:</p>
+
+<ul>
+<li>Internet Explorer 8 on Windows XP</li>
+<li>Internet Explorer 7 on Windows XP</li>
+<li>Firefox 2.0.0.11 on Windows XP</li>
+</ul>
+    </section>
+</div>
+
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+    <footer class="inner">
+        <p class="copyright">Scalatron maintained by <a href="https://github.com/scalatron">scalatron</a></p>
+    </footer>
+</div>
+
+</body>
+</html>

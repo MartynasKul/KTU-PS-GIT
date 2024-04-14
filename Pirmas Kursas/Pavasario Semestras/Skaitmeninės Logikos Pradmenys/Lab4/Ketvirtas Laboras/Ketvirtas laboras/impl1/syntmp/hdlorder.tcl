@@ -1,0 +1,2 @@
+set_option -top_module work.TOP_CNT
+project -fileorder "C:/lscc/diamond/3.12/cae_library/synthesis/vhdl/xp2.vhd" "C:/Users/markul4/Desktop/4laboras/cntr23.vhd" "C:/Users/markul4/Desktop/4laboras/cntr167.vhd" "C:/Users/markul4/Desktop/4laboras/top_cntr.vhd" 

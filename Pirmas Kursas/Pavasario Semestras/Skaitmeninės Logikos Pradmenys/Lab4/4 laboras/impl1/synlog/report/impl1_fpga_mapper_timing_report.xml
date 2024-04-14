@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+Max Top 5 critical clocks will be reported. For rest user needs to refer to Detailed report
+*******************************************************************************************-->
+<report_table display_priority="2" name="Timing Summary">
+<report_link name="Detailed report">
+<data>E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synlog\impl1_fpga_mapper.srr</data>
+<title>START OF TIMING REPORT</title>
+</report_link>
+<row>
+<data tcl_name="clock_name">Clock Name</data>
+<data tcl_name="req_freq">Req Freq</data>
+<data tcl_name="est_freq">Est Freq</data>
+<data tcl_name="slack">Slack</data>
+</row>
+<row>
+<data>CNT19|CNT_C_derived_clock</data>
+<data>273.5 MHz</data>
+<data>435.7 MHz</data>
+<data>2.294</data>
+</row>
+<row>
+<data>TOP_CNT|CLK_I</data>
+<data>273.5 MHz</data>
+<data>232.5 MHz</data>
+<data>-0.645</data>
+</row>
+<row>
+<data>System</data>
+<data>257.5 MHz</data>
+<data>218.9 MHz</data>
+<data>-0.685</data>
+</row>
+</report_table>

@@ -1,0 +1,45 @@
+Rezultatai
+Aptvarkyta 37 duomenu
+----------------------------------------------------------------------------------------------------------------------------------
+| Make                                | Model                               | Year  | Plate  | Powerkw    | Result               | 
+----------------------------------------------------------------------------------------------------------------------------------
+|                               Acura |                                  RL |  2012 | 470FPJ |         63 |           AcRL124763 |
+|                             Bentley |                      Continental GT |  2009 | 084FDI |        851 |          BeCo0908851 |
+|                               Buick |                         Park Avenue |  2001 | 125UXY |        851 |          BuPa0112851 |
+|                            Cadillac |                        Escalade EXT |  2012 | 447IDL |        663 |          CaEs1244663 |
+|                           Chevrolet |                                 SSR |  2005 | 185BGV |        898 |          ChSS0518898 |
+|                           Chevrolet |                              Cobalt |  2010 | 675TDL |        955 |          ChCo1067955 |
+|                            Chrysler |                           Crossfire |  2008 | 554LGS |        866 |          ChCr0855866 |
+|                                Ford |                              Fusion |  2006 | 042WBE |        618 |          FoFu0604618 |
+|                                Ford |                                E250 |  2005 | 006HWA |        663 |          FoE20500663 |
+|                                Ford |                          Expedition |  2009 | 632UOJ |        563 |          FoEx0963563 |
+|                                 GMC |                               Jimmy |  1999 | 810FJB |        803 |          GMJi9981803 |
+|                                 GMC |                              Canyon |  2005 | 545LIA |        845 |          GMCa0554845 |
+|                                 GMC |                       Yukon XL 1500 |  2010 | 441CRU |        758 |          GMYu1044758 |
+|                                 GMC |                               Envoy |  1998 | 644DEZ |        295 |          GMEn9864295 |
+|                              Hummer |                                  H1 |  2004 | 090ESK |         49 |           HuH1040949 |
+|                            Infiniti |                                QX56 |  2009 | 168IPW |        790 |          InQX0916790 |
+|                            Infiniti |                                 G37 |  2010 | 016DET |        124 |          InG31001124 |
+|                              Jaguar |                              S-Type |  2004 | 688QYY |        104 |          JaS-0468104 |
+|                              Jaguar |                           XJ Series |  1998 | 600LWC |        792 |          JaXJ9860792 |
+|                                 Kia |                              Carens |  2009 | 058ZWY |        731 |          KiCa0905731 |
+|                               Lotus |                              Esprit |  1998 | 431HFZ |        801 |          LoEs9843801 |
+|                                MINI |                   Cooper Countryman |  2011 | 998RAU |        543 |          MICo1199543 |
+|                             Maybach |                                  62 |  2006 | 202BIU |        458 |          Ma620620458 |
+|                               Mazda |                              Mazda3 |  2012 | 500MLJ |        668 |          MaMa1250668 |
+|                       Mercedes-Benz |                            CL-Class |  2001 | 773FWJ |        504 |          MeCL0177504 |
+|                          Mitsubishi |                                 RVR |  1994 | 475GIM |         34 |           MiRV944734 |
+|                              Nissan |                               200SX |  1997 | 628YIL |        931 |          Ni209762931 |
+|                          Oldsmobile |                          Silhouette |  2003 | 843EAA |        208 |          OlSi0384208 |
+|                             Porsche |                                 911 |  2013 | 540DCA |        548 |          Po911354548 |
+|                         Rolls-Royce |                             Phantom |  2013 | 734EGO |        932 |          RoPh1373932 |
+|                              Saturn |                            S-Series |  2002 | 082AMU |        719 |          SaS-0208719 |
+|                                Seat |                                Leon |  2009 | MDY048 |        125 |          SeLe09MD125 |
+|                              Subaru |                              Legacy |  2004 | 185ZLA |        853 |          SuLe0418853 |
+|                              Toyota |                                RAV4 |  2005 | 106EZN |        988 |          ToRA0510988 |
+|                              Toyota |                Prius Plug-in Hybrid |  2012 | 934SPN |        785 |          ToPr1293785 |
+|                               Volvo |                                 S70 |  1998 | 813IAA |        434 |          VoS79881434 |
+|                               Volvo |                                XC90 |  2009 | 184DHN |        747 |          VoXC0918747 |
+----------------------------------------------------------------------------------------------------------------------------------
+Sum of Years: 74210
+Sum of Power: 22560

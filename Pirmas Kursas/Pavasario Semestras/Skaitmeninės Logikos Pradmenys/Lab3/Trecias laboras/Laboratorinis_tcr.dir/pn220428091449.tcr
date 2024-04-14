@@ -1,0 +1,7 @@
+#Start recording tcl command: 4/28/2022 09:03:50
+#Project Location: E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras; Project name: Laboratorinis
+prj_project open "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/Laboratorinis.ldf"
+prj_run Synthesis -impl impl1
+prj_run Translate -impl impl1
+prj_src add "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/asd/asd.spf"
+#Stop recording: 4/28/2022 09:14:49

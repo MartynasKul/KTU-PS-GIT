@@ -1,0 +1,44 @@
+
+Copyright (C) 1994-2020 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: Q-2020.03L-SP1
+Install: C:\lscc\diamond\3.12\synpbase
+OS: Windows 6.2
+
+Hostname: MARTYNOPC
+
+Implementation : impl1
+Synopsys HDL compiler and linker, Version comp202003synp2, Build 182R, Built Oct 29 2020 10:49:53, @
+
+Modified Files: 11
+FID:  path (prevtimestamp, timestamp)
+2        C:\lscc\diamond\3.12\synpbase\lib\lucent\xp2.vhd (2021-08-10 10:11:08, 2020-10-29 10:20:54)
+3        C:\lscc\diamond\3.12\synpbase\lib\vhd\arith.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+4        C:\lscc\diamond\3.12\synpbase\lib\vhd\hyperents.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+5        C:\lscc\diamond\3.12\synpbase\lib\vhd\location.map (2021-08-10 10:07:02, 2020-11-02 17:26:20)
+6        C:\lscc\diamond\3.12\synpbase\lib\vhd\numeric.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+7        C:\lscc\diamond\3.12\synpbase\lib\vhd\snps_haps_pkg.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+8        C:\lscc\diamond\3.12\synpbase\lib\vhd\std.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+9        C:\lscc\diamond\3.12\synpbase\lib\vhd\std1164.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+10       C:\lscc\diamond\3.12\synpbase\lib\vhd\umr_capim.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+11       C:\lscc\diamond\3.12\synpbase\lib\vhd\unsigned.vhd (2021-08-10 10:07:02, 2020-10-29 10:23:10)
+12       E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd (2022-03-24 10:19:16, 2022-03-30 22:45:26)
+
+*******************************************************************
+Modules that may have changed as a result of file changes: 1
+MID:  lib.cell.view
+0        work.schema.schematic may have changed because the following files changed:
+                        E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd (2022-03-24 10:19:16, 2022-03-30 22:45:26) <-- (architecture and entity definition)
+
+*******************************************************************
+Unmodified files: 1
+FID:  path (timestamp)
+1        C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd (2018-11-15 00:32:16)
+
+*******************************************************************
+Unchanged modules: 0
+MID:  lib.cell.view

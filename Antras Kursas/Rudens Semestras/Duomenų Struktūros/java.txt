@@ -1,0 +1,192 @@
+public class Konstravimas{
+    static void cout(Object... pars){
+        for(var p: pars) {if(p instanceof Number) cout(" "); System.out.print(p.toString());}}
+    
+    static void solidRect(int h, int w, char fillSym){
+        for(int i = 0; i<h; i++){
+            for(int j = 0; j<w; j++)
+                System.out.print(fillSym);
+            System.out.println();
+        }
+        System.out.println();
+    }
+   
+    static void hollowRect(int h, int w, char fillSym, char empty){
+        for(int i = 0; i<h; i++){
+            for(int j = 0; j<w; j++)
+                System.out.print(i==0 || i==h-1 || j==0 || j==w-1? fillSym: empty);
+            System.out.println();
+        }  
+        System.out.println();
+    }
+    static void pir1(int h, char fillSym, char empty){
+        System.out.println("==== height = " + h);
+        int w = h * 2 - 1;
+        for(int i = 0; i<h; i++){
+            for(int j = 0; j<w; j++)
+                System.out.print(j>h-i-2 && j<h+i? fillSym: empty);
+            System.out.println();
+        }    
+        System.out.println();
+    }
+    
+    
+    static void pirNum(int h, char base){
+        int w = h * 2 - 1;
+        for(int i = 0; i<h; i++){
+            char fillSym = (char)(base+i); 
+            for(int j = 0; j<w; j++)
+                System.out.print(j>h-i-2 && j<h+i? fillSym: ' ');
+            System.out.println();
+        }    
+    }
+    static void demo0(){
+        solidRect(4, 9, '*');
+        hollowRect(6, 9, 'X', ' ');
+        hollowRect(3, 15, '\u2663', '\u2591');
+    }
+    static void demo1(){
+        pir1( 5, '*', '.');
+        pir1(15, 'A', '.');
+        pir1(11, '\u263b', ' ');
+    }
+    static void demo2(){
+        pirNum(17, '0');
+        pirNum(28, 'A');
+        pirNum(12, '\u2654');
+    }
+    
+    
+     // Marcio pridaryti figurenai
+    
+    static void rightTri(int h, char fillSym, char empty)
+    {
+        System.out.println("Marcio trikampis 1 ");
+        
+        int w = h;
+        
+        for(int i = 0; i<h; i++)
+        { 
+            for(int j = 0; j<i; j++)
+            {
+                System.out.print(fillSym);
+            }
+            System.out.println();
+        } 
+    }
+    static void rightTriUD(int h, char fillSym, char empty)
+    {
+        System.out.println("Marcio trikampis 2 ");
+        
+        int w = h;
+        
+        for(int i = 0; i<h; i++)
+        { 
+            for(int j = w-i; j>0; j--)
+            {
+                System.out.print(fillSym);
+            }
+            System.out.println();
+        } 
+    }
+    
+    static void leftTri(int h, char fillSym, char empty)
+    {
+        System.out.println("Marcio trikampis 3 ");
+        
+        int w = h;
+        
+        for(int i = 0; i<h; i++)
+        { 
+            String s = Character.toString(empty);
+           
+            s = s.repeat(i);
+            System.out.print(s);
+            for(int j = w-i; j>0; j--)
+            {
+                System.out.print( fillSym);
+            }
+            System.out.println();
+        } 
+    }
+    
+    static void leftTriUD(int h, char fillSym, char empty)
+    {
+        System.out.println("Marcio trikampis 4 ");
+        
+        int w = h;
+        
+        for(int i = h; i>0; i--)
+        { 
+            String s = Character.toString(empty);
+           
+            s = s.repeat(i);
+            System.out.print(s);
+            for(int j = 0; j<w; j++)
+            {
+                System.out.print( fillSym);
+            }
+            System.out.println();
+        } 
+    }
+    
+    
+    static void Rombas1(int h, char fillSym, char empty)
+    {
+        System.out.println("Marcio Rombas 1 ");
+        
+        int w = h;
+        
+        for(int i = h; i>0; i--)
+        { 
+            String s = Character.toString(empty);
+           
+            s = s.repeat(i);
+            System.out.print(s);
+            for(int j = 0; j<w; j++)
+            {
+                System.out.print( fillSym);
+            }
+            System.out.println();
+        } 
+    }
+    
+    
+    
+    
+    
+    public static void main(String[] arg){
+       
+        rightTri(16, 'L', '.');
+        cout("\n");
+        rightTriUD(16, 'L', '.');
+        cout("\n");
+        leftTri(16,'L', ' ');
+        cout("\n");
+        leftTriUD(16,'L', ' ');
+        cout("\n");
+        Rombas1(16, 'L', '.');
+        
+        
+        
+        
+        
+        
+         //int[] a={45, 23, 77};
+        //cout("Labas",11923, 1001, 195.23, 7.0/3, "\n");
+        //cout("\n");
+        //cout(a);
+        //cout("\n");
+        //demo0();
+        //cout("\n");
+        //demo1();  
+        //cout("\n");
+        //demo2();
+        //
+        //cout("\n");
+        //
+       //hollowRect(5,6, '*', 'a');
+
+        
+    }
+}

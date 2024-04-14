@@ -1,0 +1,27 @@
+----------------------------------------------------------------------
+Report for cell KLASIKA.schematic
+
+Register bits: 0 of 4752 (0%)
+PIC Latch:       0
+I/O cells:       9
+                                          Cell usage:
+                               cell       count    Res Usage(%)
+                               AND3       26       100.0
+                               AND4        4       100.0
+                                GSR        1       100.0
+                                 IB        6       100.0
+                                INV       16       100.0
+                              MUX41        1       100.0
+                                ND2        1       100.0
+                                ND3       18       100.0
+                                ND4        1       100.0
+                                 OB        3       100.0
+                                OR2        1       100.0
+                                OR3        5       100.0
+                                OR4        2       100.0
+                                OR5        1       100.0
+                                PUR        1       100.0
+                                VHI        1       100.0
+                                VLO        1       100.0
+                            
+                         TOTAL            89           

@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe  -link  -multisrs  "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_comp.srs"  -osyn  "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_mult.srs"  -log  "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synlog\impl1_multi_srs_gen.srr" 
+relcom:C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe -link -multisrs "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_comp.srs" -osyn "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\impl1_mult.srs" -log "E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synlog\impl1_multi_srs_gen.srr"
+rc:0 success:1 runtime:2
+file:..\synwork\impl1_comp.srs|io:i|time:1653319940|size:5865|exec:0|csum:B95B7EAB4231502B302EEC05AC8EED17
+file:..\synwork\impl1_mult.srs|io:o|time:1653319946|size:2765|exec:0|csum:
+file:..\synlog\impl1_multi_srs_gen.srr|io:o|time:1653319946|size:1369|exec:0|csum:
+file:C:\lscc\diamond\3.12\synpbase\bin64\syn_nfilter.exe|io:i|time:1603955922|size:8875008|exec:1|csum:43373AFF0ED6BCEB26CB4B4947B972DD

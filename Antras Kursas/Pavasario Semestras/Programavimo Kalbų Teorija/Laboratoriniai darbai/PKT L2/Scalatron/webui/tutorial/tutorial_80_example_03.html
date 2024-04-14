@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scalatron Tutorial" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./tutorial.css">
+
+    <title>Example Bot #3 - The Debug Status Logger</title>
+
+    <!-- the following code snippets activates Google Analytics, which allows me to understand which parts of
+         the tutorial are being used and how the tutorial could be improved.
+         Thanks for your support. -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31522898-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+<body>
+<p><div id='TutorialDocumentData' data-prev='/tutorial/tutorial&#95;80&#95;example&#95;02.html' data-next='/tutorial/tutorial&#95;90&#95;cheatsheet&#95;00&#95;string.html' /></p>
+
+<h1 id = "Example_Bot__3:_The_Debug_Status_Logger">Example Bot #3: The Debug Status Logger</h1>
+
+<p>The &ldquo;Debug Status Logger&rdquo; illustrates how to use the <code>Log()</code> command to store debug information
+in the state parameters of your bot. This state information can be inspected in the debugger
+while the bot is running in a sandbox.</p>
+
+<h2 id = "Try_It_Out">Try It Out</h2>
+
+<p>To try it out, click <button class="LoadCodeButton" style="visibility: hidden;" data-url="/tutorial/tutorial&#95;80&#95;example&#95;03&#95;bot.scala">Load into Editor</button>
+to load the code into the editor. Then click the button above the editor labeled
+<strong>Run in Sandbox</strong>. This will upload your bot code to the server, build it there into your
+local workspace and then launch a private, sandboxed game on the server that contains just
+your bot.</p>
+
+<p>If your bot compiled without errors, a panel will slide out on the right that lets you inspect
+the state of the sandboxed game. Click <strong>Run</strong> in the toolbar of that panel to begin stepping
+through the simulation.</p>
+
+<p>As the simulation progresses, you will see the debug output of your master bot in the
+area labeled <strong>Log</strong> at the bottom.</p>
+</body>
+</html>

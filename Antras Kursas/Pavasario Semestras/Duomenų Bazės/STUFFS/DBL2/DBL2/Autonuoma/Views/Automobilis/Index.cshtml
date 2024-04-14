@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Org.Ktu.Isk.P175B602.Autonuoma.Models.Automobilis.AutomobilisL>
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Automobiliai"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+	<span class="actions">
+		<a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Sukurti naują</a>
+	</span>
+</div>
+
+@* content itself *@
+<div class="main-content-lst">
+	<table class="entity-list">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(m => m.id)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Marke)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Modelis)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.PagaminimoData)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.valstybinisNr)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Rida)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Radijas)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Grotuvas)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Kondicionierius)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.RegistravimoData)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.Verte)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.VIN)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.KuroTipas)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.PavaruDeze)
+				</th>
+				<th>
+					@Html.DisplayNameFor(m => m.KebuloTipas)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model) {
+			<tr>
+				<td>
+					@Html.DisplayFor(m => item.id)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Marke)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Modelis)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.PagaminimoData)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.valstybinisNr)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Rida)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Radijas)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Grotuvas)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Kondicionierius)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.RegistravimoData)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.Verte)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.VIN)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.KuroTipas)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.PavaruDeze)
+				</td>
+				<td>
+					@Html.DisplayFor(m => item.KebuloTipas)
+				</td>
+				<td>
+					<a href="@Url.Action("Edit", new { id = item.id })" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Redaguoti</a>
+					<a href="@Url.Action("Delete", new { id = item.id })" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Šalinti</a>
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</div>

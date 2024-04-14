@@ -1,0 +1,85 @@
+﻿@model Org.Ktu.Isk.P175B602.Autonuoma.Models.ServicesReport.Report
+
+@* this will also be used as page title in main layout *@
+@{ ViewData["title"] = "Paslaugų atskaita"; }
+
+@* content header *@
+<div class="main-content-header">
+	<span class="title">@ViewData["title"]</span>
+</div>
+
+@* content itself *@
+<div class="main-content-rep">
+@using( Html.BeginForm(FormMethod.Get, new { @class="rep" }) )
+{
+	<p><strong>Parengta:</strong> @String.Format("{0:yyyy-MM-dd HH:mm}", DateTime.Now)</p>
+
+	@* filter section *@
+	<div class="filter">
+		<div class="fields">
+			<div class="field">
+				<label>Sutartys nuo:</label>
+				@Html.TextBoxFor(m => m.DateFrom, "{0:yyyy-MM-dd}", new { @class = "date-picker" })
+			</div>
+
+			<div class="field">
+				<label>Sutartys iki:</label>
+				@Html.TextBoxFor(m => m.DateTo, "{0:yyyy-MM-dd}", new { @class = "date-picker" })
+			</div>
+		</div>
+
+		<div class="buttons">
+			<button class="btn btn-success"><i class="fa-solid fa-filter"></i> Atrinkti</button>
+		</div>
+	</div>
+
+	@* report data *@
+	<table class="report">
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(m => m.Paslaugos[0].Id)</th>
+				<th>@Html.DisplayNameFor(m => m.Paslaugos[0].Pavadinimas)</th>
+				<th>@Html.DisplayNameFor(m => m.Paslaugos[0].Kiekis)</th>
+				<th>@Html.DisplayNameFor(m => m.Paslaugos[0].Suma)</th>
+			</tr>
+		</thead>
+		<tbody>			
+			@if( Model.Paslaugos.Count == 0 ) 
+			{
+				@* no data message *@
+				<tr class="no-data-msg">
+					<td colspan="4" align="center">Nurodytame laikotarpyje nebuvo užsakytų paslaugų</td>
+				</tr>
+			}
+			else
+			{
+				@* data rows *@
+				@for (int i = 0; i < Model.Paslaugos.Count; i++)
+				{
+					<tr>
+						<td>@Model.Paslaugos[i].Id</td>
+						<td>@Model.Paslaugos[i].Pavadinimas</td>
+						<td>@Model.Paslaugos[i].Kiekis</td>
+						<td>@Model.Paslaugos[i].Suma</td>
+					</tr>
+				}
+
+				@* grand total *@
+				<tr class="grand-total-header">
+					<td colspan="4" align="center"><b>Viso</b></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"></td>
+					<td>
+						@Html.DisplayFor(m => Model.VisoUzsakyta)
+					</td>
+					<td>
+						@Html.DisplayFor(m => Model.BendraSuma)
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+</div>

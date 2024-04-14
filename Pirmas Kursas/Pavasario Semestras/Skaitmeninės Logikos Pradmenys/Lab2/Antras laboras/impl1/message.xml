@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="Synplify_Synthesis">
+        <Message>
+            <ID>2011000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd&quot;:24:10:24:12|Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd</Navigation>
+            <Navigation>24</Navigation>
+            <Navigation>10</Navigation>
+            <Navigation>24</Navigation>
+            <Navigation>12</Navigation>
+            <Navigation>Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>CD638 :&quot;E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd&quot;:25:10:25:12|Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.</Dynamic>
+            <Navigation>CD638</Navigation>
+            <Navigation>E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd</Navigation>
+            <Navigation>25</Navigation>
+            <Navigation>10</Navigation>
+            <Navigation>25</Navigation>
+            <Navigation>12</Navigation>
+            <Navigation>Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>MT246 :&quot;e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\antras laboras\impl1\schema.vhd&quot;:131:3:131:4|Blackbox ND2 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)</Dynamic>
+            <Navigation>MT246</Navigation>
+            <Navigation>e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\antras laboras\impl1\schema.vhd</Navigation>
+            <Navigation>131</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>131</Navigation>
+            <Navigation>4</Navigation>
+            <Navigation>Blackbox ND2 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)</Navigation>
+        </Message>
+        <Message>
+            <ID>2019991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>MT246 :&quot;e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\antras laboras\impl1\schema.vhd&quot;:109:3:109:4|Blackbox ND3 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)</Dynamic>
+            <Navigation>MT246</Navigation>
+            <Navigation>e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\antras laboras\impl1\schema.vhd</Navigation>
+            <Navigation>109</Navigation>
+            <Navigation>3</Navigation>
+            <Navigation>109</Navigation>
+            <Navigation>4</Navigation>
+            <Navigation>Blackbox ND3 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results)</Navigation>
+        </Message>
+    </Task>
+</BaliMessageLog>

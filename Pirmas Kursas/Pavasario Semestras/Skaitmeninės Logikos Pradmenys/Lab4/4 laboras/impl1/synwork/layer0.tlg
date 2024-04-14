@@ -1,0 +1,28 @@
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":5:7:5:13|Synthesizing work.top_cnt.struct.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\JM2.vhd":16:7:16:7|Signal c is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":5:7:5:12|Synthesizing work.cnt136.rtl.
+Post processing for work.cnt136.rtl
+Running optimization stage 1 on CNT136 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":20:2:20:3|Feedback mux created for signal CNT_A[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr136.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":5:7:5:11|Synthesizing work.cnt49.rtl.
+Post processing for work.cnt49.rtl
+Running optimization stage 1 on CNT49 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":20:2:20:3|Feedback mux created for signal CNT_A[5:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr49.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":5:7:5:11|Synthesizing work.cnt19.rtl.
+Post processing for work.cnt19.rtl
+Running optimization stage 1 on CNT19 .......
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":20:2:20:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\cntr19.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+Post processing for work.top_cnt.struct
+Running optimization stage 1 on TOP_CNT .......
+Running optimization stage 2 on CNT19 .......
+Running optimization stage 2 on CNT49 .......
+Running optimization stage 2 on CNT136 .......
+Running optimization stage 2 on TOP_CNT .......
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Lab4\4 laboras\impl1\synwork\layer0.rt.csv
+

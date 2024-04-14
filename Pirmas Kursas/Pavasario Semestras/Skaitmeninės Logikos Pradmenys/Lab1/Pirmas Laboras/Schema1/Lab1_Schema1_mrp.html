@@ -1,0 +1,254 @@
+<HTML>
+<HEAD><TITLE>Project Summary</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="Mrp"></A>
+           Lattice Mapping Report File for Design Module 'KLASIKA'
+
+
+
+<A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
+
+Command line:   map -a LatticeXP2 -p LFXP2-5E -t TQFP144 -s 6 -oc Commercial
+     Lab1_Schema1.ngd -o Lab1_Schema1_map.ncd -pr Lab1_Schema1.prf -mp
+     Lab1_Schema1.mrp -lpf E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine
+     Logika/Pirmas Laboras/Schema1/Lab1_Schema1_synplify.lpf -lpf E:/KTU PIRMI
+     METAI/Pavasario semestras/Skaitmenine Logika/Pirmas Laboras/Lab1.lpf -gui
+     -msgset E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Pirmas
+     Laboras/promote.xml 
+Target Vendor:  LATTICE
+Target Device:  LFXP2-5ETQFP144
+Target Performance:   6
+Mapper:  mg5a00,  version:  Diamond (64-bit) 3.12.0.240.2
+Mapped on:  02/17/22  09:43:06
+
+
+<A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
+   Number of registers:      0 out of  3864 (0%)
+      PFU registers:            0 out of  3564 (0%)
+      PIO registers:            0 out of   300 (0%)
+   Number of SLICEs:         9 out of  2376 (0%)
+      SLICEs as Logic/ROM:      9 out of  2376 (0%)
+      SLICEs as RAM:            0 out of   405 (0%)
+      SLICEs as Carry:          0 out of  2376 (0%)
+   Number of LUT4s:         14 out of  4752 (0%)
+      Number used as logic LUTs:         14
+      Number used as distributed RAM:     0
+      Number used as ripple logic:        0
+      Number used as shift registers:     0
+   Number of PIO sites used: 7 out of 100 (7%)
+   Number of PIO FIXEDDELAY:    0
+   Number of DQSDLLs:  0 out of 2 (0%)
+   Number of PLLs:  0 out of 2 (0%)
+   Number of block RAMs:  0 out of 9 (0%)
+   Number of CLKDIVs:  0 out of 2 (0%)
+   Number of GSRs:  0 out of 1 (0%)
+   JTAG used :      No
+   Readback used :  No
+   Oscillator used :  No
+   Startup used :   No
+   Notes:-
+      1. Total number of LUT4s = (Number of logic LUT4s) + 2*(Number of
+     distributed RAMs) + 2*(Number of ripple logic)
+      2. Number of logic LUT4s does not include count of distributed RAM and
+     ripple logic.
+
+        Number Of Mapped DSP Components:
+   --------------------------------
+   MULT36X36B          0
+   MULT18X18B          0
+   MULT18X18MACB       0
+   MULT18X18ADDSUBB    0
+   MULT18X18ADDSUBSUMB 0
+   MULT9X9B            0
+   MULT9X9ADDSUBB      0
+   MULT9X9ADDSUBSUMB   0
+
+   --------------------------------
+   Number of Used DSP Sites:  0 out of 24 (0 %)
+   Number of clocks:  0
+   Number of Clock Enables:  0
+   Number of LSRs:  0
+   Number of nets driven by tri-state buffers:  0
+   Top 10 highest fanout non-clock nets:
+     Net X3_c: 7 loads
+     Net X4_c: 6 loads
+     Net X1_c: 5 loads
+     Net X2_c: 4 loads
+     Net X5_c: 4 loads
+     Net X6_c: 4 loads
+     Net isv_c: 1 loads
+     Net N_18: 1 loads
+     Net N_21: 1 loads
+     Net N_22: 1 loads
+
+
+
+
+   Number of warnings:  0
+   Number of errors:    0
+     
+
+
+
+
+<A name="mrp_dwe"></A><B><U><big>Design Errors/Warnings</big></U></B>
+
+   No errors or warnings present.
+
+
+
+<A name="mrp_ioa"></A><B><U><big>IO (PIO) Attributes</big></U></B>
+
++---------------------+-----------+-----------+------------+------------+
+| IO Name             | Direction | Levelmode | IO         | FIXEDDELAY |
+|                     |           |  IO_TYPE  | Register   |            |
++---------------------+-----------+-----------+------------+------------+
+| isv                 | OUTPUT    | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+| X6                  | INPUT     | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+| X1                  | INPUT     | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+| X2                  | INPUT     | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+| X3                  | INPUT     | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+| X4                  | INPUT     | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+| X5                  | INPUT     | LVCMOS25  |            |            |
++---------------------+-----------+-----------+------------+------------+
+
+
+
+<A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
+
+Block I5 undriven or does not drive anything - clipped.
+
+Block I39 undriven or does not drive anything - clipped.
+Block I40 undriven or does not drive anything - clipped.
+Block I41 undriven or does not drive anything - clipped.
+Block I22 undriven or does not drive anything - clipped.
+Block VCC undriven or does not drive anything - clipped.
+Block GSR_INST undriven or does not drive anything - clipped.
+Block GND undriven or does not drive anything - clipped.
+Signal N_10 was merged into signal X1_c
+Signal N_9 was merged into signal X5_c
+Signal N_8 was merged into signal X4_c
+Signal N_7 was merged into signal X3_c
+Signal N_6 was merged into signal X2_c
+Signal N_24 undriven or does not drive anything - clipped.
+Signal N_30 undriven or does not drive anything - clipped.
+Signal N_23 undriven or does not drive anything - clipped.
+Signal N_29 undriven or does not drive anything - clipped.
+Signal N_15 undriven or does not drive anything - clipped.
+Signal N_19 undriven or does not drive anything - clipped.
+Signal VCC undriven or does not drive anything - clipped.
+Block I21 was optimized away.
+Block I20 was optimized away.
+Block I19 was optimized away.
+Block I18 was optimized away.
+Block I17 was optimized away.
+Block I38 was optimized away.
+
+
+
+<A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
+-------------------------
+
+   Total CPU Time: 0 secs  
+   Total REAL Time: 0 secs  
+   Peak Memory Usage: 35 MB
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+     Copyright (c) 1995 AT&T Corp.   All rights reserved.
+     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+     Copyright (c) 2001 Agere Systems   All rights reserved.
+     Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights
+     reserved.
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

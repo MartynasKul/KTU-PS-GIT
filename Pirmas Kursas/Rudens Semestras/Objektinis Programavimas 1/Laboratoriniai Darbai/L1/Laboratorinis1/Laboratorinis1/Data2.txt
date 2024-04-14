@@ -1,0 +1,7 @@
+﻿Vilniaus MO muziejus;Vilnius;Muziejus;1;1;0;1;0;0;1;2.22;Neturi gido;
+Kauno Paveikslų galerija;Kaunas;Galerija;0;1;0;0;0;0;0;3.4;Neturi gido;
+Vilniaus Muziejus;Vilnius;Muziejus;0;0;1;0;0;1;1;8.62;Turi gidą;
+Vilniaus Karo Muziejus;Vilnius;Muziejus;1;1;0;0;1;1;0;3.2;Turi gidą;
+Kauno Karo Muziejus;Kaunas;Muziejus;1;0;1;0;1;0;0;3.7;Neturi gido;
+Kauno Miesto Muziejus;Kaunas;Muziejus;1;1;0;0;1;0;0;1.7;Turi gidą;
+Kauno Sakralinis Muziejus;Kaunas;Muziejus;1;1;1;0;1;1;1;5.09;Neturi gido;

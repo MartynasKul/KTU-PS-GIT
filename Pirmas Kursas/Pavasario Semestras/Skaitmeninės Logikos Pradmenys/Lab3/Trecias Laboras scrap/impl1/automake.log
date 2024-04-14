@@ -1,0 +1,43 @@
+
+edif2ngd  -l "LatticeXP2" -d LFXP2-5E -path "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias Laboras scrap/impl1" -path "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias Laboras scrap"   "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias Laboras scrap/impl1/Lab3_impl1.edi" "Lab3_impl1.ngo"   
+edif2ngd:  version Diamond (64-bit) 3.12.1.454
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
+Writing the design to Lab3_impl1.ngo...
+
+Total CPU Time: 0 secs  
+Total REAL Time: 0 secs  
+Peak Memory Usage: 10 MB
+
+
+ngdbuild  -a "LatticeXP2" -d LFXP2-5E  -p "C:/lscc/diamond/3.12/ispfpga/mg5a00/data"  -p "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias Laboras scrap/impl1" -p "E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias Laboras scrap"  "Lab3_impl1.ngo" "Lab3_impl1.ngd"  	
+ngdbuild:  version Diamond (64-bit) 3.12.1.454
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2020 Lattice Semiconductor Corporation,  All rights reserved.
+Reading 'Lab3_impl1.ngo' ...
+Loading NGL library 'C:/lscc/diamond/3.12/ispfpga/mg5a00/data/mg5alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.12/ispfpga/ep5a00/data/ep5alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.12/ispfpga/ep5g00/data/ep5glib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.12/ispfpga/or5g00/data/orc5glib.ngl'...
+
+
+Running DRC...
+
+DRC complete with no errors or warnings
+
+Design Results:
+     34 blocks expanded
+Complete the first expansion.
+Writing 'Lab3_impl1.ngd' ...
+Total CPU Time: 0 secs 
+Total REAL Time: 0 secs 
+Peak Memory Usage: 17 MB
+

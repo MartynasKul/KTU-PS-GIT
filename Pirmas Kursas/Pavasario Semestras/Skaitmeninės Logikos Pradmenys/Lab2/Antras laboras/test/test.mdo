@@ -1,0 +1,15 @@
+if {![file exists "C:/Users/markul4/Desktop/Antras laboras/test/test.mpf"]} { 
+	project new "C:/Users/markul4/Desktop/Antras laboras/test" test
+	project addfile "C:/Users/markul4/Desktop/Antras laboras/impl1/Schema.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "C:/Users/markul4/Desktop/Antras laboras/impl1/Schema.vhd"
+} else {
+	project open "C:/Users/markul4/Desktop/Antras laboras/test/test"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_xp2  SCHEMA
+view wave
+add wave /*
+run 1000ns

@@ -1,0 +1,54 @@
+m255
+K4
+z2
+!s11e vcom 2020.3 2020.10, Oct 14 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/lab
+Esch
+Z1 w1649921036
+Z2 DPx3 xp2 10 components 0 22 zeL]n]k`h]4OzW>IL1K2Y2
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z5 8E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/impl1/sch.vhd
+Z6 FE:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/impl1/sch.vhd
+l0
+L8 1
+VR]_[k8f51cg^RjP<Mo<XZ0
+!s100 ThUQc?1R7[UZi>kB8V>;F0
+Z7 OT;C;2020.3;71
+32
+Z8 !s110 1651129446
+!i10b 1
+Z9 !s108 1651129446.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/impl1/sch.vhd|
+Z11 !s107 E:/KTU PIRMI METAI/Pavasario semestras/Skaitmenine Logika/Trecias laboras/impl1/sch.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit -O0
+Z13 tExplicit 1 CvgOpt 0
+Aschematic
+R2
+R3
+R4
+DEx4 work 3 sch 0 22 R]_[k8f51cg^RjP<Mo<XZ0
+!i122 1
+l84
+L21 126
+VbQ>oa7P<3DCfT442ebBjz1
+!s100 eG`fIDQOziLDlOHNVaTC^0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13

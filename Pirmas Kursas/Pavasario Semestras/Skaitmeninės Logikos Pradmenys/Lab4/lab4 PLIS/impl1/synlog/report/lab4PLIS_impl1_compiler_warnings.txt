@@ -1,0 +1,3 @@
+@W: CL113 :"C:\Users\markul4\Desktop\lab4 PLIS\impl1\source\cntr19 FPGA.vhd":20:2:20:3|Feedback mux created for signal CNT_A[4:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\Users\markul4\Desktop\lab4 PLIS\impl1\source\cntr19 FPGA.vhd":20:2:20:3|Feedback mux created for signal CNT_C. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+

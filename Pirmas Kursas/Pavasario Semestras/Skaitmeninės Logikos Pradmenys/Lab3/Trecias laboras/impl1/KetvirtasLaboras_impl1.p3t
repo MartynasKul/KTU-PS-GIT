@@ -1,0 +1,5 @@
+-rem
+-distrce
+-log "KetvirtasLaboras_impl1.log"
+-o "KetvirtasLaboras_impl1.csv"
+-pr "KetvirtasLaboras_impl1.prf"

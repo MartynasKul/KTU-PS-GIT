@@ -1,0 +1,21 @@
+@N: CD630 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd":8:7:8:12|Synthesizing work.schema.schematic.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd":24:10:24:12|Signal gnd is undriven. Either assign the signal a value or remove the signal declaration.
+@W: CD638 :"E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\Schema.vhd":25:10:25:12|Signal vcc is undriven. Either assign the signal a value or remove the signal declaration.
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":913:10:913:12|Synthesizing work.inv.syn_black_box.
+Post processing for work.inv.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1315:10:1315:12|Synthesizing work.or2.syn_black_box.
+Post processing for work.or2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1544:10:1544:13|Synthesizing work.xor2.syn_black_box.
+Post processing for work.xor2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1135:10:1135:12|Synthesizing work.nd2.syn_black_box.
+Post processing for work.nd2.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.12\cae_library\synthesis\vhdl\xp2.vhd":1144:10:1144:12|Synthesizing work.nd3.syn_black_box.
+Post processing for work.nd3.syn_black_box
+Post processing for work.schema.schematic
+Running optimization stage 1 on SCHEMA .......
+Running optimization stage 2 on SCHEMA .......
+
+For a summary of runtime and memory usage per design unit, please see file:
+==========================================================
+@L: E:\KTU PIRMI METAI\Pavasario semestras\Skaitmenine Logika\Antras laboras\impl1\synwork\layer0.rt.csv
+

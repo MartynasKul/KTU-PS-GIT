@@ -1,0 +1,7 @@
+@N: MF916 |Option synthesis_strategy=base is enabled. 
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N: BN362 :"e:\ktu pirmi metai\pavasario semestras\skaitmenine logika\lab4\4 laboras\cntr136.vhd":20:2:20:3|Removing sequential instance CNT_C (in view: work.CNT136(rtl)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+@N: MF578 |Incompatible asynchronous control logic preventing generated clock conversion.
+@N: FX1184 |Applying syn_allowed_resources blockrams=12 on top level netlist TOP_CNT 
+@N: FX1143 |Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.

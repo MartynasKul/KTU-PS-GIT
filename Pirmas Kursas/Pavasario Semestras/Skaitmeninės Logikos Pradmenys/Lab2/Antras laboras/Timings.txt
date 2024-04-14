@@ -1,0 +1,21 @@
+restart –f
+force -freeze sim:/Lab2/rst 0 0, 1 {10 ps}
+force -freeze sim:/Lab2/x1 1 0, 0 {25 ps} -r 50
+force -freeze sim:/Lab2/x2 1 0, 0 {70 ps}
+force -freeze sim:/Lab2/x2 1 220, 0 {320 ps}
+force -freeze sim:/Lab2/x2 1 370
+force -freeze sim:/Lab2/x3 1 0, 0 {70 ps}
+force -freeze sim:/Lab2/x3 1 170, 0 {370 ps}
+force -freeze sim:/Lab2/x4 0 0, 1 {120 ps}
+force -freeze sim:/Lab2/x4 0 170, 1 {270 ps}
+force -freeze sim:/Lab2/x4 0 370
+run 400
+
+restart –f
+force -freeze sim:/......./x1 0 0, 1 {50 ps}  -r 100
+force -freeze sim:/......./rst 0 0, 1 {25 ps}  
+force -freeze sim:/......./x2 0 0, 1 125, 0 225, 1 425, 0 725
+force -freeze sim:/......./x3 0 0, 1 125, 0 325, 1 525 
+force -freeze sim:/......./x4 0 0, 1 325, 0 425, 1 625  
+
+run 400
