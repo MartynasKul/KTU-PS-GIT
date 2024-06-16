@@ -1,0 +1,9 @@
+﻿2024-06-14
+Jonaitis;Zemaitijos g.15 Siauliai;7;6;B456;8;
+Petraitis;Naujoji g.16 Alytus;8;4;C789;2;
+Kazlauskaite;Vilties g.17 Marijampole;9;5;A123;5;
+Lukauskas;Ukmerges g.18 Vilnius;10;3;B456;6;
+Grigaitis;Kestucio g.19 Kaunas;11;9;C789;7;
+Januskaite;Savanoriu pr.20 Vilnius;12;8;A123;1;
+Zukauskas;Taikos pr.21 Klaipeda;1;12;B456;9;
+Navickas;Kalvariju g.22 Vilnius;2;2;C789;3;

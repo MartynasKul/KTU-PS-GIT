@@ -1,0 +1,21 @@
+﻿body {
+    background-color:peachpuff;
+}
+
+table {
+    background-color: palegoldenrod;
+    border: 1px solid;
+}
+
+td {
+    padding: 2px;
+    border: 1px solid;
+}
+
+.MainLabelTop {
+    color: black;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    padding: 20px;
+}
+

@@ -1,0 +1,9 @@
+﻿2024-09-17
+Jankauskas;Basanavičiaus g.1 Vilnius;1;6;A123;10;
+Petraitytė;Gedimino pr.2 Kaunas;2;3;B456;8;
+Zemaitis;Neries krantinė 3 Kaunas;3;4;C789;7;
+Vaitkus;Trakų g.4 Vilnius;4;5;A123;6;
+Girdenis;Birštono g.5 Kaunas;5;2;B456;9;
+Šalkauskas;Nemuno g.6 Klaipeda;6;8;C789;5;
+Ragauskas;Laisvės pr.7 Vilnius;7;12;A123;4;
+Burokaitė;Šiaurės g.8 Panevezys;8;7;B456;3;

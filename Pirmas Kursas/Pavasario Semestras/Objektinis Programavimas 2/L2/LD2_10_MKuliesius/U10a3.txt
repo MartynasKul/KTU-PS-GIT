@@ -1,0 +1,8 @@
+﻿2024-04-01;Green Gary;A123;60
+2024-04-01;Green Gary;B456;20
+2024-04-01;Green Gary;C789;40
+2024-04-02;Green Gary;B456;25
+2024-04-02;Green Gary;A123;45
+2024-04-02;Green Gary;C789;30
+2024-04-03;Green Gary;A123;35
+2024-04-03;Green Gary;B456;30

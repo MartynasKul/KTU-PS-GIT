@@ -1,0 +1,3 @@
+﻿A123;Lietuvos Rytas;UAB Martonas;5.55;
+B456;Kauno Diena;KTU ZINIOS;2.69;
+C789;Klaipėdos diena; UAB Uostas; 8.89;

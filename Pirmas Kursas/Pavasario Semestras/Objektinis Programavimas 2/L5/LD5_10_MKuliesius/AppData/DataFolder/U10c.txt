@@ -1,0 +1,9 @@
+﻿2024-07-15
+Jasaitis;Daukanto g.23 Panevezys;3;6;A123;4;
+Tamasauskas;Liepų g.24 Siauliai;4;4;B456;5;
+Rakauskiene;Jonavos g.25 Jonava;5;3;C789;7;
+Matulionis;Sodų g.26 Palanga;6;8;A123;6;
+Sukackas;Šiaurės pr.27 Vilnius;7;12;B456;2;
+Pranskietis;Vilniaus g.28 Vilnius;8;2;C789;1;
+Kairys;Ateities g.29 Kaunas;9;5;A123;9;
+Butkevicius;Žirmūnų g.30 Vilnius;10;7;B456;3;

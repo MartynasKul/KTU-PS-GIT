@@ -1,0 +1,3 @@
+﻿A123;DetaleA;10.50
+B456;DetaleB;15.75
+C789;DetaleC;20.00
