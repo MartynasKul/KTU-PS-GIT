@@ -1,0 +1,9 @@
+﻿2024-08-16
+Kavaliauskas;Žirmūnų g.31 Vilnius;11;6;C789;8;
+Daukantas;Šermukšnių g.32 Kaunas;12;4;A123;5;
+Mickevicius;Birutės g.33 Klaipeda;1;9;B456;2;
+Kalanta;Ramunių g.34 Panevezys;2;12;C789;7;
+Sernas;Žalgirio g.35 Vilnius;3;5;A123;6;
+Petrosius;Pilies g.36 Kaunas;4;3;B456;4;
+Stankevičius;Pylimo g.37 Vilnius;5;7;C789;9;
+Arlauskas;Kęstučio g.38 Siauliai;6;8;A123;3;

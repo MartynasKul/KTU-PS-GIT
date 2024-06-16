@@ -1,0 +1,3 @@
+﻿AAA;DetaleA;10.50
+BBB;DetaleB;15.75
+CCC;DetaleC;20.00

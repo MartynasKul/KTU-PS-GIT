@@ -1,0 +1,9 @@
+﻿2024-10-18
+Pavilonis;Žalgirio g.9 Siauliai;9;6;C789;10;
+Kazlauskis;Liepų g.10 Marijampole;10;4;A123;8;
+Šidlauskas;Vilniaus g.11 Vilnius;11;5;B456;7;
+Dovydaitis;Vasario 16-osios g.12 Kaunas;12;3;C789;6;
+Paulauskas;Kęstučio g.13 Vilnius;1;8;A123;5;
+Banys;Vytauto pr.14 Kaunas;2;12;B456;9;
+Matelis;Savanorių pr.15 Vilnius;3;5;C789;4;
+Starkus;Kauno g.16 Klaipeda;4;7;A123;3;

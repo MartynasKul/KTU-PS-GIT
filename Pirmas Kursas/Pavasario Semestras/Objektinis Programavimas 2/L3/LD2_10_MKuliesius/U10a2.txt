@@ -1,0 +1,8 @@
+﻿2024-04-01;Brown Bob;A123;40
+2024-04-01;Brown Bob;B456;30
+2024-04-01;Brown Bob;C789;20
+2024-04-02;Brown Bob;A123;50
+2024-04-02;Brown Bob;C789;15
+2024-04-02;White Wendy;B456;35
+2024-04-03;White Wendy;A123;25
+2024-04-03;White Wendy;C789;30

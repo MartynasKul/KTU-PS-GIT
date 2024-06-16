@@ -1,0 +1,9 @@
+﻿2024-11-19
+Giedraitis;J. Basanavičiaus g.17 Vilnius;5;6;B456;10;
+Kvedaras;Alyvų g.18 Kaunas;6;4;C789;8;
+Lukėnas;Gėlių g.19 Panevezys;7;5;A123;7;
+Vasilauskas;Naujoji g.20 Klaipeda;8;3;B456;6;
+Dvareckas;Žemaitės g.21 Marijampole;9;8;C789;5;
+Paukštė;Tilto g.22 Siauliai;10;12;A123;4;
+Sakalauskas;Ateities g.23 Kaunas;11;2;B456;9;
+Žemkalnis;Kovo 11-osios g.24 Vilnius;12;7;C789;3;

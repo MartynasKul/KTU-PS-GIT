@@ -1,0 +1,9 @@
+﻿2024-12-20
+Ambrazevičius;Vilniaus g.25 Vilnius;1;6;A123;10;
+Grigonis;Kauno g.26 Kaunas;2;4;B456;8;
+Juodaitis;Jonavos g.27 Jonava;3;5;C789;7;
+Kairys;Ukmergės g.28 Vilnius;4;3;A123;6;
+Valickas;Ramunių g.29 Palanga;5;8;B456;5;
+Masiulis;Nemuno g.30 Klaipeda;6;12;C789;4;
+Baranauskas;Saulės g.31 Siauliai;7;2;A123;9;
+Šiaulys;Žemaitijos g.32 Siauliai;8;7;B456;3;
