@@ -1,0 +1,100 @@
+<div class="wrapper">
+	<div class="logo">
+	  <img src="assets/rvips-logo.png" alt="Logo"/>
+	  <h1>RVIPS namų puslapis</h1>
+	</div>
+	<div>
+	  
+	</div>
+	<div>
+	<h2>Naujausias rėmėjas</h2>
+	<table mat-table [dataSource]="sponsors"  class="space">
+		<ng-container matColumnDef="name">
+		  <th mat-header-cell *matHeaderCellDef>Pavadinimas</th>
+		  <td mat-cell *matCellDef="let sponsor">{{ sponsor.sponsorName }}</td>
+		</ng-container>
+	  
+		<ng-container matColumnDef="address">
+		  <th mat-header-cell *matHeaderCellDef>Adresas</th>
+		  <td mat-cell *matCellDef="let sponsor">{{ sponsor.address }}</td>
+		</ng-container>
+	  
+		<ng-container matColumnDef="email">
+		  <th mat-header-cell *matHeaderCellDef>El. pašto adresas</th>
+		  <td mat-cell *matCellDef="let sponsor">{{ sponsor.email }}</td>
+		</ng-container>
+	  
+		<ng-container matColumnDef="telephonenumber">
+		  <th mat-header-cell *matHeaderCellDef>Telefono numeris</th>
+		  <td mat-cell *matCellDef="let sponsor">{{ sponsor.telephoneNumber }}</td>
+		</ng-container>
+
+		<ng-container matColumnDef="description">
+			<th mat-header-cell *matHeaderCellDef>Aprašymas</th>
+			<td mat-cell *matCellDef="let sponsor"> {{ sponsor.description }} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="moreInfoButton">
+			<th mat-header-cell *matHeaderCellDef></th>
+			<td mat-cell *matCellDef="let sponsor"> <button class="add-button" mat-raised-button color="primary" routerLink="/business-info/{{sponsor.id}}"> Daugiau informacijos</button> </td>
+		  </ng-container> 
+		
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	  </table>
+	</div>
+	<div class="space">
+	  <h2>Naujausias gautas laiškas</h2>
+	  <table mat-table [dataSource]="receivedEmails">
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Gavimo data</th>
+          <td mat-cell *matCellDef="let email">{{ email.date | date:'YYYY-MM-dd, HH:mm:ss' }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="subject">
+          <th mat-header-cell *matHeaderCellDef>Tema</th>
+          <td mat-cell *matCellDef="let email">{{ email.subject }}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="fromName">
+          <th mat-header-cell *matHeaderCellDef>Nuo</th>
+          <td mat-cell *matCellDef="let email">{{ email.fromName }}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="fromEmail">
+          <th mat-header-cell *matHeaderCellDef>Siuntėjo el. pašto adresas</th>
+          <td mat-cell *matCellDef="let email">{{ email.fromEmail }}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsReceived"></tr>
+        <tr mat-row *matRowDef="let email; columns: displayedColumnsReceived;" (click)="openEmailReadModal(email)" [ngClass]="'emailR'"></tr>
+      </table>
+	</div>
+
+	<div>
+		<h2>Aktyvūs projektai, už kuriuos esu atsakingas</h2>
+	<table mat-table [dataSource]="activeProjects"  class="space">
+		<ng-container matColumnDef="title">
+		  <th mat-header-cell *matHeaderCellDef>Projekto pavadinimas</th>
+		  <td mat-cell *matCellDef="let project">{{ project.title }}</td>
+		</ng-container>
+	  
+		<ng-container matColumnDef="creationDate">
+		  <th mat-header-cell *matHeaderCellDef>Projekto pradžios data</th>
+		  <td mat-cell *matCellDef="let project">{{ project.creationDate | date:'YYYY-MM-dd' }}</td>
+		</ng-container>
+	  
+		<ng-container matColumnDef="endofprojectDate">
+		  <th mat-header-cell *matHeaderCellDef>Projekto pabaigos data</th>
+		  <td mat-cell *matCellDef="let project">{{ project.endofprojectDate | date:'YYYY-MM-dd' }}</td>
+		</ng-container>
+	  
+		<ng-container matColumnDef="daysLeft">
+		  <th mat-header-cell *matHeaderCellDef>Iki pabaigos liko</th>
+		  <td mat-cell *matCellDef="let project">{{ getDaysDifference(project.endofprojectDate) }} d.</td>
+		</ng-container>
+		
+		<tr mat-header-row *matHeaderRowDef="displayedColumnsActiveProjects"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumnsActiveProjects;"></tr>
+	  </table>
+	  </div>
+</div>

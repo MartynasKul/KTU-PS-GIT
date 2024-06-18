@@ -1,0 +1,41 @@
+<h2 class="space">Naujas laiškas</h2>
+<form [formGroup]="newEmailForm" (ngSubmit)="submitForm()" class="editor">
+    <div class="wrapper">
+      <h2 *ngIf="isError">Nutiko klaida, bandykit iš naujo</h2>
+    
+      <div *ngIf="newEmailForm?.get('receiverEmail')?.touched && newEmailForm?.get('receiverEmail')?.invalid">
+        <div *ngIf="newEmailForm?.get('receiverEmail')?.errors?.['required']">Gavėjo el. paštas yra privalomas.</div>
+        <div *ngIf="newEmailForm?.get('receiverEmail')?.errors?.['receiverEmail']">Neteisingas el. pašto adresas.</div>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Gavėjo el. pašto adresas</mat-label>
+        <input matInput placeholder="rvips@rvips.lt" type="text" id="receiverEmail" formControlName="receiverEmail" autocomplete="off" required />
+      </mat-form-field>
+
+      <div *ngIf="newEmailForm?.get('subject')?.touched && newEmailForm?.get('subject')?.invalid">
+        <div *ngIf="newEmailForm?.get('subject')?.errors?.['required']">Tema yra privaloma.</div>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Tema</mat-label>
+        <input matInput type="text" id="subject" formControlName="subject" required />
+      </mat-form-field>
+  
+      <div *ngIf="newEmailForm?.get('body')?.touched && newEmailForm?.get('body')?.invalid">
+        <div *ngIf="newEmailForm?.get('body')?.errors?.['required']">Žinutė yra privaloma.</div>
+      </div>
+      <div role="main">
+        <ckeditor
+          [editor]="Editor"
+          data="<p></p>"
+          (ready)="onReady($event)"
+          (change)="onChange($event)"
+          >
+        </ckeditor>
+      </div>
+    </div>
+
+    <div class="but">
+      <button mat-button (click)="close()">Atšaukti</button>
+      <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Siųsti</button>
+  </div>
+  </form>

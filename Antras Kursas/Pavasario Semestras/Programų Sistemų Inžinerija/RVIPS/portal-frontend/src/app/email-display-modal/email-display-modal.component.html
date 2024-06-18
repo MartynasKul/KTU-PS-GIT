@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <div class="info">
+        <div>
+            <div class="child titles">Siuntėjas:</div>
+            <div class="boxInfo child"><div class="box-small">{{displayEmail.from}}</div></div>
+        </div>
+
+        <div>
+            <div class="child titles">Gavėjas:</div>
+            <div class="boxInfo child"><div class="box-small">{{displayEmail.to}}</div></div>
+        </div>
+
+        <div>
+            <div class="child titles">Data:</div>
+            <div class="boxInfo child"><div class="box-small">{{displayEmail.date | date:'YYYY-MM-dd HH:mm:ss'}}</div></div>
+        </div>
+
+        <div>
+            <div class="child titles">Tema:</div>
+            <div class="boxInfo child"><div class="box-small">{{displayEmail.subject}}</div></div>
+        </div>
+    </div>
+
+    <div class="boxLetter">
+        <div [innerHTML]="htmlContent" class="box"></div>
+    </div>
+</div>

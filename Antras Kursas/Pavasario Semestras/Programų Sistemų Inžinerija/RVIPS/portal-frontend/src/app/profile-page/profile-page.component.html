@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <div class="logo">
+        <img src="assets/rvips-logo.png" alt="Logo"/>
+        <h1>Jūsų Profilis</h1>
+    </div>
+    <div>
+        <table class="tableX">
+            <tr >
+                <th class="left_side"> Organizacija:   </th>   
+                <th class="paddings"> {{ orgName }} </th>
+            </tr> 
+            <tr>
+                <th class="left_side"> Vardas:   </th>  
+                <th class="paddings"> {{ userName }} </th>
+            </tr>
+            <tr >
+                <th class="left_side"> El. paštas:   </th>   
+                <th class="paddings"> {{ userEmail }} </th>
+            </tr>
+            <tr >
+                <th class="left_side"> Pareigos:   </th>   
+                <th class="paddings"> {{ userRole }} </th>
+            </tr>
+            <tr >
+                <th class="left_side"> Prisijungimo data:   </th>   
+                <th input type="date" class="paddings"> {{ userDate | date:'YYYY-MM-dd' }} </th>
+            </tr>
+            
+        </table>
+        
+        <form class="center" [formGroup]="changePasswordForm " (ngSubmit)="changeUserPassword()">
+        <h2 class="toppaddings">Slaptažodžio keitimas</h2>
+        <h2 *ngIf="notMatchingPassword"  class="centerRED">Slaptažodžiai nesutampa</h2>
+        <h2 class="centerGREEN" *ngIf="WasChanged">Slaptažodis sėkmingai pakeistas</h2>
+        <div  *ngIf="changePasswordForm ?.get('password')?.touched && changePasswordForm ?.get('password')?.invalid">
+            <div  *ngIf="changePasswordForm ?.get('password')?.errors?.['required']">Slaptažodis yra privalomas.</div>
+          </div>
+
+          <mat-form-field appearance="outline">
+            <mat-label >Naujas Slaptažodis</mat-label>
+            <input matInput type="password" id="password" formControlName="password" required />
+          </mat-form-field>
+      
+          <div  *ngIf="changePasswordForm ?.get('repeatedPassword')?.touched && changePasswordForm ?.get('repeatedPassword')?.invalid">
+            <div *ngIf="changePasswordForm ?.get('repeatedPassword')?.errors?.['required']">Slaptažodžio pakartojimas yra privalomas.</div>
+          </div>
+          <div>
+          <mat-form-field  appearance="outline">
+            <mat-label>Pakartokite slaptažodį</mat-label>
+            <input matInput type="password" id="repeatedPassword" formControlName="repeatedPassword" required />
+          </mat-form-field>
+          </div>
+         <h2><button mat-raised-button color="primary" id="myButton" (click)="changeUserPassword()" [disabled]="isLoading" >Keisti Slaptažodį</button></h2>
+
+          
+
+          
+        <form>
+<div>
+

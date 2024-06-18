@@ -1,0 +1,30 @@
+:host{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.add-button{
+    max-width: 200px;
+   
+    vertical-align:top;
+    float: right;
+}
+
+.line{
+    display: inline-block;
+}
+
+.space{
+    margin-bottom: 40px;
+}
+
+.makeRed {
+    color: red;
+}
+
+.makeGreen {
+    color: green;
+}

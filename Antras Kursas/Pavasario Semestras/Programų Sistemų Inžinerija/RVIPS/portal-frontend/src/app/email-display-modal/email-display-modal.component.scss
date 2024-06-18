@@ -1,0 +1,46 @@
+:host{
+    height: 610px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .boxLetter {
+    border: 1px solid rgb(77, 77, 77);
+    min-height: 400px;
+    width: 840px;
+    margin: 30px;
+    border-radius: 10px;
+  }
+
+  .box {
+    margin: 10px;
+  }
+
+  .box-small {
+    margin: 1px 1px 1px 5px;
+  }
+
+  .boxInfo {
+    border: 1px solid rgb(77, 77, 77);
+    width: 750px;
+    margin-left: 67px;
+    margin-right: 30px;
+    margin-top: 5px;
+    border-radius: 10px;
+  }
+
+  .child {
+    display: inline-block;
+  }
+   
+  .titles {
+    font-weight: bold;
+    width: 20px;
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  .info {
+    margin-top: 25px;
+  }

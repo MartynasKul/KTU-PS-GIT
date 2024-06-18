@@ -1,0 +1,135 @@
+<div class="wrapper">
+  <div class="logo">
+    <img src="assets/rvips-logo.png" alt="Logo"/>
+    <h1>Projektų valdymo puslapis</h1>
+  </div>
+  <div>
+    
+      <div>
+        <h2>Pasirinkite savo projektą</h2>
+        <button class="add-button" mat-raised-button color="primary" (click)="openProjectModal()">Pridėti naują projektą</button>
+      </div>
+      <div class="wrapperspace" style="padding-top: 5px; width: 500px; padding-bottom: 20px;">
+        <mat-form-field>
+          <mat-select [(value)]="selectVal" (selectionChange)="onDropdownSelection()">
+            <mat-option *ngFor="let project of projects" [value]="project.id">{{project.title}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="selectVal!=0">
+       
+        <form [formGroup]="proInfoForm" (ngSubmit)="submitForm()">
+
+            <div class="wrapper space">
+
+              <h2>Projekto detalės</h2>
+              <h2 *ngIf="doneUpdate" class="makeGreen">Projektas sėkmingai atnaujintas</h2>
+              <h2 *ngIf="isDuplicate" class="makeRed">Klaida atnaujinant projektą</h2>
+              <div *ngIf="proInfoForm?.get('name')?.touched && proInfoForm?.get('description')?.invalid">
+                <div *ngIf="proInfoForm?.get('name')?.errors?.['required']">Pavadinimas yra privalomas.</div>
+              </div>
+        
+              <mat-form-field appearance="outline">
+                <mat-label>Projekto pavadinimas</mat-label>
+                <input matInput type="text" id="name" formControlName="name" required />
+              </mat-form-field>
+          
+              <div *ngIf="proInfoForm?.get('creationDate')?.touched && proInfoForm?.get('creationDate')?.invalid">
+                <div *ngIf="proInfoForm?.get('creationDate')?.errors?.['required']">Pradžios data yra privaloma.</div>
+                <div *ngIf="proInfoForm?.get('creationDate')?.errors?.['creationDate']">Neteisingai įvesta data.</div>
+              </div>
+        
+              <mat-form-field appearance="outline">
+                <mat-label>Pradžios data</mat-label>
+                <input matInput placeholder="YYYY-MM-dd" type="text" id="creationDate" formControlName="creationDate" autocomplete="off" required />
+              </mat-form-field>
+          
+              <div *ngIf="proInfoForm?.get('endOfProjectDate')?.touched && proInfoForm?.get('endOfProjectDate')?.invalid">
+                <div *ngIf="proInfoForm?.get('endOfProjectDate')?.errors?.['required']">Pabaigos data yra privaloma.</div>
+                <div *ngIf="proInfoForm?.get('endOfProjectDate')?.errors?.['endOfProjectDate']">Neteisingai įvesta data.</div>
+              </div>
+        
+              <mat-form-field appearance="outline">
+                <mat-label>Projekto pabaigos data</mat-label>
+                <input matInput placeholder="YYYY-MM-dd" type="text" id="endOfProjectDate" formControlName="endOfProjectDate" autocomplete="off" required />
+              </mat-form-field>
+        
+              <div *ngIf="proInfoForm?.get('description')?.touched && proInfoForm?.get('description')?.invalid">
+                <div *ngIf="proInfoForm?.get('description')?.errors?.['required']">Aprašymas yra privalomas.</div>
+              </div>
+        
+              <mat-form-field appearance="outline">
+                <mat-label>Aprašymas</mat-label>
+                <textarea matInput type="text" id="description" formControlName="description" required ></textarea>
+              </mat-form-field>
+            </div>
+        </form>
+        <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Atnaujinti duomenis</button>
+        <div style="padding-top: 10%;">
+          <h2 class="line">
+            Projekto rėmėjai
+          </h2>
+          <button class="add-button" mat-raised-button color="primary" (click)="openSponsorModal()">Pridėti naują projekto rėmėją</button>
+        </div>
+        <!--project sponsor table-->
+        <table mat-table [dataSource]="sponsors" style="padding-bottom: 5%;">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Pavadinimas</th>
+            <td mat-cell *matCellDef="let sponsor">{{ sponsor.sponsorName }}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Adresas</th>
+            <td mat-cell *matCellDef="let sponsor">{{ sponsor.address }}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>El. pašto adresas</th>
+            <td mat-cell *matCellDef="let sponsor">{{ sponsor.email }}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="telephonenumber">
+            <th mat-header-cell *matHeaderCellDef>Telefono numeris</th>
+            <td mat-cell *matCellDef="let sponsor">{{ sponsor.telephoneNumber }}</td>
+          </ng-container>
+      
+          <ng-container matColumnDef="moreInfoButton">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let sponsor"> <button class="add-button" mat-raised-button color="primary" routerLink="/business-info/{{sponsor.id}}"> Daugiau informacijos</button> </td>
+          </ng-container>  
+        
+        
+          <tr mat-header-row *matHeaderRowDef="displayedsponsorColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedsponsorColumns;"></tr>
+        </table>
+        <div>
+          <h2 class="line">
+            Projekto nariai
+          </h2>
+          <button class="add-button" mat-raised-button color="primary" (click)="openUserModal()">Pridėti narį prie projekto</button>
+        </div>
+        <!--project user table-->
+        <table mat-table [dataSource]="users">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Vardas</th>
+          <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef>Pavardė</th>
+          <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>El. pašto adresas</th>
+          <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayeduserColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayeduserColumns;"></tr>
+        </table>
+        </div>
+
+      </div>
+</div>

@@ -1,0 +1,41 @@
+  .expandable-section {
+    width: 100%;
+    background-color: #f5f5f5; /* Change this to match your desired background color */
+    padding: 1em;
+  }
+  
+  .expandable-section button {
+    background-color: #f5f5f5; /* Change this to match your desired background color */
+    color: #333; /* Change this to match your desired text color */
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .expandable-section button:hover {
+    background-color: #ddd; /* Change this to match your desired hover color */
+  }
+
+  .sent-text {
+    text-align: center;
+  }
+
+  .add-button{
+    max-width: 200px;
+    margin-bottom: 50px;
+  }
+
+  .emailR {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .emailR.clicked {
+    background-color: red;
+  }
+
+  .emailR:hover {
+    background-color: rgb(221, 221, 221);
+    cursor: pointer;
+  }

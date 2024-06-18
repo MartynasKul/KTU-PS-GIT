@@ -1,0 +1,61 @@
+<div class="app-container">
+    <button
+        mat-icon-button
+        *ngIf="!hideButton&&sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+      
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+      
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/">
+        <mat-icon>home</mat-icon>
+        <span>Namų puslapis</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/profile">
+        <mat-icon>person</mat-icon>
+        <span>Mano profilis</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/sponsor-page">
+        <mat-icon>sponsor</mat-icon>
+        <span>Rėmėjai</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/emails">
+        <mat-icon>email</mat-icon>
+        <span>El. laiškai</span>
+      </button>
+      <div *ngIf="isAdmin">
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/organization-settings">
+          <mat-icon>settings</mat-icon>
+          <span>Organizacijos nustatymai</span>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/project-settings">
+        <mat-icon>settings</mat-icon>
+        <span>Projektai</span>
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/logout">
+        <mat-icon>logout</mat-icon>
+        <span>Atsijungti</span>
+      </button>
+  
+    </mat-sidenav>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</div>

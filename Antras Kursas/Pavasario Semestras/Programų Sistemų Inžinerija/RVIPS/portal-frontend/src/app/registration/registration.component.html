@@ -1,0 +1,54 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+  <div class="wrapper">
+    <div class="logo">
+      <img src="assets/rvips-logo.png" alt="Logo">
+    </div>
+    <h1>Registracija</h1>
+    <h2 *ngIf="isDuplicate">Šis el. paštas jau užregistruotas</h2>
+    <h2 *ngIf="notMatchingPassword">Slaptažodžiai nesutampa</h2>
+    <div *ngIf="registrationForm?.get('name')?.touched && registrationForm?.get('password')?.invalid">
+      <div *ngIf="registrationForm?.get('name')?.errors?.['required']">Vardas yra privalomas.</div>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Vardas</mat-label>
+      <input matInput type="text" id="name" formControlName="name" required />
+    </mat-form-field>
+
+    <div *ngIf="registrationForm?.get('surname')?.touched && registrationForm?.get('password')?.invalid">
+      <div *ngIf="registrationForm?.get('surname')?.errors?.['required']">Pavardė yra privaloma.</div>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Pavardė</mat-label>
+      <input matInput type="text" id="surname" formControlName="surname" required />
+    </mat-form-field>
+
+    <div *ngIf="registrationForm?.get('email')?.touched && registrationForm?.get('email')?.invalid">
+      <div *ngIf="registrationForm?.get('email')?.errors?.['required']">El. paštas yra privalomas.</div>
+      <div *ngIf="registrationForm?.get('email')?.errors?.['email']">Neteisingas el. pašto adresas.</div>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>El. pašto adresas</mat-label>
+      <input matInput placeholder="rvips@rvips.lt" type="text" id="email" formControlName="email" autocomplete="off" required />
+    </mat-form-field>
+
+    <div *ngIf="registrationForm?.get('password')?.touched && registrationForm?.get('password')?.invalid">
+      <div *ngIf="registrationForm?.get('password')?.errors?.['required']">Slaptažodis yra privalomas.</div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Slaptažodis</mat-label>
+      <input matInput type="password" id="password" formControlName="password" required />
+    </mat-form-field>
+
+    <div *ngIf="registrationForm?.get('repeatedPassword')?.touched && registrationForm?.get('repeatedPassword')?.invalid">
+      <div *ngIf="registrationForm?.get('repeatedPassword')?.errors?.['required']">Slaptažodžio pakartojimas yra privalomas.</div>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Pakartokite slaptažodį</mat-label>
+      <input matInput type="password" id="repeatedPassword" formControlName="repeatedPassword" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Registruotis</button>
+  </div>
+</form>

@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="logo">
+    <img src="assets/rvips-logo.png" alt="Logo"/>
+    <h1>Rėmėjų valdymo puslapis</h1>
+  </div>
+  <div>
+    
+</div>
+  <div>
+      <h2 class="line">
+        Rėmėjai
+      </h2>
+      <button class="add-button" mat-raised-button color="primary" (click)="openModal()" [disabled]="!active">Pridėti naują rėmėją</button>
+  </div>
+  <table mat-table [dataSource]="sponsors">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Pavadinimas</th>
+      <td mat-cell *matCellDef="let sponsor">{{ sponsor.sponsorName }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Adresas</th>
+      <td mat-cell *matCellDef="let sponsor">{{ sponsor.address }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>El. pašto adresas</th>
+      <td mat-cell *matCellDef="let sponsor">{{ sponsor.email }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="telephonenumber">
+      <th mat-header-cell *matHeaderCellDef>Telefono numeris</th>
+      <td mat-cell *matCellDef="let sponsor">{{ sponsor.telephoneNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Aprašymas</th>
+      <td mat-cell *matCellDef="let sponsor"> {{ sponsor.description }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="moreInfoButton">
+			<th mat-header-cell *matHeaderCellDef></th>
+			<td mat-cell *matCellDef="let sponsor"> <button class="add-button" mat-raised-button color="primary" routerLink="/business-info/{{sponsor.id}}"> Daugiau informacijos</button> </td>
+		</ng-container>  
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+  </table>
+</div>

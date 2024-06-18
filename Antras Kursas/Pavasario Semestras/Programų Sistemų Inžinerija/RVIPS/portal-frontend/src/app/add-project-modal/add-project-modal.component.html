@@ -1,0 +1,47 @@
+<h2>Naujo projekto pridėjimas</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <div class="wrapper">
+      <h2 *ngIf="isDuplicate">Toks pats projekto pavadinimas jau egzistuoja</h2>
+      <div *ngIf="registrationForm?.get('name')?.touched && registrationForm?.get('description')?.invalid">
+        <div *ngIf="registrationForm?.get('name')?.errors?.['required']">Pavadinimas yra privalomas.</div>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Projekto pavadinimas</mat-label>
+        <input matInput type="text" id="name" formControlName="name" required />
+      </mat-form-field>
+  
+      <div *ngIf="registrationForm?.get('creationDate')?.touched && registrationForm?.get('creationDate')?.invalid">
+        <div *ngIf="registrationForm?.get('creationDate')?.errors?.['required']">Pradžios data yra privaloma.</div>
+        <div *ngIf="registrationForm?.get('creationDate')?.errors?.['creationDate']">Neteisingai įvesta data.</div>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pradžios data</mat-label>
+        <input matInput placeholder="YYYY-MM-dd" type="text" id="creationDate" formControlName="creationDate" autocomplete="off" required />
+      </mat-form-field>
+  
+      <div *ngIf="registrationForm?.get('endOfProjectDate')?.touched && registrationForm?.get('endOfProjectDate')?.invalid">
+        <div *ngIf="registrationForm?.get('endOfProjectDate')?.errors?.['required']">Pabaigos data yra privaloma.</div>
+        <div *ngIf="registrationForm?.get('endOfProjectDate')?.errors?.['endOfProjectDate']">Neteisingai įvesta data.</div>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Projekto pabaigos data</mat-label>
+        <input matInput placeholder="YYYY-MM-dd" type="text" id="endOfProjectDate" formControlName="endOfProjectDate" autocomplete="off" required />
+      </mat-form-field>
+
+      <div *ngIf="registrationForm?.get('description')?.touched && registrationForm?.get('description')?.invalid">
+        <div *ngIf="registrationForm?.get('description')?.errors?.['required']">Aprašymas yra privalomas.</div>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Aprašymas</mat-label>
+        <textarea matInput type="text" id="description" formControlName="description" required ></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+<div>
+    <button mat-button (click)="close()">Uždaryti</button>
+    <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Pridėti</button>
+</div>

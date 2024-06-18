@@ -1,0 +1,30 @@
+:host{
+    min-height: 600px;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+button{
+    display: inline-block;
+    margin: 10px;
+}
+
+.mat-mdc-form-field {
+    min-width: 550px;
+}
+
+.space {
+    margin-top: 20px;
+}
+
+.editor {
+    max-width: 550px;
+    max-height: 700px;
+}
+
+.but {
+    margin-left: 180px;
+}
