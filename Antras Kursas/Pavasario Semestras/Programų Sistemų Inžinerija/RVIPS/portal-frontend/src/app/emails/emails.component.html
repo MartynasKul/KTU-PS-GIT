@@ -1,0 +1,90 @@
+<div class="wrapper">
+    <div class="logo">
+      <img src="assets/rvips-logo.png" alt="Logo"/>
+      <h1>Organizacijos el. laiškai</h1>
+    </div>
+    <div>
+
+</div>
+
+<div class="sent-text">
+  <h2>Siųsti naują laišką</h2>
+  <button class="add-button" mat-raised-button color="primary" (click)="openModal()" [disabled]="!canSendEmail">Naujas laiškas</button>
+</div>
+
+
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+
+        Gautų laiškų sąrašas
+
+    </mat-panel-title>
+    <mat-panel-description>
+      Visi laiškai, kuriuos gavo tavo organizacija
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <table mat-table [dataSource]="receivedEmails">
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Gavimo data</th>
+      <td mat-cell *matCellDef="let email">{{ email.date | date:'YYYY-MM-dd, HH:mm:ss' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef>Tema</th>
+      <td mat-cell *matCellDef="let email">{{ email.subject }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fromName">
+      <th mat-header-cell *matHeaderCellDef>Nuo</th>
+      <td mat-cell *matCellDef="let email">{{ email.fromName }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fromEmail">
+      <th mat-header-cell *matHeaderCellDef>Siuntėjo el. pašto adresas</th>
+      <td mat-cell *matCellDef="let email">{{ email.fromEmail }}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsReceived"></tr>
+    <tr mat-row *matRowDef="let email; columns: displayedColumnsReceived;" (click)="openEmailReadModal(email)" [ngClass]="'emailR'"></tr>
+  </table>
+</mat-expansion-panel>
+
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+
+        Išsiųstų laiškų sąrašas
+
+    </mat-panel-title>
+    <mat-panel-description>
+      Visi laiškai, kuriuos išsiuntė tavo organizacija
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <table mat-table [dataSource]="sentEmails">
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Išsiuntimo data</th>
+      <td mat-cell *matCellDef="let email">{{ email.date | date:'YYYY-MM-dd HH:mm:ss' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef>Tema</th>
+      <td mat-cell *matCellDef="let email">{{ email.subject }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fromName">
+      <th mat-header-cell *matHeaderCellDef>Išsiuntė</th>
+      <td mat-cell *matCellDef="let email">{{ email.user.name + " " + email.user.lastName}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="receiverEmail">
+      <th mat-header-cell *matHeaderCellDef>El. pašto adresas</th>
+      <td mat-cell *matCellDef="let email">{{ email.receiverEmail }}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsSent"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsSent;" (click)="openEmailSentModal(row)" [ngClass]="'emailR'"></tr>
+  </table>
+</mat-expansion-panel>
+
+</div>

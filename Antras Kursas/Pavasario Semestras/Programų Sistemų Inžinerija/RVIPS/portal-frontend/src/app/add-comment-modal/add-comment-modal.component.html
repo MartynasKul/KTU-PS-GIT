@@ -1,0 +1,20 @@
+<h2>Naujas komentaras</h2>
+<p><i>Komentaras bus pridėtas rėmėjui "{{sponsor.sponsorName}}"</i></p>
+<form [formGroup]="newCommentForm" (ngSubmit)="submitForm()">
+    <div class="wrapper">
+      <h2 *ngIf="isError">Nutiko klaida, bandykit iš naujo</h2>
+  
+      <div *ngIf="newCommentForm?.get('newComment')?.touched && newCommentForm?.get('newComment')?.invalid">
+        <div *ngIf="newCommentForm?.get('newComment')?.errors?.['required']">Komentaras yra privalomas.</div>
+      </div>
+      <mat-form-field class="expand-size" appearance="outline">
+        <mat-label>Komentaras</mat-label>
+        <textarea matInput type="text" id="newComment" formControlName="newComment" required></textarea>
+      </mat-form-field>
+  
+    </div>
+  </form>
+<div>
+    <button mat-button (click)="close()">Atšaukti</button>
+    <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Pridėti</button>
+</div>

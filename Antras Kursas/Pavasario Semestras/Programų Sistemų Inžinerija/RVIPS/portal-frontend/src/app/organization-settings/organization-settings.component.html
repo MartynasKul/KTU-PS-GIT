@@ -1,0 +1,144 @@
+<div class="wrapper">
+  <div class="logo">
+    <img src="assets/rvips-logo.png" alt="Logo"/>
+    <h1>Organizacijos valdymo puslapis</h1>
+  </div>
+  <div>
+
+    <form [formGroup]="orgRenameForm" (ngSubmit)="renameOrg()">
+      <div class="wrapper space">
+        <h2>Organizacijos pavadinimas</h2>
+        <div *ngIf="orgRenameForm?.get('name')?.touched && orgRenameForm?.get('name')?.invalid">
+          <div *ngIf="orgRenameForm?.get('name')?.errors?.['required']">Pavadinimas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Naujas organizacijos pavadinimas</mat-label>
+          <input matInput [(ngModel)]="orgName" placeholder="RVIPS" type="text" id="name" formControlName="name" autocomplete="off" required />
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" (click)="renameOrg()" [disabled]="isLoading">Pervadinti organizaciją</button>
+  
+      </div>
+    </form>
+
+    <form [formGroup]="imapServerForm" (ngSubmit)="addImapServer()">
+      <div class="wrapper space">
+        <h2>El. pašto konfigūracija - IMAP serveris</h2>
+        <h2 *ngIf="unableImap" class="makeRed">Tokia paskyra jau naudojama arba neteisingi duomenys</h2>
+        <h2 *ngIf="doneImap" class="makeGreen">El. paštas sėkmingai sukonfiguruotas</h2>
+        <div *ngIf="imapServerForm?.get('imapServerName')?.touched && imapServerForm?.get('imapServerName')?.invalid">
+          <div *ngIf="imapServerForm?.get('imapServerName')?.errors?.['required']">Adresas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>IMAP serverio adresas - IMAP serveris</mat-label>
+          <input matInput [(ngModel)]="imapServerName" placeholder="imap.rvips.lt" type="text" id="imapServerName" formControlName="imapServerName" autocomplete="off" required />
+        </mat-form-field>
+
+        <div *ngIf="imapServerForm?.get('imapServerPort')?.touched && imapServerForm?.get('imapServerPort')?.invalid">
+          <div *ngIf="imapServerForm?.get('imapServerPort')?.errors?.['required']">Prievadas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>IMAP serverio prievadas</mat-label>
+          <input matInput [(ngModel)]="imapServerPort" placeholder="993" type="text" id="imapServerPort" formControlName="imapServerPort" autocomplete="off" required />
+        </mat-form-field>
+
+        <div *ngIf="imapServerForm?.get('imapServeUserName')?.touched && imapServerForm?.get('imapServeUserName')?.invalid">
+          <div *ngIf="imapServerForm?.get('imapServeUserName')?.errors?.['required']">Naudotojas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Naudotojo vardas / el. paštas</mat-label>
+          <input matInput [(ngModel)]="imapServeUserName" placeholder="email@rvips.lt" type="text" id="imapServeUserName" formControlName="imapServeUserName" autocomplete="off" required />
+        </mat-form-field>
+
+        <div *ngIf="imapServerForm?.get('imapServerPassword')?.touched && imapServerForm?.get('imapServerPassword')?.invalid">
+          <div *ngIf="imapServerForm?.get('imapServerPassword')?.errors?.['required']">Slaptažodis yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>IMAP serverio slaptažodis</mat-label>
+          <input matInput [(ngModel)]="imapServerPassword" placeholder="imap.rvips.lt" type="password" id="imapServerPassword" formControlName="imapServerPassword" autocomplete="off" required />
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" (click)="addImapServer()" [disabled]="isLoadingImap">Išsaugoti el. pašto IMAP konfigūraciją</button>
+  
+      </div>
+    </form>
+
+    <form [formGroup]="smtpServerForm" (ngSubmit)="addSmtpServer()">
+      <div class="wrapper space">
+        <h2>El. pašto konfigūracija - SMTP serveris</h2>
+        <h2 *ngIf="unableSmtp" class="makeRed">Tokia paskyra jau naudojama arba neteisingi duomenys</h2>
+        <h2 *ngIf="doneSmtp" class="makeGreen">El. paštas sėkmingai sukonfiguruotas</h2>
+        <div *ngIf="smtpServerForm?.get('smtpServerName')?.touched && smtpServerForm?.get('smtpServerName')?.invalid">
+          <div *ngIf="smtpServerForm?.get('smtpServerName')?.errors?.['required']">Adresas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>SMTP serverio adresas</mat-label>
+          <input matInput [(ngModel)]="smtpServerName" placeholder="smtp.rvips.lt" type="text" id="smtpServerName" formControlName="smtpServerName" autocomplete="off" required />
+        </mat-form-field>
+
+        <div *ngIf="smtpServerForm?.get('smtpServerPort')?.touched && smtpServerForm?.get('smtpServerPort')?.invalid">
+          <div *ngIf="smtpServerForm?.get('smtpServerPort')?.errors?.['required']">Prievadas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>SMTP serverio prievadas</mat-label>
+          <input matInput [(ngModel)]="smtpServerPort" placeholder="993" type="text" id="smtpServerPort" formControlName="smtpServerPort" autocomplete="off" required />
+        </mat-form-field>
+
+        <div *ngIf="smtpServerForm?.get('smtpServeUserName')?.touched && smtpServerForm?.get('smtpServeUserName')?.invalid">
+          <div *ngIf="smtpServerForm?.get('smtpServeUserName')?.errors?.['required']">Naudotojas yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Naudotojo vardas / el. paštas</mat-label>
+          <input matInput [(ngModel)]="smtpServeUserName" placeholder="email@rvips.lt" type="text" id="smtpServeUserName" formControlName="smtpServeUserName" autocomplete="off" required />
+        </mat-form-field>
+
+        <div *ngIf="smtpServerForm?.get('smtpServerPassword')?.touched && smtpServerForm?.get('smtpServerPassword')?.invalid">
+          <div *ngIf="smtpServerForm?.get('smtpServerPassword')?.errors?.['required']">Slaptažodis yra privalomas.</div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>SMTP serverio slaptažodis</mat-label>
+          <input matInput [(ngModel)]="smtpServerPassword" placeholder="smtp.rvips.lt" type="password" id="smtpServerPassword" formControlName="smtpServerPassword" autocomplete="off" required />
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" (click)="addSmtpServer()" [disabled]="isLoadingSmtp">Išsaugoti el. pašto SMTP konfigūraciją</button>
+  
+      </div>
+    </form>
+    
+</div>
+  <div>
+      <h2 class="line">
+        Organizacijos nariai
+      </h2>
+      <button class="add-button" mat-raised-button color="primary" (click)="openModal()">Pridėti naują narį</button>
+  </div>
+  <table mat-table [dataSource]="users">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Vardas</th>
+      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Pavardė</th>
+      <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>El. pašto adresas</th>
+      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="creationDate">
+      <th mat-header-cell *matHeaderCellDef>Registracijos data</th>
+      <td mat-cell *matCellDef="let user">{{ user.creationDate | date:'YYYY-MM-dd, HH:mm:ss' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="roles">
+      <th mat-header-cell *matHeaderCellDef> Pareigos </th>
+      <td mat-cell *matCellDef="let user"> {{ user.roles }} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

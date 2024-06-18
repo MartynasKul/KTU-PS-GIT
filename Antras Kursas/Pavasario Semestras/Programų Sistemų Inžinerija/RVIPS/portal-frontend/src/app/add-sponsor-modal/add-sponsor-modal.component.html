@@ -1,0 +1,53 @@
+<h2>Pridėti naują rėmėją</h2>
+<form [formGroup]="newSponsorForm" (ngSubmit)="submitForm()">
+    <div class="wrapper">
+      <h2 *ngIf="isError">Nutiko klaida, bandykit iš naujo</h2>
+    
+      <div *ngIf="newSponsorForm?.get('sponsorName')?.touched && newSponsorForm?.get('sponsorName')?.invalid">
+        <div *ngIf="newSponsorForm?.get('sponsorName')?.errors?.['required']">Rėmėjo pavadinimas yra privalomas.</div>
+      </div>  
+      <mat-form-field appearance="outline">
+        <mat-label>Rėmėjo pavadinimas</mat-label>
+        <input matInput type="text" id="sponsorName" formControlName="sponsorName" required />
+      </mat-form-field>
+
+      <div *ngIf="newSponsorForm?.get('telephoneNumber')?.touched && newSponsorForm?.get('telephoneNumber')?.invalid">
+        <div *ngIf="newSponsorForm?.get('telephoneNumber')?.errors?.['required']">Rėmėjo tel. numeris yra privalomas.</div>
+      </div>  
+      <mat-form-field appearance="outline">
+        <mat-label>Rėmėjo tel. numeris</mat-label>
+        <input matInput type="text" id="telephoneNumber" formControlName="telephoneNumber" required />
+      </mat-form-field>
+
+      <div *ngIf="newSponsorForm?.get('address')?.touched && newSponsorForm?.get('address')?.invalid">
+        <div *ngIf="newSponsorForm?.get('address')?.errors?.['required']">Rėmėjo adresas yra privalomas.</div>
+      </div>  
+      <mat-form-field appearance="outline">
+        <mat-label>Rėmėjo adresas</mat-label>
+        <input matInput type="text" id="address" formControlName="address" required />
+      </mat-form-field>
+
+      <div *ngIf="newSponsorForm?.get('email')?.touched && newSponsorForm?.get('email')?.invalid">
+        <div *ngIf="newSponsorForm?.get('email')?.errors?.['required']">Rėmėjo el. paštas yra privalomas.</div>
+        <div *ngIf="newSponsorForm?.get('email')?.errors?.['email']">Neteisingas el. pašto adresas.</div>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rėmėjo el. pašto adresas</mat-label>
+        <input matInput placeholder="rvips@rvips.lt" type="text" id="email" formControlName="email" autocomplete="off" required />
+      </mat-form-field>
+  
+      <div *ngIf="newSponsorForm?.get('description')?.touched && newSponsorForm?.get('description')?.invalid">
+        <div *ngIf="newSponsorForm?.get('description')?.errors?.['required']">Aprašymas yra privalomas.</div>
+      </div>
+      <mat-form-field class="expand-size" appearance="outline">
+        <mat-label>Aprašymas</mat-label>
+        <textarea matInput type="text" id="description" formControlName="description" required></textarea>
+      </mat-form-field>
+  
+    </div>
+  </form>
+<div>
+    <button mat-button (click)="close()">Atšaukti</button>
+    <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Pridėti</button>
+</div>

@@ -1,0 +1,15 @@
+<h2>Rėmėjo pasirinkimas:</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+  <div class="wrapper">
+    <mat-form-field>
+      <mat-select [(value)]="selectuserVal">
+          <mat-option *ngFor="let sponsor of sponsors" [value]="sponsor.id">{{sponsor.sponsorName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+ 
+</form>
+<div>
+    <button mat-button (click)="close()">Uždaryti</button>
+    <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Pridėti</button>
+</div>

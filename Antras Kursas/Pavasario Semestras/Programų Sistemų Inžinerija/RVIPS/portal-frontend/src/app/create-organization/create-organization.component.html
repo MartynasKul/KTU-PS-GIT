@@ -1,0 +1,19 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <div class="wrapper">
+      <div class="logo">
+        <img src="assets/rvips-logo.png" alt="Logo">
+      </div>
+      <h1>Organizacijos kūrimas</h1>
+
+      <div *ngIf="registrationForm?.get('name')?.touched && registrationForm?.get('password')?.invalid">
+        <div *ngIf="registrationForm?.get('name')?.errors?.['required']">Pavadinimas yra privalomas.</div>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Pavadinimas</mat-label>
+        <input matInput type="text" id="name" formControlName="name" required />
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="isLoading">Sukurti organizaciją</button>
+    </div>
+  </form>
+  
