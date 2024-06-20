@@ -1,4 +1,2 @@
-PSI projektas
-Operaciniu sistemu bash scriptai
+
 JKM Failai
-OP2
