@@ -1,3 +1,2 @@
 # KTU Programų sistemos
-Programų sistemų modulių darbai su programavimu
-
+Programų sistemų studijų metu sukurti projektai, atliktos užduotys ir kita:
